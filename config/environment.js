@@ -46,6 +46,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.contentSecurityPolicy = contentSecurityPolicy;
     ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
+
+    ENV.APP.spreadsheetUrl = 'http://192.168.250.206:6360/static-files/';
   }
 
   if (environment === 'test') {
