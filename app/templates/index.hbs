@@ -55,68 +55,70 @@
   {{/if}}
 </div>
 
-<div class="jumbotron search-container-row search-and-filter">
-  <div class="search-container" style="text-align: center;">
-    {{#power-select
-      selected=currentCandidato
-      options=model.perfiles
-      onchange=(route-action 'selectPerfil')
-      searchField='nombre'
-      placeholder='Busca a tu candidato'
-      noMatchesMessage='Sin resultados'
-        as |candidato|
-    }}
-      <strong>{{candidato.nombre}}</strong>
-    {{/power-select}}
+{{#if model.config.useFrontFilterWidget}}
+  <div class="jumbotron search-container-row search-and-filter">
+    <div class="search-container" style="text-align: center;">
+      {{#power-select
+        selected=currentCandidato
+        options=model.perfiles
+        onchange=(route-action 'selectPerfil')
+        searchField='nombre'
+        placeholder='Busca a tu candidato'
+        noMatchesMessage='Sin resultados'
+          as |candidato|
+      }}
+        <strong>{{candidato.nombre}}</strong>
+      {{/power-select}}
+    </div>
+
+    <small>
+      <strong>Filtrar por: </strong>
+        <label>
+          {{one-way-checkbox
+            esMujer
+            update=(queue
+              (action (mut esMujer))
+              (action 'applyFilter')
+            )
+          }}
+          Mujer
+        </label>
+
+        <label>
+          {{one-way-checkbox
+            esHombre
+            update=(queue
+              (action (mut esHombre))
+              (action 'applyFilter')
+            )
+          }}
+          Hombre
+       </label>
+
+        <label>
+          {{one-way-checkbox
+            estaEnProceso
+            update=(queue
+              (action (mut estaEnProceso))
+              (action 'applyFilter')
+            )
+          }}
+          En proceso
+       </label>
+
+        <label>
+          {{one-way-checkbox
+            estaDescalificado
+            update=(queue
+              (action (mut estaDescalificado))
+              (action 'applyFilter')
+            )
+          }}
+          Descalificado
+       </label>
+    </small>
   </div>
-
-  <small>
-    <strong>Filtrar por: </strong>
-      <label>
-        {{one-way-checkbox
-          esMujer
-          update=(queue
-            (action (mut esMujer))
-            (action 'applyFilter')
-          )
-        }}
-        Mujer
-      </label>
-
-      <label>
-        {{one-way-checkbox
-          esHombre
-          update=(queue
-            (action (mut esHombre))
-            (action 'applyFilter')
-          )
-        }}
-        Hombre
-     </label>
-
-      <label>
-        {{one-way-checkbox
-          estaEnProceso
-          update=(queue
-            (action (mut estaEnProceso))
-            (action 'applyFilter')
-          )
-        }}
-        En proceso
-     </label>
-
-      <label>
-        {{one-way-checkbox
-          estaDescalificado
-          update=(queue
-            (action (mut estaDescalificado))
-            (action 'applyFilter')
-          )
-        }}
-        Descalificado
-     </label>
-  </small>
-</div>
+{{/if}}
 
 {{#if model.config.useFrontPortfolioVisualization}}
   <div id="portfolio" class="portfolio grid-container portfolio-5 portfolio-masonry clearfix" style="margin-top: 20px;">
