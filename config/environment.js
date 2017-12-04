@@ -1,13 +1,10 @@
-/* jshint node: true */
-
-var contentSecurityPolicy = {
-  'connect-src': "'self' https://*.google.com"
-};
+/* eslint-env node */
+'use strict';
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'mi-guatemala',
-    environment: environment,
+    environment,
     rootURL: '/',
     locationType: 'hash',
     EmberENV: {
@@ -34,9 +31,9 @@ module.exports = function(environment) {
 
     disqus: {
       shortname: 'eleccion-cang'
-    },
+    }
 
-    contentSecurityPolicy: contentSecurityPolicy
+    // contentSecurityPolicy: contentSecurityPolicy
   };
 
   if (environment === 'development') {
@@ -45,8 +42,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy = contentSecurityPolicy;
-    ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
+    // ENV.contentSecurityPolicy = contentSecurityPolicy;
+    // ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
 
     // ENV.APP.staticFilesUrl = 'http://192.168.250.206:6360/static-files/';
   }

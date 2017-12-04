@@ -2,7 +2,7 @@ import Ember from 'ember';
 import config from '../config/environment';
 import injectScript from 'ember-inject-script';
 
-const { isNone, RSVP: { Promise } } = Ember;
+const { isBlank, RSVP: { Promise } } = Ember;
 
 export default Ember.Route.extend({
 
@@ -39,7 +39,7 @@ export default Ember.Route.extend({
 
         // Si config.APP.configSpreadsheetSourceUrl está definida, entonces obtener
         // también ese valor y setearlo en el spreadsheet service
-        if (!Ember.isNone(config.APP.configSpreadsheetSourceUrl)) {
+        if (!Ember.isBlank(config.APP.configSpreadsheetSourceUrl)) {
           return this.get('ajax')
             .request(config.APP.configSpreadsheetSourceUrl, { dataType: 'text' })
             .then((response) => spreadsheetService.set('configSpreadsheetUrl', response));
@@ -142,22 +142,23 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       partidos: this.store.findAll('partido'),
       perfiles: this.store.findAll('perfil'),
-      config: spreadsheet.fetchConfig('configuracion').then((configuracion) => {
-        let configObject = Ember.Object.create();
+      config: spreadsheet.fetchConfig('configuracion')
+        .then((configuracion) => {
+          let configObject = Ember.Object.create();
 
-        Ember.A(configuracion).forEach((item) => {
-          configObject.set(item.key, item.value);
-        });
+          Ember.A(configuracion).forEach((item) => {
+            configObject.set(item.key, item.value);
+          });
 
-        /**
-         * Inject HelloBar if defined
-         */
-        if (!isNone(configObject.helloBarUrl)) {
-          injectScript(configObject.helloBarUrl);
-        }
+          /**
+           * Inject HelloBar if defined
+           */
+          if (!isBlank(configObject.helloBarUrl)) {
+            injectScript(configObject.helloBarUrl);
+          }
 
-        return configObject;
-      }),
+          return configObject;
+        }),
 
       /**
        * Header links, top right
