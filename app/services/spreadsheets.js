@@ -4,14 +4,25 @@ import config from '../config/environment';
 import {isNotFoundError} from 'ember-ajax/errors';
 
 export default Ember.Service.extend({
+
   ajax: Ember.inject.service(),
-  spreadsheet: null,
+
+  dataSpreadsheetUrl: null,
+
+  configSpreadsheetUrl: null,
+
   flashMessages: Ember.inject.service(),
 
-  fetch(worksheet) {
+  /**
+   * Los posibles valores para spreadsheetKey son 'data' y 'config'
+   */
+  fetch(worksheetName, spreadsheetKey = 'data') {
+
+    // Si config.APP.staticFilesUrl está definido, obtener la data de allí, independiente
+    // del spreadsheetKey
     if (!Ember.isNone(config.APP.staticFilesUrl)) {
       return this.get('ajax')
-        .request(config.APP.staticFilesUrl + worksheet + '.json')
+        .request(config.APP.staticFilesUrl + worksheetName + '.json')
         .then((response) => {
           return new Ember.RSVP.Promise((resolve) => {
             resolve(response);
@@ -21,7 +32,7 @@ export default Ember.Service.extend({
           let errorMessage = 'Error durante carga de data JSON!';
 
           if (isNotFoundError(error)) {
-            errorMessage = `Expected file ${worksheet}.json not found`;
+            errorMessage = `Expected file ${worksheetName}.json not found`;
           }
 
           this.get('flashMessages').danger(
@@ -34,11 +45,19 @@ export default Ember.Service.extend({
     }
 
     return new Ember.RSVP.Promise((resolve) => {
+
+      let spreadsheetUrl = this.get('dataSpreadsheetUrl');
+
+      if ('config' === spreadsheetKey) {
+        spreadsheetUrl = this.get('configSpreadsheetUrl');
+      }
+
+
       Tabletop.init({
-        key: this.get('spreadsheet'),
+        key: spreadsheetUrl,
         callback: (data) => {
-          if (Ember.isNone(data[worksheet])) {
-            let errorMessage = `Got no answer for spreadsheet ${worksheet}`;
+          if (Ember.isNone(data[worksheetName])) {
+            let errorMessage = `Got no answer for spreadsheet ${worksheetName}`;
             // TODO: Get back vorkin
             // this.get('flashMessages').danger(errorMessage, {sticky: true});
 
@@ -48,8 +67,8 @@ export default Ember.Service.extend({
             return resolve();
           }
 
-          if (Ember.isNone(data[worksheet].elements)) {
-            let errorMessage = `Got a problem with the elements for spreadsheet ${worksheet}`;
+          if (Ember.isNone(data[worksheetName].elements)) {
+            let errorMessage = `Got a problem with the elements for spreadsheet ${worksheetName}`;
             // TODO: Get back vorkin
             // this.get('flashMessages').danger(errorMessage, {sticky: true});
 
@@ -59,9 +78,13 @@ export default Ember.Service.extend({
             return resolve();
           }
 
-          resolve(data[worksheet].elements);
+          resolve(data[worksheetName].elements);
         }
       });
     });
+  },
+
+  fetchConfig(worksheetName) {
+    return this.fetch(worksheetName, 'config');
   }
 });

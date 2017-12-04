@@ -2,9 +2,10 @@ import Ember from 'ember';
 import config from '../config/environment';
 import injectScript from 'ember-inject-script';
 
-const { isNone } = Ember;
+const { isNone, RSVP: { Promise } } = Ember;
 
 export default Ember.Route.extend({
+
   spreadsheets: Ember.inject.service(),
 
   _routing: Ember.inject.service('-routing'),
@@ -16,106 +17,122 @@ export default Ember.Route.extend({
   },
 
   /**
-   * Setear la URL del spreadhseet y procesar los campos de información general
-   * del perfil.
+   * Setear la URL de datos y de configuración en el servicio spreadhseet.
+   * 
+   * Además procesar los campos de información general del perfil.
    *
    * TODO: Hacer esto en un lugar más decente, por amor al Señor
    */
   beforeModel() {
-    const spreadsheet = this.get('spreadsheets');
+    const spreadsheetService = this.get('spreadsheets');
+
+    // TODO: Agregar validación: si config.APP.dataSpreadsheetSourceUrl no esta definida,
+    // lanzar error
 
     return this.get('ajax')
-      .request(config.APP.spreadsheetUrl, {dataType: 'text'})
+
+      .request(config.APP.dataSpreadsheetSourceUrl, { dataType: 'text' })
+
       .then((response) => {
-        spreadsheet.set('spreadsheet', response);
+        spreadsheetService.set('dataSpreadsheetUrl', response);
+        spreadsheetService.set('configSpreadsheetUrl', response);
 
-        return Ember.RSVP.all([
+        // Si config.APP.configSpreadsheetSourceUrl está definida, entonces obtener
+        // también ese valor y setearlo en el spreadsheet service
+        if (!Ember.isNone(config.APP.configSpreadsheetSourceUrl)) {
+          return this.get('ajax')
+            .request(config.APP.configSpreadsheetSourceUrl, { dataType: 'text' })
+            .then((response) => spreadsheetService.set('configSpreadsheetUrl', response));
+        }
 
-          /**
-           * Setear la información general del perfil mediante la parametrización
-           * proveniente de la configuración
-           */
-          spreadsheet
-            .fetch('perfil-informacion-general-configuracion')
-            .then((configuracionData) => {
-              let perfilDataArray = Ember.A([]);
+        return Promise.resolve(this);
+      })
 
-              Ember.A(configuracionData).forEach((item) => {
-                perfilDataArray.pushObject({
-                  field: item.field,
-                  label: item.label
-                });
+      .then(() => Ember.RSVP.all([
+        /**
+         * Setear la información general del perfil mediante la parametrización
+         * proveniente de la configuración
+         */
+        spreadsheetService
+          .fetchConfig('perfil-informacion-general-configuracion')
+          .then((configuracionData) => {
+            let perfilDataArray = Ember.A([]);
+
+            Ember.A(configuracionData).forEach((item) => {
+              perfilDataArray.pushObject({
+                field: item.field,
+                label: item.label
               });
+            });
 
-              let prefilSerializer = this.store.serializerFor('perfil');
+            let prefilSerializer = this.store.serializerFor('perfil');
 
-              prefilSerializer.set('informacionGeneralFields', perfilDataArray);
-            }),
+            prefilSerializer.set('informacionGeneralFields', perfilDataArray);
+          }),
 
-          /**
-           * Setear la información de recuadros del perfil mediante la parametrización
-           * proveniente de la configuración
-           */
-          spreadsheet
-            .fetch('perfil-recuadros-configuracion')
-            .then((configuracionData) => {
-              let perfilRecuadrosDataArray = Ember.A([]);
+        /**
+         * Setear la información de recuadros del perfil mediante la parametrización
+         * proveniente de la configuración
+         */
+        spreadsheetService
+          .fetchConfig('perfil-recuadros-configuracion')
+          .then((configuracionData) => {
+            let perfilRecuadrosDataArray = Ember.A([]);
 
-              Ember.A(configuracionData).forEach((item) => {
-                perfilRecuadrosDataArray.pushObject({
-                  field: item.field,
-                  label: item.label
-                });
+            Ember.A(configuracionData).forEach((item) => {
+              perfilRecuadrosDataArray.pushObject({
+                field: item.field,
+                label: item.label
               });
+            });
 
-              let prefilSerializer = this.store.serializerFor('perfil');
+            let prefilSerializer = this.store.serializerFor('perfil');
 
-              prefilSerializer.set('recuadrosFields', perfilRecuadrosDataArray);
-            }),
+            prefilSerializer.set('recuadrosFields', perfilRecuadrosDataArray);
+          }),
 
-          // Información general de diputado
-          // TODO: Evaluar pertinencia, ya que es una funcionalidad específica de
-          // Elección PDH
-          spreadsheet
-            .fetch('diputado-informacion-general-configuracion')
-            .then((configuracionData) => {
-              let diputadoDataArray = Ember.A([]);
+        // Información general de diputado
+        // TODO: Evaluar pertinencia, ya que es una funcionalidad específica de
+        // Elección PDH
+        spreadsheetService
+          .fetchConfig('diputado-informacion-general-configuracion')
+          .then((configuracionData) => {
+            let diputadoDataArray = Ember.A([]);
 
-              Ember.A(configuracionData).forEach((item) => {
-                diputadoDataArray.pushObject({
-                  field: item.field,
-                  label: item.label
-                });
+            Ember.A(configuracionData).forEach((item) => {
+              diputadoDataArray.pushObject({
+                field: item.field,
+                label: item.label
               });
+            });
 
-              let diputadoSerializer = this.store.serializerFor('diputado-comision');
+            let diputadoSerializer = this.store.serializerFor('diputado-comision');
 
-              diputadoSerializer.set('informacionGeneralFields', Ember.A());
-              diputadoSerializer.set('frenteAFrenteFields', Ember.A());
-            }),
+            diputadoSerializer.set('informacionGeneralFields', Ember.A());
+            diputadoSerializer.set('frenteAFrenteFields', Ember.A());
+          }),
 
-          /**
-           * Setear los campos a utilizar en la funcionalidad de frente-a-frente
-           */
-          spreadsheet
-            .fetch('perfil-frente-a-frente-configuracion')
-            .then((configuracionData) => {
-              let perfilFrenteAFrenteDataArray = Ember.A([]);
+        /**
+         * Setear los campos a utilizar en la funcionalidad de frente-a-frente
+         */
+        spreadsheetService
+          .fetchConfig('perfil-frente-a-frente-configuracion')
+          .then((configuracionData) => {
+            let perfilFrenteAFrenteDataArray = Ember.A([]);
 
-              Ember.A(configuracionData).forEach((item) => {
-                perfilFrenteAFrenteDataArray.pushObject({
-                  field: item.field,
-                  label: item.label,
-                  section: item.section
-                });
+            Ember.A(configuracionData).forEach((item) => {
+              perfilFrenteAFrenteDataArray.pushObject({
+                field: item.field,
+                label: item.label,
+                section: item.section
               });
+            });
 
-              let prefilSerializer = this.store.serializerFor('perfil');
+            let prefilSerializer = this.store.serializerFor('perfil');
 
-              prefilSerializer.set('frenteAFrenteFields', perfilFrenteAFrenteDataArray);
-            })
-        ]);
-      });
+            prefilSerializer.set('frenteAFrenteFields', perfilFrenteAFrenteDataArray);
+          })
+      ]));
   },
 
   model() {
@@ -125,7 +142,7 @@ export default Ember.Route.extend({
     return Ember.RSVP.hash({
       partidos: this.store.findAll('partido'),
       perfiles: this.store.findAll('perfil'),
-      config: spreadsheet.fetch('configuracion').then((configuracion) => {
+      config: spreadsheet.fetchConfig('configuracion').then((configuracion) => {
         let configObject = Ember.Object.create();
 
         Ember.A(configuracion).forEach((item) => {
@@ -145,7 +162,7 @@ export default Ember.Route.extend({
       /**
        * Header links, top right
        */
-      navbarLinks: spreadsheet.fetch('navbar-links').then((links) => {
+      navbarLinks: spreadsheet.fetchConfig('navbar-links').then((links) => {
         return Ember.A(links).filter((link) => {
           return _routing.hasRoute(link.route);
         });
@@ -156,7 +173,7 @@ export default Ember.Route.extend({
        *
        * If the row does not include a link property it gets dissmissed
        */
-      mainPageLinks: spreadsheet.fetch('main-page-links').then((links) => {
+      mainPageLinks: spreadsheet.fetchConfig('main-page-links').then((links) => {
         return Ember.A(links).filter((link) => {
           if (link.link) {
             return true;
@@ -169,7 +186,7 @@ export default Ember.Route.extend({
       /**
        * Main page slider profiles list
        */
-      mainPageSliderData: spreadsheet.fetch('main-page-slider-data'),
+      mainPageSliderData: spreadsheet.fetchConfig('main-page-slider-data'),
 
       institucionData: spreadsheet
         .fetch('institucion-data')
@@ -183,7 +200,7 @@ export default Ember.Route.extend({
           return institucionDataObject;
         }),
 
-      frontTableVisualizationConfig: spreadsheet.fetch('front-table-visualization-config')
+      frontTableVisualizationConfig: spreadsheet.fetchConfig('front-table-visualization-config')
     });
   },
 
