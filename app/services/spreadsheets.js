@@ -35,12 +35,13 @@ export default Ember.Service.extend({
             errorMessage = `Expected file ${worksheetName}.json not found`;
           }
 
-          this.get('flashMessages').danger(
-            errorMessage,
-            {sticky: true}
-          );
+          // this.get('flashMessages').danger(
+          //   errorMessage,
+          //   { sticky: true }
+          // );
 
-          throw error;
+          // throw error;
+          console.log(errorMessage);
         });
     }
 
