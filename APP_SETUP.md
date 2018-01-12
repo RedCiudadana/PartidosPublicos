@@ -50,7 +50,8 @@ yarn
 bower install
 ```
 
-Customize `REAMDE.md`, `DATOS.md`, `public/README.md`, `public/CNAME`, `config/deploy.js`
+Customize `REAMDE.md`, `DATOS.md`, `public/README.md`, `public/CNAME`, `config/deploy.js`,
+`.ember-cli`, `config/environment.js`
 
 ```bash
 Commit and push
