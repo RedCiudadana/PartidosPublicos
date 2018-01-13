@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 /**
  * Usage: node build-data.js
  */
