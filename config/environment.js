@@ -34,7 +34,7 @@ module.exports = function(environment) {
     },
 
     disqus: {
-      shortname: 'eleccion-cang'
+      shortname: null
     },
 
     contentSecurityPolicy: contentSecurityPolicy

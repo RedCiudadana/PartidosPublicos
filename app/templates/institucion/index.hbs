@@ -104,5 +104,7 @@
     </div>
   </div>
 
-  {{disqus-comments identifier='institucion'}}
+  {{#if disqusShortname}}
+    {{disqus-comments identifier='institucion'}}
+  {{/if}}
 </section>

@@ -92,4 +92,6 @@
   {{/each-in}}
 </div>
 
-{{disqus-comments identifier=model.perfil.disqusIdentifier}}
+{{#if disqusShortname}}
+  {{disqus-comments identifier=model.perfil.disqusIdentifier}}
+{{/if}}
