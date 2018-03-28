@@ -45,7 +45,7 @@
     "ember-composable-helpers": "^2.0.3",
     "ember-crumbly": "^1.0.8",
     "ember-data": "~2.16.2",
-    "ember-disqus": "^0.2.1",
+    "ember-disqus": "RedCiudadana/ember-disqus#fix-hashtag-urls-for-threads",
     "ember-export-application-global": "^2.0.0",
     "ember-inject-script": "^0.0.3",
     "ember-load-initializers": "^1.0.0",
