@@ -29,6 +29,12 @@ export default Ember.Route.extend({
     // TODO: Agregar validación: si config.APP.dataSpreadsheetSourceUrl no esta definida,
     // lanzar error
 
+    // Si en los query parameters viene definido el valor para 'loadDataFromSpreadsheet',
+    // hacer override a la configuración para forzar la carga de data de los spreadsheets
+    if (transition.queryParams.hasOwnProperty('loadDataFromSpreadsheet')) {
+      config.APP.staticFilesUrl = null;
+    }
+
     return this.get('ajax')
 
       .request(config.APP.dataSpreadsheetSourceUrl, { dataType: 'text' })
