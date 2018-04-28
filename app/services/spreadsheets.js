@@ -65,7 +65,7 @@ export default Ember.Service.extend({
             // TODO: Convertir en alerta de console.log
             console.log(errorMessage);
 
-            return resolve();
+            return resolve([]);
           }
 
           if (Ember.isNone(data[worksheetName].elements)) {
@@ -76,7 +76,7 @@ export default Ember.Service.extend({
             // TODO: Convertir en alerta de console.log
             console.log(errorMessage);
 
-            return resolve();
+            return resolve([]);
           }
 
           resolve(data[worksheetName].elements);
