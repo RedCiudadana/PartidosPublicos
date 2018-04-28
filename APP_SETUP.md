@@ -8,6 +8,8 @@ git clone https://github.com/{user}/{app}
 cd {app}
 
 git commit --allow-empty --message="Initial commit"
+
+git push
 ```
 
 #### Agregar miguatemala upstream
@@ -38,6 +40,8 @@ git checkout --orphan gh-pages
 git rm -rf .
 
 git commit --allow-empty --message="Initial commit"
+
+git push --set-upstream origin gh-pages
 ```
 
 #### Init and dev
