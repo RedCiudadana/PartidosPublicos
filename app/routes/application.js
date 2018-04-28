@@ -23,7 +23,7 @@ export default Ember.Route.extend({
    *
    * TODO: Hacer esto en un lugar más decente, por amor al Señor
    */
-  beforeModel() {
+  beforeModel(transition) {
     const spreadsheetService = this.get('spreadsheets');
 
     // TODO: Agregar validación: si config.APP.dataSpreadsheetSourceUrl no esta definida,
