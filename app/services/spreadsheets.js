@@ -42,6 +42,8 @@ export default Ember.Service.extend({
 
           // throw error;
           console.log(errorMessage);
+
+          return [];
         });
     }
 
