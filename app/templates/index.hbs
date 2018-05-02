@@ -12,18 +12,35 @@
   {{/if}}
 
   {{#if model.config.banner1Slider}}
+    {{#slick-slider
+      autoplay=true
+      autoplaySpeed=model.config.sliderAutoplaySpeed
+      adaptiveHeight=false
+      arrows=false
+    }}
+      {{#each model.config.mainPageSliderData as |link|}}
+        <img src="{{link.imageLink}}" alt="{{link.caption}}" />
+      {{/each}}
+    {{/slick-slider}}
+  {{/if}}
+
+  {{#if model.config.banner1Accordion}}
     <div class="hidden-xs">
       <div class="accordion" id="slider">
         {{#each model.config.mainPageSliderData as |link|}}
           <li>
             {{#if link.link}}
               <a href="{{link.link}}">
-                <img src="{{link.imageLink}}" alt="{{link.caption}}"/>
+                <img src="{{link.imageLink}}" alt="{{link.caption}}" />
               </a>
             {{else}}
-              {{#link-to link.route link.id}}
-                <img src="{{link.imageLink}}" alt="{{link.caption}}"/>
-              {{/link-to}}
+              {{#if link.route}}
+                {{#link-to link.route link.id}}
+                  <img src="{{link.imageLink}}" alt="{{link.caption}}" />
+                {{/link-to}}
+              {{else}}
+                <img src="{{link.imageLink}}" alt="{{link.caption}}" />
+              {{/if}}
             {{/if}}
             <div class="caption">{{link.caption}}</div>
           </li>
@@ -31,7 +48,7 @@
       </div>
     </div>
 
-    <div class="visible-xs">
+    {{!-- <div class="visible-xs">
       <ul>
         {{#each model.config.mainPageSliderData as |link|}}
           <li>
@@ -40,14 +57,16 @@
                 {{link.caption}}
               </a>
             {{else}}
-              {{#link-to link.route link.id}}
-                {{link.caption}}
-              {{/link-to}}
+              {{#if link.route}}
+                {{#link-to link.route link.id}}
+                  {{link.caption}}
+                {{/link-to}}
+              {{/if}}
             {{/if}}
           </li>
         {{/each}}
       </ul>
-    </div>
+    </div> --}}
   {{/if}}
 
   {{#if model.config.banner1Footer}}

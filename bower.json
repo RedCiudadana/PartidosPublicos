@@ -5,6 +5,7 @@
     "isotope": "^2.2.2",
     "tabletop": "^1.4.3",
     "chosen": "1.6.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "slick-carousel": "^1.8.1"
   }
 }
