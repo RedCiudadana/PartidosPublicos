@@ -10,7 +10,7 @@ export default Ember.Route.extend({
     this._super(controller, model);
 
     Ember.run.scheduleOnce('afterRender', this, function() {
-      // TODO: Pendiente de re-habilitar: esta sección habilita por primera vez la animación
+      // Esta sección habilita por primera vez la animación
       // de Isotope para organizar y filtrar funcionarios
       var $container = Ember.$('#portfolio');
 
@@ -19,10 +19,8 @@ export default Ember.Route.extend({
       });
 
       if (model.config.banner1Slider) {
-        let screenwidth = Ember.$('#slider').width();
-
-        Ember.$('#slider').gridAccordion({
-          width: screenwidth,
+        Ember.$('#banner1Accordion').gridAccordion({
+          width: Ember.$('#slider').width(),
           height: 250,
           columns: model.config.mainPageSliderData.length,
           distance: 2,
