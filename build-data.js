@@ -7,10 +7,14 @@
 const Tabletop = require('tabletop');
 const jsonfile = require('jsonfile');
 const fs = require('fs');
+const path = require('path');
 
 var targetPath = 'public/static-files/';
 
-// TODO: Agregar proceso inicial de eliminación de archivos
+// Inicialmente eliminar archivos
+fs.readdirSync(targetPath).forEach((file) => {
+  fs.unlinkSync(path.join(targetPath, file));
+});
 
 Tabletop.init({
   key: fs.readFileSync('public/data-spreadsheet-url', 'utf-8').trim(),
