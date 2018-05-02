@@ -19,7 +19,7 @@ export default Ember.Route.extend({
       });
 
       if (model.config.banner1Slider) {
-        Ember.$('#banner1Accordion').gridAccordion({
+        Ember.$('#slider').gridAccordion({
           width: Ember.$('#slider').width(),
           height: 250,
           columns: model.config.mainPageSliderData.length,
