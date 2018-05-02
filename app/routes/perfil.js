@@ -17,7 +17,7 @@ export default Ember.Route.extend({
       institucion: institucion,
       partidoActual: partidoActual,
       perfilInformacionGeneralConfiguracion: spreadsheet
-        .fetch('perfil-informacion-general-configuracion'),
+        .fetchConfig('perfil-informacion-general-configuracion'),
       perfiles: this.modelFor('application').perfiles,
       documentosDisponibles: spreadsheet
         .fetch('documentos-disponibles')
@@ -41,7 +41,7 @@ export default Ember.Route.extend({
             .reduce((previousValue, item) => previousValue + parseInt(item.puntaje), 0);
         }),
       perfilFuncionalidades: spreadsheet
-        .fetch('perfil-funcionalidades')
+        .fetchConfig('perfil-funcionalidades')
         .then((links) => {
           return Ember.A(links)
             .filter((link) => {

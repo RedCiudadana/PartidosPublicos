@@ -10,6 +10,8 @@ const fs = require('fs');
 
 var targetPath = 'public/static-files/';
 
+// TODO: Agregar proceso inicial de eliminación de archivos
+
 Tabletop.init({
   key: fs.readFileSync('public/data-spreadsheet-url', 'utf-8').trim(),
   callback: function(sheets) {
