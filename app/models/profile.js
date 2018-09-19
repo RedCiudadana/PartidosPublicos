@@ -3,16 +3,12 @@ import attr from 'ember-data/attr';
 import { computed } from '@ember/object';
 
 /**
- * @desc this is a model for a person's entity, anyone.
+ * @desc this is a model for a persons, anyone. This normally extends to other models.
  */
 export default Model.extend({
   // Attributes
   nombre: attr(),
   fotoUrl: attr(),
-  cargoNombreCompleto: attr(),
-  cargoNombreCorto: attr(),
-  profesion: attr(),
-  educacion: attr(),
   fechaNacimiento: attr(),
   lugarNacimiento: attr(),
   email: attr(),
@@ -20,16 +16,8 @@ export default Model.extend({
   tw: attr(),
   direccion: attr(),
   telefono: attr(),
-  biografia: attr(),
-  desempenio: attr(),
-  historialPolitico: attr(),
-  experienciaProfesional: attr(),
-  experienciaEnDH: attr(),
   sexo: attr(),
   estado: attr(),
-  informacionGeneral: attr('informacion-general'),
-  recuadros: attr('frente-a-frente'),
-  frenteAFrente: attr('frente-a-frente'),
 
   // Computed Properties
   fotoPerfil: computed('fotoUrl', function() {

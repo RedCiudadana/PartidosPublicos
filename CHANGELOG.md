@@ -6,16 +6,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.0.1] - 2018-09-00
-### Changed
-- Update model perfil to DockYard Style.
-- Adding ESDoc documentation to model perfil.
-
-## [0.0.1] - 2018-09-17
+## [0.2.0] - 2018-09-18
 ### Added
-- This CHANGELOG
+- Profile, magistrate and commission-deputies models.
+- [DockYard Styles](https://github.com/DockYard/styleguides/tree/master/engineering) and [ESDocs](https://esdoc.org/manual/tags.html)  in models.
+
+### Removed
+- Removed perfil and diputado-comision models.
+
+### Fixed
+- Sematinc versioning
+
+## [0.1.0] - 2018-09-17
+### Added
+- This CHANGELOG.
 
 ### Changed
-- Ember 2.16 to 3.3.0
-- Change syntax ember 2.16 to 3.3
+- Ember 2.16 to 3.3.0.
+- Change syntax ember 2.16 to 3.3.
 - Comment broken code, sorry about this.
