@@ -2,7 +2,11 @@ import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { computed } from '@ember/object';
 
+/**
+ * @desc this is a model for a person's entity, anyone.
+ */
 export default Model.extend({
+  // Attributes
   nombre: attr(),
   fotoUrl: attr(),
   cargoNombreCompleto: attr(),
@@ -23,19 +27,23 @@ export default Model.extend({
   experienciaEnDH: attr(),
   sexo: attr(),
   estado: attr(),
-
   informacionGeneral: attr('informacion-general'),
   recuadros: attr('frente-a-frente'),
   frenteAFrente: attr('frente-a-frente'),
 
+  // Computed Properties
   fotoPerfil: computed('fotoUrl', function() {
-    if (this.get('fotoUrl')) {
+    if (this.get('fotoUrl') !== '') {
       return this.get('fotoUrl');
     }
 
     return 'images/Magistrado.jpg';
   }),
 
+  /**
+   * @type { string }
+   * @desc used by Isolate to filter data. Computing something like this: 'hombre descalificado'.
+   */
   selector: computed('sexo', 'estado', function() {
     let returnValue = '';
 
@@ -58,6 +66,9 @@ export default Model.extend({
     return returnValue;
   }),
 
+  /**
+   * @todo checks what this does.
+   */
   disqusIdentifier: computed('id', function() {
     return `perfil-${this.get('id')}`;
   })
