@@ -1,8 +1,8 @@
-import Ember from 'ember';
+import $ from 'jquery';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
-const { computed } = Ember;
-
-export default Ember.Controller.extend({
+export default Controller.extend({
   currentSelector: computed(
     'esMujer',
     'esHombre',
@@ -42,7 +42,7 @@ export default Ember.Controller.extend({
 
   actions: {
     applyFilter() {
-      var $container = Ember.$('#portfolio');
+      var $container = $('#portfolio');
 
       $container.isotope({transitionDuration: '0.65s'});
 

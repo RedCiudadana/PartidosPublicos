@@ -1,6 +1,8 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
+import { isNone } from '@ember/utils';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   model: null,
 
   frenteAFrenteFields: null,
@@ -10,11 +12,11 @@ export default Ember.Controller.extend({
   /**
    * Hash
    */
-  frenteAFrenteSectionGroupedFields: Ember.computed('frenteAFrenteFields', function() {
+  frenteAFrenteSectionGroupedFields: computed('frenteAFrenteFields', function() {
     let groupedFields = {};
 
     this.get('frenteAFrenteFields').forEach((item) => {
-      if (Ember.isNone(groupedFields[item.section])) {
+      if (isNone(groupedFields[item.section])) {
         groupedFields[item.section] = {};
       }
 
@@ -31,11 +33,11 @@ export default Ember.Controller.extend({
 
   perfilDosId: null,
 
-  perfilUno: Ember.computed('perfilUnoId', function() {
+  perfilUno: computed('perfilUnoId', function() {
     return this.get('model.perfiles').findBy('id', this.get('perfilUnoId'));
   }),
 
-  perfilDos: Ember.computed('perfilDosId', function() {
+  perfilDos: computed('perfilDosId', function() {
     return this.get('model.perfiles').findBy('id', this.get('perfilDosId'));
   })
 });

@@ -1,17 +1,20 @@
-import Ember from 'ember';
+import { isNone } from '@ember/utils';
+import { get } from '@ember/object';
+import { htmlSafe } from '@ember/template';
+import { helper as buildHelper } from '@ember/component/helper';
 
-export function getHtmlSafe([object, propertyName, ...rest]) {
-  if (Ember.isNone(object)) {
+export function getHtmlSafe([object, propertyName]) {
+  if (isNone(object)) {
     return '';
   }
 
-  let frenteAFrente = Ember.get(object, 'frenteAFrente');
+  let frenteAFrente = get(object, 'frenteAFrente');
 
-  if (Ember.isNone(frenteAFrente)) {
+  if (isNone(frenteAFrente)) {
     return '';
   }
 
-  return Ember.String.htmlSafe(Ember.get(frenteAFrente, propertyName));
+  return htmlSafe(get(frenteAFrente, propertyName));
 }
 
-export default Ember.Helper.helper(getHtmlSafe);
+export default buildHelper(getHtmlSafe);

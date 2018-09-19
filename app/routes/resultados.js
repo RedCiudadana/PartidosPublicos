@@ -1,17 +1,18 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
+import { isNone } from '@ember/utils';
+import { hash } from 'rsvp';
 
-const { isNone } = Ember;
+export default Route.extend({
 
-export default Ember.Route.extend({
-
-  spreadsheets: Ember.inject.service(),
+  spreadsheets: service(),
 
   model() {
     const spreadsheet = this.get('spreadsheets');
 
     let perfiles = this.modelFor('application').perfiles;
 
-    return Ember.RSVP.hash({
+    return hash({
       registrosTablaGradacion: spreadsheet
         .fetch('tabla-gradacion')
         .then((registros) => {
@@ -20,7 +21,7 @@ export default Ember.Route.extend({
 
           let count = 1;
           registros.forEach((element) => {
-            if (Ember.isNone(registrosTablaGradacion[element.perfil])) {
+            if (isNone(registrosTablaGradacion[element.perfil])) {
 
               if (isNone(perfiles.findBy('id', element.perfil))) {
                 throw new Error(`Perfil con id '${element.perfil}' no encontrado`);
@@ -60,7 +61,7 @@ export default Ember.Route.extend({
 
           return registrosTablaGradacion;
 
-          // return Ember.A(registros)
+          // return A(registros)
           //   .filterBy('perfil', perfil.get('id'))
           //   .filter((e) => e.aspecto !== 'Total');
         })

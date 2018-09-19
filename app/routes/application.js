@@ -1,16 +1,22 @@
-import Ember from 'ember';
 import config from '../config/environment';
-import injectScript from 'ember-inject-script';
+import EmberObject from '@ember/object';
+// import injectScript from 'ember-inject-script';
+import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
+import { A } from '@ember/array';
+import { inject as service } from '@ember/service';
+import { isBlank } from '@ember/utils';
+import { Promise } from 'rsvp';
+import { set } from '@ember/object';
+import { hash } from 'rsvp';
 
-const { isBlank, RSVP: { Promise }, set } = Ember;
+export default Route.extend({
 
-export default Ember.Route.extend({
+  spreadsheets: service(),
 
-  spreadsheets: Ember.inject.service(),
+  _routing: service('-routing'),
 
-  _routing: Ember.inject.service('-routing'),
-
-  ajax: Ember.inject.service(),
+  ajax: service(),
 
   breadCrumb: {
     title: 'application breadcrumb'
@@ -45,7 +51,7 @@ export default Ember.Route.extend({
 
         // Si config.APP.configSpreadsheetSourceUrl está definida, entonces obtener
         // también ese valor y setearlo en el spreadsheet service
-        if (!Ember.isBlank(config.APP.configSpreadsheetSourceUrl)) {
+        if (!isBlank(config.APP.configSpreadsheetSourceUrl)) {
           return this.get('ajax')
             .request(config.APP.configSpreadsheetSourceUrl, { dataType: 'text' })
             .then((response) => spreadsheetService.set('configSpreadsheetUrl', response));
@@ -54,7 +60,7 @@ export default Ember.Route.extend({
         return Promise.resolve(this);
       })
 
-      .then(() => Ember.RSVP.all([
+      .then(() => RSVP.all([
         /**
          * Setear la información general del perfil mediante la parametrización
          * proveniente de la configuración
@@ -62,9 +68,9 @@ export default Ember.Route.extend({
         spreadsheetService
           .fetchConfig('perfil-informacion-general-configuracion')
           .then((configuracionData) => {
-            let perfilDataArray = Ember.A([]);
+            let perfilDataArray = A([]);
 
-            Ember.A(configuracionData).forEach((item) => {
+            A(configuracionData).forEach((item) => {
               perfilDataArray.pushObject({
                 field: item.field,
                 label: item.label
@@ -83,9 +89,9 @@ export default Ember.Route.extend({
         spreadsheetService
           .fetchConfig('perfil-recuadros-configuracion')
           .then((configuracionData) => {
-            let perfilRecuadrosDataArray = Ember.A([]);
+            let perfilRecuadrosDataArray = A([]);
 
-            Ember.A(configuracionData).forEach((item) => {
+            A(configuracionData).forEach((item) => {
               perfilRecuadrosDataArray.pushObject({
                 field: item.field,
                 label: item.label
@@ -103,9 +109,9 @@ export default Ember.Route.extend({
         spreadsheetService
           .fetchConfig('diputado-informacion-general-configuracion')
           .then((configuracionData) => {
-            let diputadoDataArray = Ember.A([]);
+            let diputadoDataArray = A([]);
 
-            Ember.A(configuracionData).forEach((item) => {
+            A(configuracionData).forEach((item) => {
               diputadoDataArray.pushObject({
                 field: item.field,
                 label: item.label
@@ -114,8 +120,8 @@ export default Ember.Route.extend({
 
             let diputadoSerializer = this.store.serializerFor('diputado-comision');
 
-            diputadoSerializer.set('informacionGeneralFields', Ember.A());
-            diputadoSerializer.set('frenteAFrenteFields', Ember.A());
+            diputadoSerializer.set('informacionGeneralFields', A());
+            diputadoSerializer.set('frenteAFrenteFields', A());
           }),
 
         /**
@@ -124,9 +130,9 @@ export default Ember.Route.extend({
         spreadsheetService
           .fetchConfig('perfil-frente-a-frente-configuracion')
           .then((configuracionData) => {
-            let perfilFrenteAFrenteDataArray = Ember.A([]);
+            let perfilFrenteAFrenteDataArray = A([]);
 
-            Ember.A(configuracionData).forEach((item) => {
+            A(configuracionData).forEach((item) => {
               perfilFrenteAFrenteDataArray.pushObject({
                 field: item.field,
                 label: item.label,
@@ -145,23 +151,23 @@ export default Ember.Route.extend({
     const spreadsheet = this.get('spreadsheets');
     const _routing = this.get('_routing');
 
-    return Ember.RSVP.hash({
+    return hash({
       partidos: this.store.findAll('partido'),
       perfiles: this.store.findAll('perfil'),
       config: spreadsheet.fetchConfig('configuracion')
         .then((configuracion) => {
-          let configObject = Ember.Object.create();
+          let configObject = EmberObject.create();
 
-          Ember.A(configuracion).forEach((item) => {
+          A(configuracion).forEach((item) => {
             configObject.set(item.key, item.value);
           });
 
           /**
            * Inject HelloBar if defined
            */
-          if (!isBlank(configObject.helloBarUrl)) {
-            injectScript(configObject.helloBarUrl);
-          }
+          // if (!isBlank(configObject.helloBarUrl)) {
+          //   injectScript(configObject.helloBarUrl);
+          // }
 
           return configObject;
         }),
@@ -170,7 +176,7 @@ export default Ember.Route.extend({
        * Header links, top right
        */
       navbarLinks: spreadsheet.fetchConfig('navbar-links').then((links) => {
-        return Ember.A(links).filter((link) => {
+        return A(links).filter((link) => {
           return _routing.hasRoute(link.route);
         });
       }),
@@ -181,7 +187,7 @@ export default Ember.Route.extend({
        * If the row does not include a link property it gets dissmissed
        */
       mainPageLinks: spreadsheet.fetchConfig('main-page-links').then((links) => {
-        return Ember.A(links).filter((link) => {
+        return A(links).filter((link) => {
           if (link.link) {
             return true;
           }
@@ -198,9 +204,9 @@ export default Ember.Route.extend({
       institucionData: spreadsheet
         .fetch('institucion-data')
         .then((institucionData) => {
-          let institucionDataObject = Ember.Object.create();
+          let institucionDataObject = EmberObject.create();
 
-          Ember.A(institucionData).forEach((item) => {
+          A(institucionData).forEach((item) => {
             institucionDataObject.set(item.key, item.value);
           });
 

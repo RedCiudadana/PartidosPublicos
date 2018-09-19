@@ -1,6 +1,6 @@
-import Ember from 'ember';
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import { computed } from '@ember/object';
 
 export default Model.extend({
   nombre: attr(),
@@ -28,7 +28,7 @@ export default Model.extend({
   recuadros: attr('frente-a-frente'),
   frenteAFrente: attr('frente-a-frente'),
 
-  fotoPerfil: Ember.computed('fotoUrl', function() {
+  fotoPerfil: computed('fotoUrl', function() {
     if (this.get('fotoUrl')) {
       return this.get('fotoUrl');
     }
@@ -36,7 +36,7 @@ export default Model.extend({
     return 'images/Magistrado.jpg';
   }),
 
-  selector: Ember.computed('sexo', 'estado', function() {
+  selector: computed('sexo', 'estado', function() {
     let returnValue = '';
 
     if (this.get('sexo') === 'Masculino') {
@@ -58,7 +58,7 @@ export default Model.extend({
     return returnValue;
   }),
 
-  disqusIdentifier: Ember.computed('id', function() {
+  disqusIdentifier: computed('id', function() {
     return `perfil-${this.get('id')}`;
   })
 });

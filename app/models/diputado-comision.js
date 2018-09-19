@@ -1,7 +1,7 @@
-import Ember from 'ember';
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
+import { computed } from '@ember/object';
 
 export default Model.extend({
   nombre: attr(),
@@ -27,7 +27,7 @@ export default Model.extend({
   informacionGeneral: attr('informacion-general'),
   frenteAFrente: attr('frente-a-frente'),
 
-  fotoPerfil: Ember.computed('fotoUrl', function() {
+  fotoPerfil: computed('fotoUrl', function() {
     if (this.get('fotoUrl')) {
       return this.get('fotoUrl');
     }
@@ -35,7 +35,7 @@ export default Model.extend({
     return 'images/Magistrado.jpg';
   }),
 
-  fotoPartido: Ember.computed('fotoUrlPartido', function() {
+  fotoPartido: computed('fotoUrlPartido', function() {
     return this.get('fotoUrlPartido');
   })
 });
