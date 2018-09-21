@@ -1,14 +1,14 @@
+// import injectScript from 'ember-inject-script';
 import config from '../config/environment';
 import EmberObject from '@ember/object';
-// import injectScript from 'ember-inject-script';
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 import { A } from '@ember/array';
+import { hash } from 'rsvp';
 import { inject as service } from '@ember/service';
 import { isBlank } from '@ember/utils';
 import { Promise } from 'rsvp';
 import { set } from '@ember/object';
-import { hash } from 'rsvp';
 
 export default Route.extend({
 
@@ -18,12 +18,8 @@ export default Route.extend({
 
   ajax: service(),
 
-  breadCrumb: {
-    title: 'application breadcrumb'
-  },
-
   /**
-   * Setear la URL de datos y de configuración en el servicio spreadhseet.
+   * Setear la URL de datos y de configuración en el servicio spreadsheet.
    * 
    * Además procesar los campos de información general del perfil.
    *

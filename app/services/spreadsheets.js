@@ -6,6 +6,13 @@ import { inject as service } from '@ember/service'
 import { Promise } from 'rsvp';
 import { isNone } from '@ember/utils';
 
+/**
+ * this service get data from /static-files/ or Google's spreadsheets, see environmnet.
+ * @example
+ * import { inject as service } from '@ember/service';
+ * spreadsheets: service()
+ */
+
 export default Service.extend({
 
   ajax: service(),
@@ -17,7 +24,9 @@ export default Service.extend({
   // flashMessages: service(),
 
   /**
-   * Los posibles valores para spreadsheetKey son 'data' y 'config'
+   * Get data by worksheetname.
+   * @param {string} worksheetName - Name of worksheet.
+   * @param {string} [spreadsheetKey='data'] - Can be 'data' or 'config', used to get the URL of Google's spreadsheets public file. Only live mode.
    */
   fetch(worksheetName, spreadsheetKey = 'data') {
 
@@ -56,7 +65,6 @@ export default Service.extend({
         spreadsheetUrl = this.get('configSpreadsheetUrl');
       }
 
-
       Tabletop.init({
         key: spreadsheetUrl,
         callback: (data) => {
@@ -88,6 +96,11 @@ export default Service.extend({
     });
   },
 
+  /**
+   * Wrap of fetch with spreadsheetKey='config'.
+   * @param  {string} worksheetName Name of worksheet.
+   * @return {Promise<string[], MyError>} Promise data.
+   */
   fetchConfig(worksheetName) {
     return this.fetch(worksheetName, 'config');
   }

@@ -30,7 +30,7 @@ module.exports = function(environment) {
       // URL from which to load de dumped static files
       staticFilesUrl: null
       // staticFilesUrl: 'http://192.168.250.206:6360/static-files/'
-      // staticFilesUrl: 'http://eleccionpdh.org/static-files/'
+      // staticFilesUrl: 'http://localhost:6360/static-files/'
     },
 
     disqus: {
