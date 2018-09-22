@@ -1,12 +1,16 @@
-import perfil from './perfil';
+import Profile from './profile';
 import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
 import { computed } from '@ember/object';
 
 /**
- * @desc this is a model for a commission-deputies.
+ * Model for commission deputies
+ *
+ * @class Commision-deputies
+ * @extends Model.Profile
+ * @namespace Model
  */
-export default perfil.extend({
+export default Profile.extend({
   // Attributes
   cargoNombreCompleto: attr(),
   cargoNombreCorto: attr(),

@@ -17,7 +17,6 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7",
     "broccoli-asset-rev": "^2.7.0",
     "ember-ajax": "^3.0.0",
     "ember-cli": "~3.3.0",
@@ -32,6 +31,7 @@
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
+    "ember-cli-yuidoc": "^0.8.8",
     "ember-data": "~3.3.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.1.0",
@@ -45,5 +45,10 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
+  },
+  "dependencies": {
+    "esdoc": "^1.1.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "yuidoc-ember-theme": "^2.0.1"
   }
 }

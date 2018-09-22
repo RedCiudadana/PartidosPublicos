@@ -3,23 +3,111 @@ import attr from 'ember-data/attr';
 import { computed } from '@ember/object';
 
 /**
- * @desc this is a model for a persons, anyone. This normally extends to other models.
+ * Model for persons, usually extends.
+ *
+ * @class Profile
+ * @namespace Model
  */
 export default Model.extend({
   // Attributes
-  nombre: attr(),
-  fotoUrl: attr(),
-  fechaNacimiento: attr(),
-  lugarNacimiento: attr(),
-  email: attr(),
-  fb: attr(),
-  tw: attr(),
-  direccion: attr(),
-  telefono: attr(),
-  sexo: attr(),
-  estado: attr(),
 
-  // Computed Properties
+  /**
+   * Name
+   *
+   * @property nombre
+   * @type String
+   */
+  nombre: attr('string'),
+
+  /**
+   * URL of the person's photo
+   *
+   * @property fotoURL
+   * @type String
+   */
+  fotoUrl: attr('string'),
+
+  /**
+   * Birthdate
+   *
+   * @property fechaNacimiento
+   * @type Date
+   */
+  fechaNacimiento: attr('date'),
+
+  /**
+   * Place of birth
+   *
+   * @property lugarNacimiento
+   * @type String
+   */
+  lugarNacimiento: attr('string'),
+
+  /**
+   * Email
+   *
+   * @property email
+   * @type String
+   */
+  email: attr('string'),
+
+  /**
+   * Facebook profile
+   *
+   * @property fb
+   * @type String
+   */
+  fb: attr('string'),
+
+  /**
+   * Twitter profile
+   *
+   * @property tw
+   * @type String
+   */
+  tw: attr('string'),
+
+  /**
+   * Address
+   *
+   * @property dirreccion
+   * @type String
+   */
+  direccion: attr('string'),
+
+  /**
+   * Phone number
+   *
+   * @property telefono
+   * @type String
+   */
+  telefono: attr('string'),
+
+  /**
+   * Sex
+   *
+   * @property sexo
+   * @type String
+   */
+  sexo: attr('string'),
+
+  /**
+   * Status
+   *
+   * @property estado
+   * @type String
+   */
+  estado: attr('string'),
+
+   // Computed Properties
+
+  /**
+  * Perfil photo
+  *
+  * @property fotoPerfil
+  * @type String
+  * @default "images/Magistrado.jpg"
+  */
   fotoPerfil: computed('fotoUrl', function() {
     if (this.get('fotoUrl') !== '') {
       return this.get('fotoUrl');
@@ -29,9 +117,12 @@ export default Model.extend({
   }),
 
   /**
-   * @type { string }
-   * @desc used by Isolate to filter data. Computing something like this: 'hombre descalificado'.
-   */
+  * Selector for Isotope, used to tag element example: 'hombre enProceso partidoA distritoB'
+  *
+  * @property selector
+  * @type String
+  * @default ""
+  */
   selector: computed('sexo', 'estado', function() {
     let returnValue = '';
 
@@ -55,8 +146,12 @@ export default Model.extend({
   }),
 
   /**
-   * @todo checks what this does.
-   */
+  * Disqus Identifier
+  *
+  * @property disqusIdentifier
+  * @type String
+  * @default "perfil-0"
+  */
   disqusIdentifier: computed('id', function() {
     return `perfil-${this.get('id')}`;
   })
