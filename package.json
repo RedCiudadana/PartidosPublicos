@@ -46,16 +46,12 @@
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
     "qunit-dom": "^0.6.2",
-    "sass": "^1.14.0"
-  },
-  "engines": {
-    "node": "6.* || 8.* || >= 10.*"
-  },
-  "dependencies": {
-    "esdoc": "^1.1.0",
-    "esdoc-standard-plugin": "^1.0.0",
+    "sass": "^1.14.0",
     "node-sass": "^4.9.3",
     "tabletop": "^1.5.2",
     "yuidoc-ember-theme": "^2.0.1"
+  },
+  "engines": {
+    "node": "6.* || 8.* || >= 10.*"
   }
 }
