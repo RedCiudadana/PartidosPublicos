@@ -99,7 +99,7 @@ export default Route.extend({
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('perfil');
+            let prefilSerializer = this.store.serializerFor('magistrate');
 
             prefilSerializer.set('informacionGeneralFields', perfilDataArray);
           }),
@@ -120,7 +120,7 @@ export default Route.extend({
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('perfil');
+            let prefilSerializer = this.store.serializerFor('magistrate');
 
             prefilSerializer.set('recuadrosFields', perfilRecuadrosDataArray);
           }),
@@ -162,7 +162,7 @@ export default Route.extend({
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('perfil');
+            let prefilSerializer = this.store.serializerFor('magistrate');
 
             prefilSerializer.set('frenteAFrenteFields', perfilFrenteAFrenteDataArray);
           })
@@ -181,7 +181,7 @@ export default Route.extend({
 
     return hash({
       partidos: this.store.findAll('partido'),
-      perfiles: this.store.findAll('perfil'),
+      perfiles: this.store.findAll('magistrate'),
       config: spreadsheet.fetchConfig('configuracion')
         .then((configuracion) => {
           let configObject = EmberObject.create();

@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { isNone } from '@ember/utils';
 import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
@@ -38,7 +37,7 @@ export default Route.extend({
   model(params) {
     const spreadsheet = this.get('spreadsheets');
     const _routing = this.get('_routing');
-    const perfil = this.store.peekRecord('perfil', params.id);
+    const perfil = this.store.peekRecord('magistrate', params.id);
     const institucion = perfil.get('institucion');
     const partidoActual = perfil.get('partidoActual');
 
