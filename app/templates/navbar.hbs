@@ -1,0 +1,21 @@
+{{#bs-navbar backgroundColor="light" type="light" position="sticky-top" fluid=false as |navbar|}}
+  <div class="navbar-header">
+    {{navbar.toggle}}
+
+    {{#link-to "application" class="navbar-brand"}}
+        <img
+          src="logo-brand.png"
+          class="img-responsive"
+          title="{{nombreApp}}"
+          alt="Congreso">
+    {{/link-to}}
+  </div>
+
+  {{#navbar.content}}
+    {{#navbar.nav justified=true type="pills" class="ml-auto" as |nav|}}
+      {{#each model.config.navbarLinks as |link|}}
+        {{#nav.item active=false class="mx-2"}}{{#link-to link.route}}{{link.title}}{{/link-to}}{{/nav.item}}
+      {{/each}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}

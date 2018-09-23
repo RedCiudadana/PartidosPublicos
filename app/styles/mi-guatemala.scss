@@ -1,0 +1,97 @@
+// Links
+a, a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    // Calcula el color según el color primario. Aclara.
+    color: lighten( $primary, 10% ) !important;
+}
+
+// Font awesome
+i {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+// Navbar
+
+.navbar ul li a{
+    color: $navbar-color;
+}
+
+// Footer
+
+#footer {
+    background-color: $footer-background-color;
+    color: $footer-color;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#footer a {
+    color: $footer-color;
+}
+
+#footer a:hover {
+    // Calcula el color según el color de fondo. Aclara.
+    color: lighten( $footer-background-color, 30% ) !important;
+}
+
+// Portfolio
+
+.portfolio .item {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    // Ademas centra la imagen
+    text-align: center;
+    // Centrar item
+    margin: auto;
+}
+
+.portfolio .item .background {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.portfolio .item .image img {
+    width: 80%;
+}
+
+.portfolio .item .text {
+    padding-top: 10px;
+    // Un 'height' determinado para que no varie el alto del item según lo largo del nombre, etc, entre los items.
+    height: 80px;
+}
+
+@include media-breakpoint-up(sm) {
+    .portfolio .item {
+        width: 50%;
+    }
+
+    .portfolio .item {
+        float: left;
+        position: relative;
+        height: auto;
+    }
+
+    .portfolio .item .image {
+        // Un 'height' determinado para que no varie el alto del item según el ratio de la imagenes entre los items.
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .portfolio .item {
+        width: 33.33%;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .portfolio .item {
+        width: 20%;
+    }
+}

@@ -180,7 +180,7 @@ export default Route.extend({
     const _routing = this.get('_routing');
 
     return hash({
-      partidos: this.store.findAll('partido'),
+      // partidos: this.store.findAll('partido'),
       perfiles: this.store.findAll('magistrate'),
       config: spreadsheet.fetchConfig('configuracion')
         .then((configuracion) => {

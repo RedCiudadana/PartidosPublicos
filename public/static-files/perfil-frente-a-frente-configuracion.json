@@ -1,12 +1,17 @@
 [
   {
-    "field": "experienciaProfesional",
+    "field": "ley1",
     "label": "",
-    "section": "Experiencia profesional"
+    "section": "Reformas Materia Antejuicio"
   },
   {
-    "field": "experienciaEnDH",
+    "field": "ley2",
     "label": "",
-    "section": "Experiencia en Derechos Humanos"
+    "section": "Financiamiento Ilícito"
+  },
+  {
+    "field": "ley3",
+    "label": "",
+    "section": "Reformas al Código Penal"
   }
 ]

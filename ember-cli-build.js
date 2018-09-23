@@ -2,6 +2,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const nodeSass = require('node-sass');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -10,9 +11,15 @@ module.exports = function(defaults) {
     },
 
     'ember-bootstrap': {
-      'bootstrapVersion': 3,
-      'importBootstrapFont': true,
-      'importBootstrapCSS': true
+      'bootstrapVersion': 4,
+      'importBootstrapFont': false,
+      // Dont include 'importBootstrapCSS' because it's going to be imported through Sass
+      'importBootstrapCSS': false
+    },
+
+    sassOptions: {
+      // Only search in 'includedPaths'; performance.
+      implementation: nodeSass
     }
   });
 

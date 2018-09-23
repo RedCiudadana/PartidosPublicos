@@ -7,11 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Folder docs
 
-## [0.3.1] - 2012-09-23
+## [0.4.0] - 2018-09-23
+### Added
+- Added ember-bootstrap, ember-font-awesome, ember-cli-sass.
+- Added node-sass to implement with ember-cli-sass.
+- Added SASS file mi-guatemala.scss.
+- SASS lighten and darken to calculate hover colors.
+- Add tabletop to package.json.
+- Add front-portfolio component.
+
 ### Change
-- Rename adapter diputado-comision to comission-deputies
-- Rename adapter perfil to magistrate
-- Rename serializer perfil to magistrate
+- In application.hbs, the footer and the header are now added with "partial".
+- Change test data to 'Congreso' data
+
+### Removed
+- Older images.
+- Weid css files.
+
+
+## [0.3.1] - 2018-09-23
+### Change
+- Rename adapter diputado-comision to comission-deputies.
+- Rename adapter perfil to magistrate.
+- Rename serializer perfil to magistrate.
 
 ## [0.3.0] - 2018-09-22
 ### Added
