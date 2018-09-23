@@ -2,23 +2,22 @@ import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 
 /**
- * Model for party.
+ * Model de partido político.
  *
- * @class Party
- * @namespace Model
+ * @class Model.Party
  */
 export default Model.extend({
   // Attributes
 
   /**
-   * Code
+   * Código - Abreviación
    *
    * @property codigo
    */
   codigo: attr(),
 
   /**
-   * Full-name
+   * Nombre completo
    *
    * @property nombreCompleto
    * @type String
@@ -26,7 +25,7 @@ export default Model.extend({
   nombreCompleto: attr('string'),
 
   /**
-   * Short-name
+   * Nombre corto
    *
    * @property nombre
    * @type String
@@ -34,7 +33,7 @@ export default Model.extend({
   nombreCorto: attr('string'),
 
   /**
-   * Facebook profile
+   * Perfil de Facebook, la URL.
    *
    * @property fb
    * @type String
@@ -42,7 +41,7 @@ export default Model.extend({
   fb: attr('string'),
 
   /**
-   * Twitter profile
+   * Perfil de Twitter, la URL.
    *
    * @property tw
    * @type String

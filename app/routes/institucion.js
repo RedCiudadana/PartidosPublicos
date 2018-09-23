@@ -5,11 +5,35 @@ import EmberObject from '@ember/object';
 import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
-// TODO: Pendiente de completar implementación de pantalla de institución
+/**
+ * Institucion Route
+ *
+ * @class Route.Institucion
+ */
 export default Route.extend({
+
+  /**
+   * Spreadsheets Service
+   *
+   * @property spreadsheets
+   * @type Service
+   */
   spreadsheets: service(),
+
+  /**
+   * Routing Service
+   *
+   * @property _routing
+   * @type Service
+   */
   _routing: service('-routing'),
 
+  /**
+   * Model hook. Obtiene las funcionalidades, configuraciones y datos de las instituciones.
+   *
+   * @method model
+   * @return {Object} Datos de instituciones.
+   */
   model() {
     const spreadsheet = this.get('spreadsheets');
     const _routing = this.get('_routing');
@@ -48,14 +72,13 @@ export default Route.extend({
     });
   },
 
-  afterModel(model) {
-    if (!isNone(model.institucionData.nombre)) {
-      this.set('breadCrumb', {
-        title: model.institucionData.nombre
-      });
-    }
-  },
-
+  /**
+   * Levanta un controlador y asigna unos valores con datos del modelo. Tambien asigna model.informacionGeneral  como un objeto con la información a mostrar de la institución con los datos de model.config.institucionInformacionGeneral.
+   *
+   * @method setupController
+   * @param  {[type]} controller Clase controller.
+   * @param  {[type]} model      Modelo de esta ruta.
+   */
   setupController(controller, model) {
     this._super(controller, model);
 

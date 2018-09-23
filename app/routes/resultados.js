@@ -3,10 +3,26 @@ import { inject as service } from '@ember/service';
 import { isNone } from '@ember/utils';
 import { hash } from 'rsvp';
 
+/**
+ * Resultados Route
+ *
+ * @class Route.Resultados
+ */
 export default Route.extend({
-
+  /**
+   * Spreadsheets Service
+   *
+   * @property spreadsheets
+   * @type Service
+   */
   spreadsheets: service(),
 
+  /**
+   * Model hook. Recupera los datos de los resultados de cada perfil. 
+   *
+   * @method model
+   * @return {Object} Datos de resultados de todos los perfiles.
+   */
   model() {
     const spreadsheet = this.get('spreadsheets');
 

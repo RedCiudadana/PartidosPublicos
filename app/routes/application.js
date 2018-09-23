@@ -10,20 +10,46 @@ import { isBlank } from '@ember/utils';
 import { Promise } from 'rsvp';
 import { set } from '@ember/object';
 
+/**
+ * Application Route
+ *
+ * @class Route.Application
+ */
 export default Route.extend({
 
+  /**
+   * Spreadsheets Service
+   *
+   * @property spreadsheets
+   * @type Service
+   */
   spreadsheets: service(),
 
+  /**
+   * Routing Service
+   *
+   * @property _routing
+   * @type Service
+   */
   _routing: service('-routing'),
 
+  /**
+   * Ajax Service
+   *
+   * @property ajax
+   * @type Service
+   */
   ajax: service(),
 
   /**
-   * Setear la URL de datos y de configuración en el servicio spreadsheet.
-   * 
-   * Además procesar los campos de información general del perfil.
-   *
    * TODO: Hacer esto en un lugar más decente, por amor al Señor
+   */
+  /**
+   * Before model hook. Setear la URL de datos y de configuración en el servicio spreadsheet. Además procesar los campos de información general del perfil.
+   *
+   * @method beforeModel
+   * @param  {Promise} transition 
+   * @return {Object}            Un objecto con los datos de la configuración del proyecto desde el sevicio Spreadsheets.
    */
   beforeModel(transition) {
     const spreadsheetService = this.get('spreadsheets');
@@ -143,6 +169,12 @@ export default Route.extend({
       ]));
   },
 
+  /**
+   * Model hook
+   *
+   * @method model
+   * @return {Object} Datos de nuestro aplicación, perfiles y datos de configuración.
+   */
   model() {
     const spreadsheet = this.get('spreadsheets');
     const _routing = this.get('_routing');
@@ -213,6 +245,13 @@ export default Route.extend({
     });
   },
 
+  /**
+   * Levanta un controlador y asigna unos valores.
+   *
+   * @method setupController
+   * @param  {[type]} controller Clase controller.
+   * @param  {[type]} model      Modelo de esta ruta.
+   */
   setupController(controller, model) {
     this._super(controller, model);
 
@@ -221,6 +260,11 @@ export default Route.extend({
     set(model.config, 'mainPageSliderData', model.mainPageSliderData);
   },
 
+  /**
+   * Acciones: selectPerfil.
+   * @property actions
+   * @type {Object}
+   */
   actions: {
     selectPerfil(candidato) {
       this.transitionTo('perfil', candidato.get('id'));

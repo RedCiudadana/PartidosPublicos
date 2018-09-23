@@ -1,33 +1,28 @@
-import Profile from './profile';
-import attr from 'ember-data/attr';
+import Magistrate from './magistrate';
 import { belongsTo } from 'ember-data/relationships';
-import { computed } from '@ember/object';
 
 /**
- * Model for commission deputies
+ * Model para diputados de la comisión.
  *
- * @class Commision-deputies
+ * @class Model.Commision-deputies
  * @extends Model.Profile
- * @namespace Model
  */
-export default Profile.extend({
-  // Attributes
-  cargoNombreCompleto: attr(),
-  cargoNombreCorto: attr(),
-  profesion: attr(),
-  educacion: attr(),
-  biografia: attr(),
-  desempenio: attr(),
-  historialPolitico: attr(),
-  informacionGeneral: attr('informacion-general'),
-  frenteAFrente: attr('frente-a-frente'),
-
+export default Magistrate.extend({
   // Associations
-  partidoPostulante: belongsTo('partido'),
-  partidoActual: belongsTo('partido'),
 
-  // Computed Properties
-  fotoPartido: computed('fotoUrlPartido', function() {
-    return this.get('fotoUrlPartido');
-  })
+  /**
+   * Partido postulante, con el que obtuvo el cargo o fue elegido.
+   *
+   * @property partidoPostulante
+   * @type partido
+   */
+  partidoPostulante: belongsTo('partido'),
+
+  /**
+   * Partido actual.
+   *
+   * @property partidoActual
+   * @type partido
+   */
+  partidoActual: belongsTo('partido'),
 });

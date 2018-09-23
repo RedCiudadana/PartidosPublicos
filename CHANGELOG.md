@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Folder docs
 
-## [0.3.0] - 2018-09-00
+## [0.3.0] - 2018-09-22
+### Added
+- Routes application, index, institucion, perfil, resultados to YUIDoc.
+
+### Removed
+- Namespace tag in models. Instead, use DOT in class.
 
 ## [0.2.1] - 2018-09-22
 ### Added

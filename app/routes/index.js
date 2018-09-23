@@ -2,12 +2,30 @@ import Route from '@ember/routing/route';
 import $ from 'jquery';
 import { scheduleOnce } from '@ember/runloop';
 
+/**
+ * Index Route
+ *
+ * @class Route.Index
+ */
 export default Route.extend({
 
+  /**
+   * Model hook
+   *
+   * @method model
+   * @return {Object} Objeto con los datos de Route.Application.model().
+   */
   model() {
     return this.modelFor('application');
   },
 
+  /**
+   * Levanta nuestro controlador, manejamos el hook 'afterRender' para mostar un Slider o/y activar la animación de Isotope.
+   *
+   * @method setupController
+   * @param  {Controller} controller clase controlador.
+   * @param  {Object} model      modelo de la ruta.
+   */
   setupController(controller, model) {
     this._super(controller, model);
 
@@ -38,6 +56,12 @@ export default Route.extend({
     });
   },
 
+  /**
+   * Acciones de la ruta: applyFilter, applyShuffle. Pendiente pasar a controlador.
+   *
+   * @property actions
+   * @type {Object}
+   */
   actions: {
 
     // TODO: Pendiente de re-habilitar: esta función aplica un selector para el

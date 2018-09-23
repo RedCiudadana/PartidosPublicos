@@ -3,27 +3,16 @@
   "description": "Small description for mi-guatemala goes here",
   "version": "0.0.0",
   "options": {
+    "enabledEnvironments": ["development", "production"],
     "paths": [
       "app"
     ],
     "exclude": "vendor",
-    "outdir": "docs",
+    "outdir": "docs/",
     "linkNatives": true,
     "quiet": true,
     "parseOnly": false,
     "lint": false,
-    "external": {
-      "data": [
-        {
-          "base": "http://emberjs.com/api/",
-          "json": "http://builds.emberjs.com/tags/v1.5.1/ember-docs.json"
-        },
-        {
-          "base": "http://emberjs.com/api/",
-          "json": "http://builds.emberjs.com/tags/v1.0.0-beta.6/ember-data-docs.json"
-        }
-      ]
-    },
     "themedir" : "node_modules/yuidoc-ember-theme",
     "helpers" : ["node_modules/yuidoc-ember-theme/helpers/helpers.js"]
   }

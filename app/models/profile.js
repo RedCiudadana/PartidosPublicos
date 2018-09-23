@@ -3,16 +3,15 @@ import attr from 'ember-data/attr';
 import { computed } from '@ember/object';
 
 /**
- * Model for persons, usually extends.
+ * Modelo para personas, usalmente se extiende esta clase a otras según el proyecto.
  *
- * @class Profile
- * @namespace Model
+ * @class Model.Profile
  */
 export default Model.extend({
   // Attributes
 
   /**
-   * Name
+   * Nombre de la persona.
    *
    * @property nombre
    * @type String
@@ -20,7 +19,7 @@ export default Model.extend({
   nombre: attr('string'),
 
   /**
-   * URL of the person's photo
+   * URL de la foto de la persona.
    *
    * @property fotoURL
    * @type String
@@ -28,7 +27,7 @@ export default Model.extend({
   fotoUrl: attr('string'),
 
   /**
-   * Birthdate
+   * Fecha de nacimento.
    *
    * @property fechaNacimiento
    * @type Date
@@ -36,7 +35,7 @@ export default Model.extend({
   fechaNacimiento: attr('date'),
 
   /**
-   * Place of birth
+   * Lugar de nacimiento.
    *
    * @property lugarNacimiento
    * @type String
@@ -44,7 +43,7 @@ export default Model.extend({
   lugarNacimiento: attr('string'),
 
   /**
-   * Email
+   * Correo electrónico - Email.
    *
    * @property email
    * @type String
@@ -52,7 +51,7 @@ export default Model.extend({
   email: attr('string'),
 
   /**
-   * Facebook profile
+   * Perfil de Facebook, la URL.
    *
    * @property fb
    * @type String
@@ -60,7 +59,7 @@ export default Model.extend({
   fb: attr('string'),
 
   /**
-   * Twitter profile
+   * Perfil de Twitter, la URL.
    *
    * @property tw
    * @type String
@@ -68,7 +67,7 @@ export default Model.extend({
   tw: attr('string'),
 
   /**
-   * Address
+   * Dirrección.
    *
    * @property dirreccion
    * @type String
@@ -76,7 +75,7 @@ export default Model.extend({
   direccion: attr('string'),
 
   /**
-   * Phone number
+   * Número de telefono.
    *
    * @property telefono
    * @type String
@@ -84,7 +83,7 @@ export default Model.extend({
   telefono: attr('string'),
 
   /**
-   * Sex
+   * Sexo.
    *
    * @property sexo
    * @type String
@@ -92,7 +91,7 @@ export default Model.extend({
   sexo: attr('string'),
 
   /**
-   * Status
+   * Estado de la persona según el proceso que se lleva acabo del proyecto. Ejemplo una elección sería "En proceso" o "Descalificado".
    *
    * @property estado
    * @type String
@@ -102,7 +101,7 @@ export default Model.extend({
    // Computed Properties
 
   /**
-  * Perfil photo
+  * Foto del perfil.
   *
   * @property fotoPerfil
   * @type String
@@ -117,7 +116,7 @@ export default Model.extend({
   }),
 
   /**
-  * Selector for Isotope, used to tag element example: 'hombre enProceso partidoA distritoB'
+  * Selector para Isotope. Genera un 'String' con etiquetas para poder filtrar elementos desde el HTML con Isotope.
   *
   * @property selector
   * @type String
@@ -146,7 +145,7 @@ export default Model.extend({
   }),
 
   /**
-  * Disqus Identifier
+  * Identificador de Disqus
   *
   * @property disqusIdentifier
   * @type String

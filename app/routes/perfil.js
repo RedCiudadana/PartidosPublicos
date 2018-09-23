@@ -4,10 +4,37 @@ import { isNone } from '@ember/utils';
 import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
+/**
+ * Perfil Route
+ *
+ * @class Route.Perfil
+ */
 export default Route.extend({
+
+  /**
+   * Spreadsheets Service
+   *
+   * @property spreadsheets
+   * @type Service
+   */
   spreadsheets: service(),
+
+  /**
+   * Routing Service
+   *
+   * @property _routing
+   * @type Service
+   */
   _routing: service('-routing'),
 
+
+
+  /**
+   * Model hook. Obtiene toda la información de un perfil según el id que obtiene de 'params'.
+   *
+   * @method model
+   * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, partidoActual, perfilInformacionGeneralConfiguracion, perfiles, documentosDisponibles, datosTablaGradacion, totalPuntajeGradacion, perfilFuncionalidades, entre otros.
+   */
   model(params) {
     const spreadsheet = this.get('spreadsheets');
     const _routing = this.get('_routing');
@@ -63,20 +90,24 @@ export default Route.extend({
     });
   },
 
-  afterModel(model) {
-    if (!isNone(model.perfil.get('nombre'))) {
-      this.set('breadCrumb', {
-        title: model.perfil.get('nombre')
-      });
-    }
-  },
-
+  /**
+   * Levanta un controlador y asigna model.config.perfilFuncionalidades = model.perfilFuncionalidades.
+   *
+   * @method setupController
+   * @param  {[type]} controller Clase controller.
+   * @param  {[type]} model      Modelo de esta ruta.
+   */
   setupController(controller, model) {
     this._super(controller, model);
 
     model.config.perfilFuncionalidades = model.perfilFuncionalidades;
   },
 
+  /**
+   * Acciones: didTransition.
+   * @property actions
+   * @type {Object}
+   */
   actions: {
     didTransition() {
       window.scrollTo(0, 0);
