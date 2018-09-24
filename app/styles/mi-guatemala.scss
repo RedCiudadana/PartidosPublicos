@@ -1,22 +1,28 @@
-// Links
-a, a:hover {
-    text-decoration: none;
-}
+/**
+ * Mi Guatemala SASS
+ * Author: RedCiudadana
+ * repository: https://github.com/RedCiudadana/MiGuatemala
+ */
 
-a:hover {
-    // Calcula el color según el color primario. Aclara.
-    color: lighten( $primary, 10% ) !important;
-}
-
-// Font awesome
-i {
-    margin-left: 3px;
-    margin-right: 3px;
-}
+/**
+ * Tabla de contenidos
+ * 
+ * Navbar
+ * Footer
+ * Perfil
+ *
+ * - Components
+ * Portfolio
+ *
+ *  - Utils
+ * Font awesome
+ * Links
+ * Panel
+ */
 
 // Navbar
 
-.navbar ul li a{
+.navbar ul li a {
     color: $navbar-color;
 }
 
@@ -27,20 +33,44 @@ i {
     color: $footer-color;
     padding-top: 40px;
     padding-bottom: 40px;
+
+    a {
+        color: $footer-color;
+    }
+
+    a:hover {
+        // Calcula el color según el color de fondo. Aclara.
+        color: lighten( $footer-background-color, 30% ) !important;
+    }
 }
 
-#footer a {
-    color: $footer-color;
+// Perfil
+
+.nav-candidator {
+    background-color: $light;
+    color: $primary;
+
+    nav ul li {
+        padding: 15px;
+    }
+
+    nav ul li:hover, li:hover a {
+        background: $secondary;
+        // Calcula el color según el color de fondo. Aclara 80%.
+        color: lighten( $secondary, 80% ) !important;
+    }
 }
 
-#footer a:hover {
-    // Calcula el color según el color de fondo. Aclara.
-    color: lighten( $footer-background-color, 30% ) !important;
-}
+/**
+ * Components
+ */
+
 
 // Portfolio
 
-.portfolio .item {
+.portfolio {
+
+    .item {
     width: 100%;
     max-width: 400px;
     padding: 10px;
@@ -48,21 +78,22 @@ i {
     text-align: center;
     // Centrar item
     margin: auto;
-}
 
-.portfolio .item .background {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+        .background {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
 
-.portfolio .item .image img {
-    width: 80%;
-}
+        .image img {
+            width: 80%;
+        }
 
-.portfolio .item .text {
-    padding-top: 10px;
-    // Un 'height' determinado para que no varie el alto del item según lo largo del nombre, etc, entre los items.
-    height: 80px;
+        .text {
+            padding-top: 10px;
+            // Un 'height' determinado para que no varie el alto del item según lo largo del nombre, etc, entre los items.
+            height: 80px;
+        }
+    }
 }
 
 @include media-breakpoint-up(sm) {
@@ -93,5 +124,45 @@ i {
 @include media-breakpoint-up(lg) {
     .portfolio .item {
         width: 20%;
+    }
+}
+
+/**
+ * Utils
+ */
+
+// Links
+a, a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    // Calcula el color según el color primario. Aclara.
+    color: lighten( $primary, 10% ) !important;
+}
+
+// Font awesome
+i {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+// Panel
+.panel {
+    @extend .border;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    .header {
+        padding: 30px 15px 30px 15px;
+        background-color: $primary;
+        color: lighten( $primary, 80% ) !important;
+        border: 1px 0 0 0;
+    }
+
+    .body {
+        padding: 15px;
     }
 }

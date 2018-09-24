@@ -270,4 +270,5 @@ export default Route.extend({
       this.transitionTo('perfil', candidato.get('id'));
     }
   }
+
 });

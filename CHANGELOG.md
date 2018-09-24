@@ -7,16 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Folder docs
 
+## [0.4.1] - 2018-09-23
+### Added
+- Added ember's addons ember-link-to-wrapper, ember-social-share, ember-page-title, ember-one-way-select, ember-cli-string-helpers.
+
+### Changed
+- Update perfil.hbs, perfil.index.hbs, perfil.frente-a-frente.hbs.
+
 ## [0.4.0] - 2018-09-23
 ### Added
-- Added ember-bootstrap, ember-font-awesome, ember-cli-sass.
+- Added ember's addons ember-bootstrap, ember-font-awesome, ember-cli-sass.
 - Added node-sass to implement with ember-cli-sass.
 - Added SASS file mi-guatemala.scss.
 - SASS lighten and darken to calculate hover colors.
 - Add tabletop to package.json.
 - Add front-portfolio component.
 
-### Change
+### Changed
 - In application.hbs, the footer and the header are now added with "partial".
 - Change test data to 'Congreso' data
 
@@ -26,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [0.3.1] - 2018-09-23
-### Change
+### Changed
 - Rename adapter diputado-comision to comission-deputies.
 - Rename adapter perfil to magistrate.
 - Rename serializer perfil to magistrate.
@@ -42,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Addon ember-cli-yuidoc
 
-### Change
+### Changed
 - All models to YUIDoc
 
 ## [0.2.0] - 2018-09-18
