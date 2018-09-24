@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Added meta tags in index.html.
-- Added ember's addon ember-cli-favicon.
+- Added ember's addon ember-cli-favicon, ember-cli-deploy ember-cli-deploy-build, ember-cli-deploy-git.
 
 ### Changed
 - Update README.md.
