@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { helper as buildHelper } from '@ember/component/helper';
+
 
 export function isNumeric([value]/*, hash*/) {
   return !isNaN(value);
 }
 
-export default Ember.Helper.helper(isNumeric);
+export default buildHelper(isNumeric);

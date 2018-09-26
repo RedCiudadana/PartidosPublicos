@@ -1,97 +1,49 @@
-<div class="container-profile">
-  <div>
-    <h3 class="text-center">{{model.perfil.nombre}}</h3>
-  </div>
+<div class="container">
+  <div class="row border my-4">
+{{!--     <div class="col-md-3 p-4">
+      
+    </div> --}}
 
-  <div class="profile-candidate">
-    <div class="row">
-      <div class="col-md-3">
-        <div id="candidate-img-profile">
-          <img
-            src="{{model.perfil.fotoPerfil}}"
-            alt="{{model.perfil.nombre}}"
-            border="0"
-            class="img-responsive center-block"
-          >
-        </div>
-
-        <ul class="list-unstyled text-center">
-          {{#if model.perfil.tw}}
-            <li>
-              <i class="fa fa-twitter"></i>
-              <a
-                href="https://twitter.com/{{model.perfil.tw}}"
-                class="social-link-candidate"
-                target="_blank">@{{model.perfil.tw}}
-              </a>
-            </li>
-          {{/if}}
-
-          {{#if model.perfil.fb}}
-            <li>
-              <i class="fa fa-facebook-official"></i>
-              <a
-                href="{{model.perfil.fb}}"
-                class="social-link-candidate"
-                target="_blank"
-              >
-                {{model.perfil.nombre}}
-              </a>
-            </li>
-          {{/if}}
-        </ul>
+    <div class="col-md-8 p-4 d-block d-sm-flex">
+      <div class="text-center">
+        <img
+          src="{{model.perfil.fotoPerfil}}"
+          alt="{{model.perfil.nombre}}"
+          border="0"
+          class="img-responsive center-block w-75"
+        >
       </div>
-
-      <div class="col-md-5">
+      <div class="p-2">
+        <h2>{{model.perfil.nombre}}</h2>
         <table class="table">
           <tbody>
             {{#each-in model.perfil.informacionGeneral as |key item|}}
               <tr>
-                <td>
-                  {{#if item.label}}<span>{{{item.label}}}</span>{{/if}}
-                  {{{item.value}}}
+                <td class="border-0 p-0">
+                  <small>
+                    {{#if item.label}}{{{item.label}}}{{/if}}
+                    {{{item.value}}}
+                  </small>
                 </td>
               </tr>
             {{/each-in}}
           </tbody>
         </table>
       </div>
+    </div>
 
-      <div class="col-md-4 social-side">
-        {{#if documentosDisponibles}}
-          <h3 class="text-center" style="padding-top: 0px;">Datos abiertos</h3>
-        {{/if}}
-
-        {{#each documentosDisponibles as |documento|}}
-          <p>
-            <a href="{{documento.urlDocumento}}" class="btn btn-{{documento.cssClasses}} width-full" target="_blank">
-              {{documento.nombreDocumento}}
-            </a>
-          </p>
-        {{/each}}
+    <div class="col-md-4 social-side text-center d-block p-4">
+      <div>
+        <img src="{{model.perfil.fotoUrlPartido}}" alt="{{model.perfil.partidoactual}}">
+      </div>
+      <div class="d-block mt-3">
+        <div>
+          <a href="{{mode.perfil.tw}}" target="_blank"><i class="fa fa-twitter mr-1"></i>{{model.perfil.tw}}</a>
+        </div>
+        <div>
+          <a href="{{model.perfil.fb}}" target="_blank"><i class="fa fa-facebook mr-1"></i>{{model.perfil.nombre}}</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="questionary">
-  <div class="row">
-    <div class="col-md-6">
-      <h3></h3>
-    </div>
-  </div>
-
-  {{#each-in model.perfil.recuadros as |key item|}}
-    <div class="panel panel-default">
-      {{#if item.label}}<div class="panel-heading">{{{item.label}}}</div>{{/if}}
-
-      <div class="panel-body">
-        {{{item.value}}}
-      </div>
-    </div>
-  {{/each-in}}
-</div>
-
-{{#if disqusShortname}}
-  {{disqus-comments identifier=model.perfil.disqusIdentifier}}
-{{/if}}

@@ -1,8 +1,9 @@
-import Ember from 'ember';
 import DS from 'ember-data';
+import { inject as service } from '@ember/service';
+import { keys } from '@ember/polyfills';
 
 export default DS.Adapter.extend({
-  spreadsheets: Ember.inject.service(),
+  spreadsheets: service(),
 
   findAll(_, type) {
     return this.get('spreadsheets').fetch(type);
@@ -17,7 +18,7 @@ export default DS.Adapter.extend({
   findQuery: function(store, type, query) {
     return this.findAll(store, type).then(function(data) {
       return data.filter(function(datum) {
-        return Ember.keys(query).every(function(key) {
+        return keys(query).every(function(key) {
           return datum[key] === query[key];
         });
       });

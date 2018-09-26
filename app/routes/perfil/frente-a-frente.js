@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   breadCrumb: null,
 
   model() {
@@ -19,7 +19,7 @@ export default Ember.Route.extend({
         .findBy('route', 'perfil.frente-a-frente')
     );
 
-    let frenteAFrenteFields = this.store.serializerFor('perfil').get('frenteAFrenteFields');
+    let frenteAFrenteFields = this.store.serializerFor('magistrate').get('frenteAFrenteFields');
 
     controller.set('frenteAFrenteFields', frenteAFrenteFields);
   },

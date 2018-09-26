@@ -30,7 +30,7 @@ module.exports = function(environment) {
       // URL from which to load de dumped static files
       staticFilesUrl: null
       // staticFilesUrl: 'http://192.168.250.206:6360/static-files/'
-      // staticFilesUrl: 'http://eleccionpdh.org/static-files/'
+      // staticFilesUrl: 'http://localhost:6360/static-files/'
     },
 
     disqus: {
@@ -49,7 +49,7 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = contentSecurityPolicy;
     ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
 
-    ENV.APP.staticFilesUrl = 'http://192.168.250.206:6360/static-files/';
+    ENV.APP.staticFilesUrl = 'http://localhost:6360/static-files/';
   }
 
   if (environment === 'test') {
