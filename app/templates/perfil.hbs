@@ -2,71 +2,68 @@
 
 <section id="perfil" class="my-4">
 
+  <div class="container">
   {{#if model.config.perfilFuncionalidades}}
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-block d-md-none text-right">
-            {{#twitter-share-button title=config.twitterShareLink hashtags='MiGuatemala' via='Redxguate'}}Tweet{{/twitter-share-button}}
-            {{#fb-share-button quote=config.twitterShareLink hashtags='MiGuatemala'}}Share{{/fb-share-button}}
-          </div>
-          <div class="nav-candidator border">
-            <nav>
-              <ul class="list-inline m-0 d-md-flex">
-                {{#each model.config.perfilFuncionalidades as |link|}}
-                      {{#if link.link}}
-                          <a href="{{link.link}}" title="{{link.title}}">
-                            {{#if link.iconClass}}
-                              <i class="{{link.iconClass}}"></i>
-                            {{/if}}
-                            {{link.name}}
-                          </a>
-                      {{else}}
-                        {{#link-to-wrapper link.route title=link.title}}
-                            {{#if link.iconClass}}
-                              <i class="{{link.iconClass}}"></i>
-                            {{/if}}
-                            {{link.name}}
-                        {{/link-to-wrapper}}
-                      {{/if}}
-                {{/each}}
-                <li class="px-3 ml-auto d-none d-md-block">
-                  {{#twitter-share-button title=config.twitterShareLink hashtags='MiGuatemala' via='Redxguate'}}Tweet{{/twitter-share-button}}
-                  {{#fb-share-button quote=config.twitterShareLink hashtags='MiGuatemala'}}Share{{/fb-share-button}}
-                </li>
-              </ul>
-            </nav>
-          </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="d-block d-md-none text-right">
+          {{#twitter-share-button title=config.twitterShareLink hashtags='MiGuatemala' via='Redxguate'}}Tweet{{/twitter-share-button}}
+          {{#fb-share-button quote=config.twitterShareLink hashtags='MiGuatemala'}}Share{{/fb-share-button}}
+        </div>
+        <div class="nav-candidator border">
+          <nav>
+            <ul class="list-inline m-0 d-md-flex">
+              {{#each model.config.perfilFuncionalidades as |link|}}
+                    {{#if link.link}}
+                        <a href="{{link.link}}" title="{{link.title}}">
+                          {{#if link.iconClass}}
+                            <i class="{{link.iconClass}}"></i>
+                          {{/if}}
+                          {{link.name}}
+                        </a>
+                    {{else}}
+                      {{#link-to-wrapper link.route title=link.title}}
+                          {{#if link.iconClass}}
+                            <i class="{{link.iconClass}}"></i>
+                          {{/if}}
+                          {{link.name}}
+                      {{/link-to-wrapper}}
+                    {{/if}}
+              {{/each}}
+              <li class="px-3 ml-auto d-none d-md-block">
+                {{#twitter-share-button title=config.twitterShareLink hashtags='MiGuatemala' via='Redxguate'}}Tweet{{/twitter-share-button}}
+                {{#fb-share-button quote=config.twitterShareLink hashtags='MiGuatemala'}}Share{{/fb-share-button}}
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
   {{/if}}
 
-  <div class="container">
-    {{outlet}}
-  </div>
+  {{outlet}}
 
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="panel">
-          <div class="header d-flex">
-            <img src="app/img/icon-disqus.png" alt="" class="image60x60"><h3 class="my-auto mx-5">Disqus</h3>
-          </div>
-          <div class="body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            {{#if disqusShortname}}
-              {{disqus-comments identifier=model.perfil.disqusIdentifier}}
-            {{/if}}
-          </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex">
+          <img src="app/img/icon-disqus.png" alt="" class="image60x60"><h3 class="my-auto mx-5">Disqus</h3>
+        </div>
+        <div class="body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          {{#if disqusShortname}}
+            {{disqus-comments identifier=model.perfil.disqusIdentifier}}
+          {{/if}}
         </div>
       </div>
     </div>
   </div>
+
+</div>
 
 </section>

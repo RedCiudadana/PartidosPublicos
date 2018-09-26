@@ -1,32 +1,35 @@
 <div class="container">
   <div class="row border my-4">
-    <div class="col-md-3 p-4">
-      <div>
+{{!--     <div class="col-md-3 p-4">
+      
+    </div> --}}
+
+    <div class="col-md-8 p-4 d-block d-sm-flex">
+      <div class="text-center">
         <img
           src="{{model.perfil.fotoPerfil}}"
           alt="{{model.perfil.nombre}}"
           border="0"
-          class="img-responsive center-block w-100"
+          class="img-responsive center-block w-75"
         >
       </div>
-    </div>
-
-    <div class="col-md-5 p-4">
-      <h1>{{model.perfil.nombre}}</h1>
-      <table class="table">
-        <tbody>
-          {{#each-in model.perfil.informacionGeneral as |key item|}}
-            <tr>
-              <td class="border-0 p-0">
-                <small>
-                  {{#if item.label}}{{{item.label}}}{{/if}}
-                  {{{item.value}}}
-                </small>
-              </td>
-            </tr>
-          {{/each-in}}
-        </tbody>
-      </table>
+      <div class="p-2">
+        <h2>{{model.perfil.nombre}}</h2>
+        <table class="table">
+          <tbody>
+            {{#each-in model.perfil.informacionGeneral as |key item|}}
+              <tr>
+                <td class="border-0 p-0">
+                  <small>
+                    {{#if item.label}}{{{item.label}}}{{/if}}
+                    {{{item.value}}}
+                  </small>
+                </td>
+              </tr>
+            {{/each-in}}
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="col-md-4 social-side text-center d-block p-4">
