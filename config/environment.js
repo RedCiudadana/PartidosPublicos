@@ -1,8 +1,15 @@
 /* eslint-env node */
 'use strict';
 
+// Necesario para ember-metrics
 var contentSecurityPolicy = {
-  'connect-src': "'self' https://*.google.com"
+  'default-src': "'none'",
+  'script-src': "'self' www.google-analytics.com",
+  'font-src': "'self'",
+  'connect-src': "'self' www.google-analytics.com",
+  'img-src': "'self'",
+  'style-src': "'self'",
+  'media-src': "'self'"
 };
 
 module.exports = function(environment) {
@@ -21,6 +28,21 @@ module.exports = function(environment) {
         Date: false
       }
     },
+
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['production', 'development'],
+        config: {
+          id: 'UA-XXXX-Y',
+          // Use verbose tracing of GA events
+          trace: environment === 'development',
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development',
+          // Specify Google Analytics plugins
+          // require: ['ecommerce']
+        }
+      }],
 
     APP: {
       dataSpreadsheetSourceUrl: '/data-spreadsheet-url',

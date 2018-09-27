@@ -5,11 +5,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added main initializer.
+- Added ember's addons ember-metrics, ember-router-scroll.
+
+## Changed
+- Actions in index controller.
+
+## Removed
+- Flash-message helper, for now is broken.
 
 ## [0.4.2] 2018-09-26
 ### Added
 - Added meta tags in index.html.
-- Added ember's addon ember-cli-favicon, ember-cli-deploy ember-cli-deploy-build, ember-cli-deploy-git.
+- Added ember's addons ember-cli-favicon, ember-cli-deploy ember-cli-deploy-build, ember-cli-deploy-git.
 
 ### Changed
 - Update README.md.
