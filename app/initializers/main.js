@@ -2,6 +2,7 @@ import { registerDeprecationHandler } from '@ember/debug';
 
 /**
  * Main Initialzer
+ * Unicamente controla las depreciaciones.
  *
  * @class Initializer.Main
  */
@@ -12,7 +13,7 @@ export function initialize(/* application */) {
   console.warn('The deprecations are hidden but are showing in Ember\'s Inspector deprecations tab. See main initializer for more information.');
 
   /**
-   * Deprecation Handler. See this: https://guides.emberjs.com/v3.4.0/configuring-ember/handling-deprecations/.
+   * Deprecation Handler. Oculta las depreciaciones. See this: https://guides.emberjs.com/v3.4.0/configuring-ember/handling-deprecations/.
    *
    * @method registerDeprecationHandler
    */

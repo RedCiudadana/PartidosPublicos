@@ -7,26 +7,52 @@ import { Promise } from 'rsvp';
 import { isNone } from '@ember/utils';
 
 /**
- * this service get data from /static-files/ or Google's spreadsheets, see environmnet.
+ * Spreadsheets service.
+ * Servicios para obtener datos desde /static-files/ or Google's spreadsheets, según la configuración en 'environment'.
+ * Para generar los archivos ejecutar 'node build-data.js'. Antes revisar la documentación en la carpeta 'Documentation'.
+ * Preferiblemente usar 'static-files' porque el 'live-mode' es muy lento por la forma que obtiene los datos.
+ * 
+ * @class Service.Spreadsheets
  * @example
  * import { inject as service } from '@ember/service';
  * spreadsheets: service()
  */
-
 export default Service.extend({
 
+  /**
+   * Ajax Service
+   *
+   * @property ajax
+   * @type Service
+   */
   ajax: service(),
 
+  /**
+   * URL de la hoja de datos (perfiles, partidos, etc). Luego se obtiene de 'environment'
+   *
+   * @property dataSpreadsheetUrl
+   * @type String
+   * @default null
+   */
   dataSpreadsheetUrl: null,
 
+  /**
+   * URL de la hoja de configuraciones (aspecto de la pagina, campos de perfiles, etc). Luego se obtiene de 'environment'
+   *
+   * @property configSpreadsheetUrl
+   * @type String
+   * @default null
+   */
   configSpreadsheetUrl: null,
 
   // flashMessages: service(),
 
   /**
-   * Get data by worksheetname.
-   * @param {string} worksheetName - Name of worksheet.
-   * @param {string} [spreadsheetKey='data'] - Can be 'data' or 'config', used to get the URL of Google's spreadsheets public file. Only live mode.
+   * Obtiene datos de una hoja especifica.
+   *
+   * @method fetch
+   * @param {string} worksheetName - Nombre de la hoja.
+   * @param {string} [spreadsheetKey='data'] - Puede ser 'data' o 'config' especifica la dirrección (archivo de google's spredsheet publicado) para obtener datos. Útil solamente cuando no se usa 'static-files'.
    */
   fetch(worksheetName, spreadsheetKey = 'data') {
 
@@ -53,7 +79,7 @@ export default Service.extend({
           // );
 
           // throw error;
-          console.log(errorMessage);
+          console.warn(errorMessage);
         });
     }
 
@@ -73,8 +99,8 @@ export default Service.extend({
             // TODO: Get back vorkin
             // this.get('flashMessages').danger(errorMessage, {sticky: true});
 
-            // TODO: Convertir en alerta de console.log
-            console.log(errorMessage);
+            // TODO: Convertir en alerta de console.warn
+            console.warn(errorMessage);
 
             return resolve();
           }
@@ -84,8 +110,8 @@ export default Service.extend({
             // TODO: Get back vorkin
             // this.get('flashMessages').danger(errorMessage, {sticky: true});
 
-            // TODO: Convertir en alerta de console.log
-            console.log(errorMessage);
+            // TODO: Convertir en alerta de console.warn
+            console.warn(errorMessage);
 
             return resolve();
           }
@@ -97,9 +123,11 @@ export default Service.extend({
   },
 
   /**
-   * Wrap of fetch with spreadsheetKey='config'.
-   * @param  {string} worksheetName Name of worksheet.
-   * @return {Promise<string[], MyError>} Promise data.
+   * Wrap de fetch que tiene 'spreadsheetKey' como 'config'.
+   *
+   * @method fetchConfig
+   * @param  {string} worksheetName Nombre de la hoja.
+   * @return {Promise<string[], MyError>} Promesa con los datos.
    */
   fetchConfig(worksheetName) {
     return this.fetch(worksheetName, 'config');
