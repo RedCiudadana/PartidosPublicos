@@ -4,8 +4,8 @@
       <div class="background bg-light">
 
         <div class="image">
-          {{#link-to 'perfil' perfil.id}}
-            <img alt="{{perfil.cargoNombreCompleto}}" src="{{perfil.fotoPerfil}}" />
+          {{#link-to "perfil" perfil.id}}
+            <img alt={{perfil.cargoNombreCompleto}} src={{perfil.fotoPerfil}}>
           {{/link-to}}
         </div>
 

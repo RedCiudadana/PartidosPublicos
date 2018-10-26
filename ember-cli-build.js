@@ -36,9 +36,9 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('bower_components/flexslider/jquery.flexslider.js');
-  app.import('bower_components/isotope/dist/isotope.pkgd.js');
-  app.import('bower_components/tabletop/src/tabletop.js');
+  app.import('node_modules/flexslider/jquery.flexslider-min.js');
+  app.import('node_modules/isotope-layout/dist/isotope.pkgd.min.js');
+  app.import('node_modules/tabletop/src/tabletop.min.js');
   app.import('vendor/jquery.gridAccordion.js');
   app.import('vendor/shims.js');
 

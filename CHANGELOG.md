@@ -12,9 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Changed
 - Actions in index controller.
+- In handlebars change ' to " .
 
 ## Removed
 - Flash-message helper, for now is broken.
+- Remove all bower dependecies.
 
 ## [0.4.2] 2018-09-26
 ### Added
