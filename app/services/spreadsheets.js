@@ -7,7 +7,6 @@ import { isNone } from '@ember/utils';
 import debugLogger from 'ember-debug-logger';
 
 /**
- * Spreadsheets service.
  * Servicios para obtener datos desde /static-files/ or Google's spreadsheets, según la configuración en 'environment'.
  * Para generar los archivos ejecutar 'node build-data.js'. Antes revisar la documentación en la carpeta 'Documentation'.
  * Preferiblemente usar 'static-files' porque el 'live-mode' es muy lento por la forma que obtiene los datos.

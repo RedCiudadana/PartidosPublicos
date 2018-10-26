@@ -1,13 +1,16 @@
 {
-  "name": "mi-guatemala",
-  "description": "Small description for mi-guatemala goes here",
-  "version": "0.0.0",
+  "name": "MiGuatemala",
+  "description": "MiGuatemala es una aplicación destinada a la transparencia en materia de funcionarios públicos.",
+  "url": "https://github.com/RedCiudadana/MiGuatemala",
+  "logo": "http://redciudadana.org/wp-content/uploads/2018/05/red-logo-01.png",
+  "primaryColor": "#2cd3b4",
+  "version": "master",
   "options": {
     "paths": [
       "app"
     ],
     "exclude": "vendor",
-    "outdir": "docs/",
+    "outdir": "public/docs",
     "linkNatives": true,
     "quiet": true,
     "parseOnly": false,

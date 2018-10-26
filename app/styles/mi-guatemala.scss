@@ -65,17 +65,20 @@
 
     .row {
         padding: 1rem;
-
-        div + div div.panel {
-            margin-left: 0.5px;
-        }
     }
 
     img#photo-perfil {
         max-width: 350px;
         width: 80%;
     }
+}
 
+@include media-breakpoint-up(md) {
+    .perfil .row {
+        div + div div.panel {
+            margin-left: 0.5px;
+        }
+    }
 }
 
 /**

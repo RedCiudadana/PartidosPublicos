@@ -9,14 +9,14 @@ import { isBlank } from '@ember/utils';
 import { Promise } from 'rsvp';
 
 /**
- * Application Route
+ * Serializa los modelos y obtiene perfiles, config, navbarLinks, a traves del servicio: spreadsheets.
  *
  * @class Route.Application
  */
 export default Route.extend({
 
   /**
-   * Spreadsheets Service
+   * Servicio para obtener datos, ya sea desde 'static-files' o las hojas de datos públicadas.
    *
    * @property spreadsheets
    * @type Service
@@ -24,7 +24,7 @@ export default Route.extend({
   spreadsheets: service(),
 
   /**
-   * Routing Service
+   * Servicio de rutas. Utilizado para comprobar que existan ciertas rutas que son indicadas en la configuración (navbarLinks).
    *
    * @property _routing
    * @type Service
@@ -32,7 +32,7 @@ export default Route.extend({
   _routing: service('-routing'),
 
   /**
-   * Ajax Service
+   * Obtiene los datos de archivos. Utilizado para obtener las URLs de las hojas de calculo publicadas.
    *
    * @property ajax
    * @type Service
@@ -40,7 +40,7 @@ export default Route.extend({
   ajax: service(),
 
   /**
-   * Establecer la 'URL' de los datos y configuraciones en el servicio spreadsheet. Además procesar los campos de serialización.
+   * Establecer la 'URL' de los datos y configuraciones en el servicio spreadsheet. Además procesar los campos de serialización y serializar.
    *
    * @method beforeModel
    */
@@ -128,6 +128,27 @@ export default Route.extend({
             let prefilSerializer = this.store.serializerFor('magistrate');
 
             prefilSerializer.set('frenteAFrenteFields', perfilFrenteAFrenteDataArray);
+          }),
+
+        /**
+         * Setear la información general del perfil:comission-deputies mediante la parametrización
+         * proveniente de la configuración
+         */
+        spreadsheetService
+          .fetchConfig('diputado-informacion-general-configuracion')
+          .then((configuracionData) => {
+            let perfilDataArray = A([]);
+
+            A(configuracionData).forEach((item) => {
+              perfilDataArray.pushObject({
+                field: item.field,
+                label: item.label
+              });
+            });
+
+            let prefilSerializer = this.store.serializerFor('commission-deputies');
+
+            prefilSerializer.set('informacionGeneralFields', perfilDataArray);
           })
       ]));
   },
@@ -144,6 +165,7 @@ export default Route.extend({
 
     return hash({
       perfiles: this.store.findAll('magistrate'),
+      diputados: this.store.findAll('commission-deputies'),
       config: spreadsheet.fetchConfig('configuracion')
         .then((configuracion) => {
           let configObject = EmberObject.create();
@@ -159,7 +181,7 @@ export default Route.extend({
           return A(links).filter((link) => {
             return _routing.hasRoute(link.route);
           });
-        }),
+        })
     });
   },
 

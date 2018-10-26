@@ -3,9 +3,9 @@
   "version": "0.4.2",
   "private": true,
   "description": "Proyecto de transparencia de Red Ciudadana",
-  "repository": "",
+  "repository": "https://github.com/RedCiudadana/MiGuatemala",
   "license": "MIT",
-  "author": "",
+  "author": "RedCiudadana",
   "directories": {
     "doc": "doc",
     "test": "tests"

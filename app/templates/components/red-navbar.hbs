@@ -16,6 +16,10 @@
       {{#each model.navbarLinks as |link|}}
         {{#nav.item active=false class="mx-2"}}{{#link-to link.route}}{{link.title}}{{/link-to}}{{/nav.item}}
       {{/each}}
+
+      {{!-- API MiGuatemala, borrar en producción --}}
+      {{#nav.item active=false class="mx-2"}}<a href="docs/index.html">API</a>{{/nav.item}}
+
     {{/navbar.nav}}
   {{/navbar.content}}
 {{/bs-navbar}}
