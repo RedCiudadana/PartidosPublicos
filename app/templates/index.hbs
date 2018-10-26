@@ -2,10 +2,10 @@
 {{#if model.config.useFrontPortfolioVisualization}}
   <div class="container-fluid bg-white">
     <div>
-    {{front-portfolio
+      {{front-portfolio
       perfiles=model.perfiles
       onDidInsertElement=(action "applyFilter")
-    }}
+      }}
     </div>
   </div>
 {{/if}}

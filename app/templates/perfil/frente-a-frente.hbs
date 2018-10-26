@@ -1,23 +1,22 @@
 <section id="election">
   {{#if frenteAFrenteFuncionalidad}}
     <div id="msj-alerta" class="alert alert-info my-2">
-      {{{frenteAFrenteFuncionalidad.title}}}
+      {{html-safe frenteAFrenteFuncionalidad.title}}
     </div>
   {{/if}}
 
   <div id="compare-candidates">
     <div class="row">
       <div class="col-md-6 my-2">
-        {{one-way-select model.perfil
+        {{one-way-select perfilUnoId
             options=model.perfiles
             optionValuePath="id"
             optionLabelPath="nombre"
             update=(action (mut perfilUno))
-            value=perfilUno
         }}
       </div>
       <div class="col-md-6">
-        {{one-way-select perfilDos
+        {{one-way-select perfilDosId
             options=model.perfiles
             optionValuePath="id"
             optionLabelPath="nombre"
@@ -44,8 +43,8 @@
               <div class="row">
                 <div class="col-md-1">
                   <img
-                    src="{{perfilUno.fotoPerfil}}"
-                    alt="{{perfilUno.nombre}}"
+                    src={{perfilUno.fotoPerfil}}
+                    alt={{perfilUno.nombre}}
                     border="0"
                     class="img-fluid"
                   >
@@ -60,8 +59,8 @@
                 </div>
                 <div class="col-md-1">
                   <img
-                    src="{{perfilDos.fotoPerfil}}"
-                    alt="{{perfilDos.nombre}}"
+                    src={{perfilDos.fotoPerfil}}
+                    alt={{perfilDos.nombre}}
                     border="0"
                     class="img-fluid"
                   >
@@ -81,7 +80,7 @@
       {{/each-in}}
     </div>
 
-    {{!-- Only mobile --}}
+    {{!-- Solo para pantallas (xs, sm) --}}
     <div class="d-block d-md-none">
       {{#each-in frenteAFrenteSectionGroupedFields as |section fields|}}
         <div class="panel">

@@ -13,12 +13,12 @@ module.exports = function(defaults) {
     'ember-bootstrap': {
       'bootstrapVersion': 4,
       'importBootstrapFont': false,
-      // Dont include 'importBootstrapCSS' because it's going to be imported through Sass
+      // No incluir el archivo de boostrap.css porque se incluyen el archivo app.scss.
       'importBootstrapCSS': false
     },
 
     sassOptions: {
-      // Only search in 'includedPaths'; performance.
+      // Utilizar nodeSass, es drasticamente más rapido.
       implementation: nodeSass
     }
   });

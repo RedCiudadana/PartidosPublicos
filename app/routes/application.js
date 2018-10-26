@@ -9,6 +9,7 @@ import { inject as service } from '@ember/service';
 import { isBlank } from '@ember/utils';
 import { Promise } from 'rsvp';
 import { set } from '@ember/object';
+import debugLogger from 'ember-debug-logger';
 
 /**
  * Application Route
@@ -16,6 +17,12 @@ import { set } from '@ember/object';
  * @class Route.Application
  */
 export default Route.extend({
+
+  debug: debugLogger(),
+
+  activate() {
+    this.debug('Hello from the application index.');
+  },
 
   /**
    * Spreadsheets Service
@@ -48,10 +55,9 @@ export default Route.extend({
    * Before model hook. Setear la URL de datos y de configuración en el servicio spreadsheet. Además procesar los campos de información general del perfil.
    *
    * @method beforeModel
-   * @param  {Promise} transition 
    * @return {Object}            Un objecto con los datos de la configuración del proyecto desde el sevicio Spreadsheets.
    */
-  beforeModel(transition) {
+  beforeModel() {
     const spreadsheetService = this.get('spreadsheets');
 
     // TODO: Agregar validación: si config.APP.dataSpreadsheetSourceUrl no esta definida,

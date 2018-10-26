@@ -1,14 +1,11 @@
 <div class="container">
   <div class="row border my-4">
-{{!--     <div class="col-md-3 p-4">
-      
-    </div> --}}
 
     <div class="col-md-8 p-4 d-block d-sm-flex">
       <div class="text-center">
         <img
-          src="{{model.perfil.fotoPerfil}}"
-          alt="{{model.perfil.nombre}}"
+          src={{model.perfil.fotoPerfil}}
+          alt={{model.perfil.nombre}}
           border="0"
           class="img-responsive center-block w-75"
         >
@@ -21,8 +18,8 @@
               <tr>
                 <td class="border-0 p-0">
                   <small>
-                    {{#if item.label}}{{{item.label}}}{{/if}}
-                    {{{item.value}}}
+                    {{#if item.label}}{{html-safe item.label}}{{/if}}
+                    {{html-safe item.value}}
                   </small>
                 </td>
               </tr>
@@ -34,14 +31,14 @@
 
     <div class="col-md-4 social-side text-center d-block p-4">
       <div>
-        <img src="{{model.perfil.fotoUrlPartido}}" alt="{{model.perfil.partidoactual}}">
+        <img src={{model.perfil.fotoUrlPartido}} alt={{model.perfil.partidoactual}}>
       </div>
       <div class="d-block mt-3">
         <div>
-          <a href="{{mode.perfil.tw}}" target="_blank"><i class="fa fa-twitter mr-1"></i>{{model.perfil.tw}}</a>
+          <a href={{mode.perfil.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.perfil.tw}}</a>
         </div>
         <div>
-          <a href="{{model.perfil.fb}}" target="_blank"><i class="fa fa-facebook mr-1"></i>{{model.perfil.nombre}}</a>
+          <a href={{model.perfil.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.perfil.nombre}}</a>
         </div>
       </div>
     </div>

@@ -1,10 +1,10 @@
 import Service from '@ember/service';
 import Tabletop from 'tabletop';
 import config from '../config/environment';
-import {isNotFoundError} from 'ember-ajax/errors';
 import { inject as service } from '@ember/service'
 import { Promise } from 'rsvp';
 import { isNone } from '@ember/utils';
+import debugLogger from 'ember-debug-logger';
 
 /**
  * Spreadsheets service.
@@ -18,6 +18,8 @@ import { isNone } from '@ember/utils';
  * spreadsheets: service()
  */
 export default Service.extend({
+
+  log: debugLogger(),
 
   /**
    * Ajax Service
@@ -55,7 +57,6 @@ export default Service.extend({
    * @param {string} [spreadsheetKey='data'] - Puede ser 'data' o 'config' especifica la dirrección (archivo de google's spredsheet publicado) para obtener datos. Útil solamente cuando no se usa 'static-files'.
    */
   fetch(worksheetName, spreadsheetKey = 'data') {
-
     // Si config.APP.staticFilesUrl está definido, obtener la data de allí, independiente
     // del spreadsheetKey
     if (!isNone(config.APP.staticFilesUrl)) {
@@ -65,21 +66,10 @@ export default Service.extend({
           return new Promise((resolve) => {
             resolve(response);
           });
+
         })
-        .catch((error) => {
-          let errorMessage = 'Error durante carga de data JSON!';
-
-          if (isNotFoundError(error)) {
-            errorMessage = `Expected file ${worksheetName}.json not found`;
-          }
-
-          // this.get('flashMessages').danger(
-          //   errorMessage,
-          //   { sticky: true }
-          // );
-
-          // throw error;
-          // console.warn(errorMessage);
+        .catch(() => {
+          this.log('Error durante la carga del JSON.');
         });
     }
 
@@ -95,24 +85,10 @@ export default Service.extend({
         key: spreadsheetUrl,
         callback: (data) => {
           if (isNone(data[worksheetName])) {
-            let errorMessage = `Got no answer for spreadsheet ${worksheetName}`;
-            // TODO: Get back vorkin
-            // this.get('flashMessages').danger(errorMessage, {sticky: true});
-
-            // TODO: Convertir en alerta de console.warn
-            // console.warn(errorMessage);
-
             return resolve();
           }
 
           if (isNone(data[worksheetName].elements)) {
-            let errorMessage = `Got a problem with the elements for spreadsheet ${worksheetName}`;
-            // TODO: Get back vorkin
-            // this.get('flashMessages').danger(errorMessage, {sticky: true});
-
-            // TODO: Convertir en alerta de console.warn
-            // console.warn(errorMessage);
-
             return resolve();
           }
 

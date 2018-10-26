@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   root: true,
   parserOptions: {
@@ -15,6 +17,7 @@ module.exports = {
     browser: true
   },
   rules: {
+    'no-partial': 'off'
   },
   overrides: [
     // node files
