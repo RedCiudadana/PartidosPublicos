@@ -13,7 +13,7 @@
 
   {{#navbar.content}}
     {{#navbar.nav justified=true type="pills" class="ml-auto" as |nav|}}
-      {{#each model.config.navbarLinks as |link|}}
+      {{#each model.navbarLinks as |link|}}
         {{#nav.item active=false class="mx-2"}}{{#link-to link.route}}{{link.title}}{{/link-to}}{{/nav.item}}
       {{/each}}
     {{/navbar.nav}}

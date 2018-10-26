@@ -50,15 +50,32 @@
     background-color: $light;
     color: $primary;
 
-    nav ul li {
+    ul li {
         padding: 15px;
     }
 
-    nav ul li:hover, li:hover a {
+    ul li:hover, li:hover a {
         background: $secondary;
         // Calcula el color según el color de fondo. Aclara 80%.
         color: lighten( $secondary, 80% ) !important;
     }
+}
+
+.perfil {
+
+    .row {
+        padding: 1rem;
+
+        div + div div.panel {
+            margin-left: 0.5px;
+        }
+    }
+
+    img#photo-perfil {
+        max-width: 350px;
+        width: 80%;
+    }
+
 }
 
 /**
@@ -154,6 +171,9 @@ i {
     margin-bottom: 15px;
     border-radius: $border-radius;
     overflow: hidden;
+    // Eliminar el padding de col-*
+    margin-left: -15px;
+    margin-right: -15px;
 
     .header {
         padding: 30px 15px 30px 15px;

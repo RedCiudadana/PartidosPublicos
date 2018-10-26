@@ -1,45 +1,71 @@
-<div class="container">
-  <div class="row border my-4">
-
-    <div class="col-md-8 p-4 d-block d-sm-flex">
-      <div class="text-center">
-        <img
-          src={{model.perfil.fotoPerfil}}
-          alt={{model.perfil.nombre}}
-          border="0"
-          class="img-responsive center-block w-75"
-        >
+<div class="row m-1 border">
+  {{!-- Imagen --}}
+  <div class="col-md-4">
+    <div class="text-center">
+      <img
+        id="photo-perfil"
+        src={{model.perfil.fotoPerfil}}
+        alt={{model.perfil.nombre}}
+        border="0"
+        class="img-responsive center-block"
+      >
+    </div>
+  </div>
+  {{!-- Información general --}}
+  <div class="col-4">
+    <div class="p-2">
+      <h2>{{model.perfil.nombre}}</h2>
+      <table class="table">
+        <tbody>
+          {{#each-in model.perfil.informacionGeneral as |key item|}}
+            <tr>
+              <td class="border-0 p-0">
+                <small>
+                  {{#if item.label}}{{html-safe item.label}}{{/if}}
+                  {{html-safe item.value}}
+                </small>
+              </td>
+            </tr>
+          {{/each-in}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {{!-- Información extra, redes sociales --}}
+  <div class="col-md-4 social-side text-center d-block">
+    <div>
+      <img src={{model.perfil.fotoUrlPartido}} alt={{model.perfil.partidoactual}}>
+    </div>
+    <div class="d-block mt-3">
+      <div>
+        <a href={{mode.perfil.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.perfil.tw}}</a>
       </div>
-      <div class="p-2">
-        <h2>{{model.perfil.nombre}}</h2>
-        <table class="table">
-          <tbody>
-            {{#each-in model.perfil.informacionGeneral as |key item|}}
-              <tr>
-                <td class="border-0 p-0">
-                  <small>
-                    {{#if item.label}}{{html-safe item.label}}{{/if}}
-                    {{html-safe item.value}}
-                  </small>
-                </td>
-              </tr>
-            {{/each-in}}
-          </tbody>
-        </table>
+      <div>
+        <a href={{model.perfil.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.perfil.nombre}}</a>
       </div>
     </div>
+  </div>
 
-    <div class="col-md-4 social-side text-center d-block p-4">
-      <div>
-        <img src={{model.perfil.fotoUrlPartido}} alt={{model.perfil.partidoactual}}>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel">
+      <div class="header"><h3>Panel 1</h3></div>
+      <div class="body">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut iusto cum, sint hic veritatis id reiciendis illum aliquid natus repellendus eaque in praesentium harum unde quod error doloremque. Explicabo.
+        </p>
       </div>
-      <div class="d-block mt-3">
-        <div>
-          <a href={{mode.perfil.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.perfil.tw}}</a>
-        </div>
-        <div>
-          <a href={{model.perfil.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.perfil.nombre}}</a>
-        </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel">
+      <div class="header"><h3>Panel 1</h3></div>
+      <div class="body">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut iusto cum, sint hic veritatis id reiciendis illum aliquid natus repellendus eaque in praesentium harum unde quod error doloremque. Explicabo.
+        </p>
       </div>
     </div>
   </div>

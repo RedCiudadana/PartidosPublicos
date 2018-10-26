@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Removed
 - Flash-message helper, for now is broken.
 - Remove all bower dependecies.
+- Overdata in application route.
 
 ## [0.4.2] 2018-09-26
 ### Added

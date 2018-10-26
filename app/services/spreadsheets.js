@@ -57,6 +57,12 @@ export default Service.extend({
    * @param {string} [spreadsheetKey='data'] - Puede ser 'data' o 'config' especifica la dirrección (archivo de google's spredsheet publicado) para obtener datos. Útil solamente cuando no se usa 'static-files'.
    */
   fetch(worksheetName, spreadsheetKey = 'data') {
+
+    /**
+     *
+     *  MODO ESTÁTICO
+     *
+     */
     // Si config.APP.staticFilesUrl está definido, obtener la data de allí, independiente
     // del spreadsheetKey
     if (!isNone(config.APP.staticFilesUrl)) {
@@ -68,11 +74,14 @@ export default Service.extend({
           });
 
         })
-        .catch(() => {
-          this.log('Error durante la carga del JSON.');
-        });
+        .catch(() => {/* AJAX muestra un error */});
     }
 
+    /**
+     *
+     *  MODO 'LIVE'
+     *
+     */
     return new Promise((resolve) => {
 
       let spreadsheetUrl = this.get('dataSpreadsheetUrl');
@@ -85,10 +94,12 @@ export default Service.extend({
         key: spreadsheetUrl,
         callback: (data) => {
           if (isNone(data[worksheetName])) {
+            this.log(worksheetName + "is empty or not found.");
             return resolve();
           }
 
           if (isNone(data[worksheetName].elements)) {
+            this.log(worksheetName + "is empty or not found.");
             return resolve();
           }
 

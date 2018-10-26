@@ -1,78 +1,12 @@
 {{!-- HTML title: 'Nombres Apellidos' --}}
 {{title model.perfil.nombre replace=true}}
 
-<section id="perfil" class="container my-4">
+<section class="container perfil my-4">
 
-  {{!-- Si hay funcionalidades muestra la 'navbar' con todas las funcionalidades --}}
-  {{#if model.config.perfilFuncionalidades}}
-    <div class="row">
-      <div class="col-12">
-        {{!-- Redes sociales en (xs, sm) --}}
-        <div class="d-block d-md-none text-right">
-          {{#twitter-share-button title=config.twitterShareLink hashtags="MiGuatemala" via="Redxguate"}}Tweet{{/twitter-share-button}}
-          {{#fb-share-button quote=config.twitterShareLink hashtags="MiGuatemala"}}Share{{/fb-share-button}}
-        </div>
-        <nav class="nav-candidator border">
-          <ul class="list-inline m-0 d-md-flex">
-            {{!-- Genera los links de las funcionalidades --}}
-            {{#each model.config.perfilFuncionalidades as |link|}}
-              {{#if link.link}}
-                <a href={{link.link}} title={{link.title}}>
-                  {{#if link.iconClass}}
-                    <i class={{link.iconClass}}></i>
-                  {{/if}}
-                  {{link.name}}
-                </a>
-              {{else}}
-                {{#link-to-wrapper link.route title=link.title}}
-                  {{#if link.iconClass}}
-                    <i class={{link.iconClass}}></i>
-                  {{/if}}
-                  {{link.name}}
-                {{/link-to-wrapper}}
-              {{/if}}
-            {{/each}}
-            {{!-- Redes sociales en (viewport > sm) --}}
-            <li class="px-3 ml-auto d-none d-md-block">
-              {{#twitter-share-button
-                title=config.twitterShareLink
-                hashtags="MiGuatemala"
-                via="Redxguate"
-              }}
-                Tweet
-              {{/twitter-share-button}}
-              {{#fb-share-button
-                quote=config.twitterShareLink
-                hashtags="MiGuatemala"
-              }}
-                Share
-              {{/fb-share-button}}
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  {{/if}}
+  {{profile-functionalities model=model}}
 
   {{outlet}}
 
-  {{!-- Sección de comentarios --}}
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex">
-          <img src="app/img/icon-disqus.png" alt="" class="image60x60"><h3>Disqus</h3>
-        </div>
-        <div class="body">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          {{#if disqusShortname}}
-            {{disqus-comments identifier=model.perfil.disqusIdentifier}}
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
+  {{disqus-panel model=model}}
 
 </section>
