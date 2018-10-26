@@ -9,10 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added main initializer.
 - Added ember's addons ember-metrics, ember-router-scroll.
 - Added YUIDoc at spreadsheet service.
+- Added components red-footer, red-navbar, profile-functionalities, disqus-panel.
 
 ## Changed
 - Actions in index controller.
 - In handlebars change ' to " .
+- Changed styles for perfil templates and subtemplates.
 
 ## Removed
 - Flash-message helper, for now is broken.
