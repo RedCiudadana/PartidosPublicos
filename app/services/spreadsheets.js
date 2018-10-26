@@ -79,7 +79,7 @@ export default Service.extend({
           // );
 
           // throw error;
-          console.warn(errorMessage);
+          // console.warn(errorMessage);
         });
     }
 
@@ -100,7 +100,7 @@ export default Service.extend({
             // this.get('flashMessages').danger(errorMessage, {sticky: true});
 
             // TODO: Convertir en alerta de console.warn
-            console.warn(errorMessage);
+            // console.warn(errorMessage);
 
             return resolve();
           }
@@ -111,7 +111,7 @@ export default Service.extend({
             // this.get('flashMessages').danger(errorMessage, {sticky: true});
 
             // TODO: Convertir en alerta de console.warn
-            console.warn(errorMessage);
+            // console.warn(errorMessage);
 
             return resolve();
           }

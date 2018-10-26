@@ -57,12 +57,6 @@ export default Route.extend({
     // TODO: Agregar validación: si config.APP.dataSpreadsheetSourceUrl no esta definida,
     // lanzar error
 
-    // Si en los query parameters viene definido el valor para 'loadDataFromSpreadsheet',
-    // hacer override a la configuración para forzar la carga de data de los spreadsheets
-    if (transition.queryParams.hasOwnProperty('loadDataFromSpreadsheet')) {
-      config.APP.staticFilesUrl = null;
-    }
-
     return this.get('ajax')
 
       .request(config.APP.dataSpreadsheetSourceUrl, { dataType: 'text' })
@@ -108,22 +102,22 @@ export default Route.extend({
          * Setear la información de recuadros del perfil mediante la parametrización
          * proveniente de la configuración
          */
-        spreadsheetService
-          .fetchConfig('perfil-recuadros-configuracion')
-          .then((configuracionData) => {
-            let perfilRecuadrosDataArray = A([]);
+        // spreadsheetService
+        //   .fetchConfig('perfil-recuadros-configuracion')
+        //   .then((configuracionData) => {
+        //     let perfilRecuadrosDataArray = A([]);
 
-            A(configuracionData).forEach((item) => {
-              perfilRecuadrosDataArray.pushObject({
-                field: item.field,
-                label: item.label
-              });
-            });
+        //     A(configuracionData).forEach((item) => {
+        //       perfilRecuadrosDataArray.pushObject({
+        //         field: item.field,
+        //         label: item.label
+        //       });
+        //     });
 
-            let prefilSerializer = this.store.serializerFor('magistrate');
+        //     let prefilSerializer = this.store.serializerFor('magistrate');
 
-            prefilSerializer.set('recuadrosFields', perfilRecuadrosDataArray);
-          }),
+        //     prefilSerializer.set('recuadrosFields', perfilRecuadrosDataArray);
+        //   }),
 
         // Información general de diputado
         // TODO: Evaluar pertinencia, ya que es una funcionalidad específica de

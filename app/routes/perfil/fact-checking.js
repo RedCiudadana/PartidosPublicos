@@ -5,8 +5,6 @@ import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
 export default Route.extend({
-  // TODO: Ver cómo hacer funcionar esta onda otra vez
-  breadCrumb: null,
 
   spreadsheets: service(),
 

@@ -53,20 +53,20 @@ export default Route.extend({
         .fetch('documentos-disponibles')
         .then((documentos) => {
           return A(documentos)
-            .filterBy('perfil', perfil.get('id'));
+            .filterBy('profile', perfil.get('id'));
         }),
       datosTablaGradacion: spreadsheet
         .fetch('tabla-gradacion')
         .then((registros) => {
           return A(registros)
-            .filterBy('perfil', perfil.get('id'))
+            .filterBy('profile', perfil.get('id'))
             .filter((e) => e.aspecto !== 'Total');
         }),
       totalPuntajeGradacion: spreadsheet
         .fetch('tabla-gradacion')
         .then((registros) => {
           return A(registros)
-            .filterBy('perfil', perfil.get('id'))
+            .filterBy('profile', perfil.get('id'))
             .filter((e) => e.aspecto !== 'Total' && e.aspecto !== 'Cualidades Éticas y de Probidad')
             .reduce((previousValue, item) => previousValue + parseInt(item.puntaje), 0);
         }),

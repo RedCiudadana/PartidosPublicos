@@ -3,12 +3,6 @@ import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
 
 export default Controller.extend({
-  model: null,
-
-  frenteAFrenteFields: null,
-
-  frenteAFrenteFuncionalidad: null,
-
   /**
    * Hash
    */
@@ -28,10 +22,6 @@ export default Controller.extend({
 
     return groupedFields;
   }),
-
-  perfilUnoId: null,
-
-  perfilDosId: null,
 
   perfilUno: computed('perfilUnoId', function() {
     return this.get('model.perfiles').findBy('id', this.get('perfilUnoId'));

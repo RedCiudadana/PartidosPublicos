@@ -8,15 +8,16 @@
   <div id="compare-candidates">
     <div class="row">
       <div class="col-md-6 my-2">
-        {{one-way-select perfilUnoId
+        {{one-way-select model.perfil
             options=model.perfiles
             optionValuePath="id"
             optionLabelPath="nombre"
             update=(action (mut perfilUno))
+            value=perfilUno
         }}
       </div>
       <div class="col-md-6">
-        {{one-way-select perfilDosId
+        {{one-way-select perfilDos
             options=model.perfiles
             optionValuePath="id"
             optionLabelPath="nombre"
