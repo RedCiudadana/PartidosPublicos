@@ -146,7 +146,7 @@ export default Route.extend({
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('commission-deputies');
+            let prefilSerializer = this.store.serializerFor('commission-deputie');
 
             prefilSerializer.set('informacionGeneralFields', perfilDataArray);
           })
@@ -164,8 +164,9 @@ export default Route.extend({
     const _routing = this.get('_routing');
 
     return hash({
+      partidos: this.store.findAll('partido', { include: 'partido'}),
       perfiles: this.store.findAll('magistrate'),
-      diputados: this.store.findAll('commission-deputies'),
+      diputados: this.store.findAll('commission-deputie'),
       config: spreadsheet.fetchConfig('configuracion')
         .then((configuracion) => {
           let configObject = EmberObject.create();

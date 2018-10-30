@@ -1,0 +1,6 @@
+{{#bs-nav type="tabs" justified=true as |nav|}}
+  {{#each model as |item|}}
+    {{#nav.item}}{{#nav.link-to "partidos.partido" item.id}}{{item.nombreCorto}}{{/nav.link-to}}{{/nav.item}}
+  {{/each}}
+{{/bs-nav}}
+{{outlet}}

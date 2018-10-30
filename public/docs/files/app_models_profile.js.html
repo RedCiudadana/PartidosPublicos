@@ -82,8 +82,8 @@
                     <li class="panel panel-default">
                         <div class="panel-heading" role="tab" id="sidebar-version-heading">
                             <h4 class="panel-title">
-                                <a role="button" href="https://github.com/RedCiudadana/MiGuatemala/commits/master" target="_blank">
-                                  Tag: master
+                                <a role="button" href="https://github.com/RedCiudadana/MiGuatemala/commits/e7eb2faf" target="_blank">
+                                  Tag: 0.4.2.e7eb2faf
                                 </a>
                             </h4>
                         </div>
@@ -173,10 +173,18 @@ export default Model.extend({
   /**
    * Nombre de la persona.
    *
-   * @property nombre
+   * @property name
    * @type String
    */
-  nombre: attr(&#x27;string&#x27;),
+  name: attr(&#x27;string&#x27;),
+
+  /**
+   * Edad de la persona.
+   *
+   * @property edad
+   * @type String
+   */
+  edad: attr(&#x27;string&#x27;),
 
   /**
    * URL de la foto de la persona.
@@ -185,22 +193,6 @@ export default Model.extend({
    * @type String
    */
   fotoUrl: attr(&#x27;string&#x27;),
-
-  /**
-   * Fecha de nacimento.
-   *
-   * @property fechaNacimiento
-   * @type Date
-   */
-  fechaNacimiento: attr(&#x27;date&#x27;),
-
-  /**
-   * Lugar de nacimiento.
-   *
-   * @property lugarNacimiento
-   * @type String
-   */
-  lugarNacimiento: attr(&#x27;string&#x27;),
 
   /**
    * Correo electrónico - Email.

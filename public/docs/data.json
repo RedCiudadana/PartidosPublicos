@@ -5,7 +5,7 @@
         "url": "https://github.com/RedCiudadana/MiGuatemala",
         "logo": "http://redciudadana.org/wp-content/uploads/2018/05/red-logo-01.png",
         "primaryColor": "#2cd3b4",
-        "version": "master"
+        "version": "0.4.2.e7eb2faf"
     },
     "files": {
         "app/adapters/spreadsheet.js": {
@@ -142,7 +142,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "app/models/commission-deputies.js",
-            "line": 4,
+            "line": 5,
             "description": "Model para diputados de la comisión.",
             "extends": "Model.Profile"
         },
@@ -304,7 +304,35 @@
         },
         {
             "file": "app/models/commission-deputies.js",
-            "line": 13,
+            "line": 15,
+            "description": "Cargo",
+            "type": "{String}",
+            "class": "Model.Commision-deputies"
+        },
+        {
+            "file": "app/models/commission-deputies.js",
+            "line": 21,
+            "description": "Institución",
+            "type": "{String}",
+            "class": "Model.Commision-deputies"
+        },
+        {
+            "file": "app/models/commission-deputies.js",
+            "line": 27,
+            "description": "Profesión",
+            "type": "{String}",
+            "class": "Model.Commision-deputies"
+        },
+        {
+            "file": "app/models/commission-deputies.js",
+            "line": 33,
+            "description": "Educación",
+            "type": "{String}",
+            "class": "Model.Commision-deputies"
+        },
+        {
+            "file": "app/models/commission-deputies.js",
+            "line": 42,
             "description": "Partido postulante, con el que obtuvo el cargo o fue elegido.",
             "itemtype": "property",
             "name": "partidoPostulante",
@@ -313,7 +341,7 @@
         },
         {
             "file": "app/models/commission-deputies.js",
-            "line": 21,
+            "line": 50,
             "description": "Partido actual.",
             "itemtype": "property",
             "name": "partidoActual",
@@ -323,24 +351,6 @@
         {
             "file": "app/models/magistrate.js",
             "line": 14,
-            "description": "Nombre completo del cargo.",
-            "itemtype": "property",
-            "name": "cargoNombreCompleto",
-            "type": "String",
-            "class": "Model.Magistrate"
-        },
-        {
-            "file": "app/models/magistrate.js",
-            "line": 22,
-            "description": "Nombre corto del cargo.",
-            "itemtype": "property",
-            "name": "cargoNombreCorto",
-            "type": "String",
-            "class": "Model.Magistrate"
-        },
-        {
-            "file": "app/models/magistrate.js",
-            "line": 30,
             "description": "Profesión.",
             "itemtype": "property",
             "name": "profesion",
@@ -349,7 +359,7 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 38,
+            "line": 22,
             "description": "Grado de educación.",
             "itemtype": "property",
             "name": "educacion",
@@ -358,7 +368,7 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 46,
+            "line": 30,
             "description": "Biografía.",
             "itemtype": "property",
             "name": "biografia",
@@ -367,7 +377,7 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 54,
+            "line": 38,
             "description": "Desempeño.",
             "itemtype": "property",
             "name": "desempenio",
@@ -376,16 +386,7 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 62,
-            "description": "Historial politico.",
-            "itemtype": "property",
-            "name": "historialPolitico",
-            "type": "String",
-            "class": "Model.Magistrate"
-        },
-        {
-            "file": "app/models/magistrate.js",
-            "line": 70,
+            "line": 46,
             "description": "Experiencia profesional.",
             "itemtype": "property",
             "name": "experienciaProfesional",
@@ -394,17 +395,8 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 78,
-            "description": "Experiencia en derechos humanos.",
-            "itemtype": "property",
-            "name": "experienciaEnDH",
-            "type": "String",
-            "class": "Model.Magistrate"
-        },
-        {
-            "file": "app/models/magistrate.js",
-            "line": 86,
-            "description": "Información general. Campos para mostrar en información general.",
+            "line": 54,
+            "description": "Información general. Campos para mostrar en información general. Son serializados después.",
             "itemtype": "property",
             "name": "informacionGeneral",
             "type": "informacion-general",
@@ -412,7 +404,7 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 94,
+            "line": 62,
             "description": "Recuadros. Otra modularidad de frente a frente.",
             "itemtype": "property",
             "name": "recuadros",
@@ -421,8 +413,8 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 102,
-            "description": "Campos a evaluar en la modularidad frente a frente.",
+            "line": 70,
+            "description": "Campos a evaluar en la modularidad frente a frente. Son serializados después.",
             "itemtype": "property",
             "name": "frenteAFrente",
             "type": "frente-a-frente",
@@ -430,7 +422,34 @@
         },
         {
             "file": "app/models/magistrate.js",
-            "line": 112,
+            "line": 78,
+            "description": "Institución",
+            "itemtype": "property",
+            "name": "institucion",
+            "type": "String",
+            "class": "Model.Magistrate"
+        },
+        {
+            "file": "app/models/magistrate.js",
+            "line": 86,
+            "description": "Plan de trabajo",
+            "itemtype": "property",
+            "name": "planTrabajo",
+            "type": "String",
+            "class": "Model.Magistrate"
+        },
+        {
+            "file": "app/models/magistrate.js",
+            "line": 94,
+            "description": "Proyección",
+            "itemtype": "property",
+            "name": "proyeccion",
+            "type": "String",
+            "class": "Model.Magistrate"
+        },
+        {
+            "file": "app/models/magistrate.js",
+            "line": 104,
             "description": "Foto del partido.",
             "itemtype": "property",
             "name": "fotoPartido",
@@ -495,13 +514,22 @@
             "line": 13,
             "description": "Nombre de la persona.",
             "itemtype": "property",
-            "name": "nombre",
+            "name": "name",
             "type": "String",
             "class": "Model.Profile"
         },
         {
             "file": "app/models/profile.js",
             "line": 21,
+            "description": "Edad de la persona.",
+            "itemtype": "property",
+            "name": "edad",
+            "type": "String",
+            "class": "Model.Profile"
+        },
+        {
+            "file": "app/models/profile.js",
+            "line": 29,
             "description": "URL de la foto de la persona.",
             "itemtype": "property",
             "name": "fotoURL",
@@ -510,25 +538,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 29,
-            "description": "Fecha de nacimento.",
-            "itemtype": "property",
-            "name": "fechaNacimiento",
-            "type": "Date",
-            "class": "Model.Profile"
-        },
-        {
-            "file": "app/models/profile.js",
             "line": 37,
-            "description": "Lugar de nacimiento.",
-            "itemtype": "property",
-            "name": "lugarNacimiento",
-            "type": "String",
-            "class": "Model.Profile"
-        },
-        {
-            "file": "app/models/profile.js",
-            "line": 45,
             "description": "Correo electrónico - Email.",
             "itemtype": "property",
             "name": "email",
@@ -537,7 +547,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 53,
+            "line": 45,
             "description": "Perfil de Facebook, la URL.",
             "itemtype": "property",
             "name": "fb",
@@ -546,7 +556,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 61,
+            "line": 53,
             "description": "Perfil de Twitter, la URL.",
             "itemtype": "property",
             "name": "tw",
@@ -555,7 +565,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 69,
+            "line": 61,
             "description": "Dirrección.",
             "itemtype": "property",
             "name": "dirreccion",
@@ -564,7 +574,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 77,
+            "line": 69,
             "description": "Número de telefono.",
             "itemtype": "property",
             "name": "telefono",
@@ -573,7 +583,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 85,
+            "line": 77,
             "description": "Sexo.",
             "itemtype": "property",
             "name": "sexo",
@@ -582,7 +592,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 93,
+            "line": 85,
             "description": "Estado de la persona según el proceso que se lleva acabo del proyecto. Ejemplo una elección sería \"En proceso\" o \"Descalificado\".",
             "itemtype": "property",
             "name": "estado",
@@ -591,7 +601,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 103,
+            "line": 95,
             "description": "Foto del perfil.",
             "itemtype": "property",
             "name": "fotoPerfil",
@@ -601,7 +611,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 118,
+            "line": 110,
             "description": "Selector para Isotope. Genera un 'String' con etiquetas para poder filtrar elementos desde el HTML con Isotope.",
             "itemtype": "property",
             "name": "selector",
@@ -611,7 +621,7 @@
         },
         {
             "file": "app/models/profile.js",
-            "line": 147,
+            "line": 139,
             "description": "Identificador de Disqus",
             "itemtype": "property",
             "name": "disqusIdentifier",
@@ -873,6 +883,22 @@
         {
             "message": "Missing item type\nHerramienta para generar logs.",
             "line": " app/initializers/main.js:11"
+        },
+        {
+            "message": "Missing item type\nCargo",
+            "line": " app/models/commission-deputies.js:15"
+        },
+        {
+            "message": "Missing item type\nInstitución",
+            "line": " app/models/commission-deputies.js:21"
+        },
+        {
+            "message": "Missing item type\nProfesión",
+            "line": " app/models/commission-deputies.js:27"
+        },
+        {
+            "message": "Missing item type\nEducación",
+            "line": " app/models/commission-deputies.js:33"
         },
         {
             "message": "Missing item type\nSetear la información general del perfil mediante la parametrización\nproveniente de la configuración",

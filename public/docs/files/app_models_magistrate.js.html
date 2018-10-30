@@ -82,8 +82,8 @@
                     <li class="panel panel-default">
                         <div class="panel-heading" role="tab" id="sidebar-version-heading">
                             <h4 class="panel-title">
-                                <a role="button" href="https://github.com/RedCiudadana/MiGuatemala/commits/master" target="_blank">
-                                  Tag: master
+                                <a role="button" href="https://github.com/RedCiudadana/MiGuatemala/commits/e7eb2faf" target="_blank">
+                                  Tag: 0.4.2.e7eb2faf
                                 </a>
                             </h4>
                         </div>
@@ -172,22 +172,6 @@ export default Profile.extend({
   // Attributes
 
   /**
-   * Nombre completo del cargo.
-   *
-   * @property cargoNombreCompleto
-   * @type String
-   */
-  cargoNombreCompleto: attr(&#x27;string&#x27;),
-
-  /**
-   * Nombre corto del cargo.
-   *
-   * @property cargoNombreCorto
-   * @type String
-   */
-  cargoNombreCorto: attr(&#x27;string&#x27;),
-
-  /**
    * Profesión.
    *
    * @property profesion
@@ -220,14 +204,6 @@ export default Profile.extend({
   desempenio: attr(&#x27;string&#x27;),
 
   /**
-   * Historial politico.
-   *
-   * @property historialPolitico
-   * @type String
-   */
-  historialPolitico: attr(&#x27;string&#x27;),
-
-  /**
    * Experiencia profesional.
    *
    * @property experienciaProfesional
@@ -236,15 +212,7 @@ export default Profile.extend({
   experienciaProfesional: attr(&#x27;string&#x27;),
 
   /**
-   * Experiencia en derechos humanos.
-   *
-   * @property experienciaEnDH
-   * @type String
-   */
-  experienciaEnDH: attr(&#x27;string&#x27;),
-
-  /**
-   * Información general. Campos para mostrar en información general. 
+   * Información general. Campos para mostrar en información general. Son serializados después.
    *
    * @property informacionGeneral
    * @type informacion-general
@@ -260,12 +228,36 @@ export default Profile.extend({
   recuadros: attr(&#x27;frente-a-frente&#x27;),
 
   /**
-   * Campos a evaluar en la modularidad frente a frente.
+   * Campos a evaluar en la modularidad frente a frente. Son serializados después.
    *
    * @property frenteAFrente
    * @type frente-a-frente
    */
   frenteAFrente: attr(&#x27;frente-a-frente&#x27;),
+
+  /**
+   * Institución
+   *
+   * @property institucion
+   * @type String
+   */
+  institucion: attr(&#x27;string&#x27;),
+
+  /**
+   * Plan de trabajo
+   *
+   * @property planTrabajo
+   * @type String
+   */
+  planTrabajo: attr(&#x27;string&#x27;),
+
+  /**
+   * Proyección
+   *
+   * @property proyeccion
+   * @type String
+   */
+  proyeccion: attr(&#x27;string&#x27;),
 
   // Computed Properties
 

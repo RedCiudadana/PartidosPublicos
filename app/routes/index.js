@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import { scheduleOnce } from '@ember/runloop';
 
 /**
  * Ruta principal '/'.

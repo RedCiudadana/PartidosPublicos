@@ -77,7 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.0] - 2018-09-18
 ### Added
-- Profile, magistrate and commission-deputies models.
+- Profile, magistrate and commission-deputie models.
 - [DockYard Styles](https://github.com/DockYard/styleguides/tree/master/engineering) and [ESDocs](https://esdoc.org/manual/tags.html)  in models.
 
 ### Removed

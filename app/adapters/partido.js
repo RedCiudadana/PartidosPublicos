@@ -4,4 +4,5 @@ export default SpreadsheetAdapter.extend({
   findAll() {
     return this.get('spreadsheets').fetch('partido');
   }
+
 });

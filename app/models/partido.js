@@ -1,5 +1,6 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import { hasMany } from 'ember-data/relationships';
 
 /**
  * Model de partido político.
@@ -54,5 +55,16 @@ export default Model.extend({
    * @property logo
    * @type String
    */
-  logo: attr('logo')
+  logo: attr('string'),
+
+  // Relationships
+
+  /**
+   * Miembros del partido
+   *
+   * @property members
+   * @type String
+   */
+  miembros: hasMany('commission-deputie', { inverse: null })
+
 });

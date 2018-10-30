@@ -14,7 +14,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/presidente-um",
     "tw": "@presidente-um",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "9"
   },
   {
     "id": "ccee-id",
@@ -31,7 +32,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/ccee-id",
     "tw": "@ccee-id",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "2"
   },
   {
     "id": "ccee-mapa",
@@ -48,7 +50,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/ccee-mapa",
     "tw": "@ccee-mapa",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "3"
   },
   {
     "id": "ccee-pau",
@@ -65,7 +68,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/ccee-pau",
     "tw": "@ccee-pau",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "4"
   },
   {
     "id": "ccee-ip",
@@ -82,7 +86,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/ccee-ip",
     "tw": "@ccee-ip",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "5"
   },
   {
     "id": "cpa-ip",
@@ -99,7 +104,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/cpa-ip",
     "tw": "@cpa-ip",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "6"
   },
   {
     "id": "cpa-id1",
@@ -116,7 +122,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/cpa-id1",
     "tw": "@cpa-id1",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "7"
   },
   {
     "id": "cpa-id2",
@@ -133,7 +140,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/cpa-id2",
     "tw": "@cpa-id2",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "8"
   },
   {
     "id": "cpa-id3",
@@ -150,7 +158,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/cpa-id3",
     "tw": "@cpa-id3",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "9"
   },
   {
     "id": "cpa-mapa",
@@ -167,7 +176,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/cpa-mapa",
     "tw": "@cpa-mapa",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "1"
   },
   {
     "id": "cpa-mapa",
@@ -184,7 +194,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/cpa-mapa",
     "tw": "@cpa-mapa",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "2"
   },
   {
     "id": "cpa-fortaleza",
@@ -201,7 +212,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/cpa-fortaleza",
     "tw": "@cpa-fortaleza",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "3"
   },
   {
     "id": "decano-usac",
@@ -218,7 +230,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-usac",
     "tw": "@decano-usac",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "4"
   },
   {
     "id": "decano-umg",
@@ -235,7 +248,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-umg",
     "tw": "@decano-umg",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "5"
   },
   {
     "id": "decano-url",
@@ -252,7 +266,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-url",
     "tw": "@decano-url",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "6"
   },
   {
     "id": "decano-ufm",
@@ -269,7 +284,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-ufm",
     "tw": "@decano-ufm",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "7"
   },
   {
     "id": "decano-udv",
@@ -286,7 +302,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-udv",
     "tw": "@decano-udv",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "8"
   },
   {
     "id": "decano-upana",
@@ -303,7 +320,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-upana",
     "tw": "@decano-upana",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "9"
   },
   {
     "id": "decano-um",
@@ -320,7 +338,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-um",
     "tw": "@decano-um",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "1"
   },
   {
     "id": "decano-occidente",
@@ -337,7 +356,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-occidente",
     "tw": "@decano-occidente",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "2"
   },
   {
     "id": "decano-rural",
@@ -354,7 +374,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-rural",
     "tw": "@decano-rural",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "3"
   },
   {
     "id": "decano-regional",
@@ -371,7 +392,8 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-regional",
     "tw": "@decano-regional",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "4"
   },
   {
     "id": "decano-internaciones",
@@ -388,6 +410,7 @@
     "trayectoria": "Trayectoria",
     "fb": "www.facebook.com/decano-internaciones",
     "tw": "@decano-internaciones",
-    "email": "miguatemala-factory2@gmail.com"
+    "email": "miguatemala-factory2@gmail.com",
+    "partidoActual": "5"
   }
 ]

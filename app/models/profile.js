@@ -13,10 +13,18 @@ export default Model.extend({
   /**
    * Nombre de la persona.
    *
-   * @property nombre
+   * @property name
    * @type String
    */
   nombre: attr('string'),
+
+  /**
+   * Edad de la persona.
+   *
+   * @property edad
+   * @type String
+   */
+  edad: attr('string'),
 
   /**
    * URL de la foto de la persona.
@@ -25,22 +33,6 @@ export default Model.extend({
    * @type String
    */
   fotoUrl: attr('string'),
-
-  /**
-   * Fecha de nacimento.
-   *
-   * @property fechaNacimiento
-   * @type Date
-   */
-  fechaNacimiento: attr('date'),
-
-  /**
-   * Lugar de nacimiento.
-   *
-   * @property lugarNacimiento
-   * @type String
-   */
-  lugarNacimiento: attr('string'),
 
   /**
    * Correo electrónico - Email.

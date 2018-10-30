@@ -27,7 +27,7 @@ const Router = EmberRouter.extend(RouterScroll, {
 });
 
 Router.map(function() {
-  this.route('perfil', {path: '/perfil/:id'}, function() {
+  this.route('perfil', { path: '/perfil/:id'}, function() {
     this.route('frente-a-frente');
     this.route('fact-checking');
   });
@@ -35,6 +35,9 @@ Router.map(function() {
   this.route('perfiles');
 
   this.route('metodologia');
+  this.route('partidos', function() {
+    this.route('partido', { path: '/partido/:id'});
+  });
 });
 
 export default Router;

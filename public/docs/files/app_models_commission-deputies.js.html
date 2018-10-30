@@ -82,8 +82,8 @@
                     <li class="panel panel-default">
                         <div class="panel-heading" role="tab" id="sidebar-version-heading">
                             <h4 class="panel-title">
-                                <a role="button" href="https://github.com/RedCiudadana/MiGuatemala/commits/master" target="_blank">
-                                  Tag: master
+                                <a role="button" href="https://github.com/RedCiudadana/MiGuatemala/commits/e7eb2faf" target="_blank">
+                                  Tag: 0.4.2.e7eb2faf
                                 </a>
                             </h4>
                         </div>
@@ -158,7 +158,8 @@
 
 <div class="file">
     <pre class="prettyprint linenums">
-import Magistrate from &#x27;./magistrate&#x27;;
+import Profile from &#x27;./profile&#x27;;
+import attr from &#x27;ember-data/attr&#x27;;
 import { belongsTo } from &#x27;ember-data/relationships&#x27;;
 
 /**
@@ -167,7 +168,35 @@ import { belongsTo } from &#x27;ember-data/relationships&#x27;;
  * @class Model.Commision-deputies
  * @extends Model.Profile
  */
-export default Magistrate.extend({
+export default Profile.extend({
+
+  // Attributes
+
+  /**
+   * Cargo
+   * @type {String}
+   */
+  cargo: attr(&#x27;string&#x27;),
+
+  /**
+   * Institución
+   * @type {String}
+   */
+  institucion: attr(&#x27;string&#x27;),
+
+  /**
+   * Profesión
+   * @type {String}
+   */
+  profesion: attr(&#x27;string&#x27;),
+
+  /**
+   * Educación
+   * @type {String}
+   */
+  educacion: attr(&#x27;string&#x27;),
+
+
   // Associations
 
   /**
