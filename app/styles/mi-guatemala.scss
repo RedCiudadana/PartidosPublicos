@@ -61,20 +61,20 @@
     }
 }
 
-.perfil {
+.profile {
 
     .row {
         padding: 1rem;
     }
 
-    img#photo-perfil {
+    img#photo-profile {
         max-width: 350px;
         width: 80%;
     }
 }
 
 @include media-breakpoint-up(md) {
-    .perfil .row {
+    .profile .row {
         div + div div.panel {
             margin-left: 0.5px;
         }

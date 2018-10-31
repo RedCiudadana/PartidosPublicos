@@ -9,7 +9,7 @@ import { isBlank } from '@ember/utils';
 import { Promise } from 'rsvp';
 
 /**
- * Serializa los modelos y obtiene perfiles, config, navbarLinks, a traves del servicio: spreadsheets.
+ * Serializa los modelos y obtiene profiles, config, navbarLinks, a traves del servicio: spreadsheets.
  *
  * @class Route.Application
  */
@@ -73,19 +73,19 @@ export default Route.extend({
          */
         spreadsheetService
           .fetchConfig('perfil-informacion-general-configuracion')
-          .then((configuracionData) => {
-            let perfilDataArray = A([]);
+          .then((configData) => {
+            let profileDataArray = A([]);
 
-            A(configuracionData).forEach((item) => {
-              perfilDataArray.pushObject({
+            A(configData).forEach((item) => {
+              profileDataArray.pushObject({
                 field: item.field,
                 label: item.label
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('magistrate');
+            let profileSerializer = this.store.serializerFor('magistrate');
 
-            prefilSerializer.set('informacionGeneralFields', perfilDataArray);
+            profileSerializer.set('informacionGeneralFields', profileDataArray);
           }),
 
         /**
@@ -94,19 +94,19 @@ export default Route.extend({
          */
         spreadsheetService
           .fetchConfig('perfil-recuadros-configuracion')
-          .then((configuracionData) => {
-            let perfilRecuadrosDataArray = A([]);
+          .then((configData) => {
+            let profileBoxesDataArray = A([]);
 
-            A(configuracionData).forEach((item) => {
-              perfilRecuadrosDataArray.pushObject({
+            A(configData).forEach((item) => {
+              profileBoxesDataArray.pushObject({
                 field: item.field,
                 label: item.label
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('magistrate');
+            let profileSerializer = this.store.serializerFor('magistrate');
 
-            prefilSerializer.set('recuadrosFields', perfilRecuadrosDataArray);
+            profileSerializer.set('recuadrosFields', profileBoxesDataArray);
           }),
 
         /**
@@ -114,10 +114,10 @@ export default Route.extend({
          */
         spreadsheetService
           .fetchConfig('perfil-frente-a-frente-configuracion')
-          .then((configuracionData) => {
+          .then((configData) => {
             let perfilFrenteAFrenteDataArray = A([]);
 
-            A(configuracionData).forEach((item) => {
+            A(configData).forEach((item) => {
               perfilFrenteAFrenteDataArray.pushObject({
                 field: item.field,
                 label: item.label,
@@ -125,9 +125,9 @@ export default Route.extend({
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('magistrate');
+            let profileSerializer = this.store.serializerFor('magistrate');
 
-            prefilSerializer.set('frenteAFrenteFields', perfilFrenteAFrenteDataArray);
+            profileSerializer.set('frenteAFrenteFields', perfilFrenteAFrenteDataArray);
           }),
 
         /**
@@ -136,19 +136,19 @@ export default Route.extend({
          */
         spreadsheetService
           .fetchConfig('diputado-informacion-general-configuracion')
-          .then((configuracionData) => {
-            let perfilDataArray = A([]);
+          .then((configData) => {
+            let profileDataArray = A([]);
 
-            A(configuracionData).forEach((item) => {
-              perfilDataArray.pushObject({
+            A(configData).forEach((item) => {
+              profileDataArray.pushObject({
                 field: item.field,
                 label: item.label
               });
             });
 
-            let prefilSerializer = this.store.serializerFor('commission-deputie');
+            let profileSerializer = this.store.serializerFor('commission-deputie');
 
-            prefilSerializer.set('informacionGeneralFields', perfilDataArray);
+            profileSerializer.set('informacionGeneralFields', profileDataArray);
           })
       ]));
   },
@@ -157,21 +157,21 @@ export default Route.extend({
    * Datos principales de la aplicación.
    *
    * @method model
-   * @return {Object} Perfiles, config, navbarLinks.
+   * @return {Object} profiles, config, navbarLinks.
    */
   model() {
     const spreadsheet = this.get('spreadsheets');
     const _routing = this.get('_routing');
 
     return hash({
-      partidos: this.store.findAll('partido', { include: 'partido'}),
-      perfiles: this.store.findAll('magistrate'),
-      diputados: this.store.findAll('commission-deputie'),
+      parties: this.store.findAll('partido', { include: 'partido'}),
+      profiles: this.store.findAll('magistrate'),
+      commissionDeputies: this.store.findAll('commission-deputie'),
       config: spreadsheet.fetchConfig('configuracion')
-        .then((configuracion) => {
+        .then((config) => {
           let configObject = EmberObject.create();
 
-          A(configuracion).forEach((item) => {
+          A(config).forEach((item) => {
             configObject.set(item.key, item.value);
           });
 
@@ -193,8 +193,9 @@ export default Route.extend({
    */
   actions: {
     // Utilizado para seleccionar un perfil en la caja de busqueda.
-    selectPerfil(candidato) {
-      this.transitionTo('perfil', candidato.get('id'));
+    selectPerfil(profile) {
+      // Agrega el id del perfil a la transición
+      this.transitionTo('perfil', profile.get('id'));
     }
   }
 

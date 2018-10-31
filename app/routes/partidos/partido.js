@@ -3,13 +3,13 @@ import { A } from '@ember/array';
 
 export default Route.extend({
     model(params) {
-        const partido = this.store.peekRecord('partido', params.id);
-        let diputados = A(this.store.peekAll('commission-deputie')).filter((data) => {
-            return data.partidoActual.content === partido;
+        const party = this.store.peekRecord('partido', params.id);
+        let commissionDeputies = A(this.store.peekAll('commission-deputie')).filter((data) => {
+            return data.partidoActual.content === party;
         })
         return {
-            partido: partido,
-            miembros: diputados
+            party: party,
+            members: commissionDeputies
         }
     }
 });

@@ -3,9 +3,9 @@
   <div class="col-md-4">
     <div class="text-center">
       <img
-        id="photo-perfil"
-        src={{model.perfil.fotoPerfil}}
-        alt={{model.perfil.nombre}}
+        id="photo-profile"
+        src={{model.profile.fotoPerfil}}
+        alt={{model.profile.nombre}}
         border="0"
         class="img-responsive center-block"
       >
@@ -14,10 +14,10 @@
   {{!-- Información general --}}
   <div class="col-md-4">
     <div class="p-2">
-      <h2>{{model.perfil.nombre}}</h2>
+      <h2>{{model.profile.nombre}}</h2>
       <table class="table">
         <tbody>
-          {{#each-in model.perfil.informacionGeneral as |key item|}}
+          {{#each-in model.profile.informacionGeneral as |key item|}}
             <tr>
               <td class="border-0 p-0">
                 <small>
@@ -34,14 +34,14 @@
   {{!-- Información extra, redes sociales --}}
   <div class="col-md-4 social-side text-center d-block">
     <div>
-      <img src={{model.perfil.fotoUrlPartido}} alt={{model.perfil.partidoactual}}>
+      <img src={{model.profile.fotoUrlPartido}} alt={{model.profile.partidoactual}}>
     </div>
     <div class="d-block mt-3">
       <div>
-        <a href={{mode.perfil.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.perfil.tw}}</a>
+        <a href={{mode.profile.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.profile.tw}}</a>
       </div>
       <div>
-        <a href={{model.perfil.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.perfil.nombre}}</a>
+        <a href={{model.profile.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.profile.nombre}}</a>
       </div>
     </div>
   </div>

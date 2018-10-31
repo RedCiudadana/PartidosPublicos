@@ -4,9 +4,9 @@ import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
 /**
- * Perfil Route
+ * profile Route
  *
- * @class Route.Perfil
+ * @class Route.profile
  */
 export default Route.extend({
 
@@ -32,45 +32,46 @@ export default Route.extend({
    * Model hook. Obtiene toda la información de un perfil según el id que obtiene de 'params'.
    *
    * @method model
-   * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, partidoActual, perfilInformacionGeneralConfiguracion, perfiles, documentosDisponibles, datosTablaGradacion, totalPuntajeGradacion, perfilFuncionalidades, entre otros.
+   * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, currentParty, profileGeneralInformationConfiguration, profiles, avaibleDocuments, dataTableGradation, totalGraduationScore, profileFunctions, entre otros.
    */
   model(params) {
     const spreadsheet = this.get('spreadsheets');
     const _routing = this.get('_routing');
-    const perfil = this.store.peekRecord('magistrate', params.id);
-    const institucion = perfil.get('institucion');
-    const partidoActual = perfil.get('partidoActual');
+
+    // Obtiene el profile según el id
+    const profile = this.store.peekRecord('magistrate', params.id);
+    // Obtiene el partido actual del profile
+    const currentParty = profile.get('partidoActual');
 
     return hash({
       config: {},
-      perfil: perfil,
-      institucion: institucion,
-      partidoActual: partidoActual,
-      perfilInformacionGeneralConfiguracion: spreadsheet
+      profile: profile,
+      currentParty: currentParty,
+      profileGeneralInformationConfiguration: spreadsheet
         .fetchConfig('perfil-informacion-general-configuracion'),
-      perfiles: this.modelFor('application').perfiles,
-      documentosDisponibles: spreadsheet
+      profiles: this.modelFor('application').profiles,
+      avaibleDocuments: spreadsheet
         .fetch('documentos-disponibles')
         .then((documentos) => {
           return A(documentos)
-            .filterBy('profile', perfil.get('id'));
+            .filterBy('profile', profile.get('id'));
         }),
-      datosTablaGradacion: spreadsheet
+      dataTableGradation: spreadsheet
         .fetch('tabla-gradacion')
         .then((registros) => {
           return A(registros)
-            .filterBy('profile', perfil.get('id'))
+            .filterBy('profile', profile.get('id'))
             .filter((e) => e.aspecto !== 'Total');
         }),
-      totalPuntajeGradacion: spreadsheet
+      totalGraduationScore: spreadsheet
         .fetch('tabla-gradacion')
         .then((registros) => {
           return A(registros)
-            .filterBy('profile', perfil.get('id'))
+            .filterBy('profile', profile.get('id'))
             .filter((e) => e.aspecto !== 'Total' && e.aspecto !== 'Cualidades Éticas y de Probidad')
             .reduce((previousValue, item) => previousValue + parseInt(item.puntaje), 0);
         }),
-      perfilFuncionalidades: spreadsheet
+      profileFunctions: spreadsheet
         .fetchConfig('perfil-funcionalidades')
         .then((links) => {
           return A(links)
@@ -90,7 +91,7 @@ export default Route.extend({
   },
 
   /**
-   * Levanta un controlador y asigna model.config.perfilFuncionalidades = model.perfilFuncionalidades.
+   * Levanta un controlador y asigna model.config.profileFunctions = model.profileFunctions.
    *
    * @method setupController
    * @param  {[type]} controller Clase controller.
@@ -99,7 +100,7 @@ export default Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
 
-    model.config.perfilFuncionalidades = model.perfilFuncionalidades;
+    model.config.profileFunctions = model.profileFunctions;
   },
 
   /**

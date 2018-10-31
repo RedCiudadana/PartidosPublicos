@@ -1,16 +1,16 @@
 <div id="portfolio" class="portfolio clearfix">
-  {{#each perfiles as |perfil|}}
-    <article class="item {{perfil.selector}}">
+  {{#each profiles as |profile|}}
+    <article class="item {{profile.selector}}">
       <div class="background bg-light">
 
         <div class="image">
-          {{#link-to "perfil" perfil.id}}
-            <img alt={{perfil.cargoNombreCompleto}} src={{perfil.fotoPerfil}}>
+          {{#link-to "perfil" profile.id}}
+            <img alt={{profile.cargoNombreCompleto}} src={{profile.fotoPerfil}}>
           {{/link-to}}
         </div>
 
         <div class="text">
-          <h6>{{perfil.nombre}}</h6>
+          <h6>{{profile.nombre}}</h6>
           <h6 class="font-weight-light">Cargo</h6>
         </div>
 

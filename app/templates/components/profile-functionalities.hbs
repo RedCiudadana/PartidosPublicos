@@ -1,5 +1,5 @@
 {{!-- Si hay funcionalidades muestra la 'navbar' con todas las funcionalidades --}}
-{{#if model.config.perfilFuncionalidades}}
+{{#if model.config.profileFunctions}}
   {{!-- Redes sociales en (xs, sm) --}}
   <div class="d-block d-md-none text-right">
     {{#twitter-share-button
@@ -22,7 +22,7 @@
       <nav>
         <ul class="list-inline m-0 d-sm-flex">
           {{!-- Genera los links de las funcionalidades --}}
-          {{#each model.config.perfilFuncionalidades as |link|}}
+          {{#each model.config.profileFunctions as |link|}}
             {{#if link.link}}
               <a href={{link.link}} title={{link.title}}>
                 {{#if link.iconClass}}
