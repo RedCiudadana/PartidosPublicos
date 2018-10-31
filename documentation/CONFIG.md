@@ -1,57 +1,56 @@
-main-page-links: _Front page image links_. Si la fila no incluye una propiedad `link`
-o la propiedad `route` no existe dentro del router, la linea se excluye. De lo contrario
-se imprime utilizando el `title` o el `imageLink` en la página principal.
+# Configuración de una nueva aplicación
 
-configuración: incluye pares de valores `key`, `value` de configuración, tales como:
-logoUrl
-logoTitle
-twitterShareLink
-facebookShareLink
-siteMainTitle
-banner1Link
-banner1Title: Define si se utilizará el _main page slider_ en la página principal
-banner1Footer
-banner1Slider
-metodologia
-resultados
-useFrontPortfolioVisualization: Define si se utilizará la visualización de portafolio
-sobre los perfiles en la página principal
-useFrontTableVisualization: Define si se utilizará la visualización de tabla sobre
-los perfiles en la página principal
-htmlTitle: Define el texto que se utilizará como HTML title
-helloBarUrl: 
+### Configurar `config/environment.js`
+#### Google Analytics
+Utilizamos Google Analytics por medio de el addon [ember-metrics](https://github.com/poteto/ember-metrics) un servicio que se utiliza en nuestro [`router.js`](https://github.com/RedCiudadana/MiGuatemala/blob/master/app/router.js). Cambiar id por el identificador que provea Google Analytics.
+```javascript
+...
+metricsAdapters: [{
+  name: 'GoogleAnalytics',
+  environments: ['production', 'development'],
+  config: {
+    id: 'UA-XXXX-Y',
+    // Use verbose tracing of GA events
+    trace: environment === 'development',
+    // Ensure development env hits aren't sent to GA
+    sendHitTask: environment !== 'development',
+    // Specify Google Analytics plugins
+    // require: ['ecommerce']
+  }
+}]
+...
+```
+#### Datos
+Para utilizar otros datos debemos cambiar las URLs en los archivos [config-spreadsheet-url](https://github.com/RedCiudadana/MiGuatemala/blob/master/public/config-spreadsheet-url) y [data-spreadsheet-url](https://github.com/RedCiudadana/MiGuatemala/blob/master/public/data-spreadsheet-url), que le dice a nuestro programa donde se encuentra los datos. En el caso que 'staticFilesUrl' sea 'null' el servicio [spreadsheets.js](https://github.com/RedCiudadana/MiGuatemala/blob/master/app/services/spreadsheets.js) descargara los datos desde las hojas de datos publicadas, en caso contrario utilizamos la url de `static-files`. **Nota: estos archivo 
+tambien son usados por [`build-data.js`](https://github.com/RedCiudadana/MiGuatemala/blob/master/build-data.js) para generar `/static-files/..`**.
 
-El resultado de esta configuración se mapea a `model.config` de la ruta `application`.
+```javascript
+...
+APP: {
+  dataSpreadsheetSourceUrl: '/data-spreadsheet-url',
+  configSpreadsheetSourceUrl: '/config-spreadsheet-url',
 
-navbar-links: incluye los pares de valores `route`, `title` que definen los links
-que aparecen en el header a la derecha. Si `route` no se encuentra definida en el
-router se excluye del listado.
+  // Establecer null para recibir datos desde spreadsheet en vivo.
+  // En otro caso estrablecer la url de '/static-files/' los archivos descargados.
 
-main-page-slider-data: define los `link`s, `caption`, `route`, `id` e `imageLink`
-de los perfiles que se utilizarán para el _main page slider_
+  // Datos desde spreadsheets en vivo.
+  staticFilesUrl: null
 
-institucion-funcionalidades:
+  // Datos desde localhost => desarrollo
+  // staticFilesUrl: 'http://192.168.250.206:6360/static-files/'
+  // staticFilesUrl: 'http://localhost:6360/static-files/'
 
-institucion-informacion-general-configuracion:
-
-institucion-data:
-
-perfil-funcionalidades: define las funcionalidades asociadas a un perfil como rutas
-hijas de la ruta `perfil`
-
-perfil-informacion-general-configuracion: define los campos a utilizar como información
-general de un `perfil`
-
-diputados-comision:
-
-partido:
-
-perfil:
-
-documentos-disponibles:
-
-fact-checking-data:
-
-tabla-gradacion:
-
-perfil-frente-a-frente-configuracion:
+  // Datos desde gh-pages
+  // staticFilesUrl: 'http://eleccioncgc.org/static-files/'
+}
+...
+```
+#### Disqus
+Configuramos el `shortname` de disqus para los comentarios utilizado con (ember-disqus)[https://github.com/sir-dunxalot/ember-disqus].
+```javascript
+...
+disqus: {
+  shortname: null
+},
+...
+````
