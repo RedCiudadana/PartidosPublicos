@@ -50,8 +50,6 @@ git push --set-upstream origin gh-pages
 git checkout master
 
 yarn
-
-bower install
 ```
 
 Customize `REAMDE.md`, `DATOS.md`, `public/README.md`, `public/CNAME`, `config/deploy.js`,
@@ -59,6 +57,8 @@ Customize `REAMDE.md`, `DATOS.md`, `public/README.md`, `public/CNAME`, `config/d
 
 ```bash
 Commit and push
+
+ember build -prod
 
 ember deploy production
 ```
