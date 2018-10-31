@@ -179,10 +179,23 @@ i {
     margin-right: -15px;
 
     .header {
-        padding: 30px 15px 30px 15px;
+        padding: 20px 15px 20px 15px;
         background-color: $primary;
         color: lighten( $primary, 80% ) !important;
         border: 1px 0 0 0;
+
+        img {
+            height: 75px;
+            width: auto;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            // Centrar vertical
+            margin-top: auto;
+            margin-bottom: auto;
+        }
     }
 
     .body {

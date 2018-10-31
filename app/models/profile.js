@@ -97,14 +97,20 @@ export default Model.extend({
   *
   * @property fotoPerfil
   * @type String
-  * @default "images/Magistrado.jpg"
+  * @default null
   */
-  fotoPerfil: computed('fotoUrl', function() {
+  fotoPerfil: computed('fotoUrl', 'sexo', function() {
     if (this.get('fotoUrl') !== '') {
       return this.get('fotoUrl');
     }
 
-    return 'images/Magistrado.jpg';
+    if (this.get('sexo') === 'Masculino') {
+      return 'mi-guatemala/img/candidato.png';
+    }
+
+    if (this.get('sexo') === 'Femenino') {
+      return 'mi-guatemala/img/candidata.png';
+    }
   }),
 
   /**

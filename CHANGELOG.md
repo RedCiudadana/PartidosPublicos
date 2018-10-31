@@ -5,21 +5,30 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.4.3] 2018-10-31
 ### Added
 - Added main initializer.
 - Added ember's addons ember-metrics, ember-router-scroll.
 - Added YUIDoc at spreadsheet service.
 - Added components red-footer, red-navbar, profile-functionalities, disqus-panel.
+- Added route:partidos.
 
 ## Changed
 - Actions in index controller.
 - In handlebars change ' to " .
 - Changed styles for perfil templates and subtemplates.
+- Changed config in yuidoc.json.
+- Changed output folder of yuidoc documentation in public/docs for publish in gh-pages.
 
 ## Removed
 - Flash-message helper, for now is broken.
 - Remove all bower dependecies.
 - Overdata in application route.
+
+## Fixed
+- Fix 'fotoPerfil' of profile model.
+- Fix 'partido' model.
 
 ## [0.4.2] 2018-09-26
 ### Added
