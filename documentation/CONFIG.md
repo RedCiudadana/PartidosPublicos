@@ -46,7 +46,7 @@ APP: {
 ...
 ```
 #### Disqus
-Configuramos el `shortname` de disqus para los comentarios utilizado con (ember-disqus)[https://github.com/sir-dunxalot/ember-disqus].
+Configuramos el `shortname` de disqus para los comentarios utilizado con [ember-disqus](https://github.com/sir-dunxalot/ember-disqus).
 ```javascript
 ...
 disqus: {
