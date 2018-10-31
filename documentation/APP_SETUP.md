@@ -44,16 +44,24 @@ git commit --allow-empty --message="Initial commit"
 git push --set-upstream origin gh-pages
 ```
 
-#### Init and dev
+#### Instalar dependencias
 
 ```bash
 git checkout master
 
 yarn
 ```
+### Servidor de pruebas
 
-Customize `REAMDE.md`, `DATOS.md`, `public/README.md`, `public/CNAME`, `config/deploy.js`,
-`.ember-cli`, `config/environment.js`
+```bash
+ember server
+```
+
+### Configurar proyecto
+Configurar `REAMDE.md`, `public/README.md`, `public/CNAME`, `config/deploy.js`,
+`.ember-cli`, `config/environment.js`. Más información [aquí](https://github.com/RedCiudadana/MiGuatemala/blob/master/documentation/CONFIG.md).
+
+### Publicar
 
 ```bash
 Commit and push
