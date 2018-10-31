@@ -54,3 +54,20 @@ disqus: {
 },
 ...
 ````
+### Configurar `config/deploy.js`
+Cambiar `repo` por el nuevo respositorio y `workthreePath` por un nuevo nombre. Generalmente '/tmp/deploy-{app}'.
+**Explicación: `workthreeApp` es un directorio temporal que utiliza [ember-cli-deploy-git](https://github.com/ef4/ember-cli-deploy-git) para publicar (deploy) nuestro proyecto en gh-pages. Si no cambiarmos el nombre y trataramos de publicar un proyecto diferente en la misma sesión utilizaria el mismo repositorio para hacer los cambios del otro proyecto y generaria problemas.**
+```javascript
+...
+if (deployTarget === 'production') {
+  ENV.build.environment = 'production';
+
+  // configure other plugins for production deploy target here
+  ENV.git = {
+    repo: 'https://github.com/RedCiudadana/MiGuatemala.git',
+    branch: 'gh-pages',
+    worktreePath: '/tmp/deploy-miguatemala'
+  };
+}
+...
+```
