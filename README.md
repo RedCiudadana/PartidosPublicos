@@ -7,12 +7,12 @@
 MiGuatemala es un app construido en [Ember](http://emberjs.com). Permite mostrar información sobre funcionarios o candidatos, con el fin de informar a ciudadanos. Ejemplo: [Plataforma de pruebas](http://miguatemala.redciudadana.org/).
 
 ## Instalación
-La información sobre la instalación la puedes encontrar [aquí](https://github.com/RedCiudadana/MiGuatemala/blob/update/documentation/APP_SETUP.md).
+La información sobre la instalación la puedes encontrar [aquí](https://github.com/RedCiudadana/MiGuatemala/blob/master/documentation/APP_SETUP.md).
 
 ## Otros archivos
-- [CHANGELOG](https://github.com/RedCiudadana/MiGuatemala/blob/update/CHANGELOG.md)
-- [CONFIG](https://github.com/RedCiudadana/MiGuatemala/blob/update/documentation/CONFIG.md)
-- [DATOS](https://github.com/RedCiudadana/MiGuatemala/blob/update/documentation/DATOS.md)
+- [CHANGELOG](https://github.com/RedCiudadana/MiGuatemala/blob/master/CHANGELOG.md)
+- [CONFIG](https://github.com/RedCiudadana/MiGuatemala/blob/master/documentation/CONFIG.md)
+- [DATOS](https://github.com/RedCiudadana/MiGuatemala/blob/master/documentation/DATOS.md)
 
 ## Generar documentación YUIDoc
 Genera la documentación de YUIDoc en HTML.
