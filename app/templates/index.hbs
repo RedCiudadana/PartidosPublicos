@@ -1,6 +1,12 @@
 {{!-- Portfolio --}}
 {{#if model.config.useFrontPortfolioVisualization}}
   <div class="container-fluid bg-white">
+    <div class="row">
+      <div class="col-12">
+        {{!-- <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}> --}}
+        Mujer {{input type="checkbox" name="Mujer" checked=esMujer change=(action "applyFilter" "esMujer")}}
+      </div>
+    </div>
     <div>
       {{front-portfolio
       profiles=model.profiles

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Changed documentation/CONFIG.md adding new info.
+- Changed spanish code to english.
 
 ## [0.4.3] 2018-10-31
 ### Added

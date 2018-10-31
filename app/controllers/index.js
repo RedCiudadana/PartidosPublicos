@@ -42,7 +42,10 @@ export default Controller.extend({
   ),
 
   actions: {
-    applyFilter() {
+    applyFilter(string) {
+      // Invierte la propiedad que se le pasa
+      this.set(string, !this.get(string));
+
       var $container = $('#portfolio');
 
       $container.isotope({transitionDuration: '0.65s'});
