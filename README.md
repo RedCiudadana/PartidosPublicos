@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <p align="center">
   <a href="http://redciudadana.org"><img width="auto" src="http://redciudadana.org/wp-content/uploads/2018/05/red-logo-01.png"></a>
 </p>
@@ -77,4 +76,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
->>>>>>> ef14bc4... message
