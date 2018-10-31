@@ -29,8 +29,7 @@ module.exports = function(environment) {
       }
     },
 
-    metricsAdapters: [
-      {
+    metricsAdapters: [{
         name: 'GoogleAnalytics',
         environments: ['production', 'development'],
         config: {
@@ -48,11 +47,18 @@ module.exports = function(environment) {
       dataSpreadsheetSourceUrl: '/data-spreadsheet-url',
       configSpreadsheetSourceUrl: '/config-spreadsheet-url',
 
-      // Set null to retrieve data from the spreadsheet live. Otherwhise set the
-      // URL from which to load de dumped static files
+      // Establecer null para recibir datos desde spreadsheet en vivo.
+      // En otro caso estrablecer la url de '/static-files/' los archivos descargados.
+
+      // Datos desde spreadsheets en vivo.
       staticFilesUrl: null
+
+      // Datos desde localhost => desarrollo
       // staticFilesUrl: 'http://192.168.250.206:6360/static-files/'
       // staticFilesUrl: 'http://localhost:6360/static-files/'
+
+      // Datos desde gh-pages
+      // staticFilesUrl: 'http://miguatemala.redciudadana.org/static-files/'
     },
 
     disqus: {
@@ -86,6 +92,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.staticFilesUrl = 'http://miguatemala.redciudadana.org/static-files/';
     ENV.googleAnalytics = {
       webPropertyId: 'UA-101167670-1'
     };
