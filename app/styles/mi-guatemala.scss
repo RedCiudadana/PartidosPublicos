@@ -20,6 +20,23 @@
  * Panel
  */
 
+@font-face {
+    font-family: 'MyFont';
+    src: url(/fonts/HindSiliguri-Medium.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url(/fonts/HindSiliguri-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url(/fonts/HindSiliguri-Light.ttf) format('truetype');
+    font-weight: lighter;
+}
+
 // Navbar
 
 .navbar ul li a {
