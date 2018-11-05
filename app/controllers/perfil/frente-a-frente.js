@@ -24,10 +24,10 @@ export default Controller.extend({
   }),
 
   perfilUno: computed('perfilUnoId', function() {
-    return this.get('model.perfiles').findBy('id', this.get('perfilUnoId'));
+    return this.get('model.profiles').findBy('id', this.get('perfilUnoId'));
   }),
 
   perfilDos: computed('perfilDosId', function() {
-    return this.get('model.perfiles').findBy('id', this.get('perfilDosId'));
+    return this.get('model.profiles').findBy('id', this.get('perfilDosId'));
   })
 });

@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-6 my-2">
         {{one-way-select perfilUnoId
-            options=model.perfiles
+            options=model.profiles
             optionValuePath="id"
             optionLabelPath="nombre"
             update=(action (mut perfilUno))
@@ -17,7 +17,7 @@
       </div>
       <div class="col-md-6">
         {{one-way-select perfilDosId
-            options=model.perfiles
+            options=model.profiles
             optionValuePath="id"
             optionLabelPath="nombre"
              update=(action (mut perfilDos))

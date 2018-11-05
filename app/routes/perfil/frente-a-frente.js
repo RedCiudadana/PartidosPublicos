@@ -10,14 +10,7 @@ export default Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
 
-    controller.set('perfilUnoId', model.perfil.get('id'));
-    controller.set(
-      'frenteAFrenteFuncionalidad',
-      model
-        .config
-        .perfilFuncionalidades
-        .findBy('route', 'perfil.frente-a-frente')
-    );
+    controller.set('perfilUnoId', model.profile.get('id'));
 
     let frenteAFrenteFields = this.store.serializerFor('magistrate').get('frenteAFrenteFields');
 
