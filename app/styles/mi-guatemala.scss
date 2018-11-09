@@ -7,6 +7,7 @@
 /**
  * Tabla de contenidos
  * 
+ * Colors utils
  * Navbar
  * Footer
  * Perfil
@@ -19,6 +20,11 @@
  * Links
  * Panel
  */
+
+// Colors utils
+$fb-color: #3B5998;
+$tw-color: #1DA1F2;
+
 
 @font-face {
     font-family: 'MyFont';
@@ -39,8 +45,38 @@
 
 // Navbar
 
-.navbar ul li a {
-    color: $navbar-color;
+.navbar {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+
+    // Button style
+    ul li a {
+        color: $navbar-color;
+        border: 1px solid #ddddddff;
+        border-radius: 20px;
+        padding: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    // Hover links
+    ul li a:hover {
+        background-color: $info;
+        color: white !important;
+    }
+
+    // Social links - facebook - twitter
+    .social {
+        padding: 8px;
+        border-radius: 25px;
+    }
+
+    .fb:hover {
+        background-color: $fb-color;
+    }
+
+    .tw:hover {
+        background-color: $tw-color;
+    }
 }
 
 // Footer
@@ -256,33 +292,4 @@ i {
     .body {
         padding: 15px;
     }
-}
-
-#animations {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    position: relative;
-    -webkit-animation-direction: normal; /* Safari 4.0 - 8.0 */
-    -webkit-animation-name: move-to-left; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s;    
-    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
-    -webkit-animation-iteration-count: 1; /* Safari 4.0 - 8.0 */
-    animation-direction: normal;
-    animation-name: move-to-left;
-    animation-duration: 4s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-}
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes move-to-left {
-    0%   {background-color:red; left:400px; top:0px;}
-    100% {background-color:red; left:0px; top:0px;}
-}
-
-/* Standard syntax */
-@keyframes move-to-right {
-    0%   {background-color:red; left:400px; top:0px;}
-    100% {background-color:red; left:0px; top:0px;}
 }
