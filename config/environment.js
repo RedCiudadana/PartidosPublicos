@@ -62,7 +62,7 @@ module.exports = function(environment) {
     },
 
     disqus: {
-      shortname: null
+      shortname: 'test-mi-guatemala'
     },
 
     contentSecurityPolicy: contentSecurityPolicy

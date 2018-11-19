@@ -4427,6 +4427,14 @@ ember-decorators@^2.0.0-beta.2:
     ember-cli-babel "^6.0.0"
     semver "^5.5.0"
 
+ember-disqus@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-disqus/-/ember-disqus-1.0.0.tgz#3a693113849ec803a69fd51d7deb2ae0ca882376"
+  integrity sha512-qYZEX0+aH6hcKxjoY8LoO4Ci1voMKLzvs747jFYB8oz9sslGbNlZm78Pi5qGSxpqlUl9jZlyHLJPcJPokH5Rbw==
+  dependencies:
+    ember-cli-babel "^7.1.0"
+    ember-cli-htmlbars "^2.0.1"
+
 ember-export-application-global@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ember-export-application-global/-/ember-export-application-global-2.0.0.tgz#8d6d7619ac8a1a3f8c43003549eb21ebed685bd2"
