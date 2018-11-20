@@ -15,6 +15,10 @@ export default Route.extend({
    */
   model() {
     return this.modelFor('application');
+  },
+
+  setupController: function(controller, models) {
+    controller.setProperties(models);
   }
 
 });

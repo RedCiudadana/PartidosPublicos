@@ -1,58 +1,24 @@
-import $ from 'jquery';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Controller.extend({
+// setup our query params
+  queryParams: ["page", "perPage"],
 
-  currentSelector: computed(
-    'esMujer',
-    'esHombre',
-    'estaEnProceso',
-    'estaDescalificado',
-    function() {
-      if (
-        !this.get('esMujer')
-            && !this.get('esHombre')
-            && !this.get('estaEnProceso')
-            && !this.get('estaDescalificado')
-      ) {
-        return '*';
-      }
+  // set default values, can cause problems if left out
+  // if value matches default, it won't display in the URL
+  page: 1,
+  perPage: 20,
 
-      let selectors = [];
+  // can be called anything, I've called it pagedContent
+  // remember to iterate over pagedContent in your template
+  pagedContent: pagedArray('profiles', {
+    page: computed.alias("parent.page"),
+    perPage: computed.alias("parent.perPage")
+  }),
 
-      if (this.get('esMujer')) {
-        selectors.push('.mujer');
-      }
-
-      if (this.get('esHombre')) {
-        selectors.push('.hombre');
-      }
-
-      if (this.get('estaEnProceso')) {
-        selectors.push('.enProceso');
-      }
-
-      if (this.get('estaDescalificado')) {
-        selectors.push('.descalificado');
-      }
-
-      return selectors.join(', ');
-    }
-  ),
-
-  actions: {
-    applyFilter(string) {
-      // Invierte la propiedad que se le pasa
-      this.set(string, !this.get(string));
-
-      var $container = $('#portfolio');
-
-      $container.isotope({transitionDuration: '0.65s'});
-
-      $container.isotope({filter: this.get('currentSelector')});
-
-      return false;
-    }
-  }
+  // binding the property on the paged array
+  // to a property on the controller
+  totalPages: computed.oneWay("pagedContent.totalPages")
 });

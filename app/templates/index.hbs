@@ -1,16 +1,34 @@
-{{!-- Portfolio --}}
-{{#if model.config.useFrontPortfolioVisualization}}
-  <div class="container bg-white">
-    <div class="row">
-      <div class="col-12">
-        {{!-- Mujer {{input type="checkbox" name="Mujer" checked=esMujer change=(action "applyFilter" "esMujer")}} --}}
+<div class="container">
+
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div id="portfolio" class="portfolio clearfix my-4">
+        {{#each pagedContent as |profile|}}
+          <article class="item {{profile.selector}}">
+            <div class="background bg-light">
+
+              <div class="image">
+                {{#link-to "perfil" profile.id}}
+                  <img alt={{profile.cargoNombreCompleto}} src={{profile.fotoPerfil}}>
+                {{/link-to}}
+              </div>
+
+              <div class="text">
+                <h6>{{profile.nombre}}</h6>
+                <h6 class="font-weight-light">Cargo</h6>
+              </div>
+
+            </div>
+          </article>
+        {{/each}}
       </div>
     </div>
-    <div>
-      {{front-portfolio
-      profiles=model.profiles
-      onDidInsertElement=(action "applyFilter")
-      }}
+  </div>
+
+  <div class="row">
+    <div class="col-4 offset-4 text-center">
+      {{page-numbers content=pagedContent}}
     </div>
   </div>
-{{/if}}
+
+</div>
