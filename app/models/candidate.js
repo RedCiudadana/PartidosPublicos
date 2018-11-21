@@ -83,12 +83,12 @@ export default Model.extend({
   tw: attr('string'),
 
   /**
-   * fotoUrl
+   * fotoURL
    *
-   * @property fotoUrl
+   * @property fotoURL
    * @type String
    */
-  fotoUrl: attr('string'),
+  fotoURL: attr('string'),
 
   // Computed properties
 
@@ -99,9 +99,9 @@ export default Model.extend({
    * @param sexo Sexo del candidato.
    * @return String enlace de la foto del candidato
    */
-  fotoPerfil: computed('fotoUrl', 'sexo', function() {
-    if (this.get('fotoUrl') !== '') {
-      return this.get('fotoUrl');
+  fotoPerfil: computed('fotoURL', 'sexo', function() {
+    if (this.get('fotoURL')) {
+      return this.get('fotoURL');
     }
 
     if (this.get('sexo') === 'Masculino') {
@@ -111,6 +111,6 @@ export default Model.extend({
     if (this.get('sexo') === 'Femenino') {
       return 'mi-guatemala/img/candidata.png';
     }
-  }),
+  })
 
 });
