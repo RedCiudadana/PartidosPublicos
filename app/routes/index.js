@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import { A } from '@ember/array';
 
 /**
  * Ruta principal '/'.
@@ -14,11 +15,13 @@ export default Route.extend({
    * @return {Object} Objeto con los datos de Route.Application.model().
    */
   model() {
-    return this.modelFor('application');
-  },
-
-  setupController: function(controller, models) {
-    controller.setProperties(models);
+    let modelData = A();
+    let app = this.modelFor('application');
+    modelData.pushObjects(app.presidents.toArray());
+    modelData.pushObjects(app.deputies.toArray());
+    modelData.pushObjects(app.parlacems.toArray());
+    modelData.pushObjects(app.mayors.toArray());
+    return modelData;
   }
 
 });

@@ -13,7 +13,7 @@ export default Controller.extend({
 
   // can be called anything, I've called it pagedContent
   // remember to iterate over pagedContent in your template
-  pagedContent: pagedArray('profiles', {
+  pagedContent: pagedArray('model', {
     page: computed.alias("parent.page"),
     perPage: computed.alias("parent.perPage")
   }),
