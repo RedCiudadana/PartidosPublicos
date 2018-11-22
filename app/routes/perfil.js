@@ -39,37 +39,18 @@ export default Route.extend({
     const _routing = this.get('_routing');
 
     // Obtiene el profile según el id
-    const profile = this.store.peekRecord('magistrate', params.id);
+    const profile = this.store.peekRecord(params.type, params.id);
     // Obtiene el partido actual del profile
-    const currentParty = profile.get('partidoActual');
+    const currentParty = profile.get('partido');
 
     return hash({
       config: {},
       profile: profile,
       currentParty: currentParty,
-      profileGeneralInformationConfiguration: spreadsheet
-        .fetchConfig('perfil-informacion-general-configuracion'),
-      profiles: this.modelFor('application').profiles,
-      avaibleDocuments: spreadsheet
-        .fetch('documentos-disponibles')
+      availableInfo: spreadsheet
+        .fetch('info-' + params.type)
         .then((documentos) => {
-          return A(documentos)
-            .filterBy('profile', profile.get('id'));
-        }),
-      dataTableGradation: spreadsheet
-        .fetch('tabla-gradacion')
-        .then((registros) => {
-          return A(registros)
-            .filterBy('profile', profile.get('id'))
-            .filter((e) => e.aspecto !== 'Total');
-        }),
-      totalGraduationScore: spreadsheet
-        .fetch('tabla-gradacion')
-        .then((registros) => {
-          return A(registros)
-            .filterBy('profile', profile.get('id'))
-            .filter((e) => e.aspecto !== 'Total' && e.aspecto !== 'Cualidades Éticas y de Probidad')
-            .reduce((previousValue, item) => previousValue + parseInt(item.puntaje), 0);
+          return documentos.findBy('id', profile.get('id'));
         }),
       profileFunctions: spreadsheet
         .fetchConfig('perfil-funcionalidades')

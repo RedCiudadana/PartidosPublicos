@@ -65,6 +65,6 @@ export default Model.extend({
    * @property members
    * @type String
    */
-  miembros: hasMany('commission-deputie', { inverse: null })
+  miembros: hasMany('candidate', { inverse: null })
 
 });

@@ -27,7 +27,7 @@ const Router = EmberRouter.extend(RouterScroll, {
 });
 
 Router.map(function() {
-  this.route('perfil', { path: '/perfil/:id'}, function() {
+  this.route('perfil', { path: '/perfil/:type/:id'}, function() {
     this.route('frente-a-frente');
     this.route('fact-checking');
   });

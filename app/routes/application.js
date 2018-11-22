@@ -28,7 +28,8 @@ export default Route.extend({
       presidents: this.store.findAll('president'),
       deputies: this.store.findAll('deputie'),
       parlacems: this.store.findAll('parlacem'),
-      mayors: this.store.findAll('mayor')
+      mayors: this.store.findAll('mayor'),
+      parties: this.store.findAll('partido')
     });
   },
 

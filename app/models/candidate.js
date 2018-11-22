@@ -1,5 +1,6 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
+import { belongsTo } from 'ember-data/relationships';
 import { computed } from '@ember/object';
 
 /**
@@ -24,7 +25,7 @@ export default Model.extend({
    * @property partido
    * @type Number
    */
-  partido: attr('number'),
+  partido: belongsTo('partido'),
 
   /**
    * edad

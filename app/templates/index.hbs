@@ -8,7 +8,7 @@
             <div class="background bg-light">
 
               <div class="image">
-                {{#link-to "perfil" profile.id}}
+                {{#link-to "perfil" profile.type profile.id}}
                   <img alt={{profile.cargoNombreCompleto}} src={{profile.fotoPerfil}}>
                 {{/link-to}}
               </div>
@@ -32,3 +32,4 @@
   </div>
 
 </div>
+
