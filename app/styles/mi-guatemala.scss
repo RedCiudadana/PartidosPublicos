@@ -43,25 +43,28 @@ $tw-color: #1DA1F2;
     font-weight: lighter;
 }
 
+// Top banner
+.top-banner {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
 // Navbar
 
 .navbar {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
 
+    .navbar-brand img {
+        height: 65px;
+        margin-left: 50px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
     // Button style
     ul li a {
         color: $navbar-color;
-        border: 1px solid #ddddddff;
-        border-radius: 20px;
-        padding: 10px;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    // Hover links
-    ul li a:hover {
-        background-color: $info;
-        color: white !important;
+        opacity: 0.8;
     }
 
     // Social links - facebook - twitter
@@ -291,5 +294,20 @@ i {
 
     .body {
         padding: 15px;
+    }
+}
+
+.ember-power-select-trigger {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+@include media-breakpoint-up(md) {
+
+    .ember-power-select-trigger {
+        width: 500px;
     }
 }

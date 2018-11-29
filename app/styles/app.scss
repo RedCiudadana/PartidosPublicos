@@ -1,11 +1,11 @@
 // COLORS
 
-$primary: #163f7f;
-$secondary: #182047;
-$success: #00ac56;
+$primary: #0e8acb;
+$secondary: #1f2d3e;
+$success: #0cab55;
 $warning: #f6ab40;
-$info: #26a5dc;
-$dark: #1e2b3d;
+$info: #53bae5;
+$dark: #1f2d3e;
 
 $navbar-color: #3a3a3a;
 
@@ -22,3 +22,5 @@ $border-radius: 10px;
     width: 30px;
     text-align: center;
 }
+
+@import "ember-power-select";
