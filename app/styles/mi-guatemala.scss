@@ -25,20 +25,19 @@
 $fb-color: #3B5998;
 $tw-color: #1DA1F2;
 
-
 @font-face {
-    font-family: 'MyFont';
+    font-family: 'FontTheme';
     src: url(/fonts/HindSiliguri-Medium.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'MyFont';
+    font-family: 'FontTheme';
     src: url(/fonts/HindSiliguri-Bold.ttf) format('truetype');
     font-weight: bold;
 }
 
 @font-face {
-    font-family: 'MyFont';
+    font-family: 'FontTheme';
     src: url(/fonts/HindSiliguri-Light.ttf) format('truetype');
     font-weight: lighter;
 }
@@ -294,20 +293,5 @@ i {
 
     .body {
         padding: 15px;
-    }
-}
-
-.ember-power-select-trigger {
-    width: 80%;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-
-@include media-breakpoint-up(md) {
-
-    .ember-power-select-trigger {
-        width: 500px;
     }
 }

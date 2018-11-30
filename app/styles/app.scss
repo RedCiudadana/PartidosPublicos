@@ -15,6 +15,16 @@ $border-radius: 10px;
 
 @import "ember-bootstrap/bootstrap";
 @import "mi-guatemala";
+// Ember Power Select
+@import "ember-power-select";
+
+body {
+    font-family: 'FontTheme';
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    font-weight: bold;
+}
 
 .page-number, .arrow {
     border: 1px solid gray;
@@ -23,4 +33,65 @@ $border-radius: 10px;
     text-align: center;
 }
 
-@import "ember-power-select";
+.ember-power-select-trigger {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+}
+
+
+@include media-breakpoint-up(md) {
+
+    .ember-power-select-trigger {
+        width: 500px;
+    }
+}
+
+.btn-square {
+    width: 250px;
+    height: 150px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.row.high {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+main {
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+.panel, .nav-candidator {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.nav-candidator {
+    color: black !important;
+
+    ul li {
+        color: $dark;
+        padding: 15px;
+    }
+
+    ul li:hover, li:hover a {
+        background: $warning;
+        // Calcula el color según el color de fondo. Aclara 80%.
+        color: lighten( $secondary, 80% ) !important;
+    }
+
+    a {
+        color: $dark !important;
+    }
+}
+
+.panel {
+    .header h3{
+        font-size: 1.2rem !important;
+    }
+}

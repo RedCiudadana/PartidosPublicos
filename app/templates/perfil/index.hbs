@@ -1,4 +1,4 @@
-<div class="row m-1 border">
+<div class="row m-1 border bg-white">
   {{!-- Imagen --}}
   <div class="col-md-4">
     <div class="text-center">
@@ -38,7 +38,7 @@
     </div>
     <div class="d-block mt-3">
       <div>
-        <a href={{mode.profile.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.profile.tw}}</a>
+        <a href={{model.profile.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.profile.tw}}</a>
       </div>
       <div>
         <a href={{model.profile.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.profile.nombre}}</a>
@@ -49,9 +49,9 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="panel">
-      <div class="header"><h3>Panel 1</h3></div>
+      <div class="header"><h3>Biografía</h3></div>
       <div class="body">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut iusto cum, sint hic veritatis id reiciendis illum aliquid natus repellendus eaque in praesentium harum unde quod error doloremque. Explicabo.
@@ -59,13 +59,24 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6">
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <div class="panel">
-      <div class="header"><h3>Panel 1</h3></div>
+      <div class="header"><h3>3 de 3</h3></div>
       <div class="body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut iusto cum, sint hic veritatis id reiciendis illum aliquid natus repellendus eaque in praesentium harum unde quod error doloremque. Explicabo.
-        </p>
+        <div class="row">
+          <div class="col-12 col-md-4 my-2 text-center">
+            <button class="btn btn-warning btn-square text-white">CV</button>
+          </div>
+          <div class="col-12 col-md-4 my-2 text-center">
+            <button class="btn btn-success btn-square text-white">Finiquito</button>
+          </div>
+          <div class="col-12 col-md-4 my-2 text-center">
+            <button class="btn btn-primary btn-square text-white">Patrimonio</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
