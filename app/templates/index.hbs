@@ -1,3 +1,4 @@
+{{!-- Carousel --}}
 {{#bs-carousel as |car|}}
   {{#car.slide}}
     <img alt="Paso 1" src="img/slider-1.png" height="auto" width="100%">
@@ -12,6 +13,7 @@
 
 <div class="container py-5">
 
+  {{!-- Ember Power Select --}}
   <div class="row">
     <div class="col-12 text-center">
       <h5>¿Quiénes son los representantes de tu municipio?</h5>
@@ -26,10 +28,66 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12">
+  {{!-- Filters --}}
+  <div class="row filters">
+    <div class="col-12 text-center">
+      {{!-- Sexo --}}
       {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-dark"}}Sex<span class="caret"></span>{{/dd.button}}
+        {{#dd.button class="bg-light btn-light"}}Sex<span class="caret"></span>{{/dd.button}}
+        {{#dd.menu as |menu|}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
+              Femenino
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
+              Masculino
+            </label>
+          {{/menu.item}}
+        {{/dd.menu}}
+      {{/bs-dropdown}}
+      {{!-- Municipio --}}
+      {{#bs-dropdown class="m-2 rounded" as |dd|}}
+        {{#dd.button class="bg-light btn-light"}}Municipio<span class="caret"></span>{{/dd.button}}
+        {{#dd.menu as |menu|}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
+              Femenino
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
+              Masculino
+            </label>
+          {{/menu.item}}
+        {{/dd.menu}}
+      {{/bs-dropdown}}
+      {{!-- Tipo --}}
+      {{#bs-dropdown class="m-2 rounded" as |dd|}}
+        {{#dd.button class="bg-light btn-light"}}Tipo de elección<span class="caret"></span>{{/dd.button}}
+        {{#dd.menu as |menu|}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
+              Femenino
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
+              Masculino
+            </label>
+          {{/menu.item}}
+        {{/dd.menu}}
+      {{/bs-dropdown}}
+      {{!-- Partido --}}
+      {{#bs-dropdown class="m-2 rounded" as |dd|}}
+        {{#dd.button class="bg-light btn-light"}}Partido político<span class="caret"></span>{{/dd.button}}
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
@@ -52,12 +110,13 @@
 
 <div class="container-fluid bg-light py-4">
 
+  {{!-- Portofolio --}}
   <div class="row">
     <div class="col-10 offset-1">
       <div id="portfolio" class="portfolio clearfix my-4">
         {{#each pagedContent as |profile|}}
           <article class="item {{profile.selector}}">
-            <div class="background bg-light">
+            <div class="background bg-white">
 
               <div class="image">
                 {{#link-to "perfil" profile.type profile.id}}
@@ -77,6 +136,7 @@
     </div>
   </div>
 
+  {{!-- Pagination numbers --}}
   <div class="row">
     <div class="col-4 offset-4 text-center">
       {{page-numbers content=pagedContent}}
@@ -86,6 +146,8 @@
 </div>
 
 <div class="container">
+
+  {{!-- ¿Dónde voto? ¿Cuánto falta? ¡Empadrónate! --}}
   <div class="row high">
     <div class="col-4 text-center">
       <button class="btn btn-warning btn-square text-white">¿Dónde voto?</button>

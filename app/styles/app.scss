@@ -6,7 +6,7 @@ $success: #0cab55;
 $warning: #fab026;
 
 $dark: #1f2d3e;
-$light: #a1a3a6;
+$light: #f1f1f1;
 
 $navbar-color: #3a3a3a;
 
@@ -23,13 +23,14 @@ $border-radius: 10px;
 /**
  * INDEX
  *
- * 1. HTML
- * 2. Pagination
- * 3. Ember Power Select
- * 4. Nav candidator
- * 5. Panel
- * 6. Dropdown
- * 7. Others
+ * Dropdown
+ * Ember Power Select
+ * Filters
+ * HTML
+ * Nav candidator
+ * Others
+ * Pagination
+ * Panel
  */
 
 // HTML
@@ -46,22 +47,55 @@ h1, h2, h3, h4, h5, h6, strong {
 // Pagination
 
 .page-number, .arrow {
-    border: 1px solid gray;
-    height: 30px;
-    width: 30px;
+    background-color: white;
+    height: 40px !important;
+    width: 40px !important;
+    color: $dark;
+    font-weight: bold;
+    padding-top: 8px;
     text-align: center;
+
+    a, a:hover {
+        color: darken($light, 30%);
+    }
+}
+
+.arrow {
+    border-radius: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 // Ember Power Select
 
 .ember-power-select-trigger {
+    // Dimensions
     width: 80%;
+    height: 40px;
+    // Margin and padding
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    border-radius: 50px;
+    padding-top: 5px;
+    // Border
+    border-radius: 15px;
+    // Color
+    background-color: $light;
+    color: gray;
 }
 
+// Filters
+
+.filters {
+    .btn {
+        width: 200px;
+        text-align: center;
+    }
+
+    .caret {
+        padding-left: 20px;
+    }
+}
 
 @include media-breakpoint-up(md) {
 
@@ -105,6 +139,10 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 // Dropdown
+
+.dropdown-toggle {
+    color: gray;
+}
 
 .dropdown-menu {
     padding: 10px;
