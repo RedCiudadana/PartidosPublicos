@@ -1,16 +1,18 @@
 // COLORS
 
 $primary: #0e8acb;
-$secondary: #1f2d3e;
+$secondary: #53bae5;
 $success: #0cab55;
-$warning: #f6ab40;
-$info: #53bae5;
+$warning: #fab026;
+
 $dark: #1f2d3e;
+$light: #a1a3a6;
 
 $navbar-color: #3a3a3a;
 
 $footer-background-color: #202d3e;
 $footer-color: #ffffff;
+
 $border-radius: 10px;
 
 @import "ember-bootstrap/bootstrap";
@@ -18,13 +20,30 @@ $border-radius: 10px;
 // Ember Power Select
 @import "ember-power-select";
 
+/**
+ * INDEX
+ *
+ * 1. HTML
+ * 2. Pagination
+ * 3. Ember Power Select
+ * 4. Nav candidator
+ * 5. Panel
+ * 6. Dropdown
+ * 7. Others
+ */
+
+// HTML
+
 body {
     font-family: 'FontTheme';
+    color: #1e2b3d;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
     font-weight: bold;
 }
+
+// Pagination
 
 .page-number, .arrow {
     border: 1px solid gray;
@@ -32,6 +51,8 @@ h1, h2, h3, h4, h5, h6, strong {
     width: 30px;
     text-align: center;
 }
+
+// Ember Power Select
 
 .ember-power-select-trigger {
     width: 80%;
@@ -49,27 +70,7 @@ h1, h2, h3, h4, h5, h6, strong {
     }
 }
 
-.btn-square {
-    width: 250px;
-    height: 150px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.row.high {
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-main {
-    margin-top: -20px;
-    margin-bottom: -20px;
-}
-
-.panel, .nav-candidator {
-    background-color: white;
-    border-radius: 5px;
-}
+// Nav candidator
 
 .nav-candidator {
     color: black !important;
@@ -90,8 +91,40 @@ main {
     }
 }
 
+// Panel
+
+.panel, .nav-candidator {
+    background-color: white;
+    border-radius: 5px;
+}
+
 .panel {
     .header h3{
         font-size: 1.2rem !important;
     }
+}
+
+// Dropdown
+
+.dropdown-menu {
+    padding: 10px;
+}
+
+// Others
+
+.btn-square {
+    width: 250px;
+    height: 150px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.row.high {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+main {
+    margin-top: -20px;
+    margin-bottom: -20px;
 }

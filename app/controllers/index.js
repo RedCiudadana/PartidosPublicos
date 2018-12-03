@@ -1,9 +1,47 @@
+import $ from 'jquery';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Controller.extend({
-// setup our query params
+
+  currentSelector: computed(
+    'esMujer',
+    'esHombre',
+    function() {
+      if(!this.get('esMujer') && !this.get('esHombre')) {
+        return '*';
+      }
+
+      let selectors = [];
+
+      if (this.get('esMujer')) {
+        selectors.push('.mujer');
+      }
+
+      if (this.get('esHombre')) {
+        selectors.push('.hombre');
+      }
+
+      return selectors.join(', ');
+
+    }
+  ),
+
+  _applyFilter() {
+
+    var $container = $('#portfolio');
+
+    $container.isotope({transitionDuration: '0.65s'});
+
+    $container.isotope({filter: this.get('currentSelector')});
+
+    return false;
+  },
+
+  // Pagination
+
+  // setup our query params
   queryParams: ["page", "perPage"],
 
   // set default values, can cause problems if left out
@@ -20,5 +58,11 @@ export default Controller.extend({
 
   // binding the property on the paged array
   // to a property on the controller
-  totalPages: computed.oneWay("pagedContent.totalPages")
+  totalPages: computed.oneWay("pagedContent.totalPages"),
+
+  actions: {
+    applyFilter() {
+      return this._applyFilter();
+    }
+  }
 });

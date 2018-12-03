@@ -94,6 +94,35 @@ export default Model.extend({
   // Computed properties
 
   /**
+  * Selector para Isotope. Genera un 'String' con etiquetas para poder filtrar elementos desde el HTML con Isotope.
+  *
+  * @property selector
+  * @type String
+  * @default ""
+  */
+  selector: computed('sexo', 'estado', function() {
+    let returnValue = '';
+
+    if (this.get('sexo') === 'Masculino') {
+      returnValue += ' hombre';
+    }
+
+    if (this.get('sexo') === 'Femenino') {
+      returnValue += ' mujer';
+    }
+
+    if (this.get('estado') === 'Descalificado') {
+      returnValue += ' descalificado';
+    }
+
+    if (this.get('estado') === 'En proceso') {
+      returnValue += ' enProceso';
+    }
+
+    return returnValue;
+  }),
+
+  /**
    * Foto del perfil, en el caso que fotoURL este vacío se verifica el sexo y se establece una imagen por defecto respectivamente.
    *
    * @param fotoURL String enlace de la foto
