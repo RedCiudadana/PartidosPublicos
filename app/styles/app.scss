@@ -84,6 +84,14 @@ h1, h2, h3, h4, h5, h6, strong {
     color: gray;
 }
 
+@include media-breakpoint-up(md) {
+
+    .ember-power-select-trigger {
+        width: 500px;
+    }
+}
+
+
 // Filters
 
 .filters {
@@ -95,15 +103,12 @@ h1, h2, h3, h4, h5, h6, strong {
     .caret {
         padding-left: 20px;
     }
-}
 
-@include media-breakpoint-up(md) {
-
-    .ember-power-select-trigger {
-        width: 500px;
+    img {
+        height: 25px;
+        filter: brightness(80%);
     }
 }
-
 // Nav candidator
 
 .nav-candidator {
@@ -144,11 +149,14 @@ h1, h2, h3, h4, h5, h6, strong {
 
 // Dropdown
 
-.dropdown-toggle {
-    color: gray;
+.dropdown-toggle, .dropdown-menu.show {
+    color: darken($light, 30%);
 }
 
-.dropdown-menu {
+.dropdown-menu.show {
+    @extend .bg-light;
+
+    display: grid;
     padding: 10px;
 }
 

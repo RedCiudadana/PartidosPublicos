@@ -38,12 +38,14 @@
           {{#menu.item}}
             <label>
               <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icon-femenino.png" alt="Femenino">
               Femenino
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
               <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icon-masculino.png" alt="Masculino">
               Masculino
             </label>
           {{/menu.item}}
@@ -73,14 +75,30 @@
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
-              Femenino
+              <input type="checkbox" checked={{president}} onclick={{queue (action (mut president) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icon-president.png" alt="Elección presidencial">
+              Presidencial
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
-              Masculino
+              <input type="checkbox" checked={{mayor}} onclick={{queue (action (mut mayor) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icon-muni.png" alt="Elección municipal">
+              Municipal
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{deputie}} onclick={{queue (action (mut deputie) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icon-deputies.png" alt="Elección diputados del listado nacional">
+              Diputados Listado Nacional
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{parlacem}} onclick={{queue (action (mut parlacem) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icon-parlacem.png" alt="Elección diputados del parlacem">
+              Diputados Parlacem
             </label>
           {{/menu.item}}
         {{/dd.menu}}

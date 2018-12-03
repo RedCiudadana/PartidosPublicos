@@ -8,8 +8,18 @@ export default Controller.extend({
   currentSelector: computed(
     'esMujer',
     'esHombre',
+    'president',
+    'mayor',
+    'deputie',
+    'parlacem',
     function() {
-      if(!this.get('esMujer') && !this.get('esHombre')) {
+      if(!this.get('esMujer') 
+        && !this.get('esHombre')
+        && !this.get('president')
+        && !this.get('mayor')
+        && !this.get('deputie')
+        && !this.get('parlacem')
+      ) {
         return '*';
       }
 
@@ -22,6 +32,23 @@ export default Controller.extend({
       if (this.get('esHombre')) {
         selectors.push('.hombre');
       }
+
+      if (this.get('president')) {
+        selectors.push('.president');
+      }
+
+      if (this.get('mayor')) {
+        selectors.push('.mayor');
+      }
+
+      if (this.get('deputie')) {
+        selectors.push('.deputie');
+      }
+
+      if (this.get('parlacem')) {
+        selectors.push('.parlacem');
+      }
+
 
       return selectors.join(', ');
 

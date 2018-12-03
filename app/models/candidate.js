@@ -119,6 +119,10 @@ export default Model.extend({
       returnValue += ' enProceso';
     }
 
+    if (this.get('type')) {
+      returnValue += ' ' + this.get('type');
+    }
+
     return returnValue;
   }),
 
