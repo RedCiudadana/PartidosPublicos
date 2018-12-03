@@ -110,7 +110,7 @@ h1, h2, h3, h4, h5, h6, strong {
     color: black !important;
 
     ul li {
-        color: $dark;
+        color: $light;
         padding: 15px;
     }
 
@@ -118,6 +118,10 @@ h1, h2, h3, h4, h5, h6, strong {
         background: $warning;
         // Calcula el color según el color de fondo. Aclara 80%.
         color: lighten( $secondary, 80% ) !important;
+    }
+
+    .social, .social:hover {
+        background-color: white !important;
     }
 
     a {
