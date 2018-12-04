@@ -57,14 +57,14 @@
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
-              Femenino
+              <input type="checkbox" checked={{municipioA}} onclick={{queue (action (mut municipioA) value="target.checked") (action "applyFilter")}}>
+              municipioA
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
-              Masculino
+              <input type="checkbox" checked={{municipioB}} onclick={{queue (action (mut municipioB) value="target.checked") (action "applyFilter")}}>
+              municipioB
             </label>
           {{/menu.item}}
         {{/dd.menu}}
@@ -109,14 +109,14 @@
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
-              Femenino
+              <input type="checkbox" checked={{partidoA}} onclick={{queue (action (mut partidoA) value="target.checked") (action "applyFilter")}}>
+              partidoA
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
-              Masculino
+              <input type="checkbox" checked={{partidoB}} onclick={{queue (action (mut partidoB) value="target.checked") (action "applyFilter")}}>
+              partidoB
             </label>
           {{/menu.item}}
         {{/dd.menu}}
