@@ -1,8 +1,11 @@
 <div class="row m-1 border bg-white">
-  <div class="col-md-4">
-    {{model.logo}}
+  <div class="col-md-3 text-center">
+    <img
+      src="{{model.partido.logo}}"
+      alt="Logo de {{model.partido.nombreCompleto}}"
+      width="100%">
   </div>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="table-responsive-md">
       <table class="table table-sm">
         <tbody>
@@ -10,7 +13,7 @@
             <td>
               <small>
                 <strong>Nombre corto:</strong>
-                {{model.nombreCorto}}
+                {{model.partido.nombreCorto}}
               </small>
             </td>
           </tr>
@@ -18,7 +21,7 @@
             <td>
               <small>
                 <strong>Nombre completo:</strong>
-                {{model.nombreCompleto}}
+                {{model.partido.nombreCompleto}}
               </small>
             </td>
           </tr>
@@ -27,6 +30,26 @@
     </div>
   </div>
   <div class="col-md-4">
-    
+    <div class="d-block mt-3">
+      <div>
+        <a href={{model.partido.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.partido.tw}}</a>
+      </div>
+      <div>
+        <a href={{model.partido.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.partido.fb}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="panel">
+      <div class="header">
+        <h3>Miembros</h3>
+      </div>
+      <div class="body">
+        {{front-portfolio profiles=model.miembros}}
+      </div>
+    </div>
   </div>
 </div>
