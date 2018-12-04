@@ -7,7 +7,7 @@
     "title": "Perfil"
   },
   {
-    "route": "perfil.index",
+    "route": "perfil.partido",
     "link": "",
     "name": "Partido Político",
     "iconClass": "fa fa-bolt color-yellow",

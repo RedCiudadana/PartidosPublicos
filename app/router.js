@@ -27,7 +27,9 @@ const Router = EmberRouter.extend(RouterScroll, {
 });
 
 Router.map(function() {
-  this.route('perfil', { path: '/perfil/:type/:id'}, function() {});
+  this.route('perfil', { path: '/perfil/:type/:id'}, function() {
+    this.route('partido');
+  });
 
   this.route('perfiles', { path: '/:type'}, function() {});
 
