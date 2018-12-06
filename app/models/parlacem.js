@@ -10,5 +10,7 @@ export default Candidate.extend({
   // Atributes
 
   // Tipo de elección
-  type: 'parlacem'
+  type: 'parlacem',
+
+  electionName: 'Diputados Parlacem'
 });

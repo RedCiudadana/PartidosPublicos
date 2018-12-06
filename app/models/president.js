@@ -10,5 +10,7 @@ export default Candidate.extend({
   // Atributes
 
   // Tipo de elección
-  type: 'president'
+  type: 'president',
+
+  electionName: 'Presidencial'
 });

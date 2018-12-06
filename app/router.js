@@ -31,11 +31,12 @@ Router.map(function() {
     this.route('partido');
   });
 
-  this.route('perfiles', { path: '/:type'}, function() {});
-
+  // Considerar si se va a utlizar
   this.route('partidos', function() {
     this.route('partido', { path: '/partido/:id'});
   });
+
+  this.route('perfiles', { path: '/perfiles/:type'});
 });
 
 export default Router;

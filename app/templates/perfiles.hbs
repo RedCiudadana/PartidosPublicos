@@ -1,10 +1,130 @@
-{{!-- Portfolio --}}
-{{#if model.config.useFrontPortfolioVisualization}}
-  <div class="container-fluid bg-white">
-    <div>
-      {{front-portfolio
-        profiles=model.profiles
-      }}
+<div class="container py-5">
+
+  {{!-- Ember Power Select --}}
+  <div class="row">
+    <div class="col-12 text-center">
+      {{#power-select
+        options=model
+        selected=profile
+        searchField="nombre"
+        onchange=(action (mut profile))
+      as |profile|}}
+        <strong>{{profile.nombre}}</strong>
+      {{/power-select}}
     </div>
   </div>
-{{/if}}
+
+  {{!-- Filters --}}
+  <div class="row filters">
+    <div class="col-12 text-center">
+      {{!-- Sexo --}}
+      {{#bs-dropdown class="m-2 rounded" as |dd|}}
+        {{#dd.button class="bg-light btn-light"}}Sex<span class="caret"></span>{{/dd.button}}
+        {{#dd.menu as |menu|}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icono-femenino.png" alt="Femenino">
+              Femenino
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icono-masculino.png" alt="Masculino">
+              Masculino
+            </label>
+          {{/menu.item}}
+        {{/dd.menu}}
+      {{/bs-dropdown}}
+      {{!-- Municipio --}}
+      {{#bs-dropdown class="m-2 rounded" as |dd|}}
+        {{#dd.button class="bg-light btn-light"}}Municipio<span class="caret"></span>{{/dd.button}}
+        {{#dd.menu as |menu|}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{municipioA}} onclick={{queue (action (mut municipioA) value="target.checked") (action "applyFilter")}}>
+              municipioA
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{municipioB}} onclick={{queue (action (mut municipioB) value="target.checked") (action "applyFilter")}}>
+              municipioB
+            </label>
+          {{/menu.item}}
+        {{/dd.menu}}
+      {{/bs-dropdown}}
+      {{!-- Partido --}}
+      {{#bs-dropdown class="m-2 rounded" as |dd|}}
+        {{#dd.button class="bg-light btn-light"}}Partido político<span class="caret"></span>{{/dd.button}}
+        {{#dd.menu as |menu|}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{partidoA}} onclick={{queue (action (mut partidoA) value="target.checked") (action "applyFilter")}}>
+              partidoA
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{partidoB}} onclick={{queue (action (mut partidoB) value="target.checked") (action "applyFilter")}}>
+              partidoB
+            </label>
+          {{/menu.item}}
+        {{/dd.menu}}
+      {{/bs-dropdown}}
+    </div>
+  </div>
+</div>
+
+<div class="w-100  bg-primary text-white">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10 py-3 d-flex">
+        <img
+          src="img/icono-{{model.firstObject.type}}.png"
+          alt="Icono {{model.firstObject.electionName}}"
+          height="100"
+          width="auto">
+        <h5 class="my-auto mx-3">{{model.firstObject.electionName}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid bg-light py-4">
+
+  {{!-- Portofolio --}}
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div id="portfolio" class="portfolio clearfix my-4">
+        {{#each pagedContent as |profile|}}
+          <article class="item {{profile.selector}}">
+            <div class="background bg-white">
+
+              <div class="image">
+                {{#link-to "perfil" profile.type profile.id}}
+                  <img alt={{profile.cargoNombreCompleto}} src={{profile.fotoPerfil}}>
+                {{/link-to}}
+              </div>
+
+              <div class="text">
+                <h6>{{profile.nombre}}</h6>
+                <h6 class="font-weight-light">{{profile.type}}</h6>
+              </div>
+
+            </div>
+          </article>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  {{!-- Pagination numbers --}}
+  <div class="row">
+    <div class="col-4 offset-4 text-center">
+      {{page-numbers content=pagedContent}}
+    </div>
+  </div>
+</div>
