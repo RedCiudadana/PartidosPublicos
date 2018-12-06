@@ -49,6 +49,7 @@
 </div>
 
 <div class="row">
+  {{!-- Biografía --}}
   <div class="col-md-12">
     <div class="panel">
       <div class="header d-flex">
@@ -65,6 +66,7 @@
 </div>
 
 <div class="row">
+  {{!-- 3 de 3 --}}
   <div class="col-md-12">
     <div class="panel">
       <div class="header d-flex">
@@ -89,25 +91,31 @@
 </div>
 
 <div class="row">
+  {{!-- Años --}}
   <div class="col-md-6">
     <div class="panel">
-      <div class="header d-flex">
+      <div class="header d-flex" {{action (toggle "years" this)}}>
         <img src="img/icono-años.png" alt="Icono años">
         <h3>Años</h3>
       </div>
       <div class="body">
-        <p>{{availableInfo.year}}</p>
+        {{#bs-collapse collapsed=years}}
+          <p>Mostrar años aquí.{{availableInfo.year}}</p>
+        {{/bs-collapse}}
       </div>
     </div>
   </div>
+  {{!-- Cargo --}}
   <div class="col-md-6">
     <div class="panel">
-      <div class="header d-flex">
+      <div class="header d-flex" {{action (toggle "charge" this)}}>
         <img src="img/icono-cargo.png" alt="Icono cargo">
         <h3>Cargo</h3>
       </div>
       <div class="body">
-        <p>{{availableInfo.charge}}</p>
+        {{#bs-collapse collapsed=charge}}
+          <p>{{availableInfo.charge}}</p>
+        {{/bs-collapse}}
       </div>
     </div>
   </div>

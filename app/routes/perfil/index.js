@@ -8,7 +8,9 @@ export default Route.extend({
 
     controller.setProperties(model);
     controller.setProperties({
-      disqusShortname: config.disqus.shortname
+      disqusShortname: config.disqus.shortname,
+      years: true,
+      charge: true
     });
   }
 });
