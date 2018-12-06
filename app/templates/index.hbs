@@ -83,14 +83,14 @@
           {{#menu.item}}
             <label>
               <input type="checkbox" checked={{mayor}} onclick={{queue (action (mut mayor) value="target.checked") (action "applyFilter")}}>
-              <img src="img/icono-muni.png" alt="Elección municipal">
+              <img src="img/icono-mayor.png" alt="Elección municipal">
               Municipal
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
               <input type="checkbox" checked={{deputie}} onclick={{queue (action (mut deputie) value="target.checked") (action "applyFilter")}}>
-              <img src="img/icono-deputies.png" alt="Elección diputados del listado nacional">
+              <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
               Diputados Listado Nacional
             </label>
           {{/menu.item}}
