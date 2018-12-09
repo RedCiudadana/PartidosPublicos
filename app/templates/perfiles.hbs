@@ -83,7 +83,7 @@
     <div class="row justify-content-center">
       <div class="col-10 py-3 d-flex">
         <img
-          src="img/icono-{{model.firstObject.type}}.png"
+          src={{asset-map (concat "img/icono-" model.firstObject.type ".png") }}
           alt="Icono {{model.firstObject.electionName}}"
           height="100"
           width="auto">

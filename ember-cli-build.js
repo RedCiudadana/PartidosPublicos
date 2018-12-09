@@ -20,7 +20,19 @@ module.exports = function(defaults) {
     sassOptions: {
       // Utilizar nodeSass, es drasticamente más rapido.
       implementation: nodeSass
+    },
+
+    ifa: {
+      enabled: true,
+      inline: false,
+    },
+
+
+    fingerprint: {
+      generateAssetMap: true,
+      fingerprintAssetMap: true
     }
+
   });
 
   // Use `app.import` to add additional libraries to the generated
