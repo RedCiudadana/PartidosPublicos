@@ -25,23 +25,20 @@
 $fb-color: #3B5998;
 $tw-color: #1DA1F2;
 
-// $rootURL: 'CandiDatos2/';
-$rootURL: '';
-
 @font-face {
     font-family: 'FontTheme';
-    src: url(#{$rootURL}/fonts/HindSiliguri-Medium.ttf) format('truetype');
+    src: url(https://redciudadana.github.io/CandiDatos2/fonts/HindSiliguri-Medium.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'FontTheme';
-    src: url(#{$rootURL}/fonts/HindSiliguri-Bold.ttf) format('truetype');
+    src: url(https://redciudadana.github.io/CandiDatos2/fonts/HindSiliguri-Bold.ttf) format('truetype');
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'FontTheme';
-    src: url(#{$rootURL}/fonts/HindSiliguri-Light.ttf) format('truetype');
+    src: url(https://redciudadana.github.io/CandiDatos2/fonts/HindSiliguri-Light.ttf) format('truetype');
     font-weight: lighter;
 }
 
