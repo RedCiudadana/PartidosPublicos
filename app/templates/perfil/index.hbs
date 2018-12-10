@@ -91,12 +91,24 @@
 </div>
 
 <div class="row">
+  <div class="col-12">
+    <div class="panel">
+      <div class="header d-flex">
+        <img src="img/icono-historial.png" alt="Historial Político">
+        <h3>Historial Político</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
   {{!-- Años --}}
   <div class="col-md-6">
     <div class="panel">
       <div class="header d-flex" {{action (toggle "years" this)}}>
         <img src="img/icono-años.png" alt="Icono años">
         <h3>Años</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
       <div class="body">
         {{#bs-collapse collapsed=years}}
@@ -111,6 +123,7 @@
       <div class="header d-flex" {{action (toggle "charge" this)}}>
         <img src="img/icono-cargo.png" alt="Icono cargo">
         <h3>Cargo</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
       <div class="body">
         {{#bs-collapse collapsed=charge}}
