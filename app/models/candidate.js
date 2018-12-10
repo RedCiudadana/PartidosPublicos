@@ -100,7 +100,7 @@ export default Model.extend({
   * @type String
   * @default ""
   */
-  selector: computed('sexo', 'estado', function() {
+  selector: computed('sexo', 'estado', 'partido', function() {
     let returnValue = '';
 
     if (this.get('sexo') === 'Masculino') {
@@ -121,6 +121,10 @@ export default Model.extend({
 
     if (this.get('type')) {
       returnValue += ' ' + this.get('type');
+    }
+
+    if (this.get('partido')) {
+      returnValue += ' ' + this.get('partido').get('nombreCorto').dasherize();
     }
 
     return returnValue;

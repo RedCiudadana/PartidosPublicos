@@ -49,7 +49,6 @@ export default Controller.extend({
         selectors.push('.parlacem');
       }
 
-
       return selectors.join(', ');
 
     }

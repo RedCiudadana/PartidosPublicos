@@ -109,7 +109,7 @@
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{partidoA}} onclick={{queue (action (mut partidoA) value="target.checked") (action "applyFilter")}}>
+              <input type="checkbox" checked={{partidos.firstObject.filter}} onclick={{queue (action (mut partidos.firstObject.filter) value="target.checked") (action "applyFilter")}}>
               partidoA
             </label>
           {{/menu.item}}
@@ -168,13 +168,22 @@
   {{!-- ¿Dónde voto? ¿Cuánto falta? ¡Empadrónate! --}}
   <div class="row high">
     <div class="col-4 text-center">
-      <button class="btn btn-warning btn-square text-white">¿Dónde voto?</button>
+      <button class="btn btn-warning btn-square text-white">
+        <img src="img/icono-donde-voto.png" alt="Icono donde voto" height="60px">
+        ¿Dónde voto?
+      </button>
     </div>
     <div class="col-4 text-center">
-      <button class="btn btn-success btn-square text-white">¿Cuánto falta?</button>
+      <button class="btn btn-success btn-square text-white">
+        <img src="img/icono-cuanto-falta.png" alt="Icono cuanto falta" height="60px">
+        ¿Cuánto falta?
+      </button>
     </div>
     <div class="col-4 text-center">
-      <button class="btn btn-primary btn-square text-white">¡Empadrónate!</button>
+      <button class="btn btn-primary btn-square text-white">
+        <img src="img/icono-empadronate.png" alt="Icono empadrónate" height="60px">
+        ¡Empadrónate!
+      </button>
     </div>
   </div>
 </div>
