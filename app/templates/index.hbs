@@ -4,9 +4,6 @@
     <img alt="Paso 1" src="img/slider-1.png" height="auto" width="100%">
   {{/car.slide}}
   {{#car.slide}}
-    <img alt="Paso 2" src="img/slider-2.png" height="auto" width="100%">
-  {{/car.slide}}
-  {{#car.slide}}
     <img alt="Paso 3" src="img/slider-3.png" height="auto" width="100%">
   {{/car.slide}}
 {{/bs-carousel}}
@@ -29,11 +26,11 @@
   </div>
 
   {{!-- Filters --}}
-  <div class="row filters">
+  <div class="row filters d-none">
     <div class="col-12 text-center">
       {{!-- Sexo --}}
       {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light"}}Sex<span class="caret"></span>{{/dd.button}}
+        {{#dd.button class="bg-light btn-light"}}Género{{/dd.button}}
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
@@ -98,7 +95,7 @@
             <label>
               <input type="checkbox" checked={{parlacem}} onclick={{queue (action (mut parlacem) value="target.checked") (action "applyFilter")}}>
               <img src="img/icono-parlacem.png" alt="Elección diputados del parlacem">
-              Diputados Parlacem
+              Diputados Parlacen
             </label>
           {{/menu.item}}
         {{/dd.menu}}

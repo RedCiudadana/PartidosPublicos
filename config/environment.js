@@ -92,11 +92,10 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.staticFilesUrl = 'https://redciudadana.github.io/CandiDatos2/static-files/';
+    ENV.APP.staticFilesUrl = 'http://kas.candidatos.gt/static-files/';
     ENV.googleAnalytics = {
       webPropertyId: 'UA-101167670-1'
     };
-    ENV.rootURL = '/CandiDatos2/';
   }
 
   return ENV;

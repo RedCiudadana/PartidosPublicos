@@ -26,20 +26,25 @@ $fb-color: #3B5998;
 $tw-color: #1DA1F2;
 
 @font-face {
-    font-family: 'FontTheme';
-    src: url(https://redciudadana.github.io/CandiDatos2/fonts/HindSiliguri-Medium.ttf) format('truetype');
+    font-family: 'HindSiliguri';
+    src: url(http://kas.candidatos.gt/fonts//HindSiliguri-Medium.ttf) format('truetype');
 }
 
 @font-face {
-    font-family: 'FontTheme';
-    src: url(https://redciudadana.github.io/CandiDatos2/fonts/HindSiliguri-Bold.ttf) format('truetype');
+    font-family: 'HindSiliguri';
+    src: url(http://kas.candidatos.gt/fonts//HindSiliguri-Bold.ttf) format('truetype');
     font-weight: bold;
 }
 
 @font-face {
-    font-family: 'FontTheme';
-    src: url(https://redciudadana.github.io/CandiDatos2/fonts/HindSiliguri-Light.ttf) format('truetype');
+    font-family: 'HindSiliguri';
+    src: url(http://kas.candidatos.gt/fonts//HindSiliguri-Light.ttf) format('truetype');
     font-weight: lighter;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(http://kas.candidatos.gt/fonts//Roboto-Regular.ttf) format('truetype');
 }
 
 // Top banner
@@ -64,6 +69,7 @@ $tw-color: #1DA1F2;
     ul li a {
         color: $navbar-color;
         opacity: 0.8;
+        font-size: 1.2rem;
     }
 
     // Social links - facebook - twitter
@@ -127,6 +133,7 @@ $tw-color: #1DA1F2;
     color: #404041;
     padding-top: 40px;
     padding-bottom: 40px;
+    font-family: 'Roboto' !important;
 
     .logo-rc {
         width: 120px;
@@ -137,6 +144,15 @@ $tw-color: #1DA1F2;
         margin-right: 10px;
     }
 }
+
+@include media-breakpoint-up(md) {
+    #red-footer {
+        .logo-rc {
+            margin-top: 13px !important;
+        }
+    }
+}
+
 // Perfil
 
 .nav-candidator {
@@ -162,7 +178,10 @@ $tw-color: #1DA1F2;
 
     img#photo-profile {
         max-width: 350px;
-        width: 80%;
+        max-height: 250px;
+        // margin-top: 25px;
+        // margin-bottom: 25px;
+        // width: 80%;
     }
 }
 
@@ -205,6 +224,7 @@ $tw-color: #1DA1F2;
             padding-top: 10px;
             // Un 'height' determinado para que no varie el alto del item según lo largo del nombre, etc, entre los items.
             height: 80px;
+            line-height: 1 !important;
         }
     }
 }
@@ -272,13 +292,13 @@ i {
     margin-right: -15px;
 
     .header {
-        padding: 20px 15px 20px 15px;
+        padding: 15px;
         background-color: $primary;
         color: lighten( $primary, 80% ) !important;
         border: 1px 0 0 0;
 
         img {
-            height: 50px;
+            height: 40px;
             width: auto;
             margin-left: 10px;
             margin-right: 10px;
@@ -292,6 +312,6 @@ i {
     }
 
     .body {
-        padding: 15px;
+        padding: 35px;
     }
 }

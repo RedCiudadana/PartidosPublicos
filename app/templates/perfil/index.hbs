@@ -1,51 +1,75 @@
-<div class="row m-1 border bg-white">
+<div class="row m-1 bg-white">
   {{!-- Imagen --}}
-  <div class="col-md-4">
-    <div class="text-center">
-      <img
-        id="photo-profile"
-        src={{model.profile.fotoPerfil}}
-        alt={{model.profile.nombre}}
-        border="0"
-        class="img-responsive center-block"
-      >
-    </div>
+  <div class="col-md-3 text-center p-3">
+    <img
+      id="photo-profile"
+      src={{model.profile.fotoPerfil}}
+      alt={{model.profile.nombre}}
+      border="0"
+      class="img-responsive center-block"
+    >
   </div>
   {{!-- Información general --}}
-  <div class="col-md-4">
-    <div class="p-2">
-      <h3>{{model.profile.nombre}}</h3>
-      <table class="table">
-        <tbody>
-          {{#each-in model.profile.informacionGeneral as |key item|}}
-            <tr>
-              <td class="border-0 p-0">
-                <small>
-                  {{#if item.label}}<strong>{{html-safe item.label}}:</strong>{{/if}}
-                  {{html-safe item.value}}
-                </small>
-              </td>
-            </tr>
-          {{/each-in}}
-        </tbody>
-      </table>
-    </div>
+  <div class="col-md-6 p-3">
+    <h3>{{model.profile.nombre}}</h3>
+    <table class="table w-75">
+      <tbody>
+        <tr>
+          <td class="p-0 border-top-0">
+            <small>
+              <strong>Partido: </strong>{{currentParty.nombreCompleto}}
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td class="p-0">
+            <small>
+              <strong>Edad: </strong>{{profile.edad}}
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td class="p-0">
+            <small>
+              <strong>Estado civil: </strong>{{profile.estadoCivil}}
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td class="p-0">
+            <small>
+              <strong>Años de ejercicio profesional: </strong>{{profile.anosProfesional}}
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td class="p-0">
+            <small>
+              <strong>No. de colegiado: </strong>{{profile.numeroColegiado}}
+            </small>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   {{!-- Información extra, redes sociales --}}
-  <div class="col-md-4 social-side text-center d-block">
-    <div>
-      <img src={{model.profile.fotoUrlPartido}} alt={{model.profile.partidoactual}}>
-    </div>
+  <div class="col-md-3 social-side text-center d-block p-3">
+    <img src={{model.currentParty.logo}} alt={{model.currentParty.nombreCorto}} class="foto-partido">
     <div class="d-block mt-3">
       <div>
-        <a href={{model.profile.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.profile.tw}}</a>
+        <a href={{model.profile.tw}} target="_blank" rel="noopener">
+          <img src="img/icono-tw.png" alt="Twitter">
+          {{model.profile.tw}}
+        </a>
       </div>
       <div>
-        <a href={{model.profile.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.profile.nombre}}</a>
+        <a href={{model.profile.fb}} target="_blank" rel="noopener">
+          <img src="img/icono-fb.png" alt="Facebook">
+          {{model.profile.nombre}}
+        </a>
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="row">
@@ -76,13 +100,22 @@
       <div class="body">
         <div class="row">
           <div class="col-12 col-md-4 my-2 text-center">
-            <button class="btn btn-warning btn-square text-white">CV</button>
+            <button class="btn btn-warning btn-square text-white">
+              <img src="img/icono-cv.png" alt="Icono CV" height="60px">
+              CV
+            </button>
           </div>
           <div class="col-12 col-md-4 my-2 text-center">
-            <button class="btn btn-success btn-square text-white">Finiquito</button>
+            <button class="btn btn-success btn-square text-white">
+              <img src="img/icono-finiquito.png" alt="Icono Finiquito" height="60px">
+              Finiquito
+            </button>
           </div>
           <div class="col-12 col-md-4 my-2 text-center">
-            <button class="btn btn-primary btn-square text-white">Patrimonio</button>
+            <button class="btn btn-primary btn-square text-white">
+              <img src="img/icono-patrimonio.png" alt="Icono Patrimonio" height="60px">
+              Patrimonio
+            </button>
           </div>
         </div>
       </div>
@@ -90,7 +123,7 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row mb-0 pb-0">
   <div class="col-12">
     <div class="panel">
       <div class="header d-flex">
@@ -105,7 +138,7 @@
   {{!-- Años --}}
   <div class="col-md-6">
     <div class="panel">
-      <div class="header d-flex" {{action (toggle "years" this)}}>
+      <div class="header d-flex bg-secondary" {{action (toggle "years" this)}}>
         <img src="img/icono-años.png" alt="Icono años">
         <h3>Años</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
@@ -120,7 +153,7 @@
   {{!-- Cargo --}}
   <div class="col-md-6">
     <div class="panel">
-      <div class="header d-flex" {{action (toggle "charge" this)}}>
+      <div class="header d-flex bg-secondary" {{action (toggle "charge" this)}}>
         <img src="img/icono-cargo.png" alt="Icono cargo">
         <h3>Cargo</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}

@@ -3,7 +3,7 @@ import Candidate from './candidate';
 /**
  * Modelo para candidatos a diputos de parlacem
  *
- * @class Model.Parlacem
+ * @class Model.Parlacen
  * @extends Model.Candidate
  */
 export default Candidate.extend({
@@ -12,5 +12,5 @@ export default Candidate.extend({
   // Tipo de elección
   type: 'parlacem',
 
-  electionName: 'Diputados Parlacem'
+  electionName: 'Diputados Parlacen'
 });
