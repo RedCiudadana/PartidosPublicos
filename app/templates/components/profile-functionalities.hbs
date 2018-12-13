@@ -16,11 +16,11 @@
 </div>
 {{!-- 'Navbar' para perfiles --}}
 <div class="row my-2">
-  <div class="col-12 p-0 nav-candidator border">
+  <div class="col-12 p-0 nav-candidator border shadow">
     <nav>
       <ul class="list-inline m-0 d-sm-flex">
         {{!-- Genera los links de las funcionalidades --}}
-        {{#link-to-wrapper "perfil.index" title="Información general"}}
+        {{#link-to-wrapper "perfil.index" title="Información general" class="primary"}}
           <img
             src="img/icono-perfil.png"
             alt="Icono información general"
@@ -37,7 +37,7 @@
             class="green">
           Partido Político
         {{/link-to-wrapper}}
-        {{#link-to-wrapper "perfil.index" title="Información general" class="blue"}}
+        {{#link-to-wrapper "perfil.partido" title="Información general" class="blue"}}
           <img
             src="img/icono-elecciones.png"
             alt="Icono elecciones"

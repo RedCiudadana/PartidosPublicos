@@ -144,24 +144,34 @@ h1, h2, h3, h4, h5, h6, strong {
     background-color: white;
     border-radius: 5px;
 
-    .green:hover {
+    .primary:hover, .primary.active {
+        background-color: $warning !important;
+        a {
+            background-color: $warning !important;
+            color: white !important;
+        }
+    }
+
+    .green:hover, .green.active {
         background-color: $success !important;
         a {
             background-color: $success !important;
+            color: white !important;
         }
         
     }
 
-    .blue:hover {
+    .blue:hover, .blue.active {
         background-color: $primary !important;
         a {
             background-color: $primary !important;
+            color: white !important;
         }
         
     }
 }
 
-.panel {
+.panel, .shadow {
     -webkit-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
     -moz-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
     box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
@@ -202,6 +212,7 @@ h1, h2, h3, h4, h5, h6, strong {
 
 .perfil-container {
     margin-top: -25px;
+    margin-bottom: -25px;
 
     .table tr {
         border: 0 0 2px 0 solid $light;
