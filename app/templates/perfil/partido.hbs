@@ -1,16 +1,19 @@
-<div class="row m-1 border bg-white">
-  <div class="col-md-3 text-center">
+<div class="row m-1 border bg-white panel">
+  {{!-- Imagen --}}
+  <div class="col-md-3 text-center p-3">
     <img
       src={{model.partido.logo}}
       alt="Logo de {{model.partido.nombreCompleto}}"
       width="100%">
   </div>
-  <div class="col-md-5">
+  {{!-- Información general --}}
+  <div class="col-md-6 p-3">
     <div class="table-responsive-md">
-      <table class="table table-sm">
+      <h3>{{model.partido.nombreCorto}}</h3>
+      <table class="table w-75">
         <tbody>
           <tr>
-            <td>
+            <td class="p-0 border-top-0">
               <small>
                 <strong>Nombre corto:</strong>
                 {{model.partido.nombreCorto}}
@@ -18,7 +21,7 @@
             </td>
           </tr>
           <tr>
-            <td>
+            <td class="p-0 border-top-0">
               <small>
                 <strong>Nombre completo:</strong>
                 {{model.partido.nombreCompleto}}
@@ -29,13 +32,20 @@
       </table>
     </div>
   </div>
-  <div class="col-md-4">
+  {{!-- Redes sociales --}}
+  <div class="col-md-3 social-side text-left d-block p-3">
     <div class="d-block mt-3">
       <div>
-        <a href={{model.partido.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.partido.tw}}</a>
+        <a href={{model.partido.tw}} target="_blank" rel="noopener">
+          <img src="img/icono-tw.png" alt="Twitter">
+          {{model.partido.tw}}
+        </a>
       </div>
       <div>
-        <a href={{model.partido.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.partido.fb}}</a>
+        <a href={{model.partido.fb}} target="_blank" rel="noopener">
+          <img src="img/icono-fb.png" alt="Facebook">
+          {{model.partido.nombreCorto}}
+        </a>
       </div>
     </div>
   </div>

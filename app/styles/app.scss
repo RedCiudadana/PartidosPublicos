@@ -144,6 +144,20 @@ h1, h2, h3, h4, h5, h6, strong {
     background-color: white;
     border-radius: 5px;
 
+    li .white {
+        display: none;
+    }
+
+    li:hover, .active {
+        .white {
+            display: inherit;
+        }
+
+        .color {
+            display: none;
+        }
+    }
+
     .primary:hover, .primary.active {
         background-color: $warning !important;
         a {
