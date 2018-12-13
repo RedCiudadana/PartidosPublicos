@@ -73,7 +73,7 @@ export default Controller.extend({
   // set default values, can cause problems if left out
   // if value matches default, it won't display in the URL
   page: 1,
-  perPage: 100,
+  perPage: 25,
 
   // can be called anything, I've called it pagedContent
   // remember to iterate over pagedContent in your template

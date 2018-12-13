@@ -246,3 +246,14 @@ h1, h2, h3, h4, h5, h6, strong {
     background-color: #0e8acb;
     color: white !important;
 }
+
+.portfolio .image-party img {
+    position: absolute;
+    left: 65%;
+    top: 5%;
+    z-index: 1000;
+    width: 25%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 50% !important;
+}
