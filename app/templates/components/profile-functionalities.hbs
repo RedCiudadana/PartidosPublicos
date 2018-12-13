@@ -1,18 +1,7 @@
 {{!-- Redes sociales en (xs, sm) --}}
 <div class="d-block d-md-none text-right">
-  {{#twitter-share-button
-    title=config.twitterShareLink
-    hashtags="MiGuatemala"
-    via="Redxguate"
-  }}
-    Tweet
-  {{/twitter-share-button}}
-  {{#fb-share-button
-    quote=config.twitterShareLink
-    hashtags="MiGuatemala"
-  }}
-    Share
-  {{/fb-share-button}}
+  {{share-twitter}}
+  {{share-facebook}}
 </div>
 {{!-- 'Navbar' para perfiles --}}
 <div class="row my-2">
@@ -66,20 +55,9 @@
           Elecciones
         {{/link-to-wrapper}}
         {{!-- Redes sociales en (viewport > sm) --}}
-        <li class="px-3 ml-auto d-none d-md-block social">
-          {{#twitter-share-button
-            title=config.twitterShareLink
-            hashtags="MiGuatemala"
-            via="Redxguate"
-          }}
-            Tweet
-          {{/twitter-share-button}}
-          {{#fb-share-button
-            quote=config.twitterShareLink
-            hashtags="MiGuatemala"
-          }}
-            Share
-          {{/fb-share-button}}
+        <li class="px-3 ml-auto d-none d-md-flex social">
+          {{share-twitter}}
+          {{share-facebook}}
         </li>
       </ul>
     </nav>

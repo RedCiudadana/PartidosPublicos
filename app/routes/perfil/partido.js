@@ -9,7 +9,7 @@ export default Route.extend({
 
     miembros.pushObjects(data.presidents.toArray());
     miembros.pushObjects(data.deputies.toArray());
-    miembros.pushObjects(data.parlacems.toArray());
+    miembros.pushObjects(data.parlacens.toArray());
     miembros.pushObjects(data.mayors.toArray());
 
     miembros = miembros.filter((candidate) => {

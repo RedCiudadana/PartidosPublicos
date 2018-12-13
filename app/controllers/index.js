@@ -11,14 +11,14 @@ export default Controller.extend({
     'president',
     'mayor',
     'deputie',
-    'parlacem',
+    'parlacen',
     function() {
       if(!this.get('esMujer') 
         && !this.get('esHombre')
         && !this.get('president')
         && !this.get('mayor')
         && !this.get('deputie')
-        && !this.get('parlacem')
+        && !this.get('parlacen')
       ) {
         return '*';
       }
@@ -45,8 +45,8 @@ export default Controller.extend({
         selectors.push('.deputie');
       }
 
-      if (this.get('parlacem')) {
-        selectors.push('.parlacem');
+      if (this.get('parlacen')) {
+        selectors.push('.parlacen');
       }
 
       return selectors.join(', ');
