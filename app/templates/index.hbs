@@ -18,7 +18,7 @@
         options=model
         selected=profile
         searchField="nombre"
-        onchange=(action (mut profile))
+        onchange=(action "toProfile")
       as |profile|}}
         <strong>{{profile.nombre}}</strong>
       {{/power-select}}

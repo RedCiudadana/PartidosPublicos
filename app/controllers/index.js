@@ -89,6 +89,11 @@ export default Controller.extend({
   actions: {
     applyFilter() {
       return this._applyFilter();
+    },
+
+    toProfile(profile) {
+      this.transitionToRoute('perfil', profile.typeCommonName, profile.id);
+      return false;
     }
   }
 });

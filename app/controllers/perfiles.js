@@ -122,8 +122,6 @@ export default Controller.extend({
 
   _applyFilter() {
 
-    console.log('Aplicando filtros!');
-
     var $container = $('#portfolio');
 
     $container.isotope({transitionDuration: '0.65s'});
@@ -157,6 +155,11 @@ export default Controller.extend({
   actions: {
     applyFilter() {
       return this._applyFilter();
+    },
+
+    toProfile(profile) {
+      this.transitionToRoute('perfil', profile.typeCommonName, profile.id);
+      return false;
     }
   }
 });
