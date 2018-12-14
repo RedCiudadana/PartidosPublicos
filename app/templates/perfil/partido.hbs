@@ -58,7 +58,37 @@
         <h3>Miembros</h3>
       </div>
       <div class="body">
-        {{front-portfolio profiles=model.miembros}}
+        <div id="portfolio" class="portfolio clearfix my-4">
+          {{#each pagedContent as |profile|}}
+            <article class="item {{profile.selector}} text-center">
+              <div class="background bg-white">
+
+                <div class="image">
+                  {{#link-to "perfil" profile.typeCommonName profile.id}}
+                    <img alt={{profile.cargoNombreCompleto}} src={{profile.fotoPerfil}}>
+                  {{/link-to}}
+                </div>
+
+                <div class="text-center w-75 mx-auto px-auto">
+                  <h6>{{profile.nombre}}</h6>
+                  <h6 class="font-weight-light">{{profile.electionName}}</h6>
+                </div>
+
+                <div class="image-party">
+                  <img src={{profile.partido.logo}} alt={{profile.partido.nombreCorto}}>
+                </div>
+
+              </div>
+            </article>
+          {{/each}}
+        </div>
+
+        {{!-- Pagination numbers --}}
+        <div class="row">
+          <div class="col-4 offset-4 text-center">
+            {{page-numbers content=pagedContent}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
