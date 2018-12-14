@@ -50,7 +50,7 @@
       {{/bs-dropdown}}
       {{!-- Municipio --}}
       {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light"}}Municipio<span class="caret"></span>{{/dd.button}}
+        {{#dd.button class="bg-light btn-light" disabled="true"}}Municipio<span class="caret"></span>{{/dd.button}}
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
@@ -102,7 +102,7 @@
       {{/bs-dropdown}}
       {{!-- Partido --}}
       {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light"}}Partido político<span class="caret"></span>{{/dd.button}}
+        {{#dd.button class="bg-light btn-light" disabled="true"}}Partido político<span class="caret"></span>{{/dd.button}}
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
