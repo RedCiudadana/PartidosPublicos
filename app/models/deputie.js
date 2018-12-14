@@ -12,5 +12,7 @@ export default Candidate.extend({
   // Tipo de elección
   type: 'deputie',
 
+  typeCommonName: 'diputados',
+
   electionName: 'Diputados Listado Nacional'
 });

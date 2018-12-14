@@ -12,5 +12,7 @@ export default Candidate.extend({
   // Tipo de elección
   type: 'mayor',
 
+  typeCommonName: 'alcaldes',
+
   electionName: 'Municipal'
 });

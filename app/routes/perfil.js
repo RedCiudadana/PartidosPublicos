@@ -3,12 +3,21 @@ import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
+const types = {
+  presidentes: 'president',
+  diputados: 'deputie',
+  parlacen: 'parlacen',
+  alcaldes: 'mayor'
+};
+
 /**
  * profile Route
  *
  * @class Route.profile
  */
 export default Route.extend({
+
+  types: types,
 
   /**
    * Spreadsheets Service
@@ -39,7 +48,7 @@ export default Route.extend({
     const _routing = this.get('_routing');
 
     // Obtiene el profile según el id
-    const profile = this.store.peekRecord(params.type, params.id);
+    const profile = this.store.peekRecord(this.get('types')[params.type], params.id);
     // Obtiene el partido actual del profile
     const currentParty = profile.get('partido');
 
@@ -48,7 +57,7 @@ export default Route.extend({
       profile: profile,
       currentParty: currentParty,
       availableInfo: spreadsheet
-        .fetch('info-' + params.type)
+        .fetch('info-' + this.get('types')[params.type])
         .then((documentos) => {
           return documentos.findBy('id', profile.get('id'));
         }),

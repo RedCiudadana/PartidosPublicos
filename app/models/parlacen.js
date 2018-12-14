@@ -12,5 +12,7 @@ export default Candidate.extend({
   // Tipo de elección
   type: 'parlacen',
 
+  typeCommonName: 'parlacen',
+
   electionName: 'Diputados Parlacen'
 });
