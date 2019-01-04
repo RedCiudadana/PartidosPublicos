@@ -33,7 +33,7 @@ module.exports = function(environment) {
         name: 'GoogleAnalytics',
         environments: ['production', 'development'],
         config: {
-          id: 'UA-XXXX-Y',
+          id: 'UA-131753715-1',
           // Use verbose tracing of GA events
           trace: environment === 'development',
           // Ensure development env hits aren't sent to GA
@@ -93,9 +93,6 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.staticFilesUrl = 'http://kas.candidatos.gt/static-files/';
-    ENV.googleAnalytics = {
-      webPropertyId: 'UA-101167670-1'
-    };
   }
 
   return ENV;
