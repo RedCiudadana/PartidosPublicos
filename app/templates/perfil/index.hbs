@@ -95,34 +95,50 @@
 </div>
 
 <div class="row">
-  {{!-- 3 de 3 --}}
-  <div class="col-md-12">
+  {{!-- Experiencia Académica --}}
+  <div class="col-md-6">
     <div class="panel">
-      <div class="header d-flex">
-        <img src="img/icono-3-de-3.png" alt="3 de 3">
-        <h3>3 de 3</h3>
+      <div {{action (toggle "years" this)}} class="header d-flex bg-secondary">
+        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <h3>Experiencia Académica</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
       <div class="body">
-        <div class="row">
-          <div class="col-12 col-md-4 my-2 text-center">
-            <button class="btn btn-warning btn-square text-white">
-              <img src="img/icono-cv.png" alt="Icono CV" height="60px">
-              CV
-            </button>
-          </div>
-          <div class="col-12 col-md-4 my-2 text-center">
-            <button class="btn btn-success btn-square text-white">
-              <img src="img/icono-finiquito.png" alt="Icono Finiquito" height="60px">
-              Finiquito
-            </button>
-          </div>
-          <div class="col-12 col-md-4 my-2 text-center">
-            <button class="btn btn-primary btn-square text-white">
-              <img src="img/icono-patrimonio.png" alt="Icono Patrimonio" height="60px">
-              Patrimonio
-            </button>
-          </div>
-        </div>
+        {{#bs-collapse collapsed=years}}
+          <p>{{availableInfo.experienciaAcadémica}}</p>
+        {{/bs-collapse}}
+      </div>
+    </div>
+  </div>
+  {{!-- Historial Político --}}
+  <div class="col-md-6">
+    <div class="panel">
+      <div class="header d-flex bg-secondary" {{action (toggle "charge" this)}}>
+        <img src="img/icono-historial-politico.png" alt="Icono cargo">
+        <h3>Historial Político</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      <div class="body">
+        {{#bs-collapse collapsed=charge}}
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Partido</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each model.historial as |partido index|}}
+                <tr>
+                  <td scope="row">{{inc index 1}}</td>
+                  <td>{{partido.profile}}</td>
+                  <td>{{partido.ano}}</td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{/bs-collapse}}
       </div>
     </div>
   </div>
@@ -130,43 +146,77 @@
 
 <div class="row mb-0 pb-0">
   <div class="col-12">
-    <div class="panel">
+    <div class="panel planes">
       <div class="header d-flex">
-        <img src="img/icono-historial.png" alt="Historial Político">
-        <h3>Historial Político</h3>
+        <img src="img/icono-planes-gobierno.png" alt="Planes de gobierno">
+        <h3>Planes de gobierno</h3>
+
+        {{#bs-dropdown class="ml-auto" as |dd|}}
+          {{#bs-button}}Descarga aquí{{/bs-button}}
+          {{#dd.button}}<span class="caret"></span>{{/dd.button}}
+          {{#dd.menu as |menu|}}
+            {{#menu.item}}
+              {{#menu.link-to "index"}}PDF{{/menu.link-to}}
+            {{/menu.item}}
+            {{#menu.item}}
+              {{#menu.link-to "index"}}WPDF{{/menu.link-to}}
+            {{/menu.item}}
+          {{/dd.menu}}
+        {{/bs-dropdown}}
       </div>
     </div>
   </div>
 </div>
 
 <div class="row">
-  {{!-- Años --}}
+  {{!-- Entrevistas --}}
   <div class="col-md-6">
-    <div class="panel">
-      <div class="header d-flex bg-secondary" {{action (toggle "years" this)}}>
-        <img src="img/icono-años.png" alt="Icono años">
-        <h3>Años</h3>
-        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+    <div class="panel entrevistas">
+      <div class="header d-flex">
+        <img src="img/icono-entrevistas.png" alt="Entrevistas">
+        <h3>Entrevistas</h3>
       </div>
       <div class="body">
-        {{#bs-collapse collapsed=years}}
-          <p>Mostrar años aquí.{{availableInfo.year}}</p>
-        {{/bs-collapse}}
+        {{#each entrevistas as |entrevista|}}
+          <a href={{entrevista.url}}>
+            <div class="card">
+              <img class="card-img-top" src="img/entrevista.svg" alt="Imagen de entrevista">
+              {{!-- <img class="card-img-top" src={{entrevista.foto}} alt="Imagen de entrevista"> --}}
+              <div class="card-body">
+                <p class="card-text">{{entrevista.nombre}}</p>
+              </div>
+            </div>
+          </a>
+        {{/each}}
       </div>
     </div>
   </div>
-  {{!-- Cargo --}}
+  {{!-- Fuentes de Información --}}
   <div class="col-md-6">
-    <div class="panel">
-      <div class="header d-flex bg-secondary" {{action (toggle "charge" this)}}>
-        <img src="img/icono-cargo.png" alt="Icono cargo">
-        <h3>Cargo</h3>
-        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+    <div class="panel fuentes">
+      <div class="header d-flex">
+        <img src="img/icono-fuentes-informacion.png" alt="Fuentes de información">
+        <h3>Fuentes de información</h3>
       </div>
       <div class="body">
-        {{#bs-collapse collapsed=charge}}
-          <p>{{availableInfo.charge}}</p>
-        {{/bs-collapse}}
+        <div class="row">
+          <div class="col-3 py-2 text-center">
+            <h5 class="font-weight-bold">No.</h5>
+          </div>
+          <div class="col-9 py-2 text-left">
+            <h5 class="font-weight-bold">Fuente.</h5>
+          </div>
+          {{#each fuentes as |fuente index|}}
+            <div class="col-3 text-center">
+              <strong class="font-weight-bold">{{inc index 1}}.</strong>
+            </div>
+            <div class="col-9 text-left">
+              <a href={{fuente.url}}>
+                <p>{{fuente.texto}}</p>
+              </a>
+            </div>
+          {{/each}}
+        </div>
       </div>
     </div>
   </div>
