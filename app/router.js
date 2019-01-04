@@ -30,6 +30,7 @@ Router.map(function() {
   this.route('perfil', { path: '/perfil/:type/:id'}, function() {
     this.route('partido');
     this.route('elecciones');
+    this.route('frente-a-frente');
   });
 
   // Considerar si se va a utlizar

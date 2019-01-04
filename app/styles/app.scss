@@ -35,7 +35,7 @@ $border-radius: 10px;
 
 // HTML
 
-body {
+body, a {
     font-family: 'HindSiliguri';
     color: #1e2b3d;
 }
@@ -219,8 +219,12 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 .row.high {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    .btn {
+        border-radius: 5px !important;
+    }
 }
 
 // Perfil
@@ -231,10 +235,19 @@ h1, h2, h3, h4, h5, h6, strong {
 
     .table tr {
         border: 0 0 2px 0 solid $light;
+
+        td {
+            padding: 6px !important;
+        }
     }
 
     .social-side img.foto-partido {
         width: 200px;
+    }
+
+    .social-side div div {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
     }
 }
 
@@ -263,5 +276,107 @@ h1, h2, h3, h4, h5, h6, strong {
     .text {
         width: 75%;
         margin: auto;
+        height: 60px !important;
     }
 }
+
+// Fuentes de información
+
+.fuentes {
+    p {
+        color: #1e2b3d !important;
+    }
+}
+
+// Entrevistas
+
+.entrevistas {
+    .card {
+        width: 18rem;
+    }
+
+    .body {
+        overflow: scroll;
+        height: 300px;
+
+        .card {
+            margin-bottom: 20px;
+
+            .card-text {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.planes {
+    overflow: visible;
+
+    .btn-group {
+        
+        .btn:first-child {
+            width: 200px;
+        }
+
+        .btn {
+            @extend .btn-light;
+            background-color: white;
+            border-radius: 0px;
+        }
+    }
+}
+
+// Frente a frente
+
+.frente-a-frente {
+    img {
+        width: 15%;
+        height: auto;
+    }
+
+    .col-md-6 p {
+        @extend .bg-light;
+        @extend  .rounded;
+        padding: 20px;
+        width: 80%;
+        float: right;
+        text-align: justify;
+    }
+
+    small {
+        display: block;
+        float: right;
+        margin-top: 30px;
+    }
+}
+
+// Colaboradores
+
+.colaboradores {
+    margin-bottom: 60px;
+
+    h5 {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    img {
+        max-width: 33%;
+        max-height: 70px;
+        margin: 10px;
+        filter: grayscale(1.0);
+    }
+
+    img:hover {
+        filter: grayscale(0);
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .colaboradores {
+        img {
+            max-width: 15%;
+        }
+    }
+}
+
