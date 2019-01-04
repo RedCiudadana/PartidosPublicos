@@ -17,14 +17,7 @@
         <tr>
           <td class="p-0 border-top-0">
             <small>
-              <strong>Partido: </strong>{{currentParty.nombreCompleto}}
-            </small>
-          </td>
-        </tr>
-        <tr>
-          <td class="p-0">
-            <small>
-              <strong>Edad: </strong>{{profile.edad}}
+              <strong>Partido Político: </strong>{{currentParty.nombreCompleto}}
             </small>
           </td>
         </tr>
@@ -38,14 +31,14 @@
         <tr>
           <td class="p-0">
             <small>
-              <strong>Años de ejercicio profesional: </strong>{{profile.anosProfesional}}
+              <strong>Lugar de nacimiento: </strong>{{profile.lugarDeNacimiento}}
             </small>
           </td>
         </tr>
         <tr>
           <td class="p-0">
             <small>
-              <strong>No. de colegiado: </strong>{{profile.numeroColegiado}}
+              <strong>Fecha de Nacimiento: </strong>{{profile.fechaDeNacimiento}}
             </small>
           </td>
         </tr>
@@ -56,6 +49,18 @@
   <div class="col-md-3 social-side text-center d-block p-3">
     <img src={{model.currentParty.logo}} alt={{model.currentParty.nombreCorto}} class="foto-partido">
     <div class="d-block mt-3">
+      <div>
+        <a href={{model.profile.web}} target="_blank" rel="noopener">
+          <img src="img/icono-tw.png" alt="Página web">
+          {{model.profile.web}}
+        </a>
+      </div>
+      <div>
+        <a href={{model.profile.correo}} target="_blank" rel="noopener">
+          <img src="img/icono-tw.png" alt="Correo electrónico">
+          {{model.profile.correo}}
+        </a>
+      </div>
       <div>
         <a href={{model.profile.tw}} target="_blank" rel="noopener">
           <img src="img/icono-tw.png" alt="Twitter">

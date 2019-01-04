@@ -76,7 +76,22 @@ export default Route.extend({
 
               return true;
             });
-        })
+        }),
+      fuentes: spreadsheet
+        .fetch('fuentes')
+        .then((documento) => {
+          return documento.filterBy('perfil', profile.get('id'));
+      }),
+      entrevistas: spreadsheet
+        .fetch('entrevistas')
+        .then((documento) => {
+          return documento.filterBy('perfil', profile.get('id'));
+      }),
+      historial: spreadsheet
+        .fetch('historial')
+        .then((documento) => {
+          return documento.filterBy('perfil', profile.get('id'));
+      })
     });
   },
 

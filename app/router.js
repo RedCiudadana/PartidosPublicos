@@ -38,6 +38,7 @@ Router.map(function() {
   });
 
   this.route('perfiles', { path: '/perfiles/:type'});
+  this.route('frente-a-frente');
 });
 
 export default Router;
