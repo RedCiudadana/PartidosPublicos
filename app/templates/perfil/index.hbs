@@ -98,14 +98,18 @@
   {{!-- Experiencia Académica --}}
   <div class="col-md-6">
     <div class="panel">
-      <div {{action (toggle "years" this)}} class="header d-flex bg-secondary">
+      <div {{action (toggle "experiencia" this)}} class="header d-flex bg-secondary">
         <img src="img/icono-experiencia-academica.png" alt="Icono años">
         <h3>Experiencia Académica</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
       <div class="body">
-        {{#bs-collapse collapsed=years}}
-          <p>{{availableInfo.experienciaAcadémica}}</p>
+        {{#bs-collapse collapsed=experiencia}}
+          {{#if availableInfo.experienciaAcadémica}}
+            <p>{{availableInfo.experienciaAcadémica}}</p>
+          {{else}}
+            <strong>No hay datos sobre la experiencia académica.</strong>
+          {{/if}}
         {{/bs-collapse}}
       </div>
     </div>
@@ -113,31 +117,35 @@
   {{!-- Historial Político --}}
   <div class="col-md-6">
     <div class="panel">
-      <div class="header d-flex bg-secondary" {{action (toggle "charge" this)}}>
+      <div class="header d-flex bg-secondary" {{action (toggle "partidos" this)}}>
         <img src="img/icono-historial-politico.png" alt="Icono cargo">
         <h3>Historial Político</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
       <div class="body">
-        {{#bs-collapse collapsed=charge}}
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Partido</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each model.historial as |partido index|}}
+        {{#bs-collapse collapsed=partidos}}
+          {{#if model.historial}}
+            <table class="table">
+              <thead>
                 <tr>
-                  <td scope="row">{{inc index 1}}</td>
-                  <td>{{partido.partido}}</td>
-                  <td>{{partido.ano}}</td>
+                  <th>#</th>
+                  <th>Nombre</th>
+                  <th>Partido</th>
                 </tr>
-              {{/each}}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {{#each model.historial as |partido index|}}
+                  <tr>
+                    <td scope="row">{{inc index 1}}</td>
+                    <td>{{partido.partido}}</td>
+                    <td>{{partido.ano}}</td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          {{else}}
+            <strong>No hay datos sobre el historial político.</strong>
+          {{/if}}
         {{/bs-collapse}}
       </div>
     </div>
@@ -145,6 +153,7 @@
 </div>
 
 <div class="row mb-0 pb-0">
+  {{!-- Planes de gobierno --}}
   <div class="col-12">
     <div class="panel planes">
       <div class="header d-flex">
@@ -177,17 +186,21 @@
         <h3>Entrevistas</h3>
       </div>
       <div class="body">
-        {{#each entrevistas as |entrevista|}}
-          <a href={{entrevista.url}}>
-            <div class="card">
-              <img class="card-img-top" src="img/entrevista.svg" alt="Imagen de entrevista">
-              {{!-- <img class="card-img-top" src={{entrevista.foto}} alt="Imagen de entrevista"> --}}
-              <div class="card-body">
-                <p class="card-text">{{entrevista.nombre}}</p>
+        {{#if entrevistas}}
+          {{#each entrevistas as |entrevista|}}
+            <a href={{entrevista.url}}>
+              <div class="card">
+                <img class="card-img-top" src="img/entrevista.svg" alt="Imagen de entrevista">
+                {{!-- <img class="card-img-top" src={{entrevista.foto}} alt="Imagen de entrevista"> --}}
+                <div class="card-body">
+                  <p class="card-text">{{entrevista.nombre}}</p>
+                </div>
               </div>
-            </div>
-          </a>
-        {{/each}}
+            </a>
+          {{/each}}
+        {{else}}
+          <strong>No hay entrevistas.</strong>
+        {{/if}}
       </div>
     </div>
   </div>
@@ -199,24 +212,28 @@
         <h3>Fuentes de información</h3>
       </div>
       <div class="body">
-        <div class="row">
-          <div class="col-3 py-2 text-center">
-            <h5 class="font-weight-bold">No.</h5>
-          </div>
-          <div class="col-9 py-2 text-left">
-            <h5 class="font-weight-bold">Fuente.</h5>
-          </div>
-          {{#each fuentes as |fuente index|}}
-            <div class="col-3 text-center">
-              <strong class="font-weight-bold">{{inc index 1}}.</strong>
+        {{#if fuentes}}
+          <div class="row">
+            <div class="col-3 py-2 text-center">
+              <h5 class="font-weight-bold">No.</h5>
             </div>
-            <div class="col-9 text-left">
-              <a href={{fuente.url}}>
-                <p>{{fuente.texto}}</p>
-              </a>
+            <div class="col-9 py-2 text-left">
+              <h5 class="font-weight-bold">Fuente.</h5>
             </div>
-          {{/each}}
-        </div>
+            {{#each fuentes as |fuente index|}}
+              <div class="col-3 text-center">
+                <strong class="font-weight-bold">{{inc index 1}}.</strong>
+              </div>
+              <div class="col-9 text-left">
+                <a href={{fuente.url}}>
+                  <p>{{fuente.texto}}</p>
+                </a>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <strong>No hay datos sobre las fuente.</strong>
+        {{/if}}
       </div>
     </div>
   </div>
