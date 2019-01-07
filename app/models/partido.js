@@ -35,6 +35,22 @@ export default Model.extend({
   nombreCorto: attr('string'),
 
   /**
+   * Fecha Inscripción
+   *
+   * @property fechaInscripcion
+   * @type String
+   */
+  fechaInscripcion: attr('string'),
+
+  /**
+   * Secretario General
+   *
+   * @property secretarioGeneral
+   * @type String
+   */
+  secretarioGeneral: attr('string'),
+
+  /**
    * Perfil de Facebook, la URL.
    *
    * @property fb
