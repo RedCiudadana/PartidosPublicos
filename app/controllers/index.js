@@ -6,15 +6,15 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 export default Controller.extend({
 
   currentSelector: computed(
-    'esMujer',
-    'esHombre',
+    'distrito',
+    'listado',
     'president',
     'mayor',
     'deputie',
     'parlacen',
     function() {
-      if(!this.get('esMujer') 
-        && !this.get('esHombre')
+      if(!this.get('distrito') 
+        && !this.get('listado')
         && !this.get('president')
         && !this.get('mayor')
         && !this.get('deputie')
@@ -25,12 +25,12 @@ export default Controller.extend({
 
       let selectors = [];
 
-      if (this.get('esMujer')) {
-        selectors.push('.mujer');
+      if (this.get('distrito')) {
+        selectors.push('.distrito');
       }
 
-      if (this.get('esHombre')) {
-        selectors.push('.hombre');
+      if (this.get('listado')) {
+        selectors.push('.listado');
       }
 
       if (this.get('president')) {

@@ -26,46 +26,8 @@
   </div>
 
   {{!-- Filters --}}
-  <div class="row filters d-none">
+  <div class="row filters">
     <div class="col-12 text-center">
-      {{!-- Sexo --}}
-      {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light"}}Género{{/dd.button}}
-        {{#dd.menu as |menu|}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
-              <img src="img/icono-femenino.png" alt="Femenino">
-              Femenino
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
-              <img src="img/icono-masculino.png" alt="Masculino">
-              Masculino
-            </label>
-          {{/menu.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
-      {{!-- Municipio --}}
-      {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light" disabled="true"}}Municipio<span class="caret"></span>{{/dd.button}}
-        {{#dd.menu as |menu|}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{municipioA}} onclick={{queue (action (mut municipioA) value="target.checked") (action "applyFilter")}}>
-              municipioA
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{municipioB}} onclick={{queue (action (mut municipioB) value="target.checked") (action "applyFilter")}}>
-              municipioB
-            </label>
-          {{/menu.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
       {{!-- Tipo --}}
       {{#bs-dropdown class="m-2 rounded" as |dd|}}
         {{#dd.button class="bg-light btn-light"}}Tipo de elección<span class="caret"></span>{{/dd.button}}
@@ -86,34 +48,23 @@
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{deputie}} onclick={{queue (action (mut deputie) value="target.checked") (action "applyFilter")}}>
+              <input type="checkbox" checked={{distrito}} onclick={{queue (action (mut distrito) value="target.checked") (action "applyFilter")}}>
               <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
-              Diputados Listado Nacional
+              Diputados distrito
+            </label>
+          {{/menu.item}}
+          {{#menu.item}}
+            <label>
+              <input type="checkbox" checked={{listado}} onclick={{queue (action (mut listado) value="target.checked") (action "applyFilter")}}>
+              <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
+              Diputados listado nacional
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
               <input type="checkbox" checked={{parlacen}} onclick={{queue (action (mut parlacen) value="target.checked") (action "applyFilter")}}>
               <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
-              Diputados Parlacen
-            </label>
-          {{/menu.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
-      {{!-- Partido --}}
-      {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light" disabled="true"}}Partido político<span class="caret"></span>{{/dd.button}}
-        {{#dd.menu as |menu|}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partidos.firstObject.filter}} onclick={{queue (action (mut partidos.firstObject.filter) value="target.checked") (action "applyFilter")}}>
-              partidoA
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partidoB}} onclick={{queue (action (mut partidoB) value="target.checked") (action "applyFilter")}}>
-              partidoB
+              Diputados parlacen
             </label>
           {{/menu.item}}
         {{/dd.menu}}
