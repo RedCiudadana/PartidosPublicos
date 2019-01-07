@@ -6,9 +6,9 @@ export default Route.extend({
     let data = this.modelFor('application');
     let miembros = A();
     let partido = this.modelFor('perfil').currentParty;
-
     miembros.pushObjects(data.presidents.toArray());
-    miembros.pushObjects(data.deputies.toArray());
+    miembros.pushObjects(data.distrito.toArray());
+    miembros.pushObjects(data.listado.toArray());
     miembros.pushObjects(data.parlacens.toArray());
     miembros.pushObjects(data.mayors.toArray());
 
