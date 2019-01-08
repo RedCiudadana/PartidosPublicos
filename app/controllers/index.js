@@ -1,11 +1,10 @@
-import $ from 'jquery';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Controller.extend({
 
-  currentSelector: computed(
+  profiles: computed(
     'distrito',
     'listado',
     'president',
@@ -13,6 +12,7 @@ export default Controller.extend({
     'deputie',
     'parlacen',
     function() {
+
       if(!this.get('distrito') 
         && !this.get('listado')
         && !this.get('president')
@@ -20,50 +20,39 @@ export default Controller.extend({
         && !this.get('deputie')
         && !this.get('parlacen')
       ) {
-        return '*';
+        return this.get('model');
       }
 
-      let selectors = [];
+      return this.get('model').filter((candidate) => {
+        if (this.get('distrito') && candidate.type === 'distrito') {
+          return true;
+        }
 
-      if (this.get('distrito')) {
-        selectors.push('.distrito');
-      }
+        if (this.get('listado') && candidate.type === 'listado') {
+          return true;
+        }
 
-      if (this.get('listado')) {
-        selectors.push('.listado');
-      }
+        if (this.get('president') && candidate.type === 'president') {
+          return true;
+        }
 
-      if (this.get('president')) {
-        selectors.push('.president');
-      }
+        if (this.get('mayor') && candidate.type === 'mayor') {
+          return true;
+        }
 
-      if (this.get('mayor')) {
-        selectors.push('.mayor');
-      }
+        if (this.get('deputie') && candidate.type === 'deputie') {
+          return true;
+        }
 
-      if (this.get('deputie')) {
-        selectors.push('.deputie');
-      }
+        if (this.get('parlacen') && candidate.type === 'parlacen') {
+          return true;
+        }
 
-      if (this.get('parlacen')) {
-        selectors.push('.parlacen');
-      }
-
-      return selectors.join(', ');
+        return false;
+      });
 
     }
   ),
-
-  _applyFilter() {
-
-    var $container = $('#portfolio');
-
-    $container.isotope({transitionDuration: '0.65s'});
-
-    $container.isotope({filter: this.get('currentSelector')});
-
-    return false;
-  },
 
   // Pagination
 
@@ -77,7 +66,7 @@ export default Controller.extend({
 
   // can be called anything, I've called it pagedContent
   // remember to iterate over pagedContent in your template
-  pagedContent: pagedArray('model', {
+  pagedContent: pagedArray('profiles', {
     page: computed.alias("parent.page"),
     perPage: computed.alias("parent.perPage")
   }),
@@ -87,8 +76,10 @@ export default Controller.extend({
   totalPages: computed.oneWay("pagedContent.totalPages"),
 
   actions: {
-    applyFilter() {
-      return this._applyFilter();
+    backToPageOne() {
+      // Regresa a la pagina 1
+      this.set('pagedContent.page', 1);
+      return false;
     },
 
     toProfile(profile) {

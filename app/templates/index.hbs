@@ -34,35 +34,35 @@
         {{#dd.menu as |menu|}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{president}} onclick={{queue (action (mut president) value="target.checked") (action "applyFilter")}}>
+              <input type="checkbox" checked={{president}} onclick={{queue (action (mut president) value="target.checked") (action "backToPageOne")}}>
               <img src="img/icono-president.png" alt="Elección presidencial">
               Presidencial
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{mayor}} onclick={{queue (action (mut mayor) value="target.checked") (action "applyFilter")}}>
+              <input type="checkbox" checked={{mayor}} onclick={{queue (action (mut mayor) value="target.checked") (action "backToPageOne")}}>
               <img src="img/icono-mayor.png" alt="Elección municipal">
               Municipal
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{distrito}} onclick={{queue (action (mut distrito) value="target.checked") (action "applyFilter")}}>
+              <input type="checkbox" checked={{distrito}} onclick={{queue (action (mut distrito) value="target.checked") (action "backToPageOne")}}>
               <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
               Diputados distrito
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{listado}} onclick={{queue (action (mut listado) value="target.checked") (action "applyFilter")}}>
+              <input type="checkbox" checked={{listado}} onclick={{queue (action (mut listado) value="target.checked") (action "backToPageOne")}}>
               <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
               Diputados listado nacional
             </label>
           {{/menu.item}}
           {{#menu.item}}
             <label>
-              <input type="checkbox" checked={{parlacen}} onclick={{queue (action (mut parlacen) value="target.checked") (action "applyFilter")}}>
+              <input type="checkbox" checked={{parlacen}} onclick={{queue (action (mut parlacen) value="target.checked") (action "backToPageOne")}}>
               <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
               Diputados parlacen
             </label>
@@ -132,7 +132,7 @@
 
   {{!-- ¿Dónde voto? ¿Cuánto falta? ¡Empadrónate! --}}
   <div class="row high">
-    <div class="col-4 text-center">
+    <div class="col-12 col-md-4 text-center">
       <a href="https://consulta2018.tse.org.gt/dondevotas.php" target="_blank">
         <button class="btn btn-warning btn-square text-white">
           <img src="img/icono-donde-voto.png" alt="Icono donde voto" height="60px">
@@ -140,13 +140,13 @@
         </button>
       </a>
     </div>
-    <div class="col-4 text-center">
+    <div class="col-12 col-md-4 text-center">
       <button class="btn btn-success btn-square text-white">
         <img src="img/icono-cuanto-falta.png" alt="Icono cuanto falta" height="60px">
         ¿Cuánto falta?
       </button>
     </div>
-    <div class="col-4 text-center">
+    <div class="col-12 col-md-4 text-center">
       <button class="btn btn-primary btn-square text-white">
         <img src="img/icono-empadronate.png" alt="Icono empadrónate" height="60px">
         ¡Empadrónate!
