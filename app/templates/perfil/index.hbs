@@ -54,8 +54,6 @@
           <img src="img/icono-tw.png" alt="Página web">
           {{model.profile.web}}
         </a>
-      </div>
-      <div>
         <a href={{model.profile.correo}} target="_blank" rel="noopener">
           <img src="img/icono-tw.png" alt="Correo electrónico">
           {{model.profile.correo}}
@@ -103,15 +101,15 @@
         <h3>Experiencia Académica</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
-      <div class="body">
-        {{#bs-collapse collapsed=experiencia}}
+      {{#bs-collapse collapsed=experiencia}}
+        <div class="body">
           {{#if availableInfo.experienciaAcadémica}}
             <p>{{availableInfo.experienciaAcadémica}}</p>
           {{else}}
             <strong>No hay datos sobre la experiencia académica.</strong>
           {{/if}}
-        {{/bs-collapse}}
-      </div>
+        </div>
+      {{/bs-collapse}}
     </div>
   </div>
   {{!-- Historial Político --}}
@@ -122,8 +120,8 @@
         <h3>Historial Político</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
-      <div class="body">
-        {{#bs-collapse collapsed=partidos}}
+      {{#bs-collapse collapsed=partidos}}
+        <div class="body">
           {{#if model.historial}}
             <table class="table borderless">
               <thead>
@@ -146,8 +144,8 @@
           {{else}}
             <strong>No hay datos sobre el historial político.</strong>
           {{/if}}
-        {{/bs-collapse}}
-      </div>
+        </div>
+      {{/bs-collapse}}
     </div>
   </div>
 </div>

@@ -7,8 +7,8 @@ export default Route.extend({
     let miembros = A();
     let partido = this.modelFor('perfil').currentParty;
     miembros.pushObjects(data.presidents.toArray());
-    miembros.pushObjects(data.distrito.toArray());
-    miembros.pushObjects(data.listado.toArray());
+    miembros.pushObjects(data.distritos.toArray());
+    miembros.pushObjects(data.listados.toArray());
     miembros.pushObjects(data.parlacens.toArray());
     miembros.pushObjects(data.mayors.toArray());
 
