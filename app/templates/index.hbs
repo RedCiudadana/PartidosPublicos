@@ -13,7 +13,7 @@
   {{!-- Ember Power Select --}}
   <div class="row">
     <div class="col-12 text-center">
-      <h5>¿Quiénes son los candidatos a la alcaldía de tu municipio?</h5>
+      <h4>¿Quiénes son los candidatos a la alcaldía de tu municipio?</h4>
       {{#power-select
         options=model
         selected=profile
@@ -29,24 +29,34 @@
   <div class="row filters">
     <div class="col-12 text-center">
       {{#bs-button type="primary" class="active" onClick=(action "transitionTo" "presidentes")}}
-          <img src="img/icono-president.png" alt="Elección presidencial">
-          <p>Presidencial</p>
+          <div>
+            <img src="img/icono-president.png" alt="Elección presidencial">
+            <p>Presidencial</p>
+          </div>
       {{/bs-button}}
       {{#bs-button type="primary"  onClick=(action "transitionTo" "alcaldes")}}
-          <img src="img/icono-mayor.png" alt="Elección municipal">
-          <p>Municipal</p>
-      {{/bs-button}}
-      {{#bs-button type="primary"  onClick=(action "transitionTo" "distrito")}}
-          <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
-          <p>Diputados distrito</p>
+          <div>
+            <img src="img/icono-mayor.png" alt="Elección municipal">
+            <p>Municipal</p>
+          </div>
       {{/bs-button}}
       {{#bs-button type="primary"  onClick=(action "transitionTo" "listado")}}
-          <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
-          <p>Diputados listado nacional</p>
+          <div>
+            <img src="img/icono-listado.png" alt="Elección diputados del listado nacional">
+            <p>Listado<br/> nacional</p>
+          </div>
+      {{/bs-button}}
+      {{#bs-button type="primary"  onClick=(action "transitionTo" "distrito")}}
+          <div>
+            <img src="img/icono-distrito.png" alt="Elección diputados del listado nacional">
+            <p>Distrito</p>
+          </div>
       {{/bs-button}}
       {{#bs-button type="primary"  onClick=(action "transitionTo" "parlacen")}}
-          <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
-          <p>Diputados parlacen</p>
+          <div>
+            <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
+            <p>Parlacen</p>
+          </div>
       {{/bs-button}}
     </div>
   </div>
@@ -111,34 +121,37 @@
 
   {{!-- ¿Dónde voto? ¿Cuánto falta? ¡Empadrónate! --}}
   <div class="row high">
-    <div class="col-12 col-md-4 text-center">
+    <div class="col-12 col-md-4">
       <a href="https://consulta2018.tse.org.gt/dondevotas.php" target="_blank">
-        <button class="btn btn-warning btn-square text-white">
-          <img src="img/icono-donde-voto.png" alt="Icono donde voto" height="60px">
+        <button class="btn btn-warning btn-square">
+          <img src="img/icono-donde-voto.png" alt="Icono donde voto">
           ¿Dónde voto?
         </button>
       </a>
     </div>
-    <div class="col-12 col-md-4 text-center">
-      <button class="btn btn-success btn-square text-white">
-        <img src="img/icono-cuanto-falta.png" alt="Icono cuanto falta" height="60px">
-        ¿Cuánto falta?
+    <div class="col-12 col-md-4">
+      <button class="btn btn-success btn-square">
+        <img src="img/icono-frente-a-frente.png" alt="Icono frente a frente">
+        Frente a frente
       </button>
     </div>
-    <div class="col-12 col-md-4 text-center">
-      <button class="btn btn-primary btn-square text-white">
-        <img src="img/icono-empadronate.png" alt="Icono empadrónate" height="60px">
-        ¡Empadrónate!
+    <div class="col-12 col-md-4">
+      <button class="btn btn-primary btn-square">
+        <img src="img/icono-resultados.png" alt="Icono resultados">
+        <div class="block">
+          <p>Resultados</p>
+          <small>Próximamente</small>
+        </div>
       </button>
     </div>
   </div>
 </div>
 
-<div class="container colaboradores py-4">
+<div class="container colaboradores">
   {{!-- Un proyecto de --}}
-  <div class="row pb-4">
+  <div class="row">
     <div class="col-12 text-center">
-      <h5 class="font-weight-light pb-4">Un proyecto de:</h5>
+      <h5 class="font-weight-light">Un proyecto de:</h5>
       <img src="mi-guatemala/img/logo-rc-color.png" alt="Logo Red Ciudadana">
     </div>
   </div>
