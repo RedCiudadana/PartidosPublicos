@@ -361,22 +361,21 @@ h1, h2, h3, h4, h5, h6, strong {
     }
 
     img {
-        max-width: 33%;
-        max-height: 70px;
-        margin: 10px;
-        filter: grayscale(1.0);
+        filter: grayscale(100);
     }
 
     img:hover {
-        filter: grayscale(0);
+        filter: none;
     }
 }
 
-@include media-breakpoint-up(md) {
-    .colaboradores {
-        img {
-            max-width: 15%;
-        }
+// Tables
+table.table.borderless {
+    @extend .table-borderless;
+
+    text-align: center;
+
+    thead {
+        border-bottom: 2px solid $light;
     }
 }
-

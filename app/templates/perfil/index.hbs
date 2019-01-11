@@ -125,10 +125,10 @@
       <div class="body">
         {{#bs-collapse collapsed=partidos}}
           {{#if model.historial}}
-            <table class="table">
+            <table class="table borderless">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>No.</th>
                   <th>Nombre</th>
                   <th>Partido</th>
                 </tr>
@@ -213,24 +213,22 @@
       </div>
       <div class="body">
         {{#if fuentes}}
-          <div class="row">
-            <div class="col-3 py-2 text-center">
-              <h5 class="font-weight-bold">No.</h5>
-            </div>
-            <div class="col-9 py-2 text-left">
-              <h5 class="font-weight-bold">Fuente.</h5>
-            </div>
-            {{#each fuentes as |fuente index|}}
-              <div class="col-3 text-center">
-                <strong class="font-weight-bold">{{inc index 1}}.</strong>
-              </div>
-              <div class="col-9 text-left">
-                <a href={{fuente.url}}>
-                  <p>{{fuente.texto}}</p>
-                </a>
-              </div>
-            {{/each}}
-          </div>
+          <table class="table borderless">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Fuente</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each fuentes as |fuente index|}}
+                <tr>
+                  <td scope="row">{{inc index 1}}</td>
+                  <td><a href={{fuente.url}}>{{fuente.texto}}</a></td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
         {{else}}
           <strong>No hay datos sobre las fuente.</strong>
         {{/if}}
