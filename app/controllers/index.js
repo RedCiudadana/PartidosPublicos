@@ -85,6 +85,11 @@ export default Controller.extend({
     toProfile(profile) {
       this.transitionToRoute('perfil', profile.typeCommonName, profile.id);
       return false;
+    },
+
+    transitionTo(type) {
+      this.transitionToRoute('perfiles', type);
+      return false;
     }
   }
 });

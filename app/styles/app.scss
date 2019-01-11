@@ -100,19 +100,17 @@ h1, h2, h3, h4, h5, h6, strong {
 .filters {
     .btn {
         width: 200px;
-        height: 40px;
+        // height: 60px;
         text-align: center;
-    }
-
-    .caret {
-        padding-left: 20px;
+        margin: 3px;
     }
 
     img {
         height: 25px;
-        filter: brightness(80%);
+        margin: 3px;
     }
 }
+
 // Nav candidator
 
 .nav-candidator {

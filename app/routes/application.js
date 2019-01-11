@@ -26,8 +26,8 @@ export default Route.extend({
   model() {
     return hash({
       presidents: this.store.findAll('president'),
-      listado: this.store.findAll('listado'),
-      distrito: this.store.findAll('distrito'),
+      listados: this.store.findAll('listado'),
+      distritos: this.store.findAll('distrito'),
       parlacens: this.store.findAll('parlacen'),
       mayors: this.store.findAll('mayor'),
       parties: this.store.findAll('partido')

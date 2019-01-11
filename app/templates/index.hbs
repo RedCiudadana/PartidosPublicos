@@ -28,47 +28,26 @@
   {{!-- Filters --}}
   <div class="row filters">
     <div class="col-12 text-center">
-      {{!-- Tipo --}}
-      {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light"}}Tipo de elección<span class="caret"></span>{{/dd.button}}
-        {{#dd.menu as |menu|}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{president}} onclick={{queue (action (mut president) value="target.checked") (action "backToPageOne")}}>
-              <img src="img/icono-president.png" alt="Elección presidencial">
-              Presidencial
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{mayor}} onclick={{queue (action (mut mayor) value="target.checked") (action "backToPageOne")}}>
-              <img src="img/icono-mayor.png" alt="Elección municipal">
-              Municipal
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{distrito}} onclick={{queue (action (mut distrito) value="target.checked") (action "backToPageOne")}}>
-              <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
-              Diputados distrito
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{listado}} onclick={{queue (action (mut listado) value="target.checked") (action "backToPageOne")}}>
-              <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
-              Diputados listado nacional
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{parlacen}} onclick={{queue (action (mut parlacen) value="target.checked") (action "backToPageOne")}}>
-              <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
-              Diputados parlacen
-            </label>
-          {{/menu.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
+      {{#bs-button type="primary" class="active" onClick=(action "transitionTo" "presidentes")}}
+          <img src="img/icono-president.png" alt="Elección presidencial">
+          <p>Presidencial</p>
+      {{/bs-button}}
+      {{#bs-button type="primary"  onClick=(action "transitionTo" "alcaldes")}}
+          <img src="img/icono-mayor.png" alt="Elección municipal">
+          <p>Municipal</p>
+      {{/bs-button}}
+      {{#bs-button type="primary"  onClick=(action "transitionTo" "distrito")}}
+          <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
+          <p>Diputados distrito</p>
+      {{/bs-button}}
+      {{#bs-button type="primary"  onClick=(action "transitionTo" "listado")}}
+          <img src="img/icono-deputie.png" alt="Elección diputados del listado nacional">
+          <p>Diputados listado nacional</p>
+      {{/bs-button}}
+      {{#bs-button type="primary"  onClick=(action "transitionTo" "parlacen")}}
+          <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
+          <p>Diputados parlacen</p>
+      {{/bs-button}}
     </div>
   </div>
 

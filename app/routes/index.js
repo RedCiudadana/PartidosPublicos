@@ -18,8 +18,8 @@ export default Route.extend({
     let modelData = A();
     let app = this.modelFor('application');
     modelData.pushObjects(app.presidents.toArray());
-    modelData.pushObjects(app.listado.toArray());
-    modelData.pushObjects(app.distrito.toArray());
+    modelData.pushObjects(app.listados.toArray());
+    modelData.pushObjects(app.distritos.toArray());
     modelData.pushObjects(app.parlacens.toArray());
     modelData.pushObjects(app.mayors.toArray());
     return modelData;

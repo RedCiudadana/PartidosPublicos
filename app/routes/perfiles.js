@@ -2,7 +2,8 @@ import Route from '@ember/routing/route';
 
 const types = {
   presidentes: 'president',
-  diputados: 'deputie',
+  listado: 'listado',
+  distrito: 'distrito',
   parlacen: 'parlacen',
   alcaldes: 'mayor'
 };
