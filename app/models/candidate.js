@@ -19,6 +19,12 @@ export default Model.extend({
    */
   nombre: attr('string'),
 
+  // FBM
+  
+  web: attr('string'),
+
+  correo: attr('string'),
+
   /**
    * Id del partido
    *

@@ -16,5 +16,11 @@ export default Candidate.extend({
 
   electionName: 'Municipal',
 
-  title: '¡Conoce a las candidatos/as que quieren ser tu próximo/a alcalde/sa!'
+  title: '¡Conoce a las candidatos/as que quieren ser tu próximo/a alcalde/sa!',
+
+  // Filters
+
+  filterDepartament: true,
+
+  filterMunicipal: true
 });

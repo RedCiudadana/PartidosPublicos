@@ -17,14 +17,14 @@
         <tr>
           <td class="p-0 border-top-0">
             <small>
-              <strong>Partido Político: </strong>{{currentParty.nombreCompleto}}
+              <strong>Tipo de elección: </strong>{{profile.electionName}}
             </small>
           </td>
         </tr>
         <tr>
-          <td class="p-0">
+          <td class="p1">
             <small>
-              <strong>Estado civil: </strong>{{profile.estadoCivil}}
+              <strong>Partido Político: </strong>{{currentParty.nombreCompleto}}
             </small>
           </td>
         </tr>
@@ -51,11 +51,13 @@
     <div class="d-block mt-3">
       <div>
         <a href={{model.profile.web}} target="_blank" rel="noopener">
-          <img src="img/icono-tw.png" alt="Página web">
+          <img src="img/icono-web.png" alt="Página web">
           {{model.profile.web}}
         </a>
+      </div>
+      <div>
         <a href={{model.profile.correo}} target="_blank" rel="noopener">
-          <img src="img/icono-tw.png" alt="Correo electrónico">
+          <img src="img/icono-correo.png" alt="Correo electrónico">
           {{model.profile.correo}}
         </a>
       </div>
@@ -70,23 +72,6 @@
           <img src="img/icono-fb.png" alt="Facebook">
           {{model.profile.nombre}}
         </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  {{!-- Biografía --}}
-  <div class="col-md-12">
-    <div class="panel">
-      <div class="header d-flex">
-        <img src="img/icono-biografia.png" alt="Biografía">
-        <h3>Biografía</h3>
-      </div>
-      <div class="body">
-        <p>
-          {{availableInfo.biography}}
-        </p>
       </div>
     </div>
   </div>
@@ -160,15 +145,6 @@
 
         {{#bs-dropdown class="ml-auto" as |dd|}}
           {{#bs-button}}Descarga aquí{{/bs-button}}
-          {{#dd.button}}<span class="caret"></span>{{/dd.button}}
-          {{#dd.menu as |menu|}}
-            {{#menu.item}}
-              {{#menu.link-to "index"}}PDF{{/menu.link-to}}
-            {{/menu.item}}
-            {{#menu.item}}
-              {{#menu.link-to "index"}}WPDF{{/menu.link-to}}
-            {{/menu.item}}
-          {{/dd.menu}}
         {{/bs-dropdown}}
       </div>
     </div>

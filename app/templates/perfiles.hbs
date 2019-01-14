@@ -1,8 +1,10 @@
 <div class="container py-5">
   {{!-- Ember Power Select --}}
-  <div class="row">
-    <div class="col-12 text-center">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 text-center">
+      <h4>{{pagedContent.firstObject.title}}</h4>
       {{#power-select
+        class="w-100"
         options=model
         selected=profile
         searchField="nombre"
@@ -10,146 +12,6 @@
       as |profile|}}
         <strong>{{profile.nombre}}</strong>
       {{/power-select}}
-    </div>
-  </div>
-
-  {{!-- Filters --}}
-  <div class="row filters">
-    <div class="col-12 text-center">
-      {{!-- Sexo --}}
-      {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light"}}Género{{/dd.button}}
-        {{#dd.menu as |menu|}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{esMujer}} onclick={{queue (action (mut esMujer) value="target.checked") (action "applyFilter")}}>
-              <img src="img/icono-femenino.png" alt="Femenino">
-              Femenino
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{esHombre}} onclick={{queue (action (mut esHombre) value="target.checked") (action "applyFilter")}}>
-              <img src="img/icono-masculino.png" alt="Masculino">
-              Masculino
-            </label>
-          {{/menu.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
-      {{!-- Municipio --}}
-      {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light" disabled="true" }}Municipio<span class="caret"></span>{{/dd.button}}
-        {{#dd.menu as |menu|}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{municipioA}} onclick={{queue (action (mut municipioA) value="target.checked") (action "applyFilter")}}>
-              municipioA
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{municipioB}} onclick={{queue (action (mut municipioB) value="target.checked") (action "applyFilter")}}>
-              municipioB
-            </label>
-          {{/menu.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
-      {{!-- Partido --}}
-      {{#bs-dropdown class="m-2 rounded" as |dd|}}
-        {{#dd.button class="bg-light btn-light"}}Partido político<span class="caret"></span>{{/dd.button}}
-        {{#dd.menu as |menu|}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-1}} onclick={{queue (action (mut partido-1) value="target.checked") (action "applyFilter")}}>
-              Partido 1
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-2}} onclick={{queue (action (mut partido-2) value="target.checked") (action "applyFilter")}}>
-              Partido 2
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-3}} onclick={{queue (action (mut partido-3) value="target.checked") (action "applyFilter")}}>
-              Partido 3
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-4}} onclick={{queue (action (mut partido-4) value="target.checked") (action "applyFilter")}}>
-              Partido 4
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-5}} onclick={{queue (action (mut partido-5) value="target.checked") (action "applyFilter")}}>
-              Partido 5
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-6}} onclick={{queue (action (mut partido-6) value="target.checked") (action "applyFilter")}}>
-              Partido 6
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-7}} onclick={{queue (action (mut partido-7) value="target.checked") (action "applyFilter")}}>
-              Partido 7
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-8}} onclick={{queue (action (mut partido-8) value="target.checked") (action "applyFilter")}}>
-              Partido 8
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-9}} onclick={{queue (action (mut partido-9) value="target.checked") (action "applyFilter")}}>
-              Partido 9
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-10}} onclick={{queue (action (mut partido-10) value="target.checked") (action "applyFilter")}}>
-              Partido 10
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-11}} onclick={{queue (action (mut partido-11) value="target.checked") (action "applyFilter")}}>
-              Partido 11
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-12}} onclick={{queue (action (mut partido-12) value="target.checked") (action "applyFilter")}}>
-              Partido 12
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-13}} onclick={{queue (action (mut partido-13) value="target.checked") (action "applyFilter")}}>
-              Partido 13
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-14}} onclick={{queue (action (mut partido-14) value="target.checked") (action "applyFilter")}}>
-              Partido 14
-            </label>
-          {{/menu.item}}
-          {{#menu.item}}
-            <label>
-              <input type="checkbox" checked={{partido-15}} onclick={{queue (action (mut partido-15) value="target.checked") (action "applyFilter")}}>
-              Partido 15
-            </label>
-          {{/menu.item}}
-        {{/dd.menu}}
-      {{/bs-dropdown}}
     </div>
   </div>
 </div>

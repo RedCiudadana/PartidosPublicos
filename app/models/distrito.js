@@ -16,5 +16,9 @@ export default Candidate.extend({
 
   electionName: 'Diputados por distrito',
 
-  title: '¡Conoce a las candidatas/os para representar a tu distrito en el Congreso!'
+  title: '¡Conoce a las candidatas/os para representar a tu distrito en el Congreso!',
+
+  // Filters
+
+  filterDistrito: true
 });
