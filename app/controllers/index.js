@@ -4,55 +4,55 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Controller.extend({
 
-  profiles: computed(
-    'distrito',
-    'listado',
-    'president',
-    'mayor',
-    'deputie',
-    'parlacen',
-    function() {
+  // profiles: computed(
+  //   'distrito',
+  //   'listado',
+  //   'president',
+  //   'mayor',
+  //   'deputie',
+  //   'parlacen',
+  //   function() {
 
-      if(!this.get('distrito') 
-        && !this.get('listado')
-        && !this.get('president')
-        && !this.get('mayor')
-        && !this.get('deputie')
-        && !this.get('parlacen')
-      ) {
-        return this.get('model');
-      }
+  //     if(!this.get('distrito') 
+  //       && !this.get('listado')
+  //       && !this.get('president')
+  //       && !this.get('mayor')
+  //       && !this.get('deputie')
+  //       && !this.get('parlacen')
+  //     ) {
+  //       return this.get('model');
+  //     }
 
-      return this.get('model').filter((candidate) => {
-        if (this.get('distrito') && candidate.type === 'distrito') {
-          return true;
-        }
+  //     return this.get('model').filter((candidate) => {
+  //       if (this.get('distrito') && candidate.type === 'distrito') {
+  //         return true;
+  //       }
 
-        if (this.get('listado') && candidate.type === 'listado') {
-          return true;
-        }
+  //       if (this.get('listado') && candidate.type === 'listado') {
+  //         return true;
+  //       }
 
-        if (this.get('president') && candidate.type === 'president') {
-          return true;
-        }
+  //       if (this.get('president') && candidate.type === 'president') {
+  //         return true;
+  //       }
 
-        if (this.get('mayor') && candidate.type === 'mayor') {
-          return true;
-        }
+  //       if (this.get('mayor') && candidate.type === 'mayor') {
+  //         return true;
+  //       }
 
-        if (this.get('deputie') && candidate.type === 'deputie') {
-          return true;
-        }
+  //       if (this.get('deputie') && candidate.type === 'deputie') {
+  //         return true;
+  //       }
 
-        if (this.get('parlacen') && candidate.type === 'parlacen') {
-          return true;
-        }
+  //       if (this.get('parlacen') && candidate.type === 'parlacen') {
+  //         return true;
+  //       }
 
-        return false;
-      });
+  //       return false;
+  //     });
 
-    }
-  ),
+  //   }
+  // ),
 
   // Pagination
 

@@ -23,6 +23,11 @@ export default Route.extend({
     modelData.pushObjects(app.parlacens.toArray());
     modelData.pushObjects(app.mayors.toArray());
     return modelData;
+  },
+
+  setupController(controller, model) {
+    this._super(controller, model);
+    this.controllerFor('index').set('profiles', this.modelFor('application').presidents);
   }
 
 });
