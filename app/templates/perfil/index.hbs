@@ -49,30 +49,42 @@
   <div class="col-md-3 social-side text-left d-block p-3">
     <img src={{model.currentParty.logo}} alt={{model.currentParty.nombreCorto}} class="foto-partido">
     <div class="d-block mt-3">
-      <div>
-        <a href={{model.profile.web}} target="_blank" rel="noopener">
-          <img src="img/icono-web.png" alt="Página web">
-          {{model.profile.web}}
-        </a>
-      </div>
-      <div>
-        <a href={{model.profile.correo}} target="_blank" rel="noopener">
-          <img src="img/icono-correo.png" alt="Correo electrónico">
-          {{model.profile.correo}}
-        </a>
-      </div>
-      <div>
-        <a href={{model.profile.tw}} target="_blank" rel="noopener">
-          <img src="img/icono-tw.png" alt="Twitter">
-          {{model.profile.tw}}
-        </a>
-      </div>
-      <div>
-        <a href={{model.profile.fb}} target="_blank" rel="noopener">
-          <img src="img/icono-fb.png" alt="Facebook">
-          {{model.profile.nombre}}
-        </a>
-      </div>
+      {{!-- Página web --}}
+      {{#if model.profile.web}}
+        <div>
+          <a href={{model.profile.web}} target="_blank" rel="noopener">
+            <img src="img/icono-web.png" alt="Página web">
+            {{model.profile.web}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Correo --}}
+      {{#if model.profile.correo}}
+        <div>
+          <a href={{model.profile.correo}} target="_blank" rel="noopener">
+            <img src="img/icono-correo.png" alt="Correo electrónico">
+            {{model.profile.correo}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Twitter --}}
+      {{#if model.profile.tw}}
+        <div>
+          <a href={{model.profile.tw}} target="_blank" rel="noopener">
+            <img src="img/icono-tw.png" alt="Twitter">
+            {{model.profile.tw}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Facebook --}}
+      {{#if model.profile.fb}}
+        <div>
+          <a href={{model.profile.fb}} target="_blank" rel="noopener">
+            <img src="img/icono-fb.png" alt="Facebook">
+            {{model.profile.nombre}}
+          </a>
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>
