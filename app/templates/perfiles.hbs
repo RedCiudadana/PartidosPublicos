@@ -14,6 +14,49 @@
       {{/power-select}}
     </div>
   </div>
+  {{!-- Filtros --}}
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      {{!-- Filtro por departamento y municipal--}}
+      {{#if pagedContent.firstObject.filterDepartament}}
+        {{!-- Departamento --}}
+        <p>Elige tu departamento:</p>
+        {{#power-select
+          class="w-100"
+          options=model
+          selected=profile
+          searchField="nombre"
+          onchange=(action "toProfile")
+        as |profile|}}
+          <strong>{{profile.nombre}}</strong>
+        {{/power-select}}
+        {{!-- Municipio --}}
+        <p>Elige tu municipio:</p>
+        {{#power-select
+          class="w-100"
+          options=model
+          selected=profile
+          searchField="nombre"
+          onchange=(action "toProfile")
+        as |profile|}}
+          <strong>{{profile.nombre}}</strong>
+        {{/power-select}}
+      {{/if}}
+      {{!-- Filtro por distrito --}}
+      {{#if pagedContent.firstObject.filterDistrito}}
+        <p>Elige tu distrito:</p>
+        {{#power-select
+          class="w-100"
+          options=model
+          selected=profile
+          searchField="nombre"
+          onchange=(action "toProfile")
+        as |profile|}}
+          <strong>{{profile.nombre}}</strong>
+        {{/power-select}}
+      {{/if}}
+    </div>
+  </div>
 </div>
 
 <div class="w-100  bg-primary text-white">
