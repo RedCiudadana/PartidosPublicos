@@ -4,9 +4,9 @@
     <div class="col-12 col-md-8 text-center">
       <h4>{{pagedContent.firstObject.title}}</h4>
       {{#power-select
-        class="w-100"
         options=model
         selected=profile
+        placeholder="Busca por nombre a tu candidato (ta)"
         searchField="nombre"
         onchange=(action "toProfile")
       as |profile|}}
@@ -15,16 +15,16 @@
     </div>
   </div>
   {{!-- Filtros --}}
-  <div class="row justify-content-center">
+  <div class="row justify-content-center filtros-perfiles">
     <div class="col-12 col-md-8">
       {{!-- Filtro por departamento y municipal--}}
       {{#if pagedContent.firstObject.filterDepartament}}
         {{!-- Departamento --}}
         <p>Elige tu departamento:</p>
         {{#power-select
-          class="w-100"
           options=model
           selected=profile
+          placeholder="Departamento"
           searchField="nombre"
           onchange=(action "toProfile")
         as |profile|}}
@@ -33,9 +33,9 @@
         {{!-- Municipio --}}
         <p>Elige tu municipio:</p>
         {{#power-select
-          class="w-100"
           options=model
           selected=profile
+          placeholder="Municipio"
           searchField="nombre"
           onchange=(action "toProfile")
         as |profile|}}
@@ -46,9 +46,9 @@
       {{#if pagedContent.firstObject.filterDistrito}}
         <p>Elige tu distrito:</p>
         {{#power-select
-          class="w-100"
           options=model
           selected=profile
+          placeholder="Distrito"
           searchField="nombre"
           onchange=(action "toProfile")
         as |profile|}}
