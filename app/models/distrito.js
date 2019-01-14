@@ -14,5 +14,7 @@ export default Candidate.extend({
 
   typeCommonName: 'diputadosDistrito',
 
-  electionName: 'Diputados por distrito'
+  electionName: 'Diputados por distrito',
+
+  title: '¡Conoce a las candidatas/os para representar a tu distrito en el Congreso!'
 });

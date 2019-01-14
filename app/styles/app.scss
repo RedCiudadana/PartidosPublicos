@@ -379,6 +379,7 @@ h1, h2, h3, h4, h5, h6, strong {
 // Colaboradores
 
 .colaboradores {
+    padding-bottom: 60px;
 
     h5 {
         margin-top: 30px;
@@ -386,6 +387,8 @@ h1, h2, h3, h4, h5, h6, strong {
     }
 
     img {
+        max-height: 85px;
+        height: auto;
         filter: grayscale(100);
     }
 
@@ -402,5 +405,13 @@ table.table.borderless {
 
     thead {
         border-bottom: 2px solid $light;
+    }
+}
+
+// Fecha
+
+.date {
+    div {
+        margin-top: 10%;
     }
 }

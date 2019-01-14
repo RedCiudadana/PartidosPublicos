@@ -14,5 +14,7 @@ export default Candidate.extend({
 
   typeCommonName: 'parlacen',
 
-  electionName: 'Diputados Parlacen'
+  electionName: 'Diputados Parlacen',
+
+  title: '¡Conoce a los candidatos/as que quieren ser tus representantes en el Parlacen!'
 });

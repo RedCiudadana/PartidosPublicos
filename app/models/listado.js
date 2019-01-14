@@ -14,5 +14,7 @@ export default Candidate.extend({
 
   typeCommonName: 'diputadosListado',
 
-  electionName: 'Diputados por listado nacional'
+  electionName: 'Diputados por listado nacional',
+
+  title: '¡Conoce a los candidatos/as del listado nacional que quieren ser tus representantes en el Congreso!'
 });

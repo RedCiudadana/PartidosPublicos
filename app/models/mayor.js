@@ -14,5 +14,7 @@ export default Candidate.extend({
 
   typeCommonName: 'alcaldes',
 
-  electionName: 'Municipal'
+  electionName: 'Municipal',
+
+  title: '¡Conoce a las candidatos/as que quieren ser tu próximo/a alcalde/sa!'
 });

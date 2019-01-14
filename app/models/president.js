@@ -14,5 +14,7 @@ export default Candidate.extend({
 
   typeCommonName: 'presidentes',
 
-  electionName: 'Presidencial'
+  electionName: 'Presidencial',
+
+  title: '¡Conoce a los candidatos/as que quieren ser tu próximo/a Presidente y Vicepresidente!'
 });
