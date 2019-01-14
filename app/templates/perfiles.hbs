@@ -4,7 +4,7 @@
     <div class="col-12 col-md-8 text-center">
       <h4>{{pagedContent.firstObject.title}}</h4>
       {{#power-select
-        options=model
+        options=profiles
         selected=profile
         placeholder="Busca por nombre a tu candidato (ta)"
         searchField="nombre"
@@ -22,7 +22,7 @@
         {{!-- Departamento --}}
         <p>Elige tu departamento:</p>
         {{#power-select
-          options=model
+          options=profiles
           selected=profile
           placeholder="Departamento"
           searchField="nombre"
@@ -33,7 +33,7 @@
         {{!-- Municipio --}}
         <p>Elige tu municipio:</p>
         {{#power-select
-          options=model
+          options=profiles
           selected=profile
           placeholder="Municipio"
           searchField="nombre"
@@ -46,7 +46,7 @@
       {{#if pagedContent.firstObject.filterDistrito}}
         <p>Elige tu distrito:</p>
         {{#power-select
-          options=model
+          options=profiles
           selected=profile
           placeholder="Distrito"
           searchField="nombre"
@@ -65,11 +65,11 @@
     <div class="row justify-content-center">
       <div class="col-10 py-3 d-flex">
         <img
-          src={{asset-map (concat "img/icono-" model.firstObject.type ".png") }}
-          alt="Icono {{model.firstObject.electionName}}"
+          src={{asset-map (concat "img/icono-" profiles.firstObject.type ".png") }}
+          alt="Icono {{profiles.firstObject.electionName}}"
           height="50px"
           width="auto">
-        <h5 class="my-auto mx-3">{{model.firstObject.electionName}}</h5>
+        <h5 class="my-auto mx-3">{{profiles.firstObject.electionName}}</h5>
       </div>
     </div>
   </div>
