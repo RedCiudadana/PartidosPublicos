@@ -107,6 +107,10 @@ h1, h2, h3, h4, h5, h6, strong {
     z-index: 2000;
 }
 
+.ember-power-select-clear-btn {
+    right: 45px;
+}
+
 @include media-breakpoint-up(md) {
 
     .ember-power-select-trigger {

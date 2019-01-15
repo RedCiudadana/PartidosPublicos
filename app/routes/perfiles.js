@@ -14,5 +14,10 @@ export default Route.extend({
 
   model(params) {
     return this.modelFor('application')[this.get('types')[params.type] + 's'];
+  },
+
+  setupController(controller, model) {
+    this._super(controller, model);
+    this.controllerFor('perfiles').set('config', model.firstObject);
   }
 });
