@@ -28,6 +28,18 @@
             </small>
           </td>
         </tr>
+        {{#if isPresident}}
+          <tr>
+            <td class="p-0">
+              <small>
+                <strong>Dupla presidencial: </strong>
+                {{#link-to "perfil" profile.vicepresident.typeCommonName profile.vicepresident.id}}
+                  {{profile.vicepresident.nombre}}
+                {{/link-to}}
+              </small>
+            </td>
+          </tr>
+        {{/if}}
         <tr>
           <td class="p-0">
             <small>

@@ -1,5 +1,4 @@
 import Candidate from './candidate';
-import { belongsTo } from 'ember-data/relationships';
 
 /**
  * Modelo para candidatos a la presidencia
@@ -9,12 +8,11 @@ import { belongsTo } from 'ember-data/relationships';
  */
 export default Candidate.extend({
   // Atributes
-  vicepresident: belongsTo('vicepresident'),
 
   // Tipo de elección
-  type: 'president',
+  type: 'vicepresident',
 
-  typeCommonName: 'presidentes',
+  typeCommonName: 'vicepresidentes',
 
   electionName: 'Presidencial',
 

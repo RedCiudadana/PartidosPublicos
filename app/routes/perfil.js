@@ -5,6 +5,7 @@ import { A } from '@ember/array';
 
 const types = {
   presidentes: 'president',
+  vicepresidentes: 'vicepresident',
   diputadosDistrito: 'distrito',
   diputadosListado: 'listado',
   parlacen: 'parlacen',
