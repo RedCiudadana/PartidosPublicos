@@ -401,6 +401,7 @@ export default Controller.extend({
   profiles: computed(
     'departamento',
     'municipio',
+    'model',
     function() {
       if(!this.get('departamento')
         && !this.get('municipio')) {

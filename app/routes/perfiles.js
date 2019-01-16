@@ -19,5 +19,6 @@ export default Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
     this.controllerFor('perfiles').set('config', model.firstObject);
+    this.controllerFor('perfiles').set('datos', model);
   }
 });
