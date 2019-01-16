@@ -102,25 +102,29 @@
                 src={{perfilUno.fotoPerfil}}
                 alt="Foto de {{perfilUno.nombre}}">
               <p>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Nombre</th>
-                      <th>Partido</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each availableInfoUno.historial as |partido index|}}
+                {{#if availableInfoUno.historial}}
+                  <table class="table">
+                    <thead>
                       <tr>
-                        <td scope="row">{{inc index 1}}</td>
-                        <td>{{partido.partido}}</td>
-                        <td>{{partido.ano}}</td>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Partido</th>
                       </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-                <small class="text-muted">{{perfilUno.nombre}}</small>
+                    </thead>
+                    <tbody>
+                      {{#each availableInfoUno.historial as |partido index|}}
+                        <tr>
+                          <td scope="row">{{inc index 1}}</td>
+                          <td>{{partido.partido}}</td>
+                          <td>{{partido.ano}}</td>
+                        </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                  <small class="text-muted">{{perfilUno.nombre}}</small>
+                {{else}}
+                  <strong>No hay datos</strong>
+                {{/if}}
               </p>
             </div>
             <div class="col-md-6">
@@ -128,25 +132,29 @@
                 src={{perfilDos.fotoPerfil}}
                 alt="Foto de {{perfilDos.nombre}}">
               <p>
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Nombre</th>
-                      <th>Partido</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {{#each availableInfoDos.historial as |partido index|}}
+                {{#if availableInfoDos.historial}}
+                  <table class="table">
+                    <thead>
                       <tr>
-                        <td scope="row">{{inc index 1}}</td>
-                        <td>{{partido.partido}}</td>
-                        <td>{{partido.ano}}</td>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Partido</th>
                       </tr>
-                    {{/each}}
-                  </tbody>
-                </table>
-                <small class="text-muted">{{perfilDos.nombre}}</small>
+                    </thead>
+                    <tbody>
+                      {{#each availableInfoDos.historial as |partido index|}}
+                        <tr>
+                          <td scope="row">{{inc index 1}}</td>
+                          <td>{{partido.partido}}</td>
+                          <td>{{partido.ano}}</td>
+                        </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                  <small class="text-muted">{{perfilDos.nombre}}</small>
+                {{else}}
+                  <strong>No hay datos</strong>
+                {{/if}}
               </p>
             </div>
           </div>
