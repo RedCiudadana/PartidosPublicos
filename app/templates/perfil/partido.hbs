@@ -43,30 +43,42 @@
   {{!-- Redes sociales --}}
   <div class="col-md-3 social-side text-left d-block p-3">
     <div class="d-block mt-3">
-      <div>
-        <a href={{model.partido.web}} target="_blank" rel="noopener">
-          <img src="img/icono-tw.png" alt="Página web">
-          {{model.partido.web}}
-        </a>
-      </div>
-      <div>
-        <a href={{model.partido.correo}} target="_blank" rel="noopener">
-          <img src="img/icono-tw.png" alt="Correo electrónico">
-          {{model.partido.correo}}
-        </a>
-      </div>
-      <div>
-        <a href={{model.partido.tw}} target="_blank" rel="noopener">
-          <img src="img/icono-tw.png" alt="Twitter">
-          {{model.partido.tw}}
-        </a>
-      </div>
-      <div>
-        <a href={{model.partido.fb}} target="_blank" rel="noopener">
-          <img src="img/icono-fb.png" alt="Facebook">
-          {{model.partido.nombreCorto}}
-        </a>
-      </div>
+      {{!-- Página web --}}
+      {{#if model.partido.web}}
+        <div>
+          <a href={{model.partido.web}} target="_blank" rel="noopener">
+            <img src="img/icono-web.png" alt="Página web">
+            {{model.partido.web}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Correo --}}
+      {{#if model.partido.correo}}
+        <div>
+          <a href={{model.partido.correo}} target="_blank" rel="noopener">
+            <img src="img/icono-correo.png" alt="Correo electrónico">
+            {{model.partido.correo}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Twitter --}}
+      {{#if model.partido.tw}}
+        <div>
+          <a href={{model.partido.tw}} target="_blank" rel="noopener">
+            <img src="img/icono-tw.png" alt="Twitter">
+            {{model.partido.tw}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Facebook --}}
+      {{#if model.partido.fb}}
+        <div>
+          <a href={{model.partido.fb}} target="_blank" rel="noopener">
+            <img src="img/icono-fb.png" alt="Facebook">
+            {{model.partido.nombreCorto}}
+          </a>
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>
@@ -79,23 +91,23 @@
           </div>
           <div class="body">
             <div id="portfolio" class="portfolio clearfix my-4">
-              {{#each model.miembros as |profile|}}
-                <article class="item {{profile.selector}} text-center">
+              {{#each model.miembros as |partido|}}
+                <article class="item {{partido.selector}} text-center">
                   <div class="background bg-white">
 
                     <div class="image">
-                      {{#link-to "perfil" profile.typeCommonName profile.id}}
-                        <img alt={{profile.cargoNombreCompleto}} src={{profile.fotoPerfil}}>
+                      {{#link-to "perfil" partido.typeCommonName partido.id}}
+                        <img alt={{partido.cargoNombreCompleto}} src={{partido.fotoPerfil}}>
                       {{/link-to}}
                     </div>
 
                     <div class="text-center w-75 mx-auto px-auto">
-                      <h6>{{profile.nombre}}</h6>
-                      <h6 class="font-weight-light">{{profile.electionName}}</h6>
+                      <h6>{{partido.nombre}}</h6>
+                      <h6 class="font-weight-light">{{partido.electionName}}</h6>
                     </div>
 
                     <div class="image-party">
-                      <img src={{profile.partido.logo}} alt={{profile.partido.nombreCorto}}>
+                      <img src={{partido.partido.logo}} alt={{partido.partido.nombreCorto}}>
                     </div>
 
                   </div>
