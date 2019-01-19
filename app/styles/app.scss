@@ -126,6 +126,7 @@ h1, h2, h3, h4, h5, h6, strong {
 
     .btn {
         width: 180px;
+        margin-top: 5px;
         margin-left: 10px;
         margin-right: 10px;
         padding-left: 25px;
@@ -291,6 +292,11 @@ h1, h2, h3, h4, h5, h6, strong {
         }
     }
 
+    .social-side {
+        text-align: center;
+        display: block;
+    }
+
     .social-side img.foto-partido {
         width: 200px;
     }
@@ -300,6 +306,15 @@ h1, h2, h3, h4, h5, h6, strong {
         margin-bottom: 10px !important;
     }
 }
+
+@include media-breakpoint-up(md) {
+    .perfil-container {
+        .social-side {
+            text-align: left;
+        }
+    }
+}
+
 
 // Button collapse
 
@@ -377,23 +392,43 @@ h1, h2, h3, h4, h5, h6, strong {
 
 .frente-a-frente {
     img {
-        width: 15%;
-        height: auto;
+        width: 80px;
+        margin-bottom: 10px;
     }
 
-    .col-md-6 p {
-        @extend .bg-light;
-        @extend  .rounded;
-        padding: 20px;
-        width: 80%;
-        float: right;
-        text-align: justify;
+    .col-md-6 {
+    display: grid;
+
+        p {
+            @extend .bg-light;
+            @extend  .rounded;
+            padding: 20px;
+            float: right;
+            text-align: justify;
+        }
     }
 
     small {
         display: block;
         float: right;
         margin-top: 30px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .frente-a-frente {
+        img {
+            width: 15%;
+            height: auto;
+        }
+
+        .col-md-6 {
+            display: block;
+
+            p {
+                width: 80%;
+            }
+        }
     }
 }
 

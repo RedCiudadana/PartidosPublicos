@@ -36,6 +36,14 @@
               </small>
             </td>
           </tr>
+          <tr>
+            <td class="p-0">
+              <small>
+                <strong>Número de afiliados:</strong>
+                {{model.partido.numeroAfiliados}}
+              </small>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -84,37 +92,44 @@
 </div>
 
 <div class="row">
-      <div class="col-12">
-        <div class="panel">
-          <div class="header">
-            <h3>Miembros</h3>
-          </div>
-          <div class="body">
-            <div id="portfolio" class="portfolio clearfix my-4">
-              {{#each model.miembros as |partido|}}
-                <article class="item {{partido.selector}} text-center">
-                  <div class="background bg-white">
+  <div class="col-12">
+    <div class="panel">
+      <div class="header">
+        <h3>Miembros</h3>
+      </div>
+      <div class="body">
+        <div id="portfolio" class="portfolio clearfix my-4">
+          {{#each pagedContent as |partido|}}
+            <article class="item {{partido.selector}} text-center">
+              <div class="background bg-white">
 
-                    <div class="image">
-                      {{#link-to "perfil" partido.typeCommonName partido.id}}
-                        <img alt={{partido.cargoNombreCompleto}} src={{partido.fotoPerfil}}>
-                      {{/link-to}}
-                    </div>
+                <div class="image">
+                  {{#link-to "perfil" partido.typeCommonName partido.id}}
+                    <img alt={{partido.cargoNombreCompleto}} src={{partido.fotoPerfil}}>
+                  {{/link-to}}
+                </div>
 
-                    <div class="text-center w-75 mx-auto px-auto">
-                      <h6>{{partido.nombre}}</h6>
-                      <h6 class="font-weight-light">{{partido.electionName}}</h6>
-                    </div>
+                <div class="text-center w-75 mx-auto px-auto">
+                  <h6>{{partido.nombre}}</h6>
+                  <h6 class="font-weight-light">{{partido.electionName}}</h6>
+                </div>
 
-                    <div class="image-party">
-                      <img src={{partido.partido.logo}} alt={{partido.partido.nombreCorto}}>
-                    </div>
+                <div class="image-party">
+                  <img src={{partido.partido.logo}} alt={{partido.partido.nombreCorto}}>
+                </div>
 
-                  </div>
-                </article>
-              {{/each}}
-            </div>
-          </div>
+              </div>
+            </article>
+          {{/each}}
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+{{!-- Pagination numbers --}}
+<div class="row">
+  <div class="col-4 offset-4 text-center">
+    {{page-numbers content=pagedContent}}
+  </div>
+</div>

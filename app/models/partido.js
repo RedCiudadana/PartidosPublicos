@@ -74,6 +74,8 @@ export default Model.extend({
    */
   logoURL: attr('string'),
 
+  numeroAfiliados: attr('string'),
+
   // Relationships
 
   /**
