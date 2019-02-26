@@ -92,7 +92,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.staticFilesUrl = 'http://kas.candidatos.gt/static-files/';
+    ENV.APP.staticFilesUrl = 'http://www.candidatos.gt/static-files/';
   }
 
   return ENV;
