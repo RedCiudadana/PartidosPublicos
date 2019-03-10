@@ -9,12 +9,16 @@ Además de datos, estos archivos estáticos cuentan algunos parámetros de confi
 
 ### Consumo
 
+# RawGit está obsoleto. Utiliza urls de github pages en cambio.
+
 Se recomienda consumir los archivos a través de [RawGit](https://rawgit.com), un
 servicio que devuelve correctamente el `Content-Type` del contenido.
 
 Por ejemplo, en lugar de consumir directamente el archivo [`perfil.json`](static-files/perfil.json),
 este se puede consumir por medio de RawGit con [esta URL para desarrollo](https://rawgit.com/RedCiudadana/JusticiaAbiertaBeta/master/public/static-files/perfil.json)
 y [esta URL para producción](https://cdn.rawgit.com/RedCiudadana/JusticiaAbiertaBeta/e4077346/public/static-files/perfil.json).
+
+# [Advertencia] Está documentación está desactualizada
 
 ### Archivos de datos
 
