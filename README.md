@@ -2,6 +2,8 @@
   <a href="http://redciudadana.org"><img width="auto" src="http://redciudadana.org/wp-content/uploads/2018/05/red-logo-01.png"></a>
 </p>
 
+[Documentación - Red Ciudadana](https://docs.google.com/document/d/13TLDFDv5z_fBwz8yq6umRBvDc-e2FcJlRL7mg1VGpgg/edit?usp=sharing)
+
 # MiGuatemala
 
 MiGuatemala es un app construido en [Ember](http://emberjs.com). Permite mostrar información sobre funcionarios o candidatos, con el fin de informar a ciudadanos. Ejemplo: [Plataforma de pruebas](http://miguatemala.redciudadana.org/).
