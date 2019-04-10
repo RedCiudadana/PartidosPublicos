@@ -3,9 +3,6 @@
   {{#car.slide}}
     <img alt="Paso 1" src="img/slider-1.png" height="auto" width="100%">
   {{/car.slide}}
-  {{#car.slide}}
-    <img alt="Paso 3" src="img/slider-3.png" height="auto" width="100%">
-  {{/car.slide}}
 {{/bs-carousel}}
 
 <div class="container py-5">
@@ -13,15 +10,7 @@
   {{!-- Ember Power Select --}}
   <div class="row">
     <div class="col-12 text-center">
-      <h4>¿Quiénes son los candidatos a la alcaldía de tu municipio?</h4>
-      {{#power-select
-        options=model
-        selected=profile
-        searchField="nombre"
-        onchange=(action "toProfile")
-      as |profile|}}
-        <strong>{{profile.nombre}}</strong>
-      {{/power-select}}
+      <h4>Conoce a los candidatos y candidatos a cargos de elección popular</h4>
     </div>
   </div>
 
@@ -119,15 +108,19 @@
       <a href="https://consulta2018.tse.org.gt/dondevotas.php" target="_blank">
         <button class="btn btn-warning btn-square">
           <img src="img/icono-donde-voto.png" alt="Icono donde voto">
-          ¿Dónde voto?
+          Nuestra Elección
         </button>
       </a>
     </div>
     <div class="col-12 col-md-4">
-      <button class="btn btn-success btn-square">
-        <img src="img/icono-frente-a-frente.png" alt="Icono frente a frente">
-        Frente a frente
-      </button>
+      <a href="http://semaforoelectoral.gt/" target="_blank">
+        <button class="btn btn-success btn-square">
+          <img src="img/icono-megafono.png" alt="Icono frente a frente">
+          <div class="block">
+            <p>Semáforo Electoral</p>
+          </div>
+        </button>
+      </a>
     </div>
     <div class="col-12 col-md-4">
       <button class="btn btn-primary btn-square">
