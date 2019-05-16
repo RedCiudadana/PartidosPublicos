@@ -223,7 +223,7 @@ $tw-color: #1DA1F2;
         .text {
             padding-top: 10px;
             // Un 'height' determinado para que no varie el alto del item según lo largo del nombre, etc, entre los items.
-            height: 80px;
+            height: 80px !important;
             line-height: 1 !important;
         }
     }

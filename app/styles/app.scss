@@ -327,21 +327,30 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 .portfolio {
-    .image-party img {
-        position: absolute;
-        left: 65%;
-        top: 5%;
-        z-index: 80;
-        width: 25%;
-        height: auto;
-        overflow: hidden;
-        border-radius: 50% !important;
-    }
 
-    .text {
-        width: 75%;
-        margin: auto;
-        height: 60px !important;
+    .item {
+        .image {
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .image-party img {
+            position: absolute;
+            left: 65%;
+            top: 5%;
+            z-index: 80;
+            width: 25%;
+            height: auto;
+            overflow: hidden;
+            border-radius: 50% !important;
+        }
+
+        .text {
+            width: 75%;
+            margin: auto;
+            height: 80px !important;
+            overflow: hidden;
+        }
     }
 }
 
