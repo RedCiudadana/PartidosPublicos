@@ -1,7 +1,8 @@
 import $ from 'jquery';
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { computed, observer } from '@ember/object';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
+import { isBlank } from '@ember/utils';
 
 const departamentos = [
   'Alta Verapaz',
@@ -394,6 +395,8 @@ export default Controller.extend({
 
   datosMunicipios: municipios,
 
+  municipioDisabled: false,
+
   municipios: computed('departamento', function() {
     return this.datosMunicipios[this.get('departamento')];
   }),
@@ -454,6 +457,14 @@ export default Controller.extend({
 
     return false;
   },
+
+  observerToMunicipio: observer('departamento', function() {
+    this.set('municipioDisabled', !isBlank(this.get('departamento')));
+
+    if(isBlank(this.get('departamento'))) {
+      this.set('municipio', null);
+    }
+  }),
 
   // Pagination
 

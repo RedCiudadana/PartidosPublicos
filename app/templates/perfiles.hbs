@@ -22,24 +22,27 @@
         {{!-- Departamento --}}
         <p>Elige tu departamento:</p>
         {{#power-select
-          allowClear="true"
           options=departamentos
           selected=departamento
+          allowClear="true"
           placeholder="Departamento"
           onchange=(action (mut departamento))
         as |profile|}}
           <strong>{{profile}}</strong>
         {{/power-select}}
-        {{!-- Municipio --}}
-        <p>Elige tu municipio:</p>
-        {{#power-select
-          options=municipios
-          selected=municipio
-          placeholder="Municipio"
-          onchange=(action (mut municipio))
-        as |profile|}}
-          <strong>{{profile}}</strong>
-        {{/power-select}}
+        {{#if municipioDisabled}}
+          {{!-- Municipio --}}
+          <p>Elige tu municipio:</p>
+          {{#power-select
+            options=municipios
+            selected=municipio
+            allowClear="true"
+            placeholder="Municipio"
+            onchange=(action (mut municipio))
+          as |profile|}}
+            <strong>{{profile}}</strong>
+          {{/power-select}}
+        {{/if}}
       {{/if}}
       {{!-- Filtro por distrito --}}
       {{#if config.filterDistrito}}
@@ -47,6 +50,7 @@
         {{#power-select
           options=profiles
           selected=profile
+          allowClear="true"
           placeholder="Distrito"
           searchField="nombre"
           onchange=(action "toProfile")
