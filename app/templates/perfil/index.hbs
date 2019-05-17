@@ -82,9 +82,9 @@
       {{!-- Twitter --}}
       {{#if model.profile.tw}}
         <div>
-          <a href={{model.profile.tw}} target="_blank" rel="noopener">
+          <a href="https://twitter.com/{{twitter-link model.profile.tw}}" target="_blank" rel="noopener">
             <img src="img/icono-tw.png" alt="Twitter">
-            {{model.profile.tw}}
+            @{{twitter-link model.profile.tw}}
           </a>
         </div>
       {{/if}}
