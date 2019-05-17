@@ -1,6 +1,7 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
+import { isBlank } from '@ember/utils';
 import { computed } from '@ember/object';
 
 /**
@@ -160,7 +161,7 @@ export default Model.extend({
    * @return String enlace de la foto del candidato
    */
   fotoPerfil: computed('fotoURL', 'sexo', function() {
-    if (this.get('fotoURL')) {
+    if (!isBlank(this.get('fotoURL'))) {
       return this.get('fotoURL');
     }
 
@@ -171,6 +172,12 @@ export default Model.extend({
     if (this.get('sexo') === 'Femenino') {
       return 'mi-guatemala/img/candidata.png';
     }
+
+    if(parseInt(this.get('id').slice(this.get('id').indexOf('-') + 1)) % 2 === 0) {
+      return 'mi-guatemala/img/candidata.png';
+    }
+
+    return 'mi-guatemala/img/candidato.png';
   })
 
 });
