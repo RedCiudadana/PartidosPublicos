@@ -397,6 +397,10 @@ export default Controller.extend({
 
   municipioDisabled: false,
 
+  departamento: null,
+  municipio: null,
+  partido: null,
+
   municipios: computed('departamento', function() {
     return this.datosMunicipios[this.get('departamento')];
   }),
@@ -404,30 +408,31 @@ export default Controller.extend({
   profiles: computed(
     'departamento',
     'municipio',
+    'partido',
     'model',
     function() {
       if(!this.get('departamento')
-        && !this.get('municipio')) {
+        && !this.get('municipio')
+        && !this.get('partido')) {
         return this.get('model')
       }
 
       return this.get('model').filter((candidate) => {
-        if (this.get('departamento') && candidate.departamento === this.get('departamento')) {
-          if (this.get('municipio')) {
-            if (candidate.municipio === this.get('municipio')) {
-              // Coincide departamento y municipio
-              return true
-            } else {
-              // No coincide municipio
-              return false
-            }
-          }
-          // Coincide departamento
-          return true
+
+        if (this.get('partido') && this.get('partido').get('id') !== candidate.partido.get('id')) {
+          return false;
         }
-        // No coincide departamento
-        return false;
-      })
+
+        if (this.get('departamento') && candidate.departamento !== this.get('departamento')) {
+          return false;
+        }
+
+        if (this.get('departamento') && this.get('municipio') && candidate.municipio !== this.get('municipio')) {
+          return false;
+        }
+
+        return true;
+      });
   }),
 
   currentSelector: computed(
@@ -460,10 +465,7 @@ export default Controller.extend({
 
   observerToMunicipio: observer('departamento', function() {
     this.set('municipioDisabled', !isBlank(this.get('departamento')));
-
-    if(isBlank(this.get('departamento'))) {
-      this.set('municipio', null);
-    }
+    this.set('municipio', null);
   }),
 
   // Pagination

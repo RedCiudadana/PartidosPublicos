@@ -9,10 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added comments in config/enviroment.js.
 - Added ember's addon ember-truth-helpers.
 - Added attribute "casilla" in "distrito" and "listado" models.
+- Added component item-portfolio.
+- Added filter "Partido" to perfiles.
 
 ### Changed
 - Changed documentation/CONFIG.md adding new info.
 - Changed spanish code to english.
+- Changed portofolio, now using item-portfolio, showing "Número de casilla".
+- Changed iteraction of filters in perfiles. First click "Departamento" and then show "Municipio".
+
+### Fixed
+- Reset filters in transition to route "perfiles".
 
 ## [0.4.3] 2018-10-31
 ### Added

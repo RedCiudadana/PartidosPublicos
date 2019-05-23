@@ -17,6 +17,17 @@
   {{!-- Filtros --}}
   <div class="row justify-content-center filtros-perfiles">
     <div class="col-12 col-md-8">
+      {{!-- Filtro por partido --}}
+      <p>Elige el partido:</p>
+      {{#power-select
+        options=partidos
+        selected=partido
+        allowClear="true"
+        placeholder="Partido"
+        onchange=(action (mut partido))
+      as |partido|}}
+        <strong>{{partido.nombreCorto}}</strong>
+      {{/power-select}}
       {{!-- Filtro por departamento y municipal--}}
       {{#if config.filterDepartament}}
         {{!-- Departamento --}}

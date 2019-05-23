@@ -18,6 +18,14 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(controller, model);
+
+    // Limpia los filtros
+    controller.set('departamento', null);
+    controller.set('municipio', null);
+    controller.set('partido', null);
+
+    controller.set('partidos', this.modelFor('application').parties);
+
     this.controllerFor('perfiles').set('config', model.firstObject);
   }
 });
