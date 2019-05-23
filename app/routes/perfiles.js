@@ -23,6 +23,7 @@ export default Route.extend({
     controller.set('departamento', null);
     controller.set('municipio', null);
     controller.set('partido', null);
+    controller.set('distrito', null);
 
     controller.set('partidos', this.modelFor('application').parties);
 
