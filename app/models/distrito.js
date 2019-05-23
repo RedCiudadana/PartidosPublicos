@@ -10,6 +10,7 @@ import attr from 'ember-data/attr';
 export default Candidate.extend({
   // Atributes
   casilla: attr('string'),
+  distrito: attr('string'),
 
   // Tipo de elección
   type: 'distrito',

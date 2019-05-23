@@ -392,14 +392,15 @@ export default Controller.extend({
   // Esto está muy feo, se conoce como "pequeños cambios"
 
   departamentos: departamentos,
-
   datosMunicipios: municipios,
+  distritos: departamentos.concat(['Distrito Central']),
 
   municipioDisabled: false,
 
   departamento: null,
   municipio: null,
   partido: null,
+  distrito: null,
 
   municipios: computed('departamento', function() {
     return this.datosMunicipios[this.get('departamento')];
@@ -408,26 +409,37 @@ export default Controller.extend({
   profiles: computed(
     'departamento',
     'municipio',
+    'distrito',
     'partido',
     'model',
     function() {
       if(!this.get('departamento')
         && !this.get('municipio')
-        && !this.get('partido')) {
+        && !this.get('partido')
+        && !this.get('distrito')) {
         return this.get('model')
       }
 
       return this.get('model').filter((candidate) => {
 
-        if (this.get('partido') && this.get('partido').get('id') !== candidate.partido.get('id')) {
+        if (this.get('partido')
+          && candidate.partido.get('id') !== this.get('partido').get('id')) {
           return false;
         }
 
-        if (this.get('departamento') && candidate.departamento !== this.get('departamento')) {
+        if (this.get('departamento')
+          && candidate.get('departamento') !== this.get('departamento')) {
           return false;
         }
 
-        if (this.get('departamento') && this.get('municipio') && candidate.municipio !== this.get('municipio')) {
+        if (this.get('departamento')
+          && this.get('municipio')
+          && candidate.get('municipio') !== this.get('municipio')) {
+          return false;
+        }
+
+        if (this.get('distrito')
+          && candidate.get('distrito') !== this.get('distrito')) {
           return false;
         }
 

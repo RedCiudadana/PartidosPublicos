@@ -28,6 +28,20 @@
       as |partido|}}
         <strong>{{partido.nombreCorto}}</strong>
       {{/power-select}}
+      {{!-- Filtro por distrito--}}
+      {{#if config.filterDistrito}}
+        {{!-- Departamento --}}
+        <p>Elige tu distrito:</p>
+        {{#power-select
+          options=distritos
+          selected=distrito
+          allowClear="true"
+          placeholder="Distrito"
+          onchange=(action (mut distrito))
+        as |profile|}}
+          <strong>{{profile}}</strong>
+        {{/power-select}}
+      {{/if}}
       {{!-- Filtro por departamento y municipal--}}
       {{#if config.filterDepartament}}
         {{!-- Departamento --}}

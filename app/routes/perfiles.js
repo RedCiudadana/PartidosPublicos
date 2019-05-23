@@ -26,6 +26,6 @@ export default Route.extend({
 
     controller.set('partidos', this.modelFor('application').parties);
 
-    this.controllerFor('perfiles').set('config', model.firstObject);
+    controller.set('config', model.firstObject);
   }
 });

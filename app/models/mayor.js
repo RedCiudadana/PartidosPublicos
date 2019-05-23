@@ -25,6 +25,5 @@ export default Candidate.extend({
   // Filters
 
   filterDepartament: true,
-
   filterMunicipal: true
 });
