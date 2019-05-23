@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Added comments in config/enviroment.js.
+- Added ember's addon ember-truth-helpers.
+- Added attribute "casilla" in "distrito" and "listado" models.
 
 ### Changed
 - Changed documentation/CONFIG.md adding new info.
