@@ -1,4 +1,5 @@
 import Candidate from './candidate';
+import attr from 'ember-data/attr';
 
 /**
  * Modelo para candidatos a diputados del listado nacional
@@ -8,6 +9,7 @@ import Candidate from './candidate';
  */
 export default Candidate.extend({
   // Atributes
+  casilla: attr('string'),
 
   // Tipo de elección
   type: 'distrito',
