@@ -2,6 +2,6 @@ import SpreadsheetAdapter from './spreadsheet';
 
 export default SpreadsheetAdapter.extend({
   findAll() {
-    return this.get('spreadsheets').fetch('mayor');
+    return this.spreadsheets.fetch('mayor');
   }
 });

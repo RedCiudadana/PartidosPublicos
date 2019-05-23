@@ -8,7 +8,7 @@ export default Route.extend({
   spreadsheets: service(),
 
   model() {
-    const spreadsheet = this.get('spreadsheets');
+    const spreadsheet = this.spreadsheets;
     let modelData = A();
     let app = this.modelFor('application');
     modelData.pushObjects(app.presidents.toArray());

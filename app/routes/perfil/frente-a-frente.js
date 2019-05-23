@@ -18,7 +18,7 @@ export default Route.extend({
   spreadsheets: service(),
 
   model() {
-    const spreadsheet = this.get('spreadsheets');
+    const spreadsheet = this.spreadsheets;
     let modelData = A();
     let app = this.modelFor('perfil');
     modelData = this.modelFor('application')[app.profile.type + 's'].toArray();

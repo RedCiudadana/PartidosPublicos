@@ -12,6 +12,6 @@ module('Integration | Helper | twitter-link', function(hooks) {
 
     await render(hbs`{{twitter-link inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.dom(this.element).hasText('1234');
   });
 });

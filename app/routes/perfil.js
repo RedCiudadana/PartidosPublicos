@@ -46,11 +46,11 @@ export default Route.extend({
    * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, currentParty, profileGeneralInformationConfiguration, profiles, avaibleDocuments, dataTableGradation, totalGraduationScore, profileFunctions, entre otros.
    */
   model(params) {
-    const spreadsheet = this.get('spreadsheets');
-    const _routing = this.get('_routing');
+    const spreadsheet = this.spreadsheets;
+    const _routing = this._routing;
 
     // Obtiene el profile según el id
-    const profile = this.store.peekRecord(this.get('types')[params.type], params.id);
+    const profile = this.store.peekRecord(this.types[params.type], params.id);
     // Obtiene el partido actual del profile
     const currentParty = profile.get('partido');
 
@@ -59,7 +59,7 @@ export default Route.extend({
       profile: profile,
       currentParty: currentParty,
       availableInfo: spreadsheet
-        .fetch('info-' + this.get('types')[params.type])
+        .fetch('info-' + this.types[params.type])
         .then((documentos) => {
           return documentos.findBy('id', profile.get('id'));
         }),

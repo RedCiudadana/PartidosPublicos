@@ -12,7 +12,7 @@ module('Integration | Component | frente-a-frente', function(hooks) {
 
     await render(hbs`{{frente-a-frente}}`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | frente-a-frente', function(hooks) {
       {{/frente-a-frente}}
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom(this.element).hasText('template block text');
   });
 });

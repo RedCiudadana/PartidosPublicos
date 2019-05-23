@@ -13,7 +13,7 @@ export default Route.extend({
   types: types,
 
   model(params) {
-    return this.modelFor('application')[this.get('types')[params.type] + 's'];
+    return this.modelFor('application')[this.types[params.type] + 's'];
   },
 
   setupController(controller, model) {

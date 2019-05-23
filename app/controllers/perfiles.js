@@ -1,3 +1,4 @@
+import { alias, oneWay } from '@ember/object/computed';
 import $ from 'jquery';
 import Controller from '@ember/controller';
 import { computed, observer } from '@ember/object';
@@ -403,7 +404,7 @@ export default Controller.extend({
   distrito: null,
 
   municipios: computed('departamento', function() {
-    return this.datosMunicipios[this.get('departamento')];
+    return this.datosMunicipios[this.departamento];
   }),
 
   profiles: computed(
@@ -413,33 +414,33 @@ export default Controller.extend({
     'partido',
     'model',
     function() {
-      if(!this.get('departamento')
-        && !this.get('municipio')
-        && !this.get('partido')
-        && !this.get('distrito')) {
-        return this.get('model')
+      if(!this.departamento
+        && !this.municipio
+        && !this.partido
+        && !this.distrito) {
+        return this.model;
       }
 
-      return this.get('model').filter((candidate) => {
+      return this.model.filter((candidate) => {
 
-        if (this.get('partido')
-          && candidate.partido.get('id') !== this.get('partido').get('id')) {
+        if (this.partido
+          && candidate.partido.get('id') !== this.partido.get('id')) {
           return false;
         }
 
-        if (this.get('departamento')
-          && candidate.get('departamento') !== this.get('departamento')) {
+        if (this.departamento
+          && candidate.get('departamento') !== this.departamento) {
           return false;
         }
 
-        if (this.get('departamento')
-          && this.get('municipio')
-          && candidate.get('municipio') !== this.get('municipio')) {
+        if (this.departamento
+          && this.municipio
+          && candidate.get('municipio') !== this.municipio) {
           return false;
         }
 
-        if (this.get('distrito')
-          && candidate.get('distrito') !== this.get('distrito')) {
+        if (this.distrito
+          && candidate.get('distrito') !== this.distrito) {
           return false;
         }
 
@@ -450,13 +451,13 @@ export default Controller.extend({
   currentSelector: computed(
     'a',
     function() {
-      if(!this.get('a')) {
+      if(!this.a) {
         return '*';
       }
 
       let selectors = [];
 
-      if (this.get('a')) {
+      if (this.a) {
         selectors.push('.a');
       }
 
@@ -470,13 +471,13 @@ export default Controller.extend({
 
     $container.isotope({transitionDuration: '0.65s'});
 
-    $container.isotope({filter: this.get('currentSelector')});
+    $container.isotope({filter: this.currentSelector});
 
     return false;
   },
 
   observerToMunicipio: observer('departamento', function() {
-    this.set('municipioDisabled', !isBlank(this.get('departamento')));
+    this.set('municipioDisabled', !isBlank(this.departamento));
     this.set('municipio', null);
   }),
 
@@ -493,13 +494,13 @@ export default Controller.extend({
   // can be called anything, I've called it pagedContent
   // remember to iterate over pagedContent in your template
   pagedContent: pagedArray('profiles', {
-    page: computed.alias("parent.page"),
-    perPage: computed.alias("parent.perPage")
+    page: alias("parent.page"),
+    perPage: alias("parent.perPage")
   }),
 
   // binding the property on the paged array
   // to a property on the controller
-  totalPages: computed.oneWay("pagedContent.totalPages"),
+  totalPages: oneWay("pagedContent.totalPages"),
 
   actions: {
     applyFilter() {

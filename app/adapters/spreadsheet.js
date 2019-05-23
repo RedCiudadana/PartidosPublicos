@@ -7,7 +7,7 @@ export default DS.Adapter.extend({
   spreadsheets: service(),
 
   findAll(_, type) {
-    return this.get('spreadsheets').fetch(type);
+    return this.spreadsheets.fetch(type);
   },
 
   find(store, type, id) {

@@ -126,28 +126,28 @@ export default Model.extend({
   selector: computed('sexo', 'estado', 'partido', function() {
     let returnValue = '';
 
-    if (this.get('sexo') === 'Masculino') {
+    if (this.sexo === 'Masculino') {
       returnValue += ' hombre';
     }
 
-    if (this.get('sexo') === 'Femenino') {
+    if (this.sexo === 'Femenino') {
       returnValue += ' mujer';
     }
 
-    if (this.get('estado') === 'Descalificado') {
+    if (this.estado === 'Descalificado') {
       returnValue += ' descalificado';
     }
 
-    if (this.get('estado') === 'En proceso') {
+    if (this.estado === 'En proceso') {
       returnValue += ' enProceso';
     }
 
-    if (this.get('type')) {
-      returnValue += ' ' + this.get('type');
+    if (this.type) {
+      returnValue += ' ' + this.type;
     }
 
-    if (this.get('partido')) {
-      returnValue += ' ' + this.get('partido').get('nombreCorto').dasherize();
+    if (this.partido) {
+      returnValue += ' ' + this.partido.get('nombreCorto').dasherize();
     }
 
     return returnValue;
@@ -161,19 +161,19 @@ export default Model.extend({
    * @return String enlace de la foto del candidato
    */
   fotoPerfil: computed('fotoURL', 'sexo', function() {
-    if (!isBlank(this.get('fotoURL'))) {
-      return this.get('fotoURL');
+    if (!isBlank(this.fotoURL)) {
+      return this.fotoURL;
     }
 
-    if (this.get('sexo') === 'Masculino') {
+    if (this.sexo === 'Masculino') {
       return 'mi-guatemala/img/candidato.png';
     }
 
-    if (this.get('sexo') === 'Femenino') {
+    if (this.sexo === 'Femenino') {
       return 'mi-guatemala/img/candidata.png';
     }
 
-    if(parseInt(this.get('id').slice(this.get('id').indexOf('-') + 1)) % 2 === 0) {
+    if(parseInt(this.id.slice(this.id.indexOf('-') + 1)) % 2 === 0) {
       return 'mi-guatemala/img/candidata.png';
     }
 

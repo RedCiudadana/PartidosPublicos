@@ -65,7 +65,7 @@ export default Service.extend({
     // Si config.APP.staticFilesUrl está definido, obtener la data de allí, independiente
     // del spreadsheetKey
     if (!isNone(config.APP.staticFilesUrl)) {
-      return this.get('ajax')
+      return this.ajax
         .request(config.APP.staticFilesUrl + worksheetName + '.json')
         .then((response) => {
           return new Promise((resolve) => {
@@ -83,10 +83,10 @@ export default Service.extend({
      */
     return new Promise((resolve) => {
 
-      let spreadsheetUrl = this.get('dataSpreadsheetUrl');
+      let spreadsheetUrl = this.dataSpreadsheetUrl;
 
       if ('config' === spreadsheetKey) {
-        spreadsheetUrl = this.get('configSpreadsheetUrl');
+        spreadsheetUrl = this.configSpreadsheetUrl;
       }
 
       Tabletop.init({

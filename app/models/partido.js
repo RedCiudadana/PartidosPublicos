@@ -89,8 +89,8 @@ export default Model.extend({
   // Computed
 
   logo: computed('logoURL', function () {
-    if (this.get('logoURL')) {
-      return this.get('logoURL');
+    if (this.logoURL) {
+      return this.logoURL;
     }
 
     return 'img/partido-default.png';
