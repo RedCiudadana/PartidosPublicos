@@ -30,7 +30,7 @@ Router.map(function() {
   this.route('perfil', { path: '/perfil/:type/:id'}, function() {
     this.route('partido');
     this.route('elecciones');
-    this.route('frente-a-frente');
+    // this.route('frente-a-frente');
   });
 
   // Considerar si se va a utlizar
@@ -39,7 +39,7 @@ Router.map(function() {
   });
 
   this.route('perfiles', { path: '/perfiles/:type'});
-  this.route('frente-a-frente');
+  // this.route('frente-a-frente');
 });
 
 export default Router;
