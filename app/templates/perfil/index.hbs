@@ -40,20 +40,6 @@
             </td>
           </tr>
         {{/if}}
-        <tr>
-          <td class="p-0">
-            <small>
-              <strong>Lugar de nacimiento: </strong>{{profile.lugarDeNacimiento}}
-            </small>
-          </td>
-        </tr>
-        <tr>
-          <td class="p-0">
-            <small>
-              <strong>Fecha de Nacimiento: </strong>{{profile.fechaDeNacimiento}}
-            </small>
-          </td>
-        </tr>
       </tbody>
     </table>
   </div>
@@ -178,32 +164,6 @@
 {{/if}}
 
 <div class="row">
-  {{!-- Entrevistas --}}
-  <div class="col-md-6">
-    <div class="panel entrevistas">
-      <div class="header d-flex">
-        <img src="img/icono-entrevistas.png" alt="Entrevistas">
-        <h3>Entrevistas</h3>
-      </div>
-      <div class="body">
-        {{#if entrevistas}}
-          {{#each entrevistas as |entrevista|}}
-            <a href={{entrevista.url}}>
-              <div class="card">
-                <img class="card-img-top" src="img/entrevista.svg" alt="Imagen de entrevista">
-                {{!-- <img class="card-img-top" src={{entrevista.foto}} alt="Imagen de entrevista"> --}}
-                <div class="card-body">
-                  <p class="card-text">{{entrevista.nombre}}</p>
-                </div>
-              </div>
-            </a>
-          {{/each}}
-        {{else}}
-          <strong>No hay entrevistas.</strong>
-        {{/if}}
-      </div>
-    </div>
-  </div>
   {{!-- Fuentes de Información --}}
   <div class="col-md-6">
     <div class="panel fuentes">
