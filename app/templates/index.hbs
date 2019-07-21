@@ -1,13 +1,15 @@
 {{!-- Carousel --}}
-{{#bs-carousel autoPlay="true" as |car|}}
-  {{#car.slide}}
+<BsCarousel
+  @autoPlay={{true}}
+  as |car|>
+  <car.slide>
     <img alt="Paso 1" src="img/slider-1.png" height="auto" width="100%">
-  {{/car.slide}}
-{{/bs-carousel}}
+  </car.slide>
+</BsCarousel>
 
 <div class="container py-5">
 
-  {{!-- Ember Power Select --}}
+  {{!-- Header --}}
   <div class="row">
     <div class="col-12 text-center">
       <h4>Conoce a los candidatos y candidatas a cargos de elección popular</h4>
@@ -17,36 +19,36 @@
   {{!-- Filters --}}
   <div class="row filters">
     <div class="col-12 text-center">
-      {{#bs-button type="primary" class="active" onClick=(action "transitionTo" "presidentes")}}
-          <div>
-            <img src="img/icono-president.png" alt="Elección presidencial">
-            <p>Presidencial</p>
-          </div>
-      {{/bs-button}}
-      {{#bs-button type="primary"  onClick=(action "transitionTo" "alcaldes")}}
-          <div>
-            <img src="img/icono-mayor.png" alt="Elección municipal">
-            <p>Municipal</p>
-          </div>
-      {{/bs-button}}
-      {{#bs-button type="primary"  onClick=(action "transitionTo" "listado")}}
-          <div>
-            <img src="img/icono-listado.png" alt="Elección diputados del listado nacional">
-            <p>Listado<br/> nacional</p>
-          </div>
-      {{/bs-button}}
-      {{#bs-button type="primary"  onClick=(action "transitionTo" "distrito")}}
-          <div>
-            <img src="img/icono-distrito.png" alt="Elección diputados del listado nacional">
-            <p>Distrito</p>
-          </div>
-      {{/bs-button}}
-      {{#bs-button type="primary"  onClick=(action "transitionTo" "parlacen")}}
-          <div>
-            <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
-            <p>Parlacen</p>
-          </div>
-      {{/bs-button}}
+      <BsButton @type="primary" class="active" @onClick={{action "transitionTo" "presidentes"}}>
+        <div>
+          <img src="img/icono-president.png" alt="Elección presidencial">
+          <p>Presidencial</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "alcaldes"}}>
+        <div>
+          <img src="img/icono-mayor.png" alt="Elección municipal">
+          <p>Municipal</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "listado"}}>
+        <div>
+          <img src="img/icono-listado.png" alt="Elección diputados del listado nacional">
+          <p>Listado<br> nacional</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "distrito"}}>
+        <div>
+          <img src="img/icono-distrito.png" alt="Elección diputados del listado nacional">
+          <p>Distrito</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "parlacen"}}>
+        <div>
+          <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
+          <p>Parlacen</p>
+        </div>
+      </BsButton>
     </div>
   </div>
 
@@ -59,7 +61,7 @@
     <div class="col-10 offset-1">
       <div id="portfolio" class="portfolio clearfix my-4">
         {{#each pagedContent as |profile|}}
-          {{item-portfolio profile=profile}}
+          <ItemPortfolio @profile={{profile}}></ItemPortfolio>
         {{/each}}
       </div>
     </div>
@@ -86,21 +88,27 @@
   {{!-- ¿Dónde voto? ¿Cuánto falta? ¡Empadrónate! --}}
   <div class="row high">
     <div class="col-12 col-md-4">
-      <a href="https://consulta2018.tse.org.gt/dondevotas.php" target="_blank">
-        <button class="btn btn-warning btn-square">
+      <a
+        href="https://consulta2018.tse.org.gt/dondevotas.php"
+        target="_blank"
+        rel="noopener">
+        <div class="btn btn-warning btn-square py-5">
           <img src="img/icono-donde-voto.png" alt="Icono donde voto">
           Nuestra Elección
-        </button>
+        </div>
       </a>
     </div>
     <div class="col-12 col-md-4">
-      <a href="http://semaforoelectoral.gt/" target="_blank">
-        <button class="btn btn-success btn-square">
+      <a
+        href="http://semaforoelectoral.gt/"
+        target="_blank"
+        rel="noopener">
+        <div class="btn btn-success btn-square py-4">
           <img src="img/icono-megafono.png" alt="Icono frente a frente">
           <div class="block">
             <p>Semáforo Electoral</p>
           </div>
-        </button>
+        </div>
       </a>
     </div>
     <div class="col-12 col-md-4">
@@ -121,16 +129,16 @@
     <div class="col-12 text-center">
       <h5 class="font-weight-light">Un proyecto de:</h5>
       <a
-          href="https://www.tse.gob.sv"
-          target="_blank"
-          rel="noopener">
-          <img src="img/colaboradores/logo-tse.png" class="ml-2" alt="Logo TSE">
+        href="https://www.tse.gob.sv"
+        target="_blank"
+        rel="noopener">
+        <img src="img/colaboradores/logo-tse.png" class="ml-2" alt="Logo TSE">
       </a>
       <a
-          href="https://redciudadana.org/"
-          target="_blank"
-          rel="noopener">
-          <img src="mi-guatemala/img/logo-rc-color.png" alt="Logo Red Ciudadana">
+        href="https://redciudadana.org/"
+        target="_blank"
+        rel="noopener">
+        <img src="mi-guatemala/img/logo-rc-color.png" alt="Logo Red Ciudadana">
       </a>
       <a
         href="https://ciudadaniai.org/"
