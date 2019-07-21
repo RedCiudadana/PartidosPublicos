@@ -54,8 +54,8 @@ module.exports = function(environment) {
       staticFilesUrl: null
 
       // Datos desde localhost => desarrollo
-      // staticFilesUrl: 'http://192.168.250.206:6360/static-files/'
-      // staticFilesUrl: 'http://localhost:6360/static-files/'
+      // staticFilesUrl: 'http://192.168.250.206:4200/static-files/'
+      // staticFilesUrl: 'http://localhost:4200/static-files/'
 
       // Datos desde gh-pages
       // staticFilesUrl: 'http://miguatemala.redciudadana.org/static-files/'
@@ -77,7 +77,7 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = contentSecurityPolicy;
     ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
 
-    ENV.APP.staticFilesUrl = 'http://localhost:6360/static-files/';
+    ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
   }
 
   if (environment === 'test') {
