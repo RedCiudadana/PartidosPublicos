@@ -8,37 +8,43 @@
   <div class="col-12 p-0 nav-candidator border shadow">
     <nav>
       <ul class="list-inline m-0 d-sm-flex">
-        {{!-- Genera los links de las funcionalidades --}}
-        {{#link-to-wrapper "perfil.index" title="Información general" class="primary"}}
-          <img
-            src="img/icono-perfil.png"
-            alt="Icono información general"
-            height="30px"
-            width="30px"
-            class="white">
-          <img
-            src="img/icono-perfil-color.png"
-            alt="Icono información general"
-            height="30px"
-            width="30px"
-            class="color">
-          Perfil
-        {{/link-to-wrapper}}
-        {{#link-to-wrapper "perfil.partido" title="Partido" class="blue"}}
-          <img
-            src="img/icono-partido.png"
-            alt="Icono elecciones"
-            height="30px"
-            width="30px"
-            class="blue white">
-          <img
-            src="img/icono-partido-color.png"
-            alt="Icono elecciones"
-            height="30px"
-            width="30px"
-            class="blue color">
-          Partido Político
-        {{/link-to-wrapper}}
+        <BsNav
+          @type="pills"
+          @justified={{true}}
+          @stacked={{false}}
+          @fill={{true}} as |nav|
+        >
+          <nav.item @linkTo="perfil.index">
+            <img
+              src="img/icono-perfil.png"
+              alt="Icono información general"
+              height="30px"
+              width="30px"
+              class="white">
+            <img
+              src="img/icono-perfil-color.png"
+              alt="Icono información general"
+              height="30px"
+              width="30px"
+              class="color">
+            Perfil
+          </nav.item>
+          <nav.item @linkTo="perfil.partido">
+            <img
+              src="img/icono-partido.png"
+              alt="Icono elecciones"
+              height="30px"
+              width="30px"
+              class="blue white">
+            <img
+              src="img/icono-partido-color.png"
+              alt="Icono elecciones"
+              height="30px"
+              width="30px"
+              class="blue color">
+            Partido Político
+          </nav.item>
+        </BsNav>
         {{!-- Redes sociales en (viewport > sm) --}}
         <li class="px-3 ml-auto d-none d-md-flex social">
           {{share-twitter}}

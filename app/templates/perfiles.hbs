@@ -8,7 +8,7 @@
         selected=profile
         placeholder="Busca por nombre a tu candidato(a)"
         searchField="nombre"
-        onchange=(action "toProfile")
+        onChange=(action "toProfile")
       as |profile|}}
         <strong>{{profile.nombre}}</strong>
       {{/power-select}}
@@ -25,7 +25,7 @@
         allowClear="true"
         placeholder="Partido"
         searchField="nombreCorto"
-        onchange=(action (mut partido))
+        onChange=(action (mut partido))
       as |partido|}}
         <strong>{{partido.nombreCorto}}</strong>
       {{/power-select}}
@@ -38,7 +38,7 @@
           selected=distrito
           allowClear="true"
           placeholder="Distrito"
-          onchange=(action (mut distrito))
+          onChange=(action (mut distrito))
         as |profile|}}
           <strong>{{profile}}</strong>
         {{/power-select}}
@@ -52,7 +52,7 @@
           selected=departamento
           allowClear="true"
           placeholder="Departamento"
-          onchange=(action (mut departamento))
+          onChange=(action (mut departamento))
         as |profile|}}
           <strong>{{profile}}</strong>
         {{/power-select}}
@@ -64,7 +64,7 @@
             selected=municipio
             allowClear="true"
             placeholder="Municipio"
-            onchange=(action (mut municipio))
+            onChange=(action (mut municipio))
           as |profile|}}
             <strong>{{profile}}</strong>
           {{/power-select}}
@@ -79,7 +79,7 @@
           allowClear="true"
           placeholder="Distrito"
           searchField="nombre"
-          onchange=(action "toProfile")
+          onChange=(action "toProfile")
         as |profile|}}
           <strong>{{profile.nombre}}</strong>
         {{/power-select}}
