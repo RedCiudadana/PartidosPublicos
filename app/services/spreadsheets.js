@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import Tabletop from 'tabletop';
+// import Tabletop from 'tabletop';
 import config from '../config/environment';
 import { inject as service } from '@ember/service'
 import { Promise } from 'rsvp';
@@ -10,7 +10,7 @@ import debugLogger from 'ember-debug-logger';
  * Servicios para obtener datos desde /static-files/ or Google's spreadsheets, según la configuración en 'environment'.
  * Para generar los archivos ejecutar 'node build-data.js'. Antes revisar la documentación en la carpeta 'Documentation'.
  * Preferiblemente usar 'static-files' porque el 'live-mode' es muy lento por la forma que obtiene los datos.
- * 
+ *
  * @class Service.Spreadsheets
  * @example
  * import { inject as service } from '@ember/service';
@@ -81,31 +81,31 @@ export default Service.extend({
      *  MODO 'LIVE'
      *
      */
-    return new Promise((resolve) => {
+    // return new Promise((resolve) => {
 
-      let spreadsheetUrl = this.dataSpreadsheetUrl;
+    //   let spreadsheetUrl = this.dataSpreadsheetUrl;
 
-      if ('config' === spreadsheetKey) {
-        spreadsheetUrl = this.configSpreadsheetUrl;
-      }
+    //   if ('config' === spreadsheetKey) {
+    //     spreadsheetUrl = this.configSpreadsheetUrl;
+    //   }
 
-      Tabletop.init({
-        key: spreadsheetUrl,
-        callback: (data) => {
-          if (isNone(data[worksheetName])) {
-            this.log(worksheetName + "is empty or not found.");
-            return resolve();
-          }
+    //   Tabletop.init({
+    //     key: spreadsheetUrl,
+    //     callback: (data) => {
+    //       if (isNone(data[worksheetName])) {
+    //         this.log(worksheetName + "is empty or not found.");
+    //         return resolve();
+    //       }
 
-          if (isNone(data[worksheetName].elements)) {
-            this.log(worksheetName + "is empty or not found.");
-            return resolve();
-          }
+    //       if (isNone(data[worksheetName].elements)) {
+    //         this.log(worksheetName + "is empty or not found.");
+    //         return resolve();
+    //       }
 
-          resolve(data[worksheetName].elements);
-        }
-      });
-    });
+    //       resolve(data[worksheetName].elements);
+    //     }
+    //   });
+    // });
   },
 
   /**
