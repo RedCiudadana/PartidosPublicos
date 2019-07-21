@@ -1,7 +1,7 @@
 import Service from '@ember/service';
 // import Tabletop from 'tabletop';
 import config from '../config/environment';
-import { inject as service } from '@ember/service'
+import fetch from 'fetch';
 import { Promise } from 'rsvp';
 import { isNone } from '@ember/utils';
 import debugLogger from 'ember-debug-logger';
@@ -19,14 +19,6 @@ import debugLogger from 'ember-debug-logger';
 export default Service.extend({
 
   log: debugLogger(),
-
-  /**
-   * Ajax Service
-   *
-   * @property ajax
-   * @type Service
-   */
-  ajax: service(),
 
   /**
    * URL de la hoja de datos (perfiles, partidos, etc). Luego se obtiene de 'environment'
@@ -65,11 +57,10 @@ export default Service.extend({
     // Si config.APP.staticFilesUrl está definido, obtener la data de allí, independiente
     // del spreadsheetKey
     if (!isNone(config.APP.staticFilesUrl)) {
-      return this.ajax
-        .request(config.APP.staticFilesUrl + worksheetName + '.json')
+      return fetch(config.APP.staticFilesUrl + worksheetName + '.json')
         .then((response) => {
           return new Promise((resolve) => {
-            resolve(response);
+            resolve(response.json());
           });
 
         })
