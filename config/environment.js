@@ -21,7 +21,7 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
@@ -33,7 +33,7 @@ module.exports = function(environment) {
         name: 'GoogleAnalytics',
         environments: ['production', 'development'],
         config: {
-          id: 'UA-XXXX-Y',
+          id: 'UA-131753715-1',
           // Use verbose tracing of GA events
           trace: environment === 'development',
           // Ensure development env hits aren't sent to GA
@@ -54,15 +54,15 @@ module.exports = function(environment) {
       staticFilesUrl: null
 
       // Datos desde localhost => desarrollo
-      // staticFilesUrl: 'http://192.168.250.206:6360/static-files/'
-      // staticFilesUrl: 'http://localhost:6360/static-files/'
+      // staticFilesUrl: 'http://192.168.250.206:4200/static-files/'
+      // staticFilesUrl: 'http://localhost:4200/static-files/'
 
       // Datos desde gh-pages
       // staticFilesUrl: 'http://miguatemala.redciudadana.org/static-files/'
     },
 
     disqus: {
-      shortname: 'test-mi-guatemala'
+      shortname: 'candidatos2019'
     },
 
     contentSecurityPolicy: contentSecurityPolicy
@@ -77,7 +77,7 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = contentSecurityPolicy;
     ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
 
-    ENV.APP.staticFilesUrl = 'http://localhost:6360/static-files/';
+    ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
   }
 
   if (environment === 'test') {
@@ -92,10 +92,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.staticFilesUrl = 'http://miguatemala.redciudadana.org/static-files/';
-    ENV.googleAnalytics = {
-      webPropertyId: 'UA-101167670-1'
-    };
+    ENV.APP.staticFilesUrl = 'http://www.candidatos.gt/static-files/';
   }
 
   return ENV;

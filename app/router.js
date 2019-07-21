@@ -19,25 +19,27 @@ const Router = EmberRouter.extend(RouterScroll, {
   // Registra la página visitada con el servicio 'metrics'
   _trackPage() {
     scheduleOnce('afterRender', this, () => {
-      const page = this.get('url');
+      const page = this.url;
       const title = this.getWithDefault('currentRouteName', 'unknown');
-      get(this, 'metrics').trackPage({ page, title });
+      this.metrics.trackPage({ page, title });
     });
   }
 });
 
 Router.map(function() {
-  this.route('perfil', { path: '/perfil/:id'}, function() {
-    this.route('frente-a-frente');
-    this.route('fact-checking');
+  this.route('perfil', { path: '/perfil/:type/:id'}, function() {
+    this.route('partido');
+    this.route('elecciones');
+    // this.route('frente-a-frente');
   });
 
-  this.route('perfiles');
-
-  this.route('metodologia');
+  // Considerar si se va a utlizar
   this.route('partidos', function() {
     this.route('partido', { path: '/partido/:id'});
   });
+
+  this.route('perfiles', { path: '/perfiles/:type'});
+  // this.route('frente-a-frente');
 });
 
 export default Router;

@@ -9,10 +9,10 @@ export default DS.JSONSerializer.extend({
   // Los datos de los serializadores se establecen en la ruta 'application' en beforeModel()
 
     // Verifica que el serializador tenga datos antes de serializar
-    if (this.get('informacionGeneralFields') !== null) {
+    if (this.informacionGeneralFields !== null) {
       resourceHash.informacionGeneral = {};
 
-      this.get('informacionGeneralFields').forEach((item) => {
+      this.informacionGeneralFields.forEach((item) => {
         resourceHash.informacionGeneral[item.field] = {
           label: item.label,
           value: resourceHash[item.field]
@@ -21,10 +21,10 @@ export default DS.JSONSerializer.extend({
     }
 
     // Verifica que el serializador tenga datos antes de serializar
-    if (this.get('recuadrosFields') !== null) {
+    if (this.recuadrosFields !== null) {
       resourceHash.recuadros = {};
 
-      this.get('recuadrosFields').forEach((item) => {
+      this.recuadrosFields.forEach((item) => {
         resourceHash.recuadros[item.field] = {
           label: item.label,
           value: resourceHash[item.field]
@@ -33,10 +33,10 @@ export default DS.JSONSerializer.extend({
     }
 
     // Verifica que el serializador tenga datos antes de serializar
-    if (this.get('frenteAFrenteFields') !== null) {
+    if (this.frenteAFrenteFields !== null) {
       resourceHash.frenteAFrente = {};
 
-      this.get('frenteAFrenteFields').forEach((item) => {
+      this.frenteAFrenteFields.forEach((item) => {
         resourceHash.frenteAFrente[item.field] = resourceHash[item.field];
       });
     }

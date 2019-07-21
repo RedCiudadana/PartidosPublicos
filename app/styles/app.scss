@@ -1,17 +1,488 @@
 // COLORS
 
-$primary: #163f7f;
-$secondary: #182047;
-$success: #00ac56;
-$warning: #f6ab40;
-$info: #26a5dc;
-$dark: #1e2b3d;
+$primary: #0e8acb;
+$secondary: #53bae5;
+$success: #0cab55;
+$warning: #fab026;
+
+$dark: #1f2d3e;
+$light: #f1f1f1;
 
 $navbar-color: #3a3a3a;
 
 $footer-background-color: #202d3e;
 $footer-color: #ffffff;
+
 $border-radius: 10px;
 
 @import "ember-bootstrap/bootstrap";
 @import "mi-guatemala";
+// Ember Power Select
+@import "ember-power-select";
+
+/**
+ * INDEX
+ *
+ * Dropdown
+ * Ember Power Select
+ * Filters
+ * HTML
+ * Nav candidator
+ * Others
+ * Pagination
+ * Panel
+ */
+
+// HTML
+
+body, a {
+    font-family: 'HindSiliguri';
+    color: #1e2b3d;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+    font-weight: bold;
+}
+
+// Pagination
+
+.page-number, .arrow {
+    background-color: white;
+    height: 40px !important;
+    width: 40px !important;
+    color: $dark;
+    font-weight: bold;
+    padding-top: 8px;
+    text-align: center;
+
+    a, a:hover {
+        color: darken($light, 30%);
+    }
+}
+
+.page-number.active {
+    @extend .bg-primary;
+    @extend .text-white;
+}
+
+.arrow {
+    border-radius: 5px;
+}
+
+// Filtros perfiles
+.filtros-perfiles {
+    p {
+        margin-left: 25px;
+    }
+}
+
+// Ember Power Select
+
+.ember-power-select-trigger {
+    // Dimensions
+    width: 80%;
+    height: 40px;
+    // Margin and padding
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    // Border
+    border: 0;
+    border-radius: 15px;
+    // Text
+    text-align: left;
+    // Color
+    background-color: $light;
+    color: gray;
+
+    .ember-power-select-status-icon {
+        margin-right: 20px;
+    }
+}
+
+.ember-basic-dropdown-content {
+    z-index: 2000;
+}
+
+.ember-power-select-clear-btn {
+    right: 45px;
+}
+
+@include media-breakpoint-up(md) {
+
+    .ember-power-select-trigger {
+        width: 100%;
+    }
+}
+
+
+// Filters
+
+.filters {
+    padding-top: 35px;
+
+    .btn {
+        width: 180px;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+        border-radius: 3px;
+        text-align: center;
+
+        div {
+            display: flex;
+        }
+    }
+
+    img {
+        height: 45px;
+    }
+
+    p {
+        width: 120px;
+        margin: auto;
+        font-size: 1rem;
+        text-align: center;
+        line-height: 1;
+    }
+}
+
+// Nav candidator
+
+.nav-candidator {
+    color: black !important;
+
+    ul li {
+        color: $light;
+        padding: 15px;
+    }
+
+    ul li:hover, li:hover a {
+        background: $warning;
+        // Calcula el color según el color de fondo. Aclara 80%.
+        color: lighten( $secondary, 80% ) !important;
+    }
+
+    .social, .social:hover {
+        background-color: white !important;
+    }
+
+    a {
+        color: $dark !important;
+    }
+}
+
+// Panel
+
+.panel, .nav-candidator {
+    background-color: white;
+    border-radius: 5px;
+
+    li .white {
+        display: none;
+    }
+
+    li:hover, .active {
+        .white {
+            display: inherit;
+        }
+
+        .color {
+            display: none;
+        }
+    }
+
+    .primary:hover, .primary.active {
+        background-color: $warning !important;
+        a {
+            background-color: $warning !important;
+            color: white !important;
+        }
+    }
+
+    .green:hover, .green.active {
+        background-color: $success !important;
+        a {
+            background-color: $success !important;
+            color: white !important;
+        }
+
+    }
+
+    .blue:hover, .blue.active {
+        background-color: $primary !important;
+        a {
+            background-color: $primary !important;
+            color: white !important;
+        }
+
+    }
+}
+
+.panel, .shadow {
+    -webkit-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
+    -moz-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
+    box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
+
+    .header h3{
+        font-size: 1.2rem !important;
+    }
+}
+
+// Dropdown
+
+.dropdown-toggle, .dropdown-menu.show {
+    color: darken($light, 30%);
+}
+
+.dropdown-menu.show {
+    @extend .bg-light;
+
+    display: grid;
+    padding: 10px;
+    z-index: 1030;
+}
+
+// Others
+
+.btn-square {
+    width: 250px;
+    height: 150px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.row.high {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+
+    .btn {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px !important;
+        color: white;
+
+        img {
+            height: 60px;
+        }
+
+        small {
+            color: $light;
+        }
+    }
+}
+
+// Perfil
+
+.perfil-container {
+    margin-top: -25px;
+    margin-bottom: -25px;
+
+    .table tr {
+        border: 0 0 2px 0 solid $light;
+
+        td {
+            padding: 6px !important;
+        }
+    }
+
+    .social-side {
+        text-align: center;
+        display: block;
+    }
+
+    .social-side img.foto-partido {
+        width: 200px;
+    }
+
+    .social-side div div {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .perfil-container {
+        .social-side {
+            text-align: left;
+        }
+    }
+}
+
+
+// Button collapse
+
+.button-collapse {
+    width: 100%;
+    padding: 20px 15px 20px 15px;
+    margin: 0;
+    background-color: #0e8acb;
+    color: white !important;
+}
+
+.portfolio {
+
+    .item {
+        .image {
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .image-party img {
+            position: absolute;
+            left: 65%;
+            top: 5%;
+            z-index: 80;
+            width: 25%;
+            height: auto;
+            overflow: hidden;
+            border-radius: 50% !important;
+        }
+
+        .text {
+            width: 75%;
+            margin: auto;
+            height: auto !important;
+            overflow: hidden;
+
+            .text-name {
+                line-height: 8px;
+                height: 38px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+// Fuentes de información
+
+.fuentes {
+    p {
+        color: #1e2b3d !important;
+    }
+}
+
+// Entrevistas
+
+.entrevistas {
+    .card {
+        width: 18rem;
+    }
+
+    .body {
+        overflow: scroll;
+        height: 300px;
+
+        .card {
+            margin-bottom: 20px;
+
+            .card-text {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.planes {
+    overflow: visible;
+
+    .btn:first-child {
+        width: 200px;
+    }
+
+    .btn {
+        @extend .btn-light;
+        background-color: white;
+        border-radius: 0px;
+    }
+}
+
+// Frente a frente
+
+.frente-a-frente {
+    img {
+        width: 80px;
+        margin-bottom: 10px;
+    }
+
+    .col-md-6 {
+    display: grid;
+
+        p {
+            @extend .bg-light;
+            @extend  .rounded;
+            padding: 20px;
+            float: right;
+            text-align: justify;
+        }
+    }
+
+    small {
+        display: block;
+        float: right;
+        margin-top: 30px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .frente-a-frente {
+        img {
+            width: 15%;
+            height: auto;
+        }
+
+        .col-md-6 {
+            display: block;
+
+            p {
+                width: 80%;
+            }
+        }
+    }
+}
+
+// Colaboradores
+
+.colaboradores {
+    padding-bottom: 60px;
+
+    h5 {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    img {
+        max-height: 85px;
+        height: auto;
+        filter: grayscale(70);
+    }
+
+    img:hover {
+        filter: none;
+    }
+}
+
+// Tables
+table.table.borderless {
+    @extend .table-borderless;
+
+    text-align: center;
+
+    thead {
+        border-bottom: 2px solid $light;
+    }
+}
+
+// Fecha
+
+.date {
+    div {
+        margin-top: 10%;
+    }
+}

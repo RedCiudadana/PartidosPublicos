@@ -1,16 +1,169 @@
-{{!-- Portfolio --}}
-{{#if model.config.useFrontPortfolioVisualization}}
-  <div class="container bg-white">
-    <div class="row">
-      <div class="col-12">
-        {{!-- Mujer {{input type="checkbox" name="Mujer" checked=esMujer change=(action "applyFilter" "esMujer")}} --}}
-      </div>
-    </div>
-    <div>
-      {{front-portfolio
-      profiles=model.profiles
-      onDidInsertElement=(action "applyFilter")
-      }}
+{{!-- Carousel --}}
+<BsCarousel
+  @autoPlay={{true}}
+  as |car|>
+  <car.slide>
+    <img alt="Paso 1" src="img/slider-1.png" height="auto" width="100%">
+  </car.slide>
+</BsCarousel>
+
+<div class="container py-5">
+
+  {{!-- Header --}}
+  <div class="row">
+    <div class="col-12 text-center">
+      <h4>Conoce a los candidatos y candidatas a cargos de elección popular</h4>
     </div>
   </div>
-{{/if}}
+
+  {{!-- Filters --}}
+  <div class="row filters">
+    <div class="col-12 text-center">
+      <BsButton @type="primary" class="active" @onClick={{action "transitionTo" "presidentes"}}>
+        <div>
+          <img src="img/icono-president.png" alt="Elección presidencial">
+          <p>Presidencial</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "alcaldes"}}>
+        <div>
+          <img src="img/icono-mayor.png" alt="Elección municipal">
+          <p>Municipal</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "listado"}}>
+        <div>
+          <img src="img/icono-listado.png" alt="Elección diputados del listado nacional">
+          <p>Listado<br> nacional</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "distrito"}}>
+        <div>
+          <img src="img/icono-distrito.png" alt="Elección diputados del listado nacional">
+          <p>Distrito</p>
+        </div>
+      </BsButton>
+      <BsButton @type="primary"  @onClick={{action "transitionTo" "parlacen"}}>
+        <div>
+          <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
+          <p>Parlacen</p>
+        </div>
+      </BsButton>
+    </div>
+  </div>
+
+</div>
+
+<div class="container-fluid bg-light py-4">
+
+  {{!-- Portofolio --}}
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div id="portfolio" class="portfolio clearfix my-4">
+        {{#each pagedContent as |profile|}}
+          <ItemPortfolio @profile={{profile}}></ItemPortfolio>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-dark justify-content-center py-5">
+  {{!-- Fecha --}}
+  <div class="row">
+    <div class="col-md-4 text-center text-md-right">
+      <img src="img/calendario.png" alt="Calendario: 3 de febrero.">
+    </div>
+    <div class="col-md-6 text-center date">
+      <div>
+        <h1 class="text-white">Elección: Domingo 16 de Junio</h1>
+        <h3 class="text-secondary">Elecciones generales 2019</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  {{!-- ¿Dónde voto? ¿Cuánto falta? ¡Empadrónate! --}}
+  <div class="row high">
+    <div class="col-12 col-md-4">
+      <a
+        href="https://consulta2018.tse.org.gt/dondevotas.php"
+        target="_blank"
+        rel="noopener">
+        <div class="btn btn-warning btn-square py-5">
+          <img src="img/icono-donde-voto.png" alt="Icono donde voto">
+          Nuestra Elección
+        </div>
+      </a>
+    </div>
+    <div class="col-12 col-md-4">
+      <a
+        href="http://semaforoelectoral.gt/"
+        target="_blank"
+        rel="noopener">
+        <div class="btn btn-success btn-square py-4">
+          <img src="img/icono-megafono.png" alt="Icono frente a frente">
+          <div class="block">
+            <p>Semáforo Electoral</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-12 col-md-4">
+      <button class="btn btn-primary btn-square">
+        <img src="img/icono-resultados.png" alt="Icono resultados">
+        <div class="block">
+          <p>Resultados</p>
+          <small>Próximamente</small>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="container colaboradores">
+  {{!-- Un proyecto de --}}
+  <div class="row">
+    <div class="col-12 text-center">
+      <h5 class="font-weight-light">Un proyecto de:</h5>
+      <a
+        href="https://www.tse.gob.sv"
+        target="_blank"
+        rel="noopener">
+        <img src="img/colaboradores/logo-tse.png" class="ml-2" alt="Logo TSE">
+      </a>
+      <a
+        href="https://redciudadana.org/"
+        target="_blank"
+        rel="noopener">
+        <img src="mi-guatemala/img/logo-rc-color.png" alt="Logo Red Ciudadana">
+      </a>
+      <a
+        href="https://ciudadaniai.org/"
+        target="_blank"
+        rel="noopener">
+        <img src="img/colaboradores/CI_COLOR.png" alt="Logo Ciudadanía Inteligente">
+      </a>
+      <a
+        href="http://guatecambia.org.gt/"
+        target="_blank"
+        rel="noopener">
+        <img src="img/colaboradores/GuateCambia.png" alt="Logo GuateCambia">
+      </a>
+    </div>
+  </div>
+  {{!-- Gracias al apoyo de: --}}
+  <div class="row">
+    <div class="col-12 text-center">
+      <h5 class="font-weight-light">Gracias al apoyo de:</h5>
+      <a
+        href="https://www.kas.de/home"
+        target="_blank"
+        rel="noopener">
+        <img src="img/colaboradores/KAS.png" alt="Logo KAS">
+      </a>
+    </div>
+  </div>
+</div>

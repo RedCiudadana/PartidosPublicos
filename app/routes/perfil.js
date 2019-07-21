@@ -3,12 +3,23 @@ import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
+const types = {
+  presidentes: 'president',
+  vicepresidentes: 'vicepresident',
+  diputadosDistrito: 'distrito',
+  diputadosListado: 'listado',
+  parlacen: 'parlacen',
+  alcaldes: 'mayor'
+};
+
 /**
  * profile Route
  *
  * @class Route.profile
  */
 export default Route.extend({
+
+  types: types,
 
   /**
    * Spreadsheets Service
@@ -35,41 +46,22 @@ export default Route.extend({
    * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, currentParty, profileGeneralInformationConfiguration, profiles, avaibleDocuments, dataTableGradation, totalGraduationScore, profileFunctions, entre otros.
    */
   model(params) {
-    const spreadsheet = this.get('spreadsheets');
-    const _routing = this.get('_routing');
+    const spreadsheet = this.spreadsheets;
+    const _routing = this._routing;
 
     // Obtiene el profile según el id
-    const profile = this.store.peekRecord('magistrate', params.id);
+    const profile = this.store.peekRecord(this.types[params.type], params.id);
     // Obtiene el partido actual del profile
-    const currentParty = profile.get('partidoActual');
+    const currentParty = profile.get('partido');
 
     return hash({
       config: {},
       profile: profile,
       currentParty: currentParty,
-      profileGeneralInformationConfiguration: spreadsheet
-        .fetchConfig('perfil-informacion-general-configuracion'),
-      profiles: this.modelFor('application').profiles,
-      avaibleDocuments: spreadsheet
-        .fetch('documentos-disponibles')
+      availableInfo: spreadsheet
+        .fetch('info-' + this.types[params.type])
         .then((documentos) => {
-          return A(documentos)
-            .filterBy('profile', profile.get('id'));
-        }),
-      dataTableGradation: spreadsheet
-        .fetch('tabla-gradacion')
-        .then((registros) => {
-          return A(registros)
-            .filterBy('profile', profile.get('id'))
-            .filter((e) => e.aspecto !== 'Total');
-        }),
-      totalGraduationScore: spreadsheet
-        .fetch('tabla-gradacion')
-        .then((registros) => {
-          return A(registros)
-            .filterBy('profile', profile.get('id'))
-            .filter((e) => e.aspecto !== 'Total' && e.aspecto !== 'Cualidades Éticas y de Probidad')
-            .reduce((previousValue, item) => previousValue + parseInt(item.puntaje), 0);
+          return documentos.findBy('id', profile.get('id'));
         }),
       profileFunctions: spreadsheet
         .fetchConfig('perfil-funcionalidades')
@@ -86,7 +78,22 @@ export default Route.extend({
 
               return true;
             });
-        })
+        }),
+      fuentes: spreadsheet
+        .fetch('fuentes')
+        .then((documento) => {
+          return documento.filterBy('perfil', profile.get('id'));
+      }),
+      entrevistas: spreadsheet
+        .fetch('entrevistas')
+        .then((documento) => {
+          return documento.filterBy('perfil', profile.get('id'));
+      }),
+      historial: spreadsheet
+        .fetch('historial')
+        .then((documento) => {
+          return documento.filterBy('perfil', profile.get('id'));
+      })
     });
   },
 
@@ -101,6 +108,7 @@ export default Route.extend({
     this._super(controller, model);
 
     model.config.profileFunctions = model.profileFunctions;
+    this.controllerFor('perfil.index').set('isPresident', model.profile.type === 'president');
   },
 
   /**

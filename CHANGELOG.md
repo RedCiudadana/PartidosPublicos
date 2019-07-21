@@ -5,12 +5,26 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fix "perfiles", clean filters in setupController of that route.
+
+## [0.5.0] 2019-05-22
 ### Added
 - Added comments in config/enviroment.js.
+- Added ember's addon ember-truth-helpers.
+- Added attribute "casilla" in "distrito" and "listado" models.
+- Added component item-portfolio.
+- Added filter "Partido" to perfiles.
+- Adden filter "Distrito" to "Diputados por distrito".
 
 ### Changed
 - Changed documentation/CONFIG.md adding new info.
 - Changed spanish code to english.
+- Changed portofolio, now using item-portfolio, showing "Número de casilla".
+- Changed iteraction of filters in perfiles. First click "Departamento" and then show "Municipio".
+
+### Fixed
+- Reset filters in transition to route "perfiles".
 
 ## [0.4.3] 2018-10-31
 ### Added

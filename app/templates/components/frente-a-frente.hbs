@@ -1,0 +1,165 @@
+<div class="container py-5">
+  {{!-- Seleccionar candidato --}}
+  <div class="row">
+    <div class="col-md-6">
+      {{one-way-select perfilUno
+          class="form-control"
+          options=model.profiles
+          optionValuePath="id"
+          optionLabelPath="nombre"
+          update=(action (mut perfilUno))
+      }}
+    </div>
+    <div class="col-md-6 my-2 my-md-0">
+      {{one-way-select perfilDos
+          class="form-control"
+          options=model.profiles
+          optionValuePath="id"
+          optionLabelPath="nombre"
+          update=(action (mut perfilDos))
+      }}
+    </div>
+  </div>
+
+  {{!-- Biografía --}}
+  <div class="row frente-a-frente">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex">
+          <img src="img/icono-biografia.png" alt="Biografía">
+          <h3>Biografía</h3>
+        </div>
+        <div class="body">
+          <div class="row">
+            <div class="col-md-6">
+              <img
+                src={{perfilUno.fotoPerfil}}
+                alt="Foto de {{perfilUno.nombre}}">
+              <p>
+                {{availableInfoUno.biography}}
+                <small class="text-muted">{{perfilUno.nombre}}</small>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <img
+                src={{perfilDos.fotoPerfil}}
+                alt="Foto de {{perfilDos.nombre}}">
+              <p>
+                {{availableInfoDos.biography}}
+                <small class="text-muted">{{perfilDos.nombre}}</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- experienciaAcadémica --}}
+  <div class="row frente-a-frente">  
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex">
+          <img src="img/icono-experiencia-academica.png" alt="Icono años">
+          <h3>Experiencia Académica</h3>
+        </div>
+        <div class="body">
+          <div class="row">
+            <div class="col-md-6">
+              <img
+                src={{perfilUno.fotoPerfil}}
+                alt="Foto de {{perfilUno.nombre}}">
+              <p>
+                {{availableInfoUno.experienciaAcadémica}}
+                <small class="text-muted">{{perfilUno.nombre}}</small>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <img
+                src={{perfilDos.fotoPerfil}}
+                alt="Foto de {{perfilDos.nombre}}">
+              <p>
+                {{availableInfoDos.experienciaAcadémica}}
+                <small class="text-muted">{{perfilDos.nombre}}</small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- historialPolítico --}}
+  <div class="row frente-a-frente">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex">
+          <img src="img/icono-historial-politico.png" alt="Icono cargo">
+          <h3>Historial Político</h3>
+        </div>
+        <div class="body">
+          <div class="row">
+            <div class="col-md-6">
+              <img
+                src={{perfilUno.fotoPerfil}}
+                alt="Foto de {{perfilUno.nombre}}">
+              <p>
+                {{#if availableInfoUno.historial}}
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Partido</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each availableInfoUno.historial as |partido index|}}
+                        <tr>
+                          <td scope="row">{{inc index 1}}</td>
+                          <td>{{partido.partido}}</td>
+                          <td>{{partido.ano}}</td>
+                        </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                  <small class="text-muted">{{perfilUno.nombre}}</small>
+                {{else}}
+                  <strong>No hay datos</strong>
+                {{/if}}
+              </p>
+            </div>
+            <div class="col-md-6">
+              <img
+                src={{perfilDos.fotoPerfil}}
+                alt="Foto de {{perfilDos.nombre}}">
+              <p>
+                {{#if availableInfoDos.historial}}
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Partido</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {{#each availableInfoDos.historial as |partido index|}}
+                        <tr>
+                          <td scope="row">{{inc index 1}}</td>
+                          <td>{{partido.partido}}</td>
+                          <td>{{partido.ano}}</td>
+                        </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                  <small class="text-muted">{{perfilDos.nombre}}</small>
+                {{else}}
+                  <strong>No hay datos</strong>
+                {{/if}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

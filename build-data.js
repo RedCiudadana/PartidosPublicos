@@ -28,14 +28,14 @@ Tabletop.init({
   }
 });
 
-Tabletop.init({
-  key: fs.readFileSync('public/config-spreadsheet-url', 'utf-8').trim(),
-  callback: function(sheets) {
-    Object.keys(sheets).forEach(function(key) {
-      var file = targetPath + key + '.json';
+// Tabletop.init({
+//   key: fs.readFileSync('public/config-spreadsheet-url', 'utf-8').trim(),
+//   callback: function(sheets) {
+//     Object.keys(sheets).forEach(function(key) {
+//       var file = targetPath + key + '.json';
       
-      jsonfile.spaces = 2;
-      jsonfile.writeFileSync(file, sheets[key].elements);
-    });
-  }
-});
+//       jsonfile.spaces = 2;
+//       jsonfile.writeFileSync(file, sheets[key].elements);
+//     });
+//   }
+// });

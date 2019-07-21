@@ -1,7 +1,7 @@
 import Service from '@ember/service';
-import Tabletop from 'tabletop';
+// import Tabletop from 'tabletop';
 import config from '../config/environment';
-import { inject as service } from '@ember/service'
+import fetch from 'fetch';
 import { Promise } from 'rsvp';
 import { isNone } from '@ember/utils';
 import debugLogger from 'ember-debug-logger';
@@ -10,7 +10,7 @@ import debugLogger from 'ember-debug-logger';
  * Servicios para obtener datos desde /static-files/ or Google's spreadsheets, según la configuración en 'environment'.
  * Para generar los archivos ejecutar 'node build-data.js'. Antes revisar la documentación en la carpeta 'Documentation'.
  * Preferiblemente usar 'static-files' porque el 'live-mode' es muy lento por la forma que obtiene los datos.
- * 
+ *
  * @class Service.Spreadsheets
  * @example
  * import { inject as service } from '@ember/service';
@@ -19,14 +19,6 @@ import debugLogger from 'ember-debug-logger';
 export default Service.extend({
 
   log: debugLogger(),
-
-  /**
-   * Ajax Service
-   *
-   * @property ajax
-   * @type Service
-   */
-  ajax: service(),
 
   /**
    * URL de la hoja de datos (perfiles, partidos, etc). Luego se obtiene de 'environment'
@@ -65,11 +57,10 @@ export default Service.extend({
     // Si config.APP.staticFilesUrl está definido, obtener la data de allí, independiente
     // del spreadsheetKey
     if (!isNone(config.APP.staticFilesUrl)) {
-      return this.get('ajax')
-        .request(config.APP.staticFilesUrl + worksheetName + '.json')
+      return fetch(config.APP.staticFilesUrl + worksheetName + '.json')
         .then((response) => {
           return new Promise((resolve) => {
-            resolve(response);
+            resolve(response.json());
           });
 
         })
@@ -81,31 +72,31 @@ export default Service.extend({
      *  MODO 'LIVE'
      *
      */
-    return new Promise((resolve) => {
+    // return new Promise((resolve) => {
 
-      let spreadsheetUrl = this.get('dataSpreadsheetUrl');
+    //   let spreadsheetUrl = this.dataSpreadsheetUrl;
 
-      if ('config' === spreadsheetKey) {
-        spreadsheetUrl = this.get('configSpreadsheetUrl');
-      }
+    //   if ('config' === spreadsheetKey) {
+    //     spreadsheetUrl = this.configSpreadsheetUrl;
+    //   }
 
-      Tabletop.init({
-        key: spreadsheetUrl,
-        callback: (data) => {
-          if (isNone(data[worksheetName])) {
-            this.log(worksheetName + "is empty or not found.");
-            return resolve();
-          }
+    //   Tabletop.init({
+    //     key: spreadsheetUrl,
+    //     callback: (data) => {
+    //       if (isNone(data[worksheetName])) {
+    //         this.log(worksheetName + "is empty or not found.");
+    //         return resolve();
+    //       }
 
-          if (isNone(data[worksheetName].elements)) {
-            this.log(worksheetName + "is empty or not found.");
-            return resolve();
-          }
+    //       if (isNone(data[worksheetName].elements)) {
+    //         this.log(worksheetName + "is empty or not found.");
+    //         return resolve();
+    //       }
 
-          resolve(data[worksheetName].elements);
-        }
-      });
-    });
+    //       resolve(data[worksheetName].elements);
+    //     }
+    //   });
+    // });
   },
 
   /**

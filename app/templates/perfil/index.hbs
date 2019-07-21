@@ -1,71 +1,197 @@
-<div class="row m-1 border">
+<div class="row m-1 bg-white panel">
   {{!-- Imagen --}}
-  <div class="col-md-4">
-    <div class="text-center">
-      <img
-        id="photo-profile"
-        src={{model.profile.fotoPerfil}}
-        alt={{model.profile.nombre}}
-        border="0"
-        class="img-responsive center-block"
-      >
-    </div>
+  <div class="col-md-3 text-center p-3">
+    <img
+      id="photo-profile"
+      src={{model.profile.fotoPerfil}}
+      alt={{model.profile.nombre}}
+      border="0"
+      class="img-responsive center-block"
+    >
   </div>
   {{!-- Información general --}}
-  <div class="col-md-4">
-    <div class="p-2">
-      <h2>{{model.profile.nombre}}</h2>
-      <table class="table">
-        <tbody>
-          {{#each-in model.profile.informacionGeneral as |key item|}}
-            <tr>
-              <td class="border-0 p-0">
-                <small>
-                  {{#if item.label}}{{html-safe item.label}}{{/if}}
-                  {{html-safe item.value}}
-                </small>
-              </td>
-            </tr>
-          {{/each-in}}
-        </tbody>
-      </table>
-    </div>
+  <div class="col-md-6 p-3">
+    <h3>{{model.profile.nombre}}</h3>
+    <table class="table w-75">
+      <tbody>
+        <tr>
+          <td class="p-0 border-top-0">
+            <small>
+              <strong>Tipo de elección: </strong>{{profile.electionName}}
+            </small>
+          </td>
+        </tr>
+        <tr>
+          <td class="p1">
+            <small>
+              <strong>Partido Político: </strong>{{currentParty.nombreCompleto}}
+            </small>
+          </td>
+        </tr>
+        {{#if isPresident}}
+          <tr>
+            <td class="p-0">
+              <small>
+                <strong>Dupla presidencial: </strong>
+                {{#link-to "perfil" profile.vicepresident.typeCommonName profile.vicepresident.id}}
+                  <span class="text-secondary">{{profile.vicepresident.nombre}}</span>
+                {{/link-to}}
+              </small>
+            </td>
+          </tr>
+        {{/if}}
+      </tbody>
+    </table>
   </div>
   {{!-- Información extra, redes sociales --}}
-  <div class="col-md-4 social-side text-center d-block">
-    <div>
-      <img src={{model.profile.fotoUrlPartido}} alt={{model.profile.partidoactual}}>
-    </div>
+  <div class="col-md-3 social-side p-3">
+    <img src={{model.currentParty.logo}} alt={{model.currentParty.nombreCorto}} class="foto-partido">
     <div class="d-block mt-3">
-      <div>
-        <a href={{mode.profile.tw}} target="_blank" rel="noopener"><i class="fa fa-twitter mr-1"></i>{{model.profile.tw}}</a>
-      </div>
-      <div>
-        <a href={{model.profile.fb}} target="_blank" rel="noopener"><i class="fa fa-facebook mr-1"></i>{{model.profile.nombre}}</a>
-      </div>
+      {{!-- Página web --}}
+      {{#if model.profile.web}}
+        <div>
+          <a href={{model.profile.web}} target="_blank" rel="noopener">
+            <img src="img/icono-web.png" alt="Página web">
+            {{model.profile.web}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Correo --}}
+      {{#if model.profile.correo}}
+        <div>
+          <a href={{model.profile.correo}} target="_blank" rel="noopener">
+            <img src="img/icono-correo.png" alt="Correo electrónico">
+            {{model.profile.correo}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Twitter --}}
+      {{#if model.profile.tw}}
+        <div>
+          <a href="https://twitter.com/{{twitter-link model.profile.tw}}" target="_blank" rel="noopener">
+            <img src="img/icono-tw.png" alt="Twitter">
+            @{{twitter-link model.profile.tw}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Facebook --}}
+      {{#if model.profile.fb}}
+        <div>
+          <a href={{model.profile.fb}} target="_blank" rel="noopener">
+            <img src="img/icono-fb.png" alt="Facebook">
+            {{model.profile.nombre}}
+          </a>
+        </div>
+      {{/if}}
     </div>
   </div>
-
 </div>
 
 <div class="row">
+  {{!-- Experiencia Académica --}}
   <div class="col-md-6">
     <div class="panel">
-      <div class="header"><h3>Panel 1</h3></div>
-      <div class="body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut iusto cum, sint hic veritatis id reiciendis illum aliquid natus repellendus eaque in praesentium harum unde quod error doloremque. Explicabo.
-        </p>
+      <div {{action (toggle "experiencia" this)}} class="header d-flex bg-secondary">
+        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <h3>Experiencia Académica</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      {{#bs-collapse collapsed=experiencia}}
+        <div class="body">
+          {{#if availableInfo.experienciaAcadémica}}
+            <p>{{availableInfo.experienciaAcadémica}}</p>
+          {{else}}
+            <strong>No hay datos sobre la experiencia académica.</strong>
+          {{/if}}
+        </div>
+      {{/bs-collapse}}
+    </div>
+  </div>
+  {{!-- Historial Político --}}
+  <div class="col-md-6">
+    <div class="panel">
+      <div class="header d-flex bg-secondary" {{action (toggle "partidos" this)}}>
+        <img src="img/icono-historial-politico.png" alt="Icono cargo">
+        <h3>Historial Político</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      {{#bs-collapse collapsed=partidos}}
+        <div class="body">
+          {{#if model.historial}}
+            <table class="table borderless">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Nombre</th>
+                  <th>Partido</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each model.historial as |partido index|}}
+                  <tr>
+                    <td scope="row">{{inc index 1}}</td>
+                    <td>{{partido.partido}}</td>
+                    <td>{{partido.ano}}</td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          {{else}}
+            <strong>No hay datos sobre el historial político.</strong>
+          {{/if}}
+        </div>
+      {{/bs-collapse}}
+    </div>
+  </div>
+</div>
+
+{{#if isPresident}}
+  <div class="row mb-0 pb-0">
+    {{!-- Planes de gobierno --}}
+    <div class="col-12">
+      <div class="panel planes">
+        <div class="header d-flex">
+          <img src="img/icono-planes-gobierno.png" alt="Planes de gobierno">
+          <h3>Planes de gobierno</h3>
+
+          {{#bs-dropdown class="ml-auto" as |dd|}}
+            {{#bs-button}}Descarga aquí{{/bs-button}}
+          {{/bs-dropdown}}
+        </div>
       </div>
     </div>
   </div>
+{{/if}}
+
+<div class="row">
+  {{!-- Fuentes de Información --}}
   <div class="col-md-6">
-    <div class="panel">
-      <div class="header"><h3>Panel 1</h3></div>
+    <div class="panel fuentes">
+      <div class="header d-flex">
+        <img src="img/icono-fuentes-informacion.png" alt="Fuentes de información">
+        <h3>Fuentes de información</h3>
+      </div>
       <div class="body">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur ut iusto cum, sint hic veritatis id reiciendis illum aliquid natus repellendus eaque in praesentium harum unde quod error doloremque. Explicabo.
-        </p>
+        {{#if fuentes}}
+          <table class="table borderless">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Fuente</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each fuentes as |fuente index|}}
+                <tr>
+                  <td scope="row">{{inc index 1}}</td>
+                  <td><a href={{fuente.url}}>{{fuente.texto}}</a></td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{else}}
+          <strong>No hay datos sobre las fuente.</strong>
+        {{/if}}
       </div>
     </div>
   </div>

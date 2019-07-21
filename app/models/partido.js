@@ -1,6 +1,7 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { hasMany } from 'ember-data/relationships';
+import { computed } from '@ember/object';
 
 /**
  * Model de partido político.
@@ -34,6 +35,22 @@ export default Model.extend({
   nombreCorto: attr('string'),
 
   /**
+   * Fecha Inscripción
+   *
+   * @property fechaInscripcion
+   * @type String
+   */
+  fechaInscripcion: attr('string'),
+
+  /**
+   * Secretario General
+   *
+   * @property secretarioGeneral
+   * @type String
+   */
+  secretarioGeneral: attr('string'),
+
+  /**
    * Perfil de Facebook, la URL.
    *
    * @property fb
@@ -55,7 +72,9 @@ export default Model.extend({
    * @property logo
    * @type String
    */
-  logo: attr('string'),
+  logoURL: attr('string'),
+
+  numeroAfiliados: attr('string'),
 
   // Relationships
 
@@ -65,6 +84,16 @@ export default Model.extend({
    * @property members
    * @type String
    */
-  miembros: hasMany('commission-deputie', { inverse: null })
+  miembros: hasMany('candidate', { inverse: null }),
+
+  // Computed
+
+  logo: computed('logoURL', function () {
+    if (this.logoURL) {
+      return this.logoURL;
+    }
+
+    return 'img/partido-default.png';
+  })
 
 });
