@@ -33,11 +33,6 @@ Router.map(function() {
     // this.route('frente-a-frente');
   });
 
-  // Considerar si se va a utlizar
-  this.route('partidos', function() {
-    this.route('partido', { path: '/partido/:id'});
-  });
-
   this.route('perfiles', { path: '/perfiles/:type'});
   // this.route('frente-a-frente');
 });

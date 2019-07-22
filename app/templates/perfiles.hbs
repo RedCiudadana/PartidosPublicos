@@ -3,15 +3,15 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 text-center">
       <h4>{{config.title}}</h4>
-      {{#power-select
-        options=profiles
-        selected=profile
-        placeholder="Busca por nombre a tu candidato(a)"
-        searchField="nombre"
-        onChange=(action "toProfile")
-      as |profile|}}
+      <PowerSelect
+        @options={{profiles}}
+        @selected={{profile}}
+        @placeholder="Busca por nombre a tu candidato(a)"
+        @searchField="nombre"
+        @onChange={{action "toProfile"}}
+      as |profile|>
         <strong>{{profile.nombre}}</strong>
-      {{/power-select}}
+      </PowerSelect>
     </div>
   </div>
   {{!-- Filtros --}}
@@ -19,71 +19,57 @@
     <div class="col-12 col-md-8">
       {{!-- Filtro por partido --}}
       <p>Elige el partido:</p>
-      {{#power-select
-        options=partidos
-        selected=partido
-        allowClear="true"
-        placeholder="Partido"
-        searchField="nombreCorto"
-        onChange=(action (mut partido))
-      as |partido|}}
+      <PowerSelect
+        @options={{partidos}}
+        @selected={{partido}}
+        @allowClear="true"
+        @placeholder="Partido"
+        @searchField="nombreCorto"
+        @onChange={{action (mut partido)}}
+      as |partido|>
         <strong>{{partido.nombreCorto}}</strong>
-      {{/power-select}}
+      </PowerSelect>
       {{!-- Filtro por distrito--}}
       {{#if config.filterDistrito}}
         {{!-- Departamento --}}
         <p>Elige tu distrito:</p>
-        {{#power-select
-          options=distritos
-          selected=distrito
-          allowClear="true"
-          placeholder="Distrito"
-          onChange=(action (mut distrito))
-        as |profile|}}
+        <PowerSelect
+          @options={{distritos}}
+          @selected={{distrito}}
+          @allowClear="true"
+          @placeholder="Distrito"
+          @onChange={{action (mut distrito)}}
+        as |profile|>
           <strong>{{profile}}</strong>
-        {{/power-select}}
+        </PowerSelect>
       {{/if}}
       {{!-- Filtro por departamento y municipal--}}
       {{#if config.filterDepartament}}
         {{!-- Departamento --}}
         <p>Elige tu departamento:</p>
-        {{#power-select
-          options=departamentos
-          selected=departamento
-          allowClear="true"
-          placeholder="Departamento"
-          onChange=(action (mut departamento))
-        as |profile|}}
+        <PowerSelect
+          @options={{departamentos}}
+          @selected={{departamento}}
+          @allowClear="true"
+          @placeholder="Departamento"
+          @onChange={{action (mut departamento)}}
+        as |profile|>
           <strong>{{profile}}</strong>
-        {{/power-select}}
+        </PowerSelect>
         {{#if municipioDisabled}}
           {{!-- Municipio --}}
           <p>Elige tu municipio:</p>
-          {{#power-select
-            options=municipios
-            selected=municipio
-            allowClear="true"
-            placeholder="Municipio"
-            onChange=(action (mut municipio))
-          as |profile|}}
+          <PowerSelect
+            @options={{municipios}}
+            @selected={{municipio}}
+            @allowClear="true"
+            @placeholder="Municipio"
+            @onChange={{action (mut municipio)}}
+          as |profile|>
             <strong>{{profile}}</strong>
-          {{/power-select}}
+          </PowerSelect>
         {{/if}}
       {{/if}}
-      {{!-- Filtro por distrito --}}
-      {{!-- {{#if config.filterDistrito}}
-        <p>Elige tu distrito:</p>
-        {{#power-select
-          options=profiles
-          selected=profile
-          allowClear="true"
-          placeholder="Distrito"
-          searchField="nombre"
-          onChange=(action "toProfile")
-        as |profile|}}
-          <strong>{{profile.nombre}}</strong>
-        {{/power-select}}
-      {{/if}} --}}
     </div>
   </div>
 </div>

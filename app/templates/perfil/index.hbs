@@ -96,7 +96,7 @@
         <h3>Experiencia Académica</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
-      {{#bs-collapse collapsed=experiencia}}
+      <BsCollapse @collapsed={{experiencia}}>
         <div class="body">
           {{#if availableInfo.experienciaAcadémica}}
             <p>{{availableInfo.experienciaAcadémica}}</p>
@@ -104,7 +104,7 @@
             <strong>No hay datos sobre la experiencia académica.</strong>
           {{/if}}
         </div>
-      {{/bs-collapse}}
+      </BsCollapse>
     </div>
   </div>
   {{!-- Historial Político --}}
@@ -115,7 +115,7 @@
         <h3>Historial Político</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
-      {{#bs-collapse collapsed=partidos}}
+      <BsCollapse @collapsed={{partidos}}>
         <div class="body">
           {{#if model.historial}}
             <table class="table borderless">
@@ -140,28 +140,10 @@
             <strong>No hay datos sobre el historial político.</strong>
           {{/if}}
         </div>
-      {{/bs-collapse}}
+      </BsCollapse>
     </div>
   </div>
 </div>
-
-{{#if isPresident}}
-  <div class="row mb-0 pb-0">
-    {{!-- Planes de gobierno --}}
-    <div class="col-12">
-      <div class="panel planes">
-        <div class="header d-flex">
-          <img src="img/icono-planes-gobierno.png" alt="Planes de gobierno">
-          <h3>Planes de gobierno</h3>
-
-          {{#bs-dropdown class="ml-auto" as |dd|}}
-            {{#bs-button}}Descarga aquí{{/bs-button}}
-          {{/bs-dropdown}}
-        </div>
-      </div>
-    </div>
-  </div>
-{{/if}}
 
 <div class="row">
   {{!-- Fuentes de Información --}}
