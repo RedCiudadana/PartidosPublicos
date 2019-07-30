@@ -35,6 +35,7 @@ Router.map(function() {
 
   this.route('perfiles', { path: '/perfiles/:type'});
   // this.route('frente-a-frente');
+  this.route('elecciones');
 });
 
 export default Router;
