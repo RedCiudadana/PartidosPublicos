@@ -1,0 +1,38 @@
+[
+  {
+    "id": "institucion-1",
+    "name": "Corte Suprema de Justicia (CSJ)",
+    "sector": "justicia",
+    "mision": "Esto es una mison respetable",
+    "vision": "Esta es una vision entusiasmante",
+    "photoURL": "",
+    "contacto": "correo@correo.com"
+  },
+  {
+    "id": "institucion-2",
+    "name": "Juzgados mayores",
+    "sector": "justicia",
+    "mision": "Esto es una mison respetable",
+    "vision": "Esta es una vision entusiasmante",
+    "photoURL": "",
+    "contacto": "correo@correo.com"
+  },
+  {
+    "id": "institucion-3",
+    "name": "Institución de veridicto",
+    "sector": "justicia",
+    "mision": "Esto es una mison respetable",
+    "vision": "Esta es una vision entusiasmante",
+    "photoURL": "",
+    "contacto": "correo@correo.com"
+  },
+  {
+    "id": "institucion-4",
+    "name": "Corte Suprema de Orden",
+    "sector": "justicia",
+    "mision": "Esto es una mison respetable",
+    "vision": "Esta es una vision entusiasmante",
+    "photoURL": "",
+    "contacto": "correo@correo.com"
+  }
+]
