@@ -60,6 +60,7 @@
     "ember-one-way-select": "^4.0.0",
     "ember-page-title": "^4.0.5",
     "ember-power-select": "^3.0.2",
+    "ember-query-params-service": "^0.4.0",
     "ember-resolver": "^5.0.1",
     "ember-router-scroll": "^1.0.0",
     "ember-social-share": "^0.3.4",

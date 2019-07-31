@@ -1,0 +1,20 @@
+{{!-- Portofolio --}}
+<div class="row">
+  <div class="col-10 offset-1">
+    <div id="portfolio" class="portfolio clearfix my-4">
+      {{#each content as |profile|}}
+        <ItemPortfolio @profile={{profile}} />
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+
+{{#if @pagination}}
+  {{!-- Pagination numbers --}}
+  <div class="row">
+    <div class="col-4 offset-4 text-center">
+      {{page-numbers content=content}}
+    </div>
+  </div>
+{{/if}}

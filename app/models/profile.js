@@ -33,19 +33,19 @@ export default Model.extend({
   /**
    * This computed property set a default image if fotoURL is blank.
    */
-  photo: computed('fotoURL', 'sex', function() {
+  photo: computed('fotoURL', 'sexo', function() {
       if (!isBlank(this.fotoURL)) {
           return this.fotoURL;
       }
 
-      if (this.sex === 'Masculino') {
-          return 'image-M.png';
+      if (this.sexo === 'Masculino') {
+        return 'mi-guatemala/img/candidato.png';
       }
 
-      if (this.sex === 'Femenino') {
-          return 'image-F.png';
+      if (this.sexo === 'Femenino') {
+        return 'mi-guatemala/img/candidata.png';
       }
 
-      // If this.sex is null, what I should do? gray photo?
+      return 'mi-guatemala/img/candidata.png';
   })
 });

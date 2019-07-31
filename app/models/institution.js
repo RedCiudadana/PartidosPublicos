@@ -5,6 +5,7 @@ import { computed } from '@ember/object';
 export default Model.extend({
   // Attributes
   name: attr('string'),
+  sector: attr('string'),
   mision: attr('string'),
   vision: attr('string'),
   contact: attr('string'),

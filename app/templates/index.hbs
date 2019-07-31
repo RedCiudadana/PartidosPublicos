@@ -1,21 +1,10 @@
-{{!-- Carousel --}}
-<BsCarousel
-  @autoPlay={{true}}
-  as |car|>
-  <car.slide>
-    <img alt="Paso 1" src="img/slider-1.png" height="auto" width="100%">
-  </car.slide>
-</BsCarousel>
-
 <div class="container py-5">
-
   {{!-- Header --}}
   <div class="row">
     <div class="col-12 text-center">
       <h4>Conoce a los candidatos y candidatas a cargos de elección popular</h4>
     </div>
   </div>
-
   {{!-- Filters --}}
   <div class="row filters">
     <div class="col-12 text-center">
@@ -51,74 +40,17 @@
       </BsButton>
     </div>
   </div>
-
 </div>
 
 <div class="container-fluid bg-light py-4">
-
   {{!-- Portofolio --}}
   <div class="row">
     <div class="col-10 offset-1">
       <div id="portfolio" class="portfolio clearfix my-4">
-        {{#each pagedContent as |profile|}}
+        {{#each model as |profile|}}
           <ItemPortfolio @profile={{profile}}></ItemPortfolio>
         {{/each}}
       </div>
-    </div>
-  </div>
-</div>
-
-<div class="container-fluid bg-dark justify-content-center py-5">
-  {{!-- Fecha --}}
-  <div class="row">
-    <div class="col-md-4 text-center text-md-right">
-      <img src="img/calendario.png" alt="Calendario: 3 de febrero.">
-    </div>
-    <div class="col-md-6 text-center date">
-      <div>
-        <h1 class="text-white">Elección: Domingo 16 de Junio</h1>
-        <h3 class="text-secondary">Elecciones generales 2019</h3>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-
-  {{!-- ¿Dónde voto? ¿Cuánto falta? ¡Empadrónate! --}}
-  <div class="row high">
-    <div class="col-12 col-md-4">
-      <a
-        href="https://consulta2018.tse.org.gt/dondevotas.php"
-        target="_blank"
-        rel="noopener">
-        <div class="btn btn-warning btn-square py-5">
-          <img src="img/icono-donde-voto.png" alt="Icono donde voto">
-          Nuestra Elección
-        </div>
-      </a>
-    </div>
-    <div class="col-12 col-md-4">
-      <a
-        href="http://semaforoelectoral.gt/"
-        target="_blank"
-        rel="noopener">
-        <div class="btn btn-success btn-square py-4">
-          <img src="img/icono-megafono.png" alt="Icono frente a frente">
-          <div class="block">
-            <p>Semáforo Electoral</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-12 col-md-4">
-      <button class="btn btn-primary btn-square">
-        <img src="img/icono-resultados.png" alt="Icono resultados">
-        <div class="block">
-          <p>Resultados</p>
-          <small>Próximamente</small>
-        </div>
-      </button>
     </div>
   </div>
 </div>

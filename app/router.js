@@ -1,7 +1,6 @@
 import EmberRouter from '@ember/routing/router';
 import RouterScroll from 'ember-router-scroll';
 import config from './config/environment';
-import { get } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
@@ -27,17 +26,13 @@ const Router = EmberRouter.extend(RouterScroll, {
 });
 
 Router.map(function() {
-  this.route('perfil', { path: '/perfil/:type/:id'}, function() {
+  this.route('perfil', { path: '/:model/:id' }, function() {
     this.route('partido');
     this.route('elecciones');
     // this.route('frente-a-frente');
   });
 
-  this.route('perfiles', { path: '/perfiles/:type'});
-  // this.route('frente-a-frente');
-  this.route('elecciones');
-  this.route('sector', { path: 'sector/:name'});
-  this.route('institucion', { path: 'institucion/:id'});
+  this.route('perfiles', { path: '/:model'});
 });
 
 export default Router;
