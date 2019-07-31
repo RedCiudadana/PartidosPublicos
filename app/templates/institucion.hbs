@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="row border bg-white panel">
+    {{!-- Imagen --}}
+    <div class="col-md-3 text-center p-3">
+      <img
+        src={{model.photo}}
+        alt="Logo de {{model.name}}"
+        width="100%">
+    </div>
+    {{!-- Información general --}}
+    <div class="col-md-6 p-3">
+      <div class="table-responsive-md">
+        <h3>{{model.name}}</h3>
+        <table class="table w-75">
+          <tbody>
+            <tr>
+              <td class="p-0 border-top-0">
+                <small>
+                  <strong>Nombre:</strong>
+                  {{model.name}}
+                </small>
+              </td>
+            </tr>
+            <tr>
+              <td class="p-0 border-top-0">
+                <small>
+                  <strong>Contacto:</strong>
+                  {{model.contacto}}
+                </small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {{!-- Redes sociales --}}
+    <div class="col-md-3 social-side text-left d-block p-3">
+      <div class="d-block mt-3">
+        {{!-- Página web --}}
+        {{#if model.web}}
+          <div>
+            <a href={{model.web}} target="_blank" rel="noopener">
+              <img src="img/icono-web.png" alt="Página web">
+              {{model.web}}
+            </a>
+          </div>
+        {{/if}}
+        {{!-- Correo --}}
+        {{#if model.correo}}
+          <div>
+            <a href={{model.correo}} target="_blank" rel="noopener">
+              <img src="img/icono-correo.png" alt="Correo electrónico">
+              {{model.correo}}
+            </a>
+          </div>
+        {{/if}}
+        {{!-- Twitter --}}
+        {{#if model.tw}}
+          <div>
+            <a href={{model.tw}} target="_blank" rel="noopener">
+              <img src="img/icono-tw.png" alt="Twitter">
+              {{model.tw}}
+            </a>
+          </div>
+        {{/if}}
+        {{!-- Facebook --}}
+        {{#if model.fb}}
+          <div>
+            <a href={{model.fb}} target="_blank" rel="noopener">
+              <img src="img/icono-fb.png" alt="Facebook">
+              {{model.nombreCorto}}
+            </a>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header">
+          <h3>Misión y visión</h3>
+        </div>
+        <div class="body">
+          <h4>Misión</h4>
+          <p>{{model.mision}}</p>
+          <h4>Visión</h4>
+          <p>{{model.vision}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header">
+          <h3>Miembros</h3>
+        </div>
+        <div class="body">
+          <div id="portfolio" class="portfolio clearfix my-4">
+            {{#each pagedContent as |profile|}}
+              {{item-portfolio profile=profile}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Pagination numbers --}}
+  <div class="row">
+    <div class="col-4 offset-4 text-center">
+      {{page-numbers content=pagedContent}}
+    </div>
+  </div>
+</div>

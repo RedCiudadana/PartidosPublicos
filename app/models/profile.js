@@ -7,13 +7,22 @@ import { computed } from '@ember/object';
  */
 export default Model.extend({
   // Attributes
-  name: attr('string'),
-  email: attr('string'),
-  sex: attr('string'),
-  birthDate: attr('string'),
-  twitter: attr('string'),
-  facebook: attr('string'),
-  photoURL: attr('string'),
+  nombre: attr('string'),
+  sexo: attr('string'),
+  puesto: attr('string'),
+  dependencia: attr('string'),
+  departamento: attr('string'),
+  institucion: attr('string'),
+  fechalaboral: attr('string'),
+  nocolegiado: attr('string'),
+  estadocivil: attr('string'),
+  profesion: attr('string'),
+  anosexperiencia: attr('string'),
+  experienciaProfesional: attr('string'),
+  experienciaAcademica: attr('string'),
+  publicaciones: attr('string'),
+  fotoUrl: attr('string'),
+  fotoURL: attr('string'),
 
   // Relationships
   institution: belongsTo('institution'),
@@ -22,11 +31,11 @@ export default Model.extend({
   // Computed properties
 
   /**
-   * This computed property set a default image if photoURL is blank.
+   * This computed property set a default image if fotoURL is blank.
    */
-  photo: computed('photoURL', 'sex', function() {
-      if (!isBlank(this.photoURL)) {
-          return this.photoURL;
+  photo: computed('fotoURL', 'sex', function() {
+      if (!isBlank(this.fotoURL)) {
+          return this.fotoURL;
       }
 
       if (this.sex === 'Masculino') {

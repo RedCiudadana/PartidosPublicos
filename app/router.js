@@ -36,6 +36,8 @@ Router.map(function() {
   this.route('perfiles', { path: '/perfiles/:type'});
   // this.route('frente-a-frente');
   this.route('elecciones');
+  this.route('sector', { path: 'sector/:name'});
+  this.route('institucion', { path: 'institucion/:id'});
 });
 
 export default Router;

@@ -5,13 +5,9 @@ import { computed } from '@ember/object';
 export default Model.extend({
   // Attributes
   name: attr('string'),
-  description: attr('string'),
-  history: attr('string'),
-  email: attr('string'),
-  phone: attr('string'),
-  address: attr('string'),
-  facebook: attr('string'),
-  twitter: attr('string'),
+  mision: attr('string'),
+  vision: attr('string'),
+  contact: attr('string'),
   photoURL: attr('string'),
 
   // Relationships
@@ -28,6 +24,6 @@ export default Model.extend({
       return this.photoURL;
     }
 
-    return 'image-I.png';
+    return 'http://centrumnaukiwesola.pl/wp-content/themes/bulhak-edu/img/default-avatar.png';
   })
 });

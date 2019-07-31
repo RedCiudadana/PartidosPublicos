@@ -23,17 +23,17 @@ export default Route.extend({
    * @method model
    * @return {Object} profiles, config, navbarLinks.
    */
-  model() {
-    return hash({
-      presidents: this.store.findAll('president'),
-      vicepresidents: this.store.findAll('vicepresident'),
-      listados: this.store.findAll('listado'),
-      distritos: this.store.findAll('distrito'),
-      parlacens: this.store.findAll('parlacen'),
-      mayors: this.store.findAll('mayor'),
-      parties: this.store.findAll('partido')
-    });
-  },
+  // model() {
+  //   return hash({
+  //     presidents: this.store.findAll('president'),
+  //     vicepresidents: this.store.findAll('vicepresident'),
+  //     listados: this.store.findAll('listado'),
+  //     distritos: this.store.findAll('distrito'),
+  //     parlacens: this.store.findAll('parlacen'),
+  //     mayors: this.store.findAll('mayor'),
+  //     parties: this.store.findAll('partido')
+  //   });
+  // },
 
   /**
    * Acciones: selectPerfil.

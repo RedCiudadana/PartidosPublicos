@@ -6,7 +6,7 @@
 
 /**
  * Tabla de contenidos
- * 
+ *
  * Colors utils
  * Navbar
  * Footer
@@ -68,7 +68,7 @@ $tw-color: #1DA1F2;
     // Button style
     ul li a {
         color: $navbar-color;
-        opacity: 0.8;
+        // opacity: 0.8;
         font-size: 1.2rem;
     }
 
@@ -117,7 +117,7 @@ $tw-color: #1DA1F2;
         h6 {
             margin-bottom: 1.5rem;
         }
-        
+
         img {
             margin-right: 10px;
         }
