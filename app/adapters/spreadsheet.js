@@ -1,4 +1,3 @@
-
 import DS from 'ember-data';
 import { inject as service } from '@ember/service';
 import { keys } from '@ember/polyfills';
