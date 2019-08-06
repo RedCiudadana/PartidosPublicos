@@ -40,7 +40,7 @@
 
 {{!-- Navbar --}}
 <BsNavbar
-  @backgroundColor="secondary"
+  @backgroundColor="dark"
   @type="dark"
   @position="sticky-top"
   @fluid={{false}} as |navbar|>
@@ -66,19 +66,11 @@
       {{/each}}
 
       <nav.item @active={{false}} class="mx-4">
-        {{#link-to "perfiles" "presidentes"}}Presidencial{{/link-to}}
+        <LinkTo @route="perfiles" @model="perfiles">Perfiles</LinkTo>
       </nav.item>
+
       <nav.item @active={{false}} class="mx-4">
-        {{#link-to "perfiles" "alcaldes"}}Municipal{{/link-to}}
-      </nav.item>
-      <nav.item @active={{false}} class="mx-4">
-        {{#link-to "perfiles" "distrito"}}Distritos{{/link-to}}
-      </nav.item>
-      <nav.item @active={{false}} class="mx-4">
-        {{#link-to "perfiles" "listado"}}Listado Nacional{{/link-to}}
-      </nav.item>
-      <nav.item @active={{false}} class="mx-4">
-        {{#link-to "perfiles" "parlacen"}}Parlacen{{/link-to}}
+        <LinkTo @route="perfiles" @model="instituciones">Instituciones</LinkTo>
       </nav.item>
 
     </navbar.nav>

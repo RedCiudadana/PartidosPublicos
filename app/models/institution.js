@@ -13,7 +13,7 @@ export default Model.extend({
 
   // Relationships
   members: hasMany('profile'),
-  elections: hasMany('election'),
+  comision: hasMany('election'),
 
   // Computed properties
 

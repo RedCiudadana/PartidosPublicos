@@ -9,8 +9,11 @@ const resolver = {
 export default Route.extend({
   resolver: resolver,
   queryParams: {
-    sector: false
+    sector: {
+      refreshModel: true
+    }
   },
+
   model({ model, sector }) {
     let modelName = this.resolver[model];
     if(sector) {

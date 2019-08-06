@@ -19,6 +19,7 @@ export default class ApplicationAdapter extends Adapter {
   }
 
   query(store, type, query) {
+    console.log(query);
     return this.spreadsheets.fetch(type.modelName).then((objects) => {
       return objects.filter((object) => {
         return !Object.keys(query).some((key) => {

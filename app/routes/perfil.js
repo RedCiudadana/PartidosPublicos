@@ -3,13 +3,10 @@ import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
 import { A } from '@ember/array';
 
-const types = {
-  presidentes: 'president',
-  vicepresidentes: 'vicepresident',
-  diputadosDistrito: 'distrito',
-  diputadosListado: 'listado',
-  parlacen: 'parlacen',
-  alcaldes: 'mayor'
+const resolver = {
+  instituciones: 'institution',
+  elecciones: 'election',
+  perfiles: 'profile'
 };
 
 /**
@@ -18,8 +15,7 @@ const types = {
  * @class Route.profile
  */
 export default Route.extend({
-
-  types: types,
+  resolver: resolver,
 
   /**
    * Spreadsheets Service
@@ -45,56 +41,64 @@ export default Route.extend({
    * @method model
    * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, currentParty, profileGeneralInformationConfiguration, profiles, avaibleDocuments, dataTableGradation, totalGraduationScore, profileFunctions, entre otros.
    */
-  model(params) {
+  model({ model, id}) {
     const spreadsheet = this.spreadsheets;
     const _routing = this._routing;
 
-    // Obtiene el profile según el id
-    const profile = this.store.peekRecord(this.types[params.type], params.id);
-    // Obtiene el partido actual del profile
-    const currentParty = profile.get('partido');
-
-    return hash({
-      config: {},
-      profile: profile,
-      currentParty: currentParty,
-      availableInfo: spreadsheet
-        .fetch('info-' + this.types[params.type])
-        .then((documentos) => {
-          return documentos.findBy('id', profile.get('id'));
-        }),
-      profileFunctions: spreadsheet
-        .fetchConfig('perfil-funcionalidades')
-        .then((links) => {
-          return A(links)
-            .filter((link) => {
-              if (link.link) {
-                return true;
-              }
-
-              if (!_routing.hasRoute(link.route)) {
-                throw new Error(`Route not recognized: ${link.route}`);
-              }
-
-              return true;
-            });
-        }),
-      fuentes: spreadsheet
-        .fetch('fuentes')
-        .then((documento) => {
-          return documento.filterBy('perfil', profile.get('id'));
-      }),
-      entrevistas: spreadsheet
-        .fetch('entrevistas')
-        .then((documento) => {
-          return documento.filterBy('perfil', profile.get('id'));
-      }),
-      historial: spreadsheet
-        .fetch('historial')
-        .then((documento) => {
-          return documento.filterBy('perfil', profile.get('id'));
-      })
+    return this.store.findRecord(resolver[model], id).then((profile) => {
+      return hash({
+        config: {},
+        profile: profile,
+        profiles: this.store.query('profile', {
+          institucion: profile.name
+        })
+      });
     });
+
+    /**
+     * @TODO Revisar que va la pena conservar.
+     * @TODO Validar en el caso que no exite perifl, aunque nunca deberia pasar.
+     */
+    // Obtiene el partido actual del profile
+    // const currentParty = profile.get('partido');
+
+      // currentParty: currentParty,
+      // availableInfo: spreadsheet
+      //   .fetch('info-' + this.types[model])
+      //   .then((documentos) => {
+      //     return documentos.findBy('id', profile.get('id'));
+      //   }),
+      // profileFunctions: spreadsheet
+      //   .fetchConfig('perfil-funcionalidades')
+      //   .then((links) => {
+      //     return A(links)
+      //       .filter((link) => {
+      //         if (link.link) {
+      //           return true;
+      //         }
+
+      //         if (!_routing.hasRoute(link.route)) {
+      //           throw new Error(`Route not recognized: ${link.route}`);
+      //         }
+
+      //         return true;
+      //       });
+      //   }),
+      // fuentes: spreadsheet
+      //   .fetch('fuentes')
+      //   .then((documento) => {
+      //     return documento.filterBy('perfil', profile.get('id'));
+      // }),
+      // entrevistas: spreadsheet
+      //   .fetch('entrevistas')
+      //   .then((documento) => {
+      //     return documento.filterBy('perfil', profile.get('id'));
+      // }),
+      // historial: spreadsheet
+      //   .fetch('historial')
+      //   .then((documento) => {
+      //     return documento.filterBy('perfil', profile.get('id'));
+      // })
   },
 
   /**
@@ -107,8 +111,8 @@ export default Route.extend({
   setupController(controller, model) {
     this._super(controller, model);
 
-    model.config.profileFunctions = model.profileFunctions;
-    this.controllerFor('perfil.index').set('isPresident', model.profile.type === 'president');
+    // model.config.profileFunctions = model.profileFunctions;
+    // this.controllerFor('perfil.index').set('isPresident', model.profile.type === 'president');
   },
 
   /**

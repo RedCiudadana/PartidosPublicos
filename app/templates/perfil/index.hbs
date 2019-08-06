@@ -1,4 +1,4 @@
-<div class="row m-1 bg-white panel">
+<div class="row m-1 my-4 bg-white panel">
   {{!-- Imagen --}}
   <div class="col-md-3 text-center p-3">
     <img
@@ -87,6 +87,96 @@
   </div>
 </div>
 
+{{#if (eq model.profile._internalModel.modelName "institution")}}
+{{!-- Misión y Visión --}}
+<div class="row">
+  <div class="col-12">
+    <div class="panel">
+      <div {{action (toggle "misionYVision" this)}} class="header d-flex bg-secondary">
+        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <h3>Misión y Visión</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      <BsCollapse @collapsed={{misionYVision}}>
+        <div class="body">
+          {{#if availableInfo.misionYVision}}
+            <p>{{availableInfo.misionYVision}}</p>
+          {{else}}
+            <strong>No hay datos sobre la experiencia académica.</strong>
+          {{/if}}
+        </div>
+      </BsCollapse>
+    </div>
+  </div>
+</div>
+{{!-- Autoridades --}}
+<div class="row">
+  <div class="col-12">
+    <div class="panel">
+      <div {{action (toggle "autoridades" this)}} class="header d-flex bg-secondary">
+        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <h3>Autoridades</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      <BsCollapse @collapsed={{autoridades}}>
+        <div class="body">
+          {{#if availableInfo.autoridades}}
+            <p>{{availableInfo.autoridades}}</p>
+          {{else}}
+            <Portfolio
+              @bg="white"
+              @profiles={{model.profiles}}
+              @pagination={{false}}
+              />
+          {{/if}}
+        </div>
+      </BsCollapse>
+    </div>
+  </div>
+</div>
+{{!-- Presupuesto --}}
+<div class="row">
+  <div class="col-12">
+    <div class="panel">
+      <div {{action (toggle "presupuesto" this)}} class="header d-flex bg-secondary">
+        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <h3>Presupuesto</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      <BsCollapse @collapsed={{presupuesto}}>
+        <div class="body">
+          {{#if availableInfo.presupuesto}}
+            <p>{{availableInfo.presupuesto}}</p>
+          {{else}}
+            <strong>No hay datos sobre la experiencia académica.</strong>
+          {{/if}}
+        </div>
+      </BsCollapse>
+    </div>
+  </div>
+</div>
+{{else}}
+{{!-- Biografía --}}
+<div class="row">
+  <div class="col-12">
+    <div class="panel">
+      <div {{action (toggle "biografia" this)}} class="header d-flex bg-secondary">
+        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <h3>Biografía</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      <BsCollapse @collapsed={{biografia}}>
+        <div class="body">
+          {{#if availableInfo.experienciaAcadémica}}
+            <p>{{availableInfo.experienciaAcadémica}}</p>
+          {{else}}
+            <strong>No hay datos sobre la experiencia académica.</strong>
+          {{/if}}
+        </div>
+      </BsCollapse>
+    </div>
+  </div>
+</div>
 <div class="row">
   {{!-- Experiencia Académica --}}
   <div class="col-md-6">
@@ -107,12 +197,12 @@
       </BsCollapse>
     </div>
   </div>
-  {{!-- Historial Político --}}
+  {{!-- Experiencia Profesional --}}
   <div class="col-md-6">
     <div class="panel">
       <div class="header d-flex bg-secondary" {{action (toggle "partidos" this)}}>
         <img src="img/icono-historial-politico.png" alt="Icono cargo">
-        <h3>Historial Político</h3>
+        <h3>Experiencia Profesional</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
       <BsCollapse @collapsed={{partidos}}>
@@ -137,44 +227,11 @@
               </tbody>
             </table>
           {{else}}
-            <strong>No hay datos sobre el historial político.</strong>
+            <strong>No hay datos sobre el Experiencia Profesional.</strong>
           {{/if}}
         </div>
       </BsCollapse>
     </div>
   </div>
 </div>
-
-<div class="row">
-  {{!-- Fuentes de Información --}}
-  <div class="col-md-6">
-    <div class="panel fuentes">
-      <div class="header d-flex">
-        <img src="img/icono-fuentes-informacion.png" alt="Fuentes de información">
-        <h3>Fuentes de información</h3>
-      </div>
-      <div class="body">
-        {{#if fuentes}}
-          <table class="table borderless">
-            <thead>
-              <tr>
-                <th>No.</th>
-                <th>Fuente</th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each fuentes as |fuente index|}}
-                <tr>
-                  <td scope="row">{{inc index 1}}</td>
-                  <td><a href={{fuente.url}}>{{fuente.texto}}</a></td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
-        {{else}}
-          <strong>No hay datos sobre las fuente.</strong>
-        {{/if}}
-      </div>
-    </div>
-  </div>
-</div>
+{{/if}}

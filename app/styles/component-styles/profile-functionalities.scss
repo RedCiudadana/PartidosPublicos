@@ -1,0 +1,38 @@
+.row > div {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.nav {
+  min-height: 4rem;
+  height: 100%;
+
+  li {
+    height: 100%;
+  }
+
+  a, .social {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  li, a {
+    background-color: #ffffff !important;
+    &.active, &:hover {
+      background-color: $warning !important;
+      color: white !important;
+    }
+  }
+
+  .social {
+    &.active, &:hover {
+      background-color: #ffffff !important;
+    }
+    padding: 1.5rem;
+    div {
+      display: flex;
+      float: right;
+    }
+  }
+}

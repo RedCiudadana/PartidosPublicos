@@ -7,7 +7,7 @@ export default Component.extend({
   didReceiveAttrs() {
     this._super(...arguments);
     if(!this.pagination) {
-      this.perPage = this.profiles.length;
+      this.set('perPage', this.profiles.length);
     }
   },
 

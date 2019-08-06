@@ -1,11 +1,11 @@
 // COLORS
 
 $primary: #0e8acb;
-$secondary: #202d3e;
+$secondary: #0e8acb;
 $success: #0cab55;
 $warning: #fab026;
 
-$dark: #1f2d3e;
+$dark: #202d3e;
 $light: #f1f1f1;
 
 // $navbar-color: #3a3a3a;
@@ -14,12 +14,13 @@ $navbar-color: #ffffff;
 $footer-background-color: #202d3e;
 $footer-color: #ffffff;
 
-$border-radius: 10px;
+$border-radius: 5px;
 
 @import "ember-bootstrap/bootstrap";
 @import "mi-guatemala";
 // Ember Power Select
 @import "ember-power-select";
+@import "pod-styles";
 
 /**
  * INDEX
@@ -153,78 +154,6 @@ h1, h2, h3, h4, h5, h6, strong {
     }
 }
 
-// Nav candidator
-
-.nav-candidator {
-    color: black !important;
-
-    ul li {
-        color: $light;
-        padding: 15px;
-    }
-
-    ul li:hover, li:hover a {
-        background: $warning;
-        // Calcula el color según el color de fondo. Aclara 80%.
-        color: lighten( $secondary, 80% ) !important;
-    }
-
-    .social, .social:hover {
-        background-color: white !important;
-    }
-
-    a {
-        color: $dark !important;
-    }
-}
-
-// Panel
-
-.panel, .nav-candidator {
-    background-color: white;
-    border-radius: 5px;
-
-    li .white {
-        display: none;
-    }
-
-    li:hover, .active {
-        .white {
-            display: inherit;
-        }
-
-        .color {
-            display: none;
-        }
-    }
-
-    .primary:hover, .primary.active {
-        background-color: $warning !important;
-        a {
-            background-color: $warning !important;
-            color: white !important;
-        }
-    }
-
-    .green:hover, .green.active {
-        background-color: $success !important;
-        a {
-            background-color: $success !important;
-            color: white !important;
-        }
-
-    }
-
-    .blue:hover, .blue.active {
-        background-color: $primary !important;
-        a {
-            background-color: $primary !important;
-            color: white !important;
-        }
-
-    }
-}
-
 .panel, .shadow {
     -webkit-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
     -moz-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
@@ -232,6 +161,10 @@ h1, h2, h3, h4, h5, h6, strong {
 
     .header h3{
         font-size: 1.2rem !important;
+    }
+
+    .body {
+      background-color: #ffffff;
     }
 }
 
@@ -306,6 +239,13 @@ h1, h2, h3, h4, h5, h6, strong {
         margin-top: 10px !important;
         margin-bottom: 10px !important;
     }
+
+    .row {
+      margin-top: 3px;
+      padding-top: 0px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
 }
 
 @include media-breakpoint-up(md) {
@@ -315,7 +255,6 @@ h1, h2, h3, h4, h5, h6, strong {
         }
     }
 }
-
 
 // Button collapse
 

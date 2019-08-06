@@ -26,10 +26,14 @@ const Router = EmberRouter.extend(RouterScroll, {
 });
 
 Router.map(function() {
+  /**
+   * Perfil ya sea de una institución o persona carga información dependiendo de eso. Es decir la ruta 'perfil' es el mismo para los dos.
+   * Las subrutas en cambia varian según el modelo (institución o persona) y deberian detener la transición si se trata de ingresar a una ruta con un modelo inválido.
+   */
   this.route('perfil', { path: '/:model/:id' }, function() {
-    this.route('partido');
-    this.route('elecciones');
-    // this.route('frente-a-frente');
+    this.route('autoridades');
+    this.route('comision');
+    this.route('frente-a-frente');
   });
 
   this.route('perfiles', { path: '/:model'});

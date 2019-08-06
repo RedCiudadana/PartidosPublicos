@@ -5,52 +5,25 @@
 </div>
 {{!-- 'Navbar' para perfiles --}}
 <div class="row my-2">
-  <div class="col-12 p-0 nav-candidator border shadow">
-    <nav>
-      <ul class="list-inline m-0 d-sm-flex">
-        <BsNav
-          @type="pills"
-          @justified={{true}}
-          @stacked={{false}}
-          @fill={{true}} as |nav|
-        >
-          <nav.item @linkTo="perfil.index">
-            <img
-              src="img/icono-perfil.png"
-              alt="Icono información general"
-              height="30px"
-              width="30px"
-              class="white">
-            <img
-              src="img/icono-perfil-color.png"
-              alt="Icono información general"
-              height="30px"
-              width="30px"
-              class="color">
-            Perfil
-          </nav.item>
-          <nav.item @linkTo="perfil.partido">
-            <img
-              src="img/icono-partido.png"
-              alt="Icono elecciones"
-              height="30px"
-              width="30px"
-              class="blue white">
-            <img
-              src="img/icono-partido-color.png"
-              alt="Icono elecciones"
-              height="30px"
-              width="30px"
-              class="blue color">
-            Partido Político
-          </nav.item>
-        </BsNav>
-        {{!-- Redes sociales en (viewport > sm) --}}
-        <li class="px-3 ml-auto d-none d-md-flex social">
+  <div class="col-12 p-0 border shadow">
+    <BsNav
+      @type="pills"
+      @justified={{true}}
+      @stacked={{false}}
+      @fill={{true}}
+    as |nav|>
+      {{#each links as |link|}}
+        <nav.item @linkTo={{link.route}}>
+          {{link.text}}
+        </nav.item>
+      {{/each}}
+      {{!-- Redes sociales en (viewport > sm) --}}
+      <nav.item class="social">
+        <div>
           {{share-twitter}}
           {{share-facebook}}
-        </li>
-      </ul>
-    </nav>
+        </div>
+      </nav.item>
+    </BsNav>
   </div>
 </div>
