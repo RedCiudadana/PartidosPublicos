@@ -155,7 +155,8 @@
     </div>
   </div>
 </div>
-{{else}}
+{{/if}}
+{{#if (eq model.profile._internalModel.modelName "profile")}}
 {{!-- Biografía --}}
 <div class="row">
   <div class="col-12">
@@ -228,6 +229,33 @@
             </table>
           {{else}}
             <strong>No hay datos sobre el Experiencia Profesional.</strong>
+          {{/if}}
+        </div>
+      </BsCollapse>
+    </div>
+  </div>
+</div>
+{{/if}}
+{{#if (eq model.profile._internalModel.modelName "election")}}
+{{!-- Comisionados --}}
+<div class="row">
+  <div class="col-12">
+    <div class="panel">
+      <div {{action (toggle "comissioners" this)}} class="header d-flex bg-secondary">
+        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <h3>Comisionados</h3>
+        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
+      </div>
+      <BsCollapse @collapsed={{comissioners}}>
+        <div class="body">
+          {{#if availableInfo.comissioners}}
+            <p>{{availableInfo.comissioners}}</p>
+          {{else}}
+            <Portfolio
+              @bg="white"
+              @profiles={{model.commissioners}}
+              @pagination={{false}}
+              />
           {{/if}}
         </div>
       </BsCollapse>

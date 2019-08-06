@@ -1,40 +1,17 @@
 <article class="item {{@profile.selector}}">
   <div class="background bg-white">
-    {{#if (eq @profile._internalModel.modelName "institution")}}
-      <div class="image">
-        <LinkTo @route="perfil" @models={{array "instituciones" @profile.id}}>
-          <img alt={{@profile.name}} src={{@profile.photo}}>
+    <div class="image">
+      <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
+        <img alt={{@profile.name}} src={{@profile.photo}}>
+      </LinkTo>
+    </div>
+    <div class="text">
+      <div class="text-name">
+        <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
+          <h6>{{@profile.name}}{{@profile.nombre}}</h6>
         </LinkTo>
       </div>
-      <div class="text">
-        <div class="text-name">
-          <LinkTo @route="perfil" @models={{array "instituciones" @profile.id}}>
-            <h6>{{@profile.name}}</h6>
-          </LinkTo>
-        </div>
-      </div>
-    {{else}}
-      <div class="image">
-        <LinkTo @route="perfil" @models={{array "perfiles" @profile.id}}>
-          <img alt={{@profile.cargoNombreCompleto}} src={{@profile.photo}}>
-        </LinkTo>
-      </div>
-      <div class="text">
-        <div class="text-name">
-          <LinkTo @route="perfil" @models={{array "perfiles" @profile.id}}>
-            <h6>{{@profile.nombre}}</h6>
-          </LinkTo>
-        </div>
-        <h6 class="font-weight-light">{{@profile.electionName}}</h6>
-        {{#if (and
-          (or (eq @profile.type "parlacen") (eq @profile.type "listado"))
-          (not (is-empty @profile.casilla)))}}
-          Casilla: <strong>{{@profile.casilla}}</strong>
-        {{/if}}
-      </div>
-      <div class="image-party">
-        <img src={{@profile.partido.logo}} alt={{@profile.partido.nombreCorto}}>
-      </div>
-    {{/if}}
+      <h6 class="font-weight-light">{{@profile.electionName}}</h6>
+    </div>
   </div>
 </article>

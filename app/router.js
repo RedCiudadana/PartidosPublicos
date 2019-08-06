@@ -34,6 +34,7 @@ Router.map(function() {
     this.route('autoridades');
     this.route('comision');
     this.route('frente-a-frente');
+    this.route('candidatos');
   });
 
   this.route('perfiles', { path: '/:model'});

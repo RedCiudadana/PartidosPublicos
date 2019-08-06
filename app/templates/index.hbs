@@ -1,47 +1,3 @@
-<div class="container py-5">
-  {{!-- Header --}}
-  <div class="row">
-    <div class="col-12 text-center">
-      <h4>Conoce a los candidatos y candidatas a cargos de elección popular</h4>
-    </div>
-  </div>
-  {{!-- Filters --}}
-  <div class="row filters">
-    <div class="col-12 text-center">
-      <BsButton @type="primary" class="active" @onClick={{action "transitionTo" "presidentes"}}>
-        <div>
-          <img src="img/icono-president.png" alt="Elección presidencial">
-          <p>Presidencial</p>
-        </div>
-      </BsButton>
-      <BsButton @type="primary"  @onClick={{action "transitionTo" "alcaldes"}}>
-        <div>
-          <img src="img/icono-mayor.png" alt="Elección municipal">
-          <p>Municipal</p>
-        </div>
-      </BsButton>
-      <BsButton @type="primary"  @onClick={{action "transitionTo" "listado"}}>
-        <div>
-          <img src="img/icono-listado.png" alt="Elección diputados del listado nacional">
-          <p>Listado<br> nacional</p>
-        </div>
-      </BsButton>
-      <BsButton @type="primary"  @onClick={{action "transitionTo" "distrito"}}>
-        <div>
-          <img src="img/icono-distrito.png" alt="Elección diputados del listado nacional">
-          <p>Distrito</p>
-        </div>
-      </BsButton>
-      <BsButton @type="primary"  @onClick={{action "transitionTo" "parlacen"}}>
-        <div>
-          <img src="img/icono-parlacen.png" alt="Elección diputados del parlacen">
-          <p>Parlacen</p>
-        </div>
-      </BsButton>
-    </div>
-  </div>
-</div>
-
 <div class="container-fluid bg-light py-4">
   {{!-- Portofolio --}}
   <div class="row">
@@ -51,51 +7,6 @@
           <ItemPortfolio @profile={{profile}}></ItemPortfolio>
         {{/each}}
       </div>
-    </div>
-  </div>
-</div>
-
-<div class="container colaboradores">
-  {{!-- Un proyecto de --}}
-  <div class="row">
-    <div class="col-12 text-center">
-      <h5 class="font-weight-light">Un proyecto de:</h5>
-      <a
-        href="https://www.tse.gob.sv"
-        target="_blank"
-        rel="noopener">
-        <img src="img/colaboradores/logo-tse.png" class="ml-2" alt="Logo TSE">
-      </a>
-      <a
-        href="https://redciudadana.org/"
-        target="_blank"
-        rel="noopener">
-        <img src="mi-guatemala/img/logo-rc-color.png" alt="Logo Red Ciudadana">
-      </a>
-      <a
-        href="https://ciudadaniai.org/"
-        target="_blank"
-        rel="noopener">
-        <img src="img/colaboradores/CI_COLOR.png" alt="Logo Ciudadanía Inteligente">
-      </a>
-      <a
-        href="http://guatecambia.org.gt/"
-        target="_blank"
-        rel="noopener">
-        <img src="img/colaboradores/GuateCambia.png" alt="Logo GuateCambia">
-      </a>
-    </div>
-  </div>
-  {{!-- Gracias al apoyo de: --}}
-  <div class="row">
-    <div class="col-12 text-center">
-      <h5 class="font-weight-light">Gracias al apoyo de:</h5>
-      <a
-        href="https://www.kas.de/home"
-        target="_blank"
-        rel="noopener">
-        <img src="img/colaboradores/KAS.png" alt="Logo KAS">
-      </a>
     </div>
   </div>
 </div>

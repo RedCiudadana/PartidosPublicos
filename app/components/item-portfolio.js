@@ -1,4 +1,19 @@
 import Component from '@ember/component';
 
-export default Component.extend({
-});
+const resolver = {
+  institution: 'instituciones',
+  election: 'elecciones',
+  profile: 'perfiles'
+};
+
+export default class ItemPortfolioComponent extends Component {
+  constructor(...args) {
+    super(...arguments);
+    this.set('modelName', null);
+  }
+
+  didReceiveAttrs() {
+    this._super(...arguments);
+    this.set('modelName', resolver[this.profile._internalModel.modelName]);
+  }
+}
