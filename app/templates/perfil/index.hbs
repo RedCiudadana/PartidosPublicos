@@ -16,36 +16,14 @@
       <tbody>
         <tr>
           <td class="p-0 border-top-0">
-            <small>
-              <strong>Tipo de elección: </strong>{{profile.electionName}}
-            </small>
+            <strong>Nombre: </strong> {{model.profile.name}} {{model.profile.nombre}}
           </td>
         </tr>
-        <tr>
-          <td class="p1">
-            <small>
-              <strong>Partido Político: </strong>{{currentParty.nombreCompleto}}
-            </small>
-          </td>
-        </tr>
-        {{#if isPresident}}
-          <tr>
-            <td class="p-0">
-              <small>
-                <strong>Dupla presidencial: </strong>
-                {{#link-to "perfil" profile.vicepresident.typeCommonName profile.vicepresident.id}}
-                  <span class="text-secondary">{{profile.vicepresident.nombre}}</span>
-                {{/link-to}}
-              </small>
-            </td>
-          </tr>
-        {{/if}}
       </tbody>
     </table>
   </div>
   {{!-- Información extra, redes sociales --}}
   <div class="col-md-3 social-side p-3">
-    <img src={{model.currentParty.logo}} alt={{model.currentParty.nombreCorto}} class="foto-partido">
     <div class="d-block mt-3">
       {{!-- Página web --}}
       {{#if model.profile.web}}
