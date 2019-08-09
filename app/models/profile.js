@@ -21,11 +21,11 @@ export default Model.extend({
   experienciaProfesional: attr('string'),
   experienciaAcademica: attr('string'),
   publicaciones: attr('string'),
-  fotoUrl: attr('string'),
   fotoURL: attr('string'),
 
   // Relationships
   institution: belongsTo('institution'),
+  comission: belongsTo('institution'),
   election: belongsTo('election'),
 
   // Computed properties

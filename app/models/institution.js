@@ -4,12 +4,15 @@ import { computed } from '@ember/object';
 
 export default Model.extend({
   // Attributes
-  name: attr('string'),
+  nombre: attr('string'),
   sector: attr('string'),
   mision: attr('string'),
   vision: attr('string'),
-  contact: attr('string'),
-  photoURL: attr('string'),
+  correo: attr('string'),
+  telefono: attr('string'),
+  fb: attr('string'),
+  tw: attr('string'),
+  fotoURL: attr('string'),
 
   // Relationships
   members: hasMany('profile'),
@@ -20,9 +23,9 @@ export default Model.extend({
   /**
    * This computed property return photoURL if is not blank, else return a default image.
    */
-  photo: computed('photoURL', function() {
-    if (!isBlank(this.photoURL)) {
-      return this.photoURL;
+  photo: computed('fotoURL', function() {
+    if (!isBlank(this.fotoURL)) {
+      return this.fotoURL;
     }
 
     return 'http://centrumnaukiwesola.pl/wp-content/themes/bulhak-edu/img/default-avatar.png';
