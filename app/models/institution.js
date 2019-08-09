@@ -15,7 +15,9 @@ export default Model.extend({
   fotoURL: attr('string'),
 
   // Relationships
-  members: hasMany('profile'),
+  members: hasMany('profile', {
+    inverse: 'institution'
+  }),
   comision: hasMany('election'),
 
   // Computed properties

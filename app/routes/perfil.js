@@ -50,16 +50,16 @@ export default Route.extend({
         config: {},
         profile: profile,
         profiles: this.store.query('profile', {
-          institucion: profile.name
+          institucion: profile.id
         }),
         comissions: this.store.query('election', {
-          institution: profile.name
+          institution: profile.id
         }),
         candidates: this.store.query('profile', {
-          election: profile.name
+          election: profile.id
         }),
         commissioners: this.store.query('profile', {
-          comission: profile.name
+          comission: profile.id
         })
       });
     });
