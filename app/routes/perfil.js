@@ -119,9 +119,7 @@ export default Route.extend({
    */
   setupController(controller, model) {
     this._super(controller, model);
-
     // model.config.profileFunctions = model.profileFunctions;
-    // this.controllerFor('perfil.index').set('isPresident', model.profile.type === 'president');
   },
 
   /**

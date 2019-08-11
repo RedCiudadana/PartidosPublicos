@@ -16,9 +16,9 @@ export default Component.extend({
     }
 
     if(profile._internalModel.modelName === "profile") {
-      this.links.pushObjects([
-        { route: 'perfil.frente-a-frente', img: '', text: 'Compara'},
-      ]);
+      // this.links.pushObjects([
+      //   { route: 'perfil.frente-a-frente', img: '', text: 'Compara'},
+      // ]);
     }
 
     if(profile._internalModel.modelName === "election") {

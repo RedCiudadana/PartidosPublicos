@@ -1,1 +1,50 @@
-[{"id":"comision-1","nombre":"Postulación para elección del Procurador de los Derechos Humanos","institution":"institucion-1","fecha":"8/6/2019"},{"id":"comision-2","nombre":"Postulación para elección de Fiscal General y Jefe del Ministerio Público","institution":"institucion-2","fecha":"8/6/2019"},{"id":"comision-3","nombre":"Postulación para elección del Contralor General de Cuentas","institution":"institucion-3","fecha":"8/6/2019"},{"id":"comision-4","nombre":"Postulación para elección del Director del Instituto de la Defensa Pública Penal","institution":"institucion-4","fecha":"8/6/2019"},{"id":"comision-5","nombre":"Postulación para elección de Magistrados de la Corte Suprema de Justicia","institution":"institucion-1","fecha":"8/6/2019"},{"id":"comision-6","nombre":"Postulación para elección de Magistrados de la Corte de Apelaciones","institution":"institucion-2","fecha":"8/6/2019"},{"id":"comision-7","nombre":"Postulación para elección de Magistrados del Tribunal Supremo Electoral","institution":"institucion-3","fecha":"8/6/2019"},{"id":"comision-8","nombre":"Postulación para elección de Magistrados de la Corte de Constitucionalidad","institution":"institucion-4","fecha":"8/6/2019"}]
+[
+  {
+    "id": "comision-1",
+    "nombre": "Postulación para elección del Procurador de los Derechos Humanos",
+    "institution": "institucion-1",
+    "fechaEleccion": "8/6/2019"
+  },
+  {
+    "id": "comision-2",
+    "nombre": "Postulación para elección de Fiscal General y Jefe del Ministerio Público",
+    "institution": "institucion-2",
+    "fechaEleccion": "8/6/2019"
+  },
+  {
+    "id": "comision-3",
+    "nombre": "Postulación para elección del Contralor General de Cuentas",
+    "institution": "institucion-3",
+    "fechaEleccion": "8/6/2019"
+  },
+  {
+    "id": "comision-4",
+    "nombre": "Postulación para elección del Director del Instituto de la Defensa Pública Penal",
+    "institution": "institucion-4",
+    "fechaEleccion": "8/6/2019"
+  },
+  {
+    "id": "comision-5",
+    "nombre": "Postulación para elección de Magistrados de la Corte Suprema de Justicia",
+    "institution": "institucion-1",
+    "fechaEleccion": "8/6/2019"
+  },
+  {
+    "id": "comision-6",
+    "nombre": "Postulación para elección de Magistrados de la Corte de Apelaciones",
+    "institution": "institucion-2",
+    "fechaEleccion": "8/6/2019"
+  },
+  {
+    "id": "comision-7",
+    "nombre": "Postulación para elección de Magistrados del Tribunal Supremo Electoral",
+    "institution": "institucion-3",
+    "fechaEleccion": "8/6/2019"
+  },
+  {
+    "id": "comision-8",
+    "nombre": "Postulación para elección de Magistrados de la Corte de Constitucionalidad",
+    "institution": "institucion-4",
+    "fechaEleccion": "8/6/2019"
+  }
+]
