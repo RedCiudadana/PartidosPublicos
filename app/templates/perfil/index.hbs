@@ -3,7 +3,7 @@
   <div class="col-md-3 text-center p-3">
     <img
       id="photo-profile"
-      src={{model.profile.fotoPerfil}}
+      src={{model.profile.photo}}
       alt={{model.profile.nombre}}
       border="0"
       class="img-responsive center-block"
@@ -77,8 +77,11 @@
       </div>
       <BsCollapse @collapsed={{misionYVision}}>
         <div class="body">
-          {{#if availableInfo.misionYVision}}
-            <p>{{availableInfo.misionYVision}}</p>
+          {{#if (or model.profile.mision model.profile.vision)}}
+            <p>{{model.profile.mision}}</p>
+            <br>
+            <p>{{model.profile.vision}}</p>
+            {{!-- <p>{{availableInfo.misionYVision}}</p> --}}
           {{else}}
             <strong>No hay datos sobre la experiencia académica.</strong>
           {{/if}}
