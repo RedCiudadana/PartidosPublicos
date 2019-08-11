@@ -7,6 +7,12 @@ module.exports = function(deployTarget) {
     // include other plugin configuration that applies to all deploy targets here
   };
 
+  ENV.git = {
+    repo: 'https://github.com/RedCiudadana/MiGuatemala.git',
+    branch: 'gh-pages',
+    worktreePath: '/tmp/deploy-miguatemala'
+  };
+
   if (deployTarget === 'development') {
     ENV.build.environment = 'development';
     // configure other plugins for development deploy target here
@@ -19,13 +25,7 @@ module.exports = function(deployTarget) {
 
   if (deployTarget === 'production') {
     ENV.build.environment = 'production';
-
     // configure other plugins for production deploy target here
-    ENV.git = {
-      repo: 'https://github.com/RedCiudadana/MiGuatemala.git',
-      branch: 'gh-pages',
-      worktreePath: '/tmp/deploy-miguatemala'
-    };
   }
 
   // Note: if you need to build some configuration asynchronously, you can return

@@ -77,7 +77,8 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = contentSecurityPolicy;
     ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
 
-    ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
+    // ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
+    ENV.APP.staticFilesUrl = 'https://miguatemala.redciudadana.org/static-files/';
   }
 
   if (environment === 'test') {
