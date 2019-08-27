@@ -434,9 +434,12 @@ table.table.borderless {
 
 #navbar {
   .nav {
+    li {
+      margin-right: 10px;
+    }
+
     a {
       padding: 5px 15px;
-      margin-right: 10px;
       border-radius: 160px;
       font-weight: 200;
     }
@@ -444,6 +447,12 @@ table.table.borderless {
     a:hover {
       font-weight: 400;
       background-color: white;
+    }
+
+    .no-hover {
+      a {
+        padding: 5px;
+      }
     }
 
     .no-hover a:hover {
