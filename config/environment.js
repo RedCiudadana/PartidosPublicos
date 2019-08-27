@@ -78,7 +78,6 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
 
     ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
-    // ENV.APP.staticFilesUrl = 'https://miguatemala.redciudadana.org/static-files/';
   }
 
   if (environment === 'test') {
@@ -93,7 +92,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.staticFilesUrl = 'http://www.candidatos.gt/static-files/';
+    ENV.APP.staticFilesUrl = '/static-files/';
   }
 
   return ENV;
