@@ -4,8 +4,12 @@
   </div>
   <div class="card-body text-center">
     <h5 class="card-title">{{@profile.name}}{{@profile.nombre}}</h5>
-    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque est veniam ex, fuga ab velit.</p>
-    <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-primary">
+    <p class="card-text">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dicta quod ut assumenda debitis recusandae laboriosam fugiat accusamus, quis fuga eveniet officia porro! Enim facere veritatis sequi incidunt, veniam repellat.
+    </p>
+  </div>
+  <div class="card-footer bg-white text-center border-0">
+    <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-secondary">
       Más información
     </LinkTo>
   </div>

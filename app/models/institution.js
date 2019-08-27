@@ -30,6 +30,6 @@ export default Model.extend({
       return this.fotoURL;
     }
 
-    return 'http://centrumnaukiwesola.pl/wp-content/themes/bulhak-edu/img/default-avatar.png';
+    return 'img/img-default.png';
   })
 });

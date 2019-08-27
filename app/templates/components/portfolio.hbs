@@ -1,7 +1,7 @@
 {{!-- Portofolio --}}
 <div class="row">
   <div class="col-10 offset-1">
-    <div id="portfolio" class="portfolio clearfix my-4 row justify-content-center">
+    <div id="portfolio" class="portfolio clearfix my-4 row row-eq-height">
       {{#each content as |profile|}}
         <ItemPortfolio @profile={{profile}} />
       {{/each}}

@@ -10,7 +10,7 @@ export default class ItemPortfolioComponent extends Component {
   constructor() {
     super(...arguments);
     this.set('modelName', null);
-    this.set('classNames', ['col-12', 'col-md-3']);
+    this.set('classNames', ['mb-4', 'col-12', 'col-sm-6', 'col-md-4', 'col-xl-3']);
   }
 
   didReceiveAttrs() {

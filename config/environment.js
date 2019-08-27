@@ -51,7 +51,7 @@ module.exports = function(environment) {
       // En otro caso estrablecer la url de '/static-files/' los archivos descargados.
 
       // Datos desde spreadsheets en vivo.
-      staticFilesUrl: null
+      // staticFilesUrl: null
 
       // Datos desde localhost => desarrollo
       // staticFilesUrl: 'http://192.168.250.206:4200/static-files/'
@@ -77,8 +77,8 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy = contentSecurityPolicy;
     ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
 
-    // ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
-    ENV.APP.staticFilesUrl = 'https://miguatemala.redciudadana.org/static-files/';
+    ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
+    // ENV.APP.staticFilesUrl = 'https://miguatemala.redciudadana.org/static-files/';
   }
 
   if (environment === 'test') {
