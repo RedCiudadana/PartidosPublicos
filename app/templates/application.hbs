@@ -2,14 +2,43 @@
 
 {{title "CandiDatos - RedCiudadana"}}
 
-{{!-- Socialbar --}}
-<div class="container-fluid bg-dark">
-  <div class="row">
-    <div class="col-12 text-white py-3 top-banner">
-      <div class="float-left">
-        Elecciones Generales, Guatemala 2019
-      </div>
-      <div class="float-right">
+{{!-- Navbar --}}
+<BsNavbar
+  id="navbar"
+  @backgroundColor="primary"
+  @type="dark"
+  @position="sticky-top"
+  @fluid={{false}} as |navbar|>
+  <div class="navbar-header">
+    {{navbar.toggle}}
+
+    {{#link-to "application" class="navbar-brand"}}
+      <img
+        src="logo-brand.png"
+        class="img-responsive"
+        title={{nombreApp}}
+        alt="Congreso"
+        height="70">
+    {{/link-to}}
+  </div>
+
+  <navbar.content>
+    <navbar.nav @justified={{true}} type="pills" class="ml-auto" as |nav|>
+      {{#each model.navbarLinks as |link|}}
+        <nav.item @active={{false}}>
+          {{#link-to link.route}}{{link.title}}{{/link-to}}
+        </nav.item>
+      {{/each}}
+
+      <nav.item @active={{false}}>
+        <LinkTo @route="perfiles" @model="perfiles">Sector Justicia</LinkTo>
+      </nav.item>
+
+      <nav.item @active={{false}}>
+        <LinkTo @route="perfiles" @model="instituciones">Elecciones</LinkTo>
+      </nav.item>
+
+      <nav.item class="no-hover">
         <a
           href="https://www.facebook.com/Redciudadanagt/"
           target="_blank"
@@ -31,46 +60,6 @@
             height="25px"
             width="25px">
         </a>
-        <ShareFacebook class="ml-3 d-inline" />
-        <ShareTwitter class="d-inline" />
-      </div>
-    </div>
-  </div>
-</div>
-
-{{!-- Navbar --}}
-<BsNavbar
-  @backgroundColor="dark"
-  @type="dark"
-  @position="sticky-top"
-  @fluid={{false}} as |navbar|>
-  <div class="navbar-header">
-    {{navbar.toggle}}
-
-    {{#link-to "application" class="navbar-brand"}}
-      <img
-        src="logo-brand.png"
-        class="img-responsive"
-        title={{nombreApp}}
-        alt="Congreso"
-        height="70">
-    {{/link-to}}
-  </div>
-
-  <navbar.content>
-    <navbar.nav @justified={{true}} type="pills" class="ml-auto" as |nav|>
-      {{#each model.navbarLinks as |link|}}
-        <nav.item @active={{false}} class="mx-4">
-          {{#link-to link.route}}{{link.title}}{{/link-to}}
-        </nav.item>
-      {{/each}}
-
-      <nav.item @active={{false}} class="mx-4">
-        <LinkTo @route="perfiles" @model="perfiles">Perfiles</LinkTo>
-      </nav.item>
-
-      <nav.item @active={{false}} class="mx-4">
-        <LinkTo @route="perfiles" @model="instituciones">Instituciones</LinkTo>
       </nav.item>
 
     </navbar.nav>

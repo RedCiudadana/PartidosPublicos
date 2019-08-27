@@ -1,7 +1,12 @@
 // COLORS
 
-$primary: #0e8acb;
-$secondary: #0e8acb;
+// $primary: #0e8acb;
+// $secondary: #0e8acb;
+
+// Justicipedia
+$primary: #6a649c;
+$secondary: #475660;
+
 $success: #0cab55;
 $warning: #fab026;
 
@@ -11,7 +16,7 @@ $light: #f1f1f1;
 // $navbar-color: #3a3a3a;
 $navbar-color: #ffffff;
 
-$footer-background-color: #202d3e;
+$footer-background-color: #4c4c4c;
 $footer-color: #ffffff;
 
 $border-radius: 5px;
@@ -425,4 +430,34 @@ table.table.borderless {
     div {
         margin-top: 10%;
     }
+}
+
+#navbar {
+  .nav {
+    a {
+      padding: 5px 15px;
+      margin-right: 10px;
+      border-radius: 160px;
+      font-weight: 200;
+    }
+
+    a:hover {
+      font-weight: 400;
+      background-color: white;
+    }
+
+    .no-hover a:hover {
+      background-color: unset;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  #navbar {
+    .nav {
+      li {
+        margin-bottom: 20px;
+      }
+    }
+  }
 }
