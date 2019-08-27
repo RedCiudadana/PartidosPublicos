@@ -1,6 +1,6 @@
-<div class="row m-1 my-4 bg-white panel">
+<div class="row m-1 my-4 bg-white panel py-5">
   {{!-- Imagen --}}
-  <div class="col-md-3 text-center p-3">
+  <div class="col-md-4 text-center">
     <img
       id="photo-profile"
       src={{model.profile.photo}}
@@ -10,13 +10,16 @@
     >
   </div>
   {{!-- Información general --}}
-  <div class="col-md-6 p-3">
+  <div class="col-md-5 border-right">
     <h3>{{model.profile.nombre}}</h3>
-    <table class="table w-75">
+    <p class="font-weight-light">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore sit nam consequuntur laboriosam reprehenderit architecto inventore accusantium quod. Placeat quis saepe quibusdam natus perferendis alias adipisci quae nesciunt vitae ratione!
+    </p>
+    <table class="table w-100">
       <tbody>
         {{#each-in campos as |key campo|}}
           <tr>
-            <td class="p-0 border-top-0">
+            <td>
               <strong>{{humanize (dasherize campo)}}: </strong> {{get model.profile campo}}
             </td>
           </tr>
@@ -25,8 +28,28 @@
     </table>
   </div>
   {{!-- Información extra, redes sociales --}}
-  <div class="col-md-3 social-side p-3">
+  <div class="col-md-3 social-side">
     <div class="d-block mt-3">
+      {{!-- Dirección --}}
+      {{!-- @TODO: Actualizar esto cuando esten bien definidos los modelos --}}
+      {{#if model.profile.correo}}
+        <div>
+          <a href={{model.profile.web}} target="_blank" rel="noopener">
+            <i class="fa fa-map-marker mx-2"></i>Guatemala, Guatemala
+            {{model.profile.direccion}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Número de teléfono --}}
+      {{!-- @TODO: Actualizar esto cuando esten bien definidos los modelos --}}
+      {{#if model.profile.correo}}
+        <div>
+          <a href={{model.profile.web}} target="_blank" rel="noopener">
+            <i class="fa fa-phone mx-2"></i>Guatemala, Guatemala
+            {{model.profile.phone}}
+          </a>
+        </div>
+      {{/if}}
       {{!-- Página web --}}
       {{#if model.profile.web}}
         <div>
@@ -69,10 +92,11 @@
 
 {{#if (eq model.profile._internalModel.modelName "institution")}}
 {{!-- Misión y Visión --}}
-<div class="row">
+{{!-- @TODO: Evaluar persistencia. En el diseño no se encuentran --}}
+{{!-- <div class="row">
   <div class="col-12">
     <div class="panel">
-      <div {{action (toggle "misionYVision" this)}} class="header d-flex bg-secondary">
+      <div {{action (toggle "misionYVision" this)}} class="header d-flex bg-primary">
         <img src="img/icono-experiencia-academica.png" alt="Icono años">
         <h3>Misión y Visión</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
@@ -83,7 +107,6 @@
             <p>{{model.profile.mision}}</p>
             <br>
             <p>{{model.profile.vision}}</p>
-            {{!-- <p>{{model.profile.misionYVision}}</p> --}}
           {{else}}
             <strong>No hay datos sobre la experiencia académica.</strong>
           {{/if}}
@@ -91,18 +114,18 @@
       </BsCollapse>
     </div>
   </div>
-</div>
+</div> --}}
+
 {{!-- Autoridades --}}
 <div class="row">
   <div class="col-12">
     <div class="panel">
-      <div {{action (toggle "autoridades" this)}} class="header d-flex bg-secondary">
+      <div class="header d-flex bg-primary">
         <img src="img/icono-experiencia-academica.png" alt="Icono años">
         <h3>Autoridades</h3>
-        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
-      <BsCollapse @collapsed={{autoridades}}>
-        <div class="body">
+      <div>
+        <div class="body p-1">
           {{#if model.profile.autoridades}}
             <p>{{model.profile.autoridades}}</p>
           {{else}}
@@ -113,7 +136,7 @@
               />
           {{/if}}
         </div>
-      </BsCollapse>
+      </div>
     </div>
   </div>
 </div>
@@ -121,17 +144,17 @@
 <div class="row">
   <div class="col-12">
     <div class="panel">
-      <div {{action (toggle "presupuesto" this)}} class="header d-flex bg-secondary">
+      <div class="header d-flex bg-primary">
         <img src="img/icono-experiencia-academica.png" alt="Icono años">
         <h3>Presupuesto</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
-      <BsCollapse @collapsed={{presupuesto}}>
+      <BsCollapse @collapsed={{not presupuesto}}>
         <div class="body">
           {{#if model.profile.presupuesto}}
             <p>{{model.profile.presupuesto}}</p>
           {{else}}
-            <strong>No hay datos sobre la experiencia académica.</strong>
+            <strong>No hay datos sobre el presupuesto.</strong>
           {{/if}}
         </div>
       </BsCollapse>
@@ -144,7 +167,7 @@
 <div class="row">
   <div class="col-12">
     <div class="panel">
-      <div {{action (toggle "biografia" this)}} class="header d-flex bg-secondary">
+      <div {{action (toggle "biografia" this)}} class="header d-flex bg-primary">
         <img src="img/icono-experiencia-academica.png" alt="Icono años">
         <h3>Biografía</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
@@ -165,7 +188,7 @@
   {{!-- Experiencia Académica --}}
   <div class="col-md-6">
     <div class="panel">
-      <div {{action (toggle "experiencia" this)}} class="header d-flex bg-secondary">
+      <div {{action (toggle "experiencia" this)}} class="header d-flex bg-primary">
         <img src="img/icono-experiencia-academica.png" alt="Icono años">
         <h3>Experiencia Académica</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
@@ -184,7 +207,7 @@
   {{!-- Experiencia Profesional --}}
   <div class="col-md-6">
     <div class="panel">
-      <div class="header d-flex bg-secondary" {{action (toggle "partidos" this)}}>
+      <div class="header d-flex bg-primary" {{action (toggle "partidos" this)}}>
         <img src="img/icono-historial-politico.png" alt="Icono cargo">
         <h3>Experiencia Profesional</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
@@ -207,7 +230,7 @@
 <div class="row">
   <div class="col-12">
     <div class="panel">
-      <div {{action (toggle "comissioners" this)}} class="header d-flex bg-secondary">
+      <div {{action (toggle "comissioners" this)}} class="header d-flex bg-primary">
         <img src="img/icono-experiencia-academica.png" alt="Icono años">
         <h3>Comisionados</h3>
         {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}

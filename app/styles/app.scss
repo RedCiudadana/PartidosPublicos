@@ -228,10 +228,14 @@ h1, h2, h3, h4, h5, h6, strong {
     margin-top: -25px;
     margin-bottom: -25px;
 
-    .table tr {
-        border: 0 0 2px 0 solid $light;
+    .profile img#photo-profile {
+      width: 100%;
+      height: auto;
+    }
 
+    table th, .table {
         td {
+            border-top: 1px solid #e3e5e6 !important;
             padding: 6px !important;
         }
     }
