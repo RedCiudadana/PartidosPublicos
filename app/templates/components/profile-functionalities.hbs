@@ -5,25 +5,18 @@
 </div>
 {{!-- 'Navbar' para perfiles --}}
 <div class="row my-2">
-  <div class="col-12 p-0 border shadow">
+  <div class="col-12 p-0 border shadow bg-white rounded">
     <BsNav
       @type="pills"
-      @justified={{true}}
+      @justified={{false}}
       @stacked={{false}}
-      @fill={{true}}
+      @fill={{false}}
     as |nav|>
       {{#each links as |link|}}
-        <nav.item @linkTo={{link.route}}>
+        <nav.item @linkTo={{link.route}} class="p-0">
           {{link.text}}
         </nav.item>
       {{/each}}
-      {{!-- Redes sociales en (viewport > sm) --}}
-      <nav.item class="social">
-        <div>
-          {{share-twitter}}
-          {{share-facebook}}
-        </div>
-      </nav.item>
     </BsNav>
   </div>
 </div>

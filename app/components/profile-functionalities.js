@@ -11,7 +11,7 @@ export default Component.extend({
     if(profile._internalModel.modelName === "institution") {
       this.links.pushObjects([
         { route: 'perfil.autoridades', img: '', text: 'Autoridades'},
-        { route: 'perfil.comision', img: '', text: 'Comisión de postulación' },
+        // { route: 'perfil.comision', img: '', text: 'Comisión de postulación' },
       ]);
     }
 

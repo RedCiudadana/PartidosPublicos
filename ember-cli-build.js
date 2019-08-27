@@ -5,7 +5,10 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const nodeSass = require('node-sass');
 
 module.exports = function(defaults) {
+  let envIsDevelopment = process.env.EMBER_ENV === "development";
   let app = new EmberApp(defaults, {
+    hinting: !envIsDevelopment,
+    // tests: !envIsDevelopment,
     SRI: {
       enabled: false
     },
