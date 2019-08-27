@@ -9,7 +9,7 @@
   </div>
 </div>
 <div class="container-fluid bg-white py-5">
-  <div class="row py-5 mb-5">
+  <div class="row py-5">
     <div class="col-12 text-center offset-lg-1 col-lg-5 text-lg-left">
       <h2 class="mb-3">¿Qué es Justicipedia?</h2>
       <p>
@@ -21,9 +21,27 @@
       </p>
     </div>
     <div class="col-12 col-lg-5">
-
+      {{!-- Video --}}
+    </div>
+  </div>
+  <div class="row py-5">
+    <div class="col-12 offset-lg-1 col-lg-11">
+      <h2>Elija la categoria de tu interes</h2>
+    </div>
+    <div class="col-12 text-center offset-lg-1 col-lg-5 border-right">
+      <h2 class="my-5 py-5">Sector Justicia</h2>
+    </div>
+    <div class="col-12 text-center col-lg-5">
+      <h2 class="my-5 py-5">Elecciones</h2>
     </div>
   </div>
   {{!-- Portofolio --}}
-  <Portfolio @profiles={{model}}/>
+  <div class="row mt-5">
+    <div class="col-12 offset-lg-1 col-lg-11">
+      <div class="border-bottom w-100" style="height: 20px">
+        <h3 class="bg-white w-50 pr-3">Instituciones de Sector Justicia</h3>
+      </div>
+    </div>
+  </div>
+  <Portfolio @profiles={{model}} class="mt-5"/>
 </div>

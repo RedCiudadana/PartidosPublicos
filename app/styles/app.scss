@@ -19,6 +19,7 @@ $navbar-color: #ffffff;
 $footer-background-color: #4c4c4c;
 $footer-color: #ffffff;
 
+$border-width: 2px;
 $border-radius: 5px;
 
 @import "ember-bootstrap/bootstrap";
@@ -188,6 +189,10 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 // Others
+
+.w-fit {
+  width: fit-content;
+}
 
 .btn-square {
     width: 250px;
@@ -471,3 +476,4 @@ table.table.borderless {
     }
   }
 }
+
