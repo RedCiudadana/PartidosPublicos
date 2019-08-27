@@ -7,9 +7,10 @@ const resolver = {
 };
 
 export default class ItemPortfolioComponent extends Component {
-  constructor(...args) {
+  constructor() {
     super(...arguments);
     this.set('modelName', null);
+    this.set('classNames', ['col-12', 'col-md-3']);
   }
 
   didReceiveAttrs() {

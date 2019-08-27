@@ -1,17 +1,12 @@
-<article class="item {{@profile.selector}}">
-  <div class="background bg-white">
-    <div class="image">
-      <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
-        <img alt={{@profile.name}} src={{@profile.photo}}>
-      </LinkTo>
-    </div>
-    <div class="text">
-      <div class="text-name">
-        <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
-          <h6>{{@profile.name}}{{@profile.nombre}}</h6>
-        </LinkTo>
-      </div>
-      <h6 class="font-weight-light">{{@profile.electionName}}</h6>
-    </div>
+<div class="card px-0 {{@profile.selector}}">
+  <div class="img-wrapper">
+    <img alt={{@profile.name}} src={{@profile.photo}} class="card-img-top">
   </div>
-</article>
+  <div class="card-body text-center">
+    <h5 class="card-title">{{@profile.name}}{{@profile.nombre}}</h5>
+    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque est veniam ex, fuga ab velit.</p>
+    <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-primary">
+      Más información
+    </LinkTo>
+  </div>
+</div>

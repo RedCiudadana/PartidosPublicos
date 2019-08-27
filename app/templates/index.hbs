@@ -1,12 +1,4 @@
 <div class="container-fluid bg-light py-4">
   {{!-- Portofolio --}}
-  <div class="row">
-    <div class="col-10 offset-1">
-      <div id="portfolio" class="portfolio clearfix my-4">
-        {{#each model as |profile|}}
-          <ItemPortfolio @profile={{profile}}></ItemPortfolio>
-        {{/each}}
-      </div>
-    </div>
-  </div>
+  <Portfolio @profiles={{model}}/>
 </div>
