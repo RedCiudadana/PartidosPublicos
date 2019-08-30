@@ -4,8 +4,8 @@
 // $secondary: #0e8acb;
 
 // Justicipedia
-$primary: #6a649c;
-$secondary: #475660;
+$primary: #475660;
+$secondary: #6a649c;
 
 $success: #0cab55;
 $warning: #fab026;
@@ -16,7 +16,8 @@ $light: #f1f1f1;
 // $navbar-color: #3a3a3a;
 $navbar-color: #ffffff;
 
-$footer-background-color: #4c4c4c;
+// $footer-background-color: #4c4c4c;
+$footer-background-color: $primary;
 $footer-color: #ffffff;
 
 $border-width: 2px;
@@ -485,4 +486,10 @@ table.table.borderless {
 
 .text-enfasis {
   color: #c9c7db;
+}
+
+@include media-breakpoint-up(md) {
+  .w-md-50 {
+    width: 50%
+  }
 }
