@@ -1,16 +1,36 @@
-<div class="card px-0 {{@profile.selector}}">
-  <div class="img-wrapper">
-    <img alt={{@profile.name}} src={{@profile.photo}} class="card-img-top">
+{{#if (eq @profile._internalModel.modelName "profile")}}
+  <article class="item {{@profile.selector}}">
+    <div class="background bg-white">
+      <div class="image-wrapper">
+        <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
+          <img alt={{@profile.name}} src={{@profile.photo}}>
+        </LinkTo>
+      </div>
+      <div class="text">
+        <div class="text-name">
+          <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
+            <h6>{{@profile.name}}{{@profile.nombre}}</h6>
+          </LinkTo>
+        </div>
+        <h6 class="font-weight-light">{{@profile.electionName}}</h6>
+      </div>
+    </div>
+  </article>
+{{else}}
+  <div class="card px-0 {{@profile.selector}}">
+    <div class="img-wrapper">
+      <img alt={{@profile.name}} src={{@profile.photo}} class="card-img-top">
+    </div>
+    <div class="card-body text-center p-lg-4">
+      <h5 class="card-title">{{@profile.name}}{{@profile.nombre}}</h5>
+      <p class="card-text">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dicta quod ut assumenda debitis recusandae laboriosam fugiat accusamus, quis fuga eveniet officia porro! Enim facere veritatis sequi incidunt, veniam repellat.
+      </p>
+    </div>
+    <div class="card-footer bg-white text-center border-0">
+      <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-secondary">
+        Más información
+      </LinkTo>
+    </div>
   </div>
-  <div class="card-body text-center p-lg-4">
-    <h5 class="card-title">{{@profile.name}}{{@profile.nombre}}</h5>
-    <p class="card-text">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dicta quod ut assumenda debitis recusandae laboriosam fugiat accusamus, quis fuga eveniet officia porro! Enim facere veritatis sequi incidunt, veniam repellat.
-    </p>
-  </div>
-  <div class="card-footer bg-white text-center border-0">
-    <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-secondary">
-      Más información
-    </LinkTo>
-  </div>
-</div>
+{{/if}}

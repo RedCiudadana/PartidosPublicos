@@ -490,6 +490,10 @@ table.table.borderless {
 
 @include media-breakpoint-up(md) {
   .w-md-50 {
-    width: 50%
+    width: 50% !important;
+  }
+
+  .w-md-fit {
+    width: fit-content !important;
   }
 }
