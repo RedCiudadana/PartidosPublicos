@@ -32,9 +32,9 @@ Router.map(function() {
    */
   this.route('perfil', { path: '/:model/:id' }, function() {
     this.route('autoridades');
-    this.route('comision');
     this.route('frente-a-frente');
     this.route('candidatos');
+    this.route('elecciones');
   });
 
   this.route('perfiles', { path: '/:model'});

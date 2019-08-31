@@ -6,7 +6,7 @@
       src={{model.profile.photo}}
       alt={{model.profile.nombre}}
       border="0"
-      class="img-responsive center-block"
+      class="img-responsive center-block mb-4"
     >
   </div>
   {{!-- Información general --}}
@@ -126,14 +126,14 @@
       </div>
       <div>
         <div class="body p-1">
-          {{#if model.profile.autoridades}}
-            <p>{{model.profile.autoridades}}</p>
-          {{else}}
+          {{#if model.profiles}}
             <Portfolio
               @bg="white"
               @profiles={{model.profiles}}
               @pagination={{false}}
               />
+          {{else}}
+            <p class="px-5 pt-3">No hay información</p>
           {{/if}}
         </div>
       </div>
@@ -150,10 +150,11 @@
       </div>
       <div>
         <div class="body p-1">
-          {{#if model.profile.presupuesto}}
-            <p>{{model.profile.presupuesto}}</p>
+          {{#if lineData}}
+          {{!-- {{#if model.profile.presupuesto}} --}}
+            {{ember-chart type='line' data=lineData class="p-0 p-lg-5"}}
           {{else}}
-            {{ember-chart type='line' data=lineData}}
+            <p class="px-5 pt-3">No hay información</p>
           {{/if}}
         </div>
       </div>

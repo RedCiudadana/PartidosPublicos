@@ -13,7 +13,7 @@
       @fill={{false}}
     as |nav|>
       {{#each links as |link|}}
-        <nav.item @linkTo={{link.route}} class="p-0">
+        <nav.item @linkTo={{link.route}} @disabled={{link.disabled}} class="p-0">
           {{link.text}}
         </nav.item>
       {{/each}}

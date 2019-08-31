@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { A } from '@ember/array';
 
 export default Component.extend({
-  init({ model: { profile } }) {
+  init({ model: { profile, profiles, elections} }) {
     this._super(...arguments);
     this.set('links', A([
     { route: 'perfil.index', img: 'img/icono-perfil.png', text: 'Información general' }
@@ -10,8 +10,8 @@ export default Component.extend({
 
     if(profile._internalModel.modelName === "institution") {
       this.links.pushObjects([
-        { route: 'perfil.autoridades', img: '', text: 'Autoridades'},
-        { route: 'perfil.comision', img: '', text: 'Comisión de postulación' },
+        { route: 'perfil.autoridades', img: '', text: 'Autoridades', disabled: profiles.length < 1},
+        { route: 'perfil.elecciones', img: '', text: 'Elecciones', disabled: elections.length < 1},
       ]);
     }
 

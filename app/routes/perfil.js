@@ -52,7 +52,7 @@ export default Route.extend({
         profiles: this.store.query('profile', {
           institucion: profile.id
         }),
-        comissions: this.store.query('election', {
+        elections: this.store.query('election', {
           institution: profile.id
         }),
         candidates: this.store.query('profile', {
