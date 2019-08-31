@@ -1,19 +1,27 @@
 .card {
   border-width: 2px;
   height: 100%;
-}
 
-.img-wrapper {
-  width: 100%;
-  height: auto;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
-  overflow: hidden;
+  .img-wrapper {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+    overflow: hidden;
+  }
 }
 
 .item {
   width: 100%;
+  height: 100%;
 
   img {
     width: 80%;
+    height: 80%;
   }
+
+  .img-wrapper {
+    max-height: 40% !important;
+    overflow: hidden;
+  }
+
 }

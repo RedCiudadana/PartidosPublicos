@@ -1,7 +1,7 @@
 {{#if (eq @profile._internalModel.modelName "profile")}}
-  <article class="item {{@profile.selector}}">
-    <div class="background bg-white">
-      <div class="image-wrapper">
+  <article class="item {{@profile.selector}} bg-white">
+    <div class="background">
+      <div class="img-wrapper">
         <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
           <img alt={{@profile.name}} src={{@profile.photo}}>
         </LinkTo>
@@ -23,9 +23,11 @@
     </div>
     <div class="card-body text-center p-lg-4">
       <h5 class="card-title">{{@profile.name}}{{@profile.nombre}}</h5>
-      <p class="card-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dicta quod ut assumenda debitis recusandae laboriosam fugiat accusamus, quis fuga eveniet officia porro! Enim facere veritatis sequi incidunt, veniam repellat.
-      </p>
+      {{#if (not fit)}}
+        <p class="card-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa dicta quod ut assumenda debitis recusandae laboriosam fugiat accusamus, quis fuga eveniet officia porro! Enim facere veritatis sequi incidunt, veniam repellat.
+        </p>
+      {{/if}}
     </div>
     <div class="card-footer bg-white text-center border-0">
       <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-secondary">

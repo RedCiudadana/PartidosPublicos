@@ -162,9 +162,7 @@ h1, h2, h3, h4, h5, h6, strong {
 }
 
 .panel, .shadow {
-    -webkit-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
-    -moz-box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
-    box-shadow: 3px 3px 8px 2px rgba(209,209,209,1);
+    @extend .shadow-sm;
 
     .header h3{
         font-size: 1.2rem !important;
