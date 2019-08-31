@@ -15,12 +15,12 @@ export default Controller.extend({
         datasets: [
             {
                 label: "My First dataset",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
+                fillColor: "#F7464A",
+                strokeColor: "rgba(10,10,10,1)",
+                pointColor: "rgba(10,10,10,1)",
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
+                pointHighlightStroke: "rgba(10,10,10,1)",
                 data: [parseInt(this.get('lineValue1')), parseInt(this.get('lineValue2')), 80, 81, 56, 55, 40]
             },
             {

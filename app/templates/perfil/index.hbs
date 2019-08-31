@@ -237,14 +237,14 @@
       </div>
       <BsCollapse @collapsed={{comissioners}}>
         <div class="body">
-          {{#if model.profile.comissioners}}
-            <p>{{model.profile.comissioners}}</p>
-          {{else}}
+          {{#if model.comissioners}}
             <Portfolio
               @bg="white"
               @profiles={{model.commissioners}}
               @pagination={{false}}
               />
+          {{else}}
+            <p>No hay información</p>
           {{/if}}
         </div>
       </BsCollapse>
