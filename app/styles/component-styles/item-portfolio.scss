@@ -10,6 +10,10 @@
   overflow: hidden;
 }
 
-.item, .item img {
+.item {
   width: 100%;
+
+  img {
+    width: 80%;
+  }
 }

@@ -121,7 +121,7 @@
   <div class="col-12">
     <div class="panel">
       <div class="header d-flex bg-primary">
-        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <img src="img/i-personas.png" alt="Icono años">
         <h3>Autoridades</h3>
       </div>
       <div>
@@ -145,19 +145,18 @@
   <div class="col-12">
     <div class="panel">
       <div class="header d-flex bg-primary">
-        <img src="img/icono-experiencia-academica.png" alt="Icono años">
+        <img src="img/i-personas.png" alt="Icono años">
         <h3>Presupuesto</h3>
-        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
       </div>
-      <BsCollapse @collapsed={{not presupuesto}}>
-        <div class="body">
+      <div>
+        <div class="body p-1">
           {{#if model.profile.presupuesto}}
             <p>{{model.profile.presupuesto}}</p>
           {{else}}
-            <strong>No hay datos sobre el presupuesto.</strong>
+            {{ember-chart type='line' data=lineData}}
           {{/if}}
         </div>
-      </BsCollapse>
+      </div>
     </div>
   </div>
 </div>

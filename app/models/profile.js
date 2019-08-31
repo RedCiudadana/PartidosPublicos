@@ -24,9 +24,9 @@ export default Model.extend({
   fotoURL: attr('string'),
 
   // Relationships
-  institution: belongsTo('institution'),
-  comission: belongsTo('institution'),
-  election: belongsTo('election'),
+  institution: belongsTo('institution', { async: false }),
+  comission: belongsTo('institution', { async: false }),
+  election: belongsTo('election', { async: false }),
 
   // Computed properties
 

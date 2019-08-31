@@ -4,6 +4,9 @@ import { alias, oneWay } from '@ember/object/computed';
 import { computed } from '@ember/object';
 
 export default Component.extend({
+  colSize: '10',
+  offset: '1',
+
   didReceiveAttrs() {
     this._super(...arguments);
     if(!this.pagination) {
