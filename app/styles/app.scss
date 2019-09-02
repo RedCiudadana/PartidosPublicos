@@ -237,6 +237,10 @@ h1, h2, h3, h4, h5, h6, strong {
             border-top: 1px solid #e3e5e6 !important;
             padding: 6px !important;
         }
+
+        tr:first-child td {
+          border-top: 0 !important;
+        }
     }
 
     .social-side {
@@ -258,6 +262,10 @@ h1, h2, h3, h4, h5, h6, strong {
       padding-top: 0px;
       margin-bottom: 0;
       padding-bottom: 0;
+    }
+
+    .profile #photo-profile {
+      max-height: unset;
     }
 }
 

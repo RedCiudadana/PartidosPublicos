@@ -6,18 +6,29 @@ export default Route.extend({
     this._super(controller, model);
 
     if(model.profile._internalModel.modelName === 'institution') {
-      controller.set('campos',
-        ['nombre', 'sector', 'telefono']);
+      controller.set('campos',{
+        nombre: 'Nombre',
+        sector: 'Sector',
+        telefono: 'Telefono'
+      });
     }
 
     if(model.profile._internalModel.modelName === 'profile') {
       controller.set('campos',
-        ['puesto', 'estadocivil', 'profesion', 'nocolegiado', 'anosexperiencia']);
+        {
+          puesto: 'Puesto',
+          estadocivil: 'Estado civil',
+          profesion: 'Profesión',
+          nocolegiado: 'No. Colegiado',
+          anosexperiencia: 'Años de experiencia',
+        });
     }
 
     if(model.profile._internalModel.modelName === 'election') {
       controller.set('campos',
-        ['nombre', 'fechaEleccion']);
+        {
+          fechaEleccion: 'Fecha a realizarse la elección'
+        });
     }
 
     controller.setProperties(model);

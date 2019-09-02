@@ -23,6 +23,10 @@ export default Model.extend({
   publicaciones: attr('string'),
   fotoURL: attr('string'),
 
+  correo: attr('string', { defaultValue: 'name@example.com'}),
+  tw: attr('string', { defaultValue: 'https://twitter.com/name'}),
+  fb: attr('string', { defaultValue: 'https://facebook.com/name'}),
+
   // Relationships
   institution: belongsTo('institution', { async: false }),
   comission: belongsTo('institution', { async: false }),
