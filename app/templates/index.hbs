@@ -35,14 +35,18 @@
     </div>
     <div class="col-12 offset-lg-1 col-lg-5 border-right">
       <h2 class="my-5 py-0 py-md-5">
-        <img src="/img/i-justicia.png" alt="Mazo" class="mr-lg-3">
-        Sector Justicia
+        <LinkTo @route="perfiles" @model={{"instituciones"}} @query={{hash sector="justicia"}}>
+          <img src="/img/i-justicia.png" alt="Mazo" class="mr-lg-3">
+          Sector Justicia
+        </LinkTo>
       </h2>
     </div>
     <div class="col-12 col-lg-5">
       <h2 class="my-5 py-0 py-md-5">
-        <img src="/img/i-personas-d.png" alt="Edificio" class="mr-lg-3">
-        Elecciones
+        <LinkTo @route="perfiles" @model={{"elecciones"}}>
+          <img src="/img/i-personas-d.png" alt="Edificio" class="mr-lg-3">
+          Elecciones
+        </LinkTo>
       </h2>
     </div>
   </div>
