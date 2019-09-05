@@ -22,10 +22,9 @@ export default Model.extend({
   experienciaAcademica: attr('string'),
   publicaciones: attr('string'),
   fotoURL: attr('string'),
-
-  correo: attr('string', { defaultValue: 'name@example.com'}),
-  tw: attr('string', { defaultValue: 'https://twitter.com/name'}),
-  fb: attr('string', { defaultValue: 'https://facebook.com/name'}),
+  correo: attr('string'),
+  tw: attr('string'),
+  fb: attr('string'),
 
   // Relationships
   institution: belongsTo('institution', { async: false }),
