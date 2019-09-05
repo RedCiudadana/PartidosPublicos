@@ -50,7 +50,7 @@ export default Route.extend({
         config: {},
         profile: profile,
         profiles: this.store.query('profile', {
-          institucion: profile.id
+          institution: profile.id
         }),
         elections: this.store.query('election', {
           institution: profile.id
