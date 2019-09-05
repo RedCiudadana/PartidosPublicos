@@ -9,6 +9,7 @@ export default Model.extend({
   mision: attr('string'),
   vision: attr('string'),
   correo: attr('string'),
+  descripcion: attr('string'),
   telefono: attr('string'),
   fb: attr('string'),
   tw: attr('string'),
