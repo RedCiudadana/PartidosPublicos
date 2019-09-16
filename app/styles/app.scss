@@ -11,7 +11,7 @@ $success: #0cab55;
 $warning: #fab026;
 
 $dark: #202d3e;
-$light: #f1f1f1;
+$light: #F2F2F2;
 
 // $navbar-color: #3a3a3a;
 $navbar-color: #ffffff;
@@ -42,15 +42,31 @@ $border-radius: 5px;
  * Panel
  */
 
+@font-face {
+  font-family: 'Zona Pro';
+  src: url(/fonts/ZonaPro-Bold.otf) format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url(/fonts/Lato-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
 // HTML
 
 body, a {
-    font-family: 'HindSiliguri';
-    color: #1e2b3d;
+    font-family: 'Lato';
+    color: #4D5760;
 }
 
 h1, h2, h3, h4, h5, h6, strong {
     font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Zona Pro';
 }
 
 // Pagination
@@ -224,6 +240,7 @@ h1, h2, h3, h4, h5, h6, strong {
 // Perfil
 
 .perfil-container {
+
     margin-top: -25px;
     margin-bottom: -25px;
 
@@ -267,6 +284,15 @@ h1, h2, h3, h4, h5, h6, strong {
     .profile #photo-profile {
       max-height: unset;
     }
+
+    .divider {
+      margin-top: 35px;
+      height: 80%;
+      width: 98%;
+      position: absolute;
+      @extend .border-right;
+      opacity: 0;
+    }
 }
 
 @include media-breakpoint-up(md) {
@@ -274,6 +300,10 @@ h1, h2, h3, h4, h5, h6, strong {
         .social-side {
             text-align: left;
         }
+    }
+
+    .divider {
+      opacity: 1 !important;
     }
 }
 
@@ -502,4 +532,8 @@ table.table.borderless {
   .w-md-fit {
     width: fit-content !important;
   }
+}
+
+.panel .header img {
+  filter: brightness(0) invert(1) !important;
 }

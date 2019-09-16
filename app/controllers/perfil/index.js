@@ -3,6 +3,10 @@ import { computed } from '@ember/object';
 
 export default Controller.extend({
   presupuesto: false,
+  experiencia: true,
+  partidos: true,
+  comissioners: true,
+
   lineValue1: 65,
   lineValue2: 59,
   lineLabel: "July",
