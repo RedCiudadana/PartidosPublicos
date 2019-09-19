@@ -11,7 +11,7 @@
           Inicio
         </LinkTo>
         {{#each breadcrumbs as |breadcrumb|}}
-          <LinkTo @route="{{breadcrumb.route}}" @model={{breadcrumb.model}} class="breadcrumb-item">
+          <LinkTo @route={{breadcrumb.route}} @models={{breadcrumb.model}} class="breadcrumb-item">
             {{breadcrumb.text}}
           </LinkTo>
         {{/each}}
