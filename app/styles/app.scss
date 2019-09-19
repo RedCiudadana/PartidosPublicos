@@ -537,3 +537,9 @@ table.table.borderless {
 .panel .header img {
   filter: brightness(0) invert(1) !important;
 }
+
+.popover {
+  .arrow {
+    opacity: 0;
+  }
+}

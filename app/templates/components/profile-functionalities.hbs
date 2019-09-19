@@ -3,6 +3,23 @@
   <ShareTwitter />
   <ShareFacebook />
 </div>
+<div class="row">
+  <div class="col-12">
+    <nav aria-label="breadcrumb" class="bg-white">
+      <ol class="breadcrumb bg-white rounded shadow-sm">
+        <LinkTo @route="index" class="breadcrumb-item">
+          Inicio
+        </LinkTo>
+        {{#each breadcrumbs as |breadcrumb|}}
+          <LinkTo @route="{{breadcrumb.route}}" @model={{breadcrumb.model}} class="breadcrumb-item">
+            {{breadcrumb.text}}
+          </LinkTo>
+        {{/each}}
+        <li class="breadcrumb-item active" aria-current="page">{{@model.profile.nombre}}</li>
+      </ol>
+    </nav>
+  </div>
+</div>
 {{!-- 'Navbar' para perfiles --}}
 <div class="row my-2">
   <div class="col-12 p-0 border shadow-sm bg-white rounded">
@@ -13,7 +30,7 @@
       @fill={{false}}
     as |nav|>
       {{#each links as |link|}}
-        <nav.item @linkTo={{link.route}} @disabled={{link.disabled}} class="p-0">
+        <nav.item id="hola" @linkTo={{link.route}} @disabled={{link.disabled}} class="p-0">
           {{#if link.img}}
             <img src="{{link.img}}" alt="{{link.text}}" height="25px" class="img-white">
           {{/if}}

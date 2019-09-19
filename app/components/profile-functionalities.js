@@ -9,6 +9,11 @@ export default Component.extend({
       A([])
     );
 
+    this.set(
+      "breadcrumbs",
+      A([])
+    );
+
     if (profile._internalModel.modelName === "institution") {
       this.links.pushObjects([
         {
@@ -25,7 +30,7 @@ export default Component.extend({
         {
           route: "perfil.elecciones",
           img: "img/i-personas.png",
-          text: "Elecciones",
+          text: "Comisiones de Postulación",
           disabled: elections.length < 1
         }
       ]);
@@ -39,11 +44,22 @@ export default Component.extend({
           text: "Información general"
         }
       ]);
-        //   { route: 'perfil.frente-a-frente', img: '', text: 'Compara'},
+      this.breadcrumbs.pushObjects([
+        {
+          route: 'perfil',
+          model: ['perfiles', profile.institution.id],
+          text: profile.institution.nombre
+        }
+      ]);
     }
 
     if (profile._internalModel.modelName === "election") {
       this.links.pushObjects([
+        {
+          route: "perfil.index",
+          img: "img/i-estrado.png",
+          text: "Información general"
+        },
         {
           route: "perfil.candidatos",
           img: "",
