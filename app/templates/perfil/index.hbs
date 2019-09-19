@@ -11,12 +11,6 @@
   </div>
   {{!-- Información general --}}
   <div class="col">
-    {{#if (not (eq model.profile._internalModel.modelName "election"))}}
-      <div class="divider">
-
-      </div>
-    {{else}}
-    {{/if}}
     <h3>{{model.profile.nombre}}</h3>
     <table class="table w-100">
       <tbody>
@@ -39,54 +33,6 @@
       </tbody>
     </table>
   </div>
-  {{#if (not (eq model.profile._internalModel.modelName "election"))}}
-    {{!-- Información extra, redes sociales --}}
-    <div class="col-md-3 social-side">
-      <div class="d-block v-center">
-        {{!-- Dirección --}}
-        {{#if model.profile.direccion}}
-          <div>
-            <i class="fa fa-map-marker mx-2"></i>
-            {{model.profile.direccion}}
-          </div>
-        {{/if}}
-        {{!-- Número de teléfono --}}
-        {{#if model.profile.phone}}
-          <div>
-            <i class="fa fa-phone mx-2"></i>
-            {{model.profile.phone}}
-          </div>
-        {{/if}}
-        {{!-- Correo --}}
-        {{#if model.profile.correo}}
-          <div>
-            <a href="mailto:{{model.profile.correo}}" target="_blank" rel="noopener">
-              <img src="img/icono-correo.png" alt="Correo electrónico">
-              {{model.profile.correo}}
-            </a>
-          </div>
-        {{/if}}
-        {{!-- Twitter --}}
-        {{#if model.profile.tw}}
-          <div>
-            <a href="https://twitter.com/{{twitter-link model.profile.tw}}" target="_blank" rel="noopener">
-              <img src="img/icono-tw.png" alt="Twitter">
-              @{{twitter-link model.profile.tw}}
-            </a>
-          </div>
-        {{/if}}
-        {{!-- Facebook --}}
-        {{#if model.profile.fb}}
-          <div>
-            <a href={{model.profile.fb}} target="_blank" rel="noopener">
-              <img src="img/icono-fb.png" alt="Facebook">
-              {{model.profile.nombre}}
-            </a>
-          </div>
-        {{/if}}
-      </div>
-    </div>
-  {{/if}}
 </div>
 
 {{#if (eq model.profile._internalModel.modelName "institution")}}
@@ -140,6 +86,7 @@
   </div>
 </div>
 {{!-- Presupuesto --}}
+{{#if alwaysFalse}}
 <div class="row">
   <div class="col-12">
     <div class="panel">
@@ -161,6 +108,7 @@
   </div>
 </div>
 {{/if}}
+{{/if}}
 {{#if (eq model.profile._internalModel.modelName "profile")}}
 <div class="row">
   {{!-- Experiencia Académica --}}
@@ -171,7 +119,7 @@
         <h3>Experiencia Académica</h3>
         {{fa-icon (if experiencia "chevron-circle-down" "chevron-circle-up") size=2 class="my-auto ml-auto"}}
       </div>
-      <BsCollapse @collapsed={{experiencia}}>
+      <BsCollapse @collapsed={{this.experiencia}}>
         <div class="body">
           {{#if model.profile.experienciaAcademica}}
             <p>{{model.profile.experienciaAcademica}}</p>
@@ -195,7 +143,7 @@
           {{#if model.profile.experienciaProfesional}}
             <p>{{model.profile.experienciaProfesional}}</p>
           {{else}}
-            <strong>No hay datos sobre la experiencia académica.</strong>
+            <strong>No hay datos sobre la experiencia profesional.</strong>
           {{/if}}
         </div>
       </BsCollapse>

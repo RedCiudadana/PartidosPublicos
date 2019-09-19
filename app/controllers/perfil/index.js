@@ -2,10 +2,14 @@ import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 
 export default Controller.extend({
-  presupuesto: false,
-  experiencia: true,
-  partidos: true,
-  comissioners: true,
+  init() {
+    this._super(...arguments);
+    this.set('presupuesto', false);
+    this.set('experiencia', false);
+    this.set('partidos', false);
+    this.set('comissioners', false);
+    this.set('misionYVision', false);
+  },
 
   lineValue1: 65,
   lineValue2: 59,
