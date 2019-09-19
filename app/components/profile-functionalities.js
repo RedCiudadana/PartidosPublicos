@@ -47,7 +47,7 @@ export default Component.extend({
       this.breadcrumbs.pushObjects([
         {
           route: 'perfil',
-          model: ['perfiles', profile.institution.id],
+          model: ['instituciones', profile.institution.id],
           text: profile.institution.nombre
         }
       ]);
