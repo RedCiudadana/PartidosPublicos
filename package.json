@@ -57,7 +57,7 @@
     "ember-link-to-wrapper": "^2.0.1",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-metrics": "^0.12.1",
+    "ember-metrics": "^0.14.0",
     "ember-mocha": "^0.16.0",
     "ember-one-way-select": "^4.0.0",
     "ember-page-title": "^4.0.5",
