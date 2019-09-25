@@ -13,6 +13,7 @@
   </div>
 
   <navbar.content>
+    {{!-- @TODO Hacer funcionar active en nav.item --}}
     <navbar.nav @justified={{true}} type="pills" class="ml-auto" as |nav|>
       {{#each model.navbarLinks as |link|}}
       <nav.item @active={{false}}>
@@ -29,6 +30,12 @@
       <nav.item @active={{false}} class="mt-1">
         <LinkTo @route="perfiles" @model={{"elecciones"}}>
           Comisiones de Postulación
+        </LinkTo>
+      </nav.item>
+
+      <nav.item @active={{false}} class="mt-1">
+        <LinkTo @route="perfiles" @model="perfiles">
+          Perfiles
         </LinkTo>
       </nav.item>
 

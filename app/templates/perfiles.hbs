@@ -1,6 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <PowerSelect
+        @placeholder="Busqueda"
+        @searchEnabled={{true}}
+        @searchField="nombre"
+        @options={{model}}
+        @onChange={{action "toProfile"}} as |profile|>
+        {{profile.nombre}}
+      </PowerSelect>
+    </div>
+  </div>
+</div>
+
 <Portfolio
   @bg="light"
   @profiles={{model}}
-  @pagination={{false}}
   />
 {{outlet}}
