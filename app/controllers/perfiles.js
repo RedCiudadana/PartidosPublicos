@@ -1,10 +1,18 @@
 import { alias, oneWay } from '@ember/object/computed';
 import $ from 'jquery';
 import Controller from '@ember/controller';
-import { computed, observer } from '@ember/object';
+import { computed } from '@ember/object';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
-import { isBlank } from '@ember/utils';
 
+const resolver = {
+  institution: 'instituciones',
+  election: 'elecciones',
+  profile: 'perfiles'
+};
+
+/**
+ * @TODO Realizar manteminento, refactorizar y confirmar persistencia de algunas cosas
+ */
 const departamentos = [
   'Alta Verapaz',
   'Baja Verapaz',
@@ -476,11 +484,6 @@ export default Controller.extend({
     return false;
   },
 
-  observerToMunicipio: observer('departamento', function() {
-    this.set('municipioDisabled', !isBlank(this.departamento));
-    this.set('municipio', null);
-  }),
-
   // Pagination
 
   // setup our query params
@@ -508,7 +511,7 @@ export default Controller.extend({
     },
 
     toProfile(profile) {
-      this.transitionToRoute('perfil', profile.typeCommonName, profile.id);
+      this.transitionToRoute('perfil', resolver[profile._internalModel.modelName], profile.id);
       return false;
     }
   }
