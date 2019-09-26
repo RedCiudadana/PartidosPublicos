@@ -21,7 +21,7 @@ export default Route.extend({
         sector: sector
       });
     }
-    return this.store.findAll(modelName);
+    return this.store.findAll(modelName, { reload: true });
   },
   setupController(controller, model) {
     this._super(controller, model);
