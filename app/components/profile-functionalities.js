@@ -1,5 +1,6 @@
 import Component from "@ember/component";
 import { A } from "@ember/array";
+import { debug } from '@ember/debug';
 
 export default Component.extend({
   init({ model: { profile, profiles, elections, candidates } }) {
@@ -44,13 +45,17 @@ export default Component.extend({
           text: "Información general"
         }
       ]);
-      this.breadcrumbs.pushObjects([
-        {
-          route: 'perfil',
-          model: ['instituciones', profile.institution.id],
-          text: profile.institution.nombre
-        }
-      ]);
+      try {
+        this.breadcrumbs.pushObjects([
+          {
+            route: 'perfil',
+            model: ['instituciones', profile.institution.id],
+            text: profile.institution.nombre
+          }
+        ]);
+      } catch (error) {
+        debug('Profile not has institution');
+      }
     }
 
     if (profile._internalModel.modelName === "election") {

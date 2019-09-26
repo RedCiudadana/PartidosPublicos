@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
-import { A } from '@ember/array';
 
 const resolver = {
   instituciones: 'institution',
@@ -42,9 +41,6 @@ export default Route.extend({
    * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, currentParty, profileGeneralInformationConfiguration, profiles, avaibleDocuments, dataTableGradation, totalGraduationScore, profileFunctions, entre otros.
    */
   model({ model, id}) {
-    const spreadsheet = this.spreadsheets;
-    const _routing = this._routing;
-
     return this.store.findRecord(resolver[model], id).then((profile) => {
       return hash({
         config: {},
