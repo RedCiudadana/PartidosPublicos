@@ -543,3 +543,19 @@ table.table.borderless {
     opacity: 0;
   }
 }
+
+@include media-breakpoint-up(lg) {
+  #index-banner {
+    br  {
+      display: none;
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  #index-banner {
+    br {
+      display: inherit;
+    }
+  }
+}
