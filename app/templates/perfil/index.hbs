@@ -12,7 +12,7 @@
   {{!-- Información general --}}
   <div class="col">
     <h3>{{model.profile.nombre}}</h3>
-    <table class="table w-75">
+    <table class="table w-100">
       <tbody>
         {{#if (eq model.profile._internalModel.modelName "institution")}}
           <tr>
@@ -33,6 +33,24 @@
       </tbody>
     </table>
   </div>
+  {{#if (eq model.profile._internalModel.modelName "profile")}}
+    <div class="col-3 text-center">
+      <a
+        href={{model.profile.CV}}
+        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.CV) "disabled"}}"
+        target="_blank"
+      >
+        CV (PDF)
+      </a>
+      <a
+        href={{model.profile.Expediente}}
+        class="btn btn-primary text-white w-100 {{if (is-empty model.profile.Expediente) "disabled"}}"
+        target="_blank"
+      >
+        Resumen
+      </a>
+    </div>
+  {{/if}}
 </div>
 
 {{#if (eq model.profile._internalModel.modelName "institution")}}

@@ -26,6 +26,10 @@ export default Model.extend({
   tw: attr('string'),
   fb: attr('string'),
 
+  // Documentos
+  CV: attr('string'),
+  Expediente: attr('string'),
+
   // Relationships
   institution: belongsTo('institution', { async: false }),
   comission: belongsTo('institution', { async: false }),
@@ -52,3 +56,4 @@ export default Model.extend({
       return 'mi-guatemala/img/candidata.png';
   })
 });
+
