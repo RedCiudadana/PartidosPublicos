@@ -54,31 +54,6 @@
 </div>
 
 {{#if (eq model.profile._internalModel.modelName "institution")}}
-{{!-- Misión y Visión --}}
-{{!-- @TODO: Evaluar persistencia. En el diseño no se encuentran --}}
-{{!-- <div class="row">
-  <div class="col-12">
-    <div class="panel">
-      <div {{action (toggle "misionYVision" this)}} class="header d-flex bg-primary">
-        <img src="img/icono-experiencia-academica.png" alt="Icono años">
-        <h3>Misión y Visión</h3>
-        {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
-      </div>
-      <BsCollapse @collapsed={{misionYVision}}>
-        <div class="body">
-          {{#if (or model.profile.mision model.profile.vision)}}
-            <p>{{model.profile.mision}}</p>
-            <br>
-            <p>{{model.profile.vision}}</p>
-          {{else}}
-            <strong>No hay datos sobre la experiencia académica.</strong>
-          {{/if}}
-        </div>
-      </BsCollapse>
-    </div>
-  </div>
-</div> --}}
-
 {{!-- Autoridades --}}
 <div class="row">
   <div class="col-12">

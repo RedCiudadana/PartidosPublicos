@@ -34,6 +34,15 @@ module.exports = function(defaults) {
     fingerprint: {
       generateAssetMap: true,
       fingerprintAssetMap: true
+    },
+
+    prember: {
+      urls: [
+        // '/',
+        // '/perfiles',
+        '/instituciones?sector=justicia',
+        '/elecciones'
+      ]
     }
 
   });
@@ -50,12 +59,6 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-
-  // app.import('node_modules/flexslider/jquery.flexslider-min.js');
-  app.import('node_modules/isotope-layout/dist/isotope.pkgd.min.js');
-  app.import('node_modules/tabletop/src/tabletop.min.js');
-  // app.import('vendor/jquery.gridAccordion.js');
-  // app.import('vendor/shims.js');
 
   return app.toTree();
 };
