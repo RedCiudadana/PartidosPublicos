@@ -1,5 +1,4 @@
 import { alias, oneWay } from '@ember/object/computed';
-import $ from 'jquery';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import pagedArray from 'ember-cli-pagination/computed/paged-array';
@@ -472,17 +471,6 @@ export default Controller.extend({
       return selectors.join(', ');
     }
   ),
-
-  _applyFilter() {
-
-    var $container = $('#portfolio');
-
-    $container.isotope({transitionDuration: '0.65s'});
-
-    $container.isotope({filter: this.currentSelector});
-
-    return false;
-  },
 
   // Pagination
 

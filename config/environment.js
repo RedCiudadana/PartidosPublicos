@@ -66,6 +66,10 @@ module.exports = function(environment) {
       shortname: 'candidatos2019'
     },
 
+    fastboot: {
+      hostWhitelist: ['justiciapedia.redciudadana.org', /^localhost:\d+$/]
+    },
+
     contentSecurityPolicy: contentSecurityPolicy
   };
 
