@@ -40,7 +40,7 @@ module.exports = function(defaults) {
       urls: [
         // '/',
         // '/perfiles',
-        '/instituciones?sector=justicia',
+        // '/instituciones?sector=justicia', #Netlify dont support this because generate a folder name invalid '?'
         '/elecciones'
       ]
     }
