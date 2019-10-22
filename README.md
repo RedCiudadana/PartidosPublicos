@@ -4,9 +4,9 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8bf05406-27d3-4926-98ab-d6ea2945e074/deploy-status)](https://app.netlify.com/sites/naughty-bhabha-956bf6/deploys)
 
-# Justicipedia
+# Justiciapedia
 
-Justicipedia es un fork de MiGuatemala, un app construida en [Ember](http://emberjs.com). Permite mostrar información sobre funcionarios o candidatos, con el fin de informar a ciudadanos.
+Justiciapedia es un fork de MiGuatemala, un app construida en [Ember](http://emberjs.com). Permite mostrar información sobre funcionarios o candidatos, con el fin de informar a ciudadanos.
 
 ## Instalación
 La información sobre la instalación la puedes encontrar [aquí](https://github.com/RedCiudadana/MiGuatemala/blob/master/documentation/APP_SETUP.md).
