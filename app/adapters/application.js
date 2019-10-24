@@ -9,8 +9,13 @@ export default class ApplicationAdapter extends Adapter {
   deleteRecord() { throw('Not supported'); }
 
   findRecord(store, type, id) {
+    if (id === '0') {
+      return null;
+    }
+
     return this.spreadsheets.fetch(type.modelName).then((objects) => {
-      return objects.findBy('id', id);
+      let result = objects.findBy('id', id);
+      return result;
     });
   }
 
