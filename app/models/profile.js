@@ -31,9 +31,9 @@ export default Model.extend({
   Expediente: attr('string'),
 
   // Relationships
-  institution: belongsTo('institution', { async: false }),
-  comission: belongsTo('institution', { async: false }),
-  election: belongsTo('election', { async: false }),
+  institution: belongsTo('institution', { async: true, defaultValue: null }),
+  comission: belongsTo('election', { inverse: 'committee', async: true, defaultValue: null }),
+  election: belongsTo('election', { inverse: 'candidates', async: true, defaultValue: null }),
 
   // Computed properties
 

@@ -4,6 +4,8 @@ import { debug } from '@ember/debug';
 
 export default Component.extend({
   init({ model: { profile, profiles, elections, candidates } }) {
+    console.log(profile);
+
     this._super(...arguments);
     this.set(
       "links",
@@ -45,16 +47,51 @@ export default Component.extend({
           text: "Información general"
         }
       ]);
+
       try {
-        this.breadcrumbs.pushObjects([
-          {
-            route: 'perfil',
-            model: ['instituciones', profile.institution.id],
-            text: profile.institution.nombre
-          }
-        ]);
+        if (profile.institution.get('id')) {
+          this.breadcrumbs.pushObjects([
+            {
+              route: 'perfil',
+              model: ['instituciones', profile.institution.get('id')],
+              text: profile.institution.get('nombre')
+            }
+          ]);
+        }
       } catch (error) {
         debug('Profile not has institution');
+      }
+
+      try {
+        if (profile.election.get('id')) {
+          profile.get('election').then((election) => {
+            this.breadcrumbs.pushObjects([
+              {
+                route: 'perfil',
+                model: ['elecciones', election.get('id')],
+                text: election.nombre
+              }
+            ]);
+          });
+        }
+      } catch (error) {
+        debug('Profile not has election');
+      }
+
+      try {
+        if (profile.comission.get('id')) {
+          profile.get('comission').then((comission) => {
+            this.breadcrumbs.pushObjects([
+              {
+                route: 'perfil',
+                model: ['elecciones', comission.get('id')],
+                text: comission.get('nombre')
+              }
+            ]);
+          })
+        }
+      } catch (error) {
+        debug('Profile not has comission');
       }
     }
 

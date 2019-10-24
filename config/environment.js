@@ -34,9 +34,9 @@ module.exports = function(environment) {
         environments: ['production', 'development'],
         config: {
           id: 'UA-148510552-1',
-          debug: environment === 'development',
+          // debug: environment === 'development',
           // Use verbose tracing of GA events
-          trace: environment === 'development',
+          // trace: environment === 'development',
           // Ensure development env hits aren't sent to GA
           sendHitTask: environment !== 'development',
           // Specify Google Analytics plugins

@@ -6,7 +6,7 @@
       src={{model.profile.photo}}
       alt={{model.profile.nombre}}
       border="0"
-      class="img-responsive center-block mb-4"
+      class="img-responsive center-block"
     >
   </div>
   {{!-- Información general --}}
@@ -34,20 +34,28 @@
     </table>
   </div>
   {{#if (eq model.profile._internalModel.modelName "profile")}}
-    <div class="col-3 text-center">
+    <div class="col-3 text-center align-self-center">
+      <h6>Documentos</h6>
       <a
         href={{model.profile.CV}}
         class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.CV) "disabled"}}"
         target="_blank"
       >
-        CV (PDF)
+        Hoja de vida (PDF)
       </a>
       <a
         href={{model.profile.Expediente}}
-        class="btn btn-primary text-white w-100 {{if (is-empty model.profile.Expediente) "disabled"}}"
+        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.Expediente) "disabled"}}"
         target="_blank"
       >
-        Resumen
+        Expediente
+      </a>
+      <a
+        href={{model.profile.Resumen}}
+        class="btn btn-primary text-white w-100 {{if (is-empty model.profile.Resumen) "disabled"}}"
+        target="_blank"
+      >
+        Base de datos (Resumen)
       </a>
     </div>
   {{/if}}
