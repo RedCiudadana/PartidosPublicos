@@ -4,10 +4,11 @@ import { computed } from '@ember/object';
 export default Controller.extend({
   init() {
     this._super(...arguments);
+    // False is not collapsed
     this.set('presupuesto', false);
     this.set('experiencia', false);
     this.set('partidos', false);
-    this.set('comissioners', false);
+    this.set('isCollapsedComissioners', false);
     this.set('misionYVision', false);
   },
 

@@ -162,12 +162,12 @@
         <h3>Comisionados</h3>
         {{fa-icon (if comissioners "chevron-circle-down" "chevron-circle-up") size=2 class="my-auto ml-auto"}}
       </div>
-      <BsCollapse @collapsed={{comissioners}}>
+      <BsCollapse @collapsed={{this.isCollapsedComissioners}}>
         <div class="body">
           {{#if model.comissioners}}
             <Portfolio
               @bg="white"
-              @profiles={{model.commissioners}}
+              @profiles={{model.comissioners}}
               @pagination={{false}}
               />
           {{else}}
