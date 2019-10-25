@@ -54,7 +54,7 @@ export default Route.extend({
         candidates: this.store.query('profile', {
           election: profile.id
         }),
-        commissioners: this.store.query('profile', {
+        comissioners: this.store.query('profile', {
           comission: profile.id
         })
       });

@@ -27,8 +27,11 @@ export default Route.extend({
     if(model.profile._internalModel.modelName === 'election') {
       controller.set('campos',
         {
-          fechaEleccion: 'Fecha a realizarse la elección'
-        });
+          fechaEleccion: 'Fecha a realizarse la elección',
+          descripcion: 'Descripción',
+          requisitos: 'Requisitos'
+        }
+      );
     }
 
     controller.setProperties(model);

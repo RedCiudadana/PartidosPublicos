@@ -37,22 +37,22 @@
     <div class="col-3 text-center align-self-center">
       <h6>Documentos</h6>
       <a
-        href={{model.profile.CV}}
-        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.CV) "disabled"}}"
+        href={{model.profile.cv}}
+        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.cv) "disabled"}}"
         target="_blank"
       >
         Hoja de vida (PDF)
       </a>
       <a
-        href={{model.profile.Expediente}}
-        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.Expediente) "disabled"}}"
+        href={{model.profile.expediente}}
+        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.expediente) "disabled"}}"
         target="_blank"
       >
         Expediente
       </a>
       <a
-        href={{model.profile.Resumen}}
-        class="btn btn-primary text-white w-100 {{if (is-empty model.profile.Resumen) "disabled"}}"
+        href={{model.profile.resumen}}
+        class="btn btn-primary text-white w-100 {{if (is-empty model.profile.resumen) "disabled"}}"
         target="_blank"
       >
         Base de datos (Resumen)
@@ -162,12 +162,12 @@
         <h3>Comisionados</h3>
         {{fa-icon (if comissioners "chevron-circle-down" "chevron-circle-up") size=2 class="my-auto ml-auto"}}
       </div>
-      <BsCollapse @collapsed={{comissioners}}>
+      <BsCollapse @collapsed={{this.isCollapsedComissioners}}>
         <div class="body">
           {{#if model.comissioners}}
             <Portfolio
               @bg="white"
-              @profiles={{model.commissioners}}
+              @profiles={{model.comissioners}}
               @pagination={{false}}
               />
           {{else}}

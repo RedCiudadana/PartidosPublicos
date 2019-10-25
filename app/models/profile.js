@@ -27,8 +27,9 @@ export default Model.extend({
   fb: attr('string'),
 
   // Documentos
-  CV: attr('string'),
-  Expediente: attr('string'),
+  cv: attr('string'),
+  expediente: attr('string'),
+  resumen: attr('string'),
 
   // Relationships
   institution: belongsTo('institution', { async: true, defaultValue: null }),
