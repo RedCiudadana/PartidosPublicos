@@ -4,8 +4,6 @@ import { debug } from '@ember/debug';
 
 export default Component.extend({
   init({ model: { profile, profiles, elections, candidates } }) {
-    console.log(profile);
-
     this._super(...arguments);
     this.set(
       "links",
