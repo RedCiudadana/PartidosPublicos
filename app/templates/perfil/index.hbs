@@ -86,8 +86,8 @@
     </div>
   </div>
 </div>
+{{#if (eq model.profile._internalModel.modelName "institution")}}
 {{!-- Presupuesto --}}
-{{#if alwaysFalse}}
 <div class="row">
   <div class="col-12">
     <div class="panel">
@@ -97,9 +97,9 @@
       </div>
       <div>
         <div class="body p-1">
-          {{#if lineData}}
+          {{#if this.lineData}}
           {{!-- {{#if model.profile.presupuesto}} --}}
-            {{ember-chart type='line' data=lineData class="p-0 p-lg-5"}}
+            {{ember-chart type='line' data=lineData options=options class="p-0 p-lg-5"}}
           {{else}}
             <p class="px-5 pt-3">No hay información</p>
           {{/if}}

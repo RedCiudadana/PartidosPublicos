@@ -56,6 +56,9 @@ export default Route.extend({
         }),
         comissioners: this.store.query('profile', {
           comission: profile.id
+        }),
+        presupuesto: this.store.query('presupuesto', {
+          institution: profile.id
         })
       });
     });

@@ -1,5 +1,22 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { isEmpty } from '@ember/utils';
+
+const formatMoney = function(n) {
+  n = n.toString();
+  n = n.split('').reverse();
+
+
+  n = n.reduce((total, currentValue, currentIndex) => {
+    if (currentIndex % 3 == 0) {
+      total += ',';
+    }
+
+    return total += currentValue;
+  });
+
+  return 'Q ' + n.split('').reverse().join('');
+};
 
 export default Controller.extend({
   init() {
@@ -10,37 +27,37 @@ export default Controller.extend({
     this.set('partidos', false);
     this.set('isCollapsedComissioners', false);
     this.set('misionYVision', false);
+
+    this.set('options', {
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem/* , data */) {
+            return formatMoney(tooltipItem.value);
+          }
+        }
+      },
+      scales: {
+        yAxes: [{
+            ticks: {
+                // Include a dollar sign in the ticks
+                callback: formatMoney
+            }
+        }]
+      }
+    });
   },
 
-  lineValue1: 65,
-  lineValue2: 59,
-  lineLabel: "July",
-  lineData: computed('lineValue1', 'lineValue2', 'lineLabel', function(){
-    var labels = ["January", "February", "March", "April", "May", "June"];
-    labels.push( this.get('lineLabel') );
+  lineData: computed('model', function(){
+    if (isEmpty(this.model.presupuesto)) {
+      return false;
+    }
 
     return {
-        labels: labels,
+        labels: this.model.presupuesto.mapBy('label'),
         datasets: [
             {
-                label: "My First dataset",
-                fillColor: "#F7464A",
-                strokeColor: "rgba(10,10,10,1)",
-                pointColor: "rgba(10,10,10,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(10,10,10,1)",
-                data: [parseInt(this.get('lineValue1')), parseInt(this.get('lineValue2')), 80, 81, 56, 55, 40]
-            },
-            {
-                label: "My Second dataset",
-                fillColor: "rgba(151,187,205,0.2)",
-                strokeColor: "rgba(151,187,205,1)",
-                pointColor: "rgba(151,187,205,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(151,187,205,1)",
-                data: [28, 48, 40, 19, 86, 27, 90]
+                label: "Presupuesto",
+                data: this.model.presupuesto.mapBy('value')
             }
         ]
     };
