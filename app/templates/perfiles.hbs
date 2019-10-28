@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-8 py-5">
+    <div class="col-md-8 py-5">
       <h2>Buscar perfiles</h2>
       <PowerSelect
         @placeholder="Busqueda"
@@ -10,27 +10,29 @@
         @onChange={{action "toProfile"}} as |profile|>
         {{profile.nombre}}
       </PowerSelect>
-      <PowerSelect
-        class="my-auto ml-2 w-100"
-        @placeholder="Filtrar por institución"
-        @searchEnabled={{true}}
-        @searchField="nombre"
-        @allowClear="true"
-        @selected={{this.inInstitution}}
-        @options={{this.institutions}}
-        @onChange={{action (mut this.inInstitution)}} as |profile|>
-        {{profile.nombre}}
-      </PowerSelect>
-      <nav class="nav justify-content-center">
-        <div class="input-group nav-item bg-light rounded-pill px-3 py-2 w-auto mx-2">
-          <label class="my-auto" for="isMujer">Mujer</label>
-          <Input class="my-auto ml-2" @type="checkbox" @checked={{this.isMujer}} />
-        </div>
-        <div class="input-group nav-item bg-light rounded-pill px-3 py-2 w-auto mx-2">
-          <label class="my-auto" for="isVaron">Hombre</label>
-          <Input class="my-auto ml-2" @type="checkbox" @checked={{this.isVaron}} />
-        </div>
-      </nav>
+      {{#if (eq model.firstObject._internalModel.modelName "profile")}}
+        <PowerSelect
+          class="my-auto ml-2 w-100"
+          @placeholder="Filtrar por institución"
+          @searchEnabled={{true}}
+          @searchField="nombre"
+          @allowClear="true"
+          @selected={{this.inInstitution}}
+          @options={{this.institutions}}
+          @onChange={{action (mut this.inInstitution)}} as |profile|>
+          {{profile.nombre}}
+        </PowerSelect>
+        <nav class="nav justify-content-center">
+          <div class="input-group nav-item bg-light rounded-pill px-3 py-2 w-auto mx-2">
+            <label class="my-auto" for="isMujer">Mujer</label>
+            <Input class="my-auto ml-2" @type="checkbox" @checked={{this.isMujer}} />
+          </div>
+          <div class="input-group nav-item bg-light rounded-pill px-3 py-2 w-auto mx-2">
+            <label class="my-auto" for="isVaron">Hombre</label>
+            <Input class="my-auto ml-2" @type="checkbox" @checked={{this.isVaron}} />
+          </div>
+        </nav>
+      {{/if}}
     </div>
   </div>
 </div>

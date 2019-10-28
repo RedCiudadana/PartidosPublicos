@@ -23,7 +23,9 @@
       </p>
     </div>
     <div class="col-12 col-lg-5 text-center">
-      <iframe class="mt-5 mt-md-0" width="560" height="315" src="https://www.youtube.com/embed/cs-sh5ez5Iw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-container">
+        <iframe class="mt-5 mt-md-0" width="560" height="315" src="https://www.youtube.com/embed/cs-sh5ez5Iw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </div>
@@ -36,6 +38,7 @@
       <h2 class="my-5 py-0 py-md-5">
         <LinkTo @route="perfiles" @model={{"instituciones"}} @query={{hash sector="justicia"}}>
           <img src="/img/i-justicia.png" alt="Mazo" class="mr-lg-3">
+          <br class="d-block d-md-none">
           Sector Justicia
         </LinkTo>
       </h2>
@@ -44,6 +47,7 @@
       <h2 class="my-5 py-0 py-md-5">
         <LinkTo @route="perfiles" @model={{"elecciones"}}>
           <img src="/img/i-personas-d.png" alt="Edificio" class="mr-lg-3">
+          <br class="d-block d-md-none">
           Comisiones de Postulación
         </LinkTo>
       </h2>

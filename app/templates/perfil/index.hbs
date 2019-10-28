@@ -6,7 +6,7 @@
       src={{model.profile.photo}}
       alt={{model.profile.nombre}}
       border="0"
-      class="img-responsive center-block"
+      class="img-responsive center-block mb-4 mb-md-0"
     >
   </div>
   {{!-- Información general --}}
@@ -34,7 +34,7 @@
     </table>
   </div>
   {{#if (eq model.profile._internalModel.modelName "profile")}}
-    <div class="col-3 text-center align-self-center">
+    <div class="col-md-3 text-center align-self-center">
       <h6>Documentos</h6>
       <a
         href={{model.profile.cv}}
