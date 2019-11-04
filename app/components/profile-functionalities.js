@@ -46,22 +46,17 @@ export default Component.extend({
         }
       ]);
 
-      try {
-        if (profile.institution.get('id')) {
-          this.breadcrumbs.pushObjects([
-            {
-              route: 'perfil',
-              model: ['instituciones', profile.institution.get('id')],
-              text: profile.institution.get('nombre')
-            }
-          ]);
-        }
-      } catch (error) {
-        debug('Profile not has institution');
-      }
-
-      try {
-        if (profile.election.get('id')) {
+      profile.get('institution').then((institution) => {
+        this.breadcrumbs.pushObjects([
+          {
+            route: 'perfil',
+            model: ['instituciones', institution.get('id')],
+            text: institution.get('nombre')
+          }
+        ]);
+      })
+      .catch(() => {
+        profile.get('election').then((election) => {
           profile.get('election').then((election) => {
             this.breadcrumbs.pushObjects([
               {
@@ -71,26 +66,22 @@ export default Component.extend({
               }
             ]);
           });
-        }
-      } catch (error) {
-        debug('Profile not has election');
-      }
-
-      try {
-        if (profile.comission.get('id')) {
-          profile.get('comission').then((comission) => {
-            this.breadcrumbs.pushObjects([
-              {
-                route: 'perfil',
-                model: ['elecciones', comission.get('id')],
-                text: comission.get('nombre')
-              }
-            ]);
+        })
+        .catch(() => {
+          profile.get('comission').then(() => {
+            profile.get('comission').then((comission) => {
+              this.breadcrumbs.pushObjects([
+                {
+                  route: 'perfil',
+                  model: ['elecciones', comission.get('id')],
+                  text: comission.get('nombre')
+                }
+              ]);
+            })
           })
-        }
-      } catch (error) {
-        debug('Profile not has comission');
-      }
+          .catch(() => debug(`Profile ${profile.get('id')} don't have institution, election or comission.`));
+        })
+      });
     }
 
     if (profile._internalModel.modelName === "election") {
