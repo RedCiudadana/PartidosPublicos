@@ -7,9 +7,8 @@ export default Route.extend({
 
     if(model.profile._internalModel.modelName === 'institution') {
       controller.set('campos',{
-        nombre: 'Nombre',
-        sector: 'Sector',
-        telefono: 'Telefono'
+        horario: 'Horario de atención',
+        diasAtencion: 'Días de atención'
       });
     }
 

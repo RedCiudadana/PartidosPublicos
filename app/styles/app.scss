@@ -590,4 +590,36 @@ table.table.borderless {
 	height:100%;
 }
 
+.blocks-links {
+  display: flex;
+  justify-content: space-around;
 
+  a {
+    margin: 5px;
+    display: flex;
+    width: auto;
+    color: white !important;
+    border-radius: 10px;
+
+    div:first-child {
+      width: 30%;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    div:last-child {
+      width: 70%;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+      text-align: center;
+      margin-top: auto;
+      margin-bottom: auto;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}
