@@ -3,7 +3,6 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 import { alias, oneWay } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
-import { gt } from '@ember/object/computed';
 
 export default Component.extend({
   colSize: '10',

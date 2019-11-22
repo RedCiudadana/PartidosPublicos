@@ -56,7 +56,7 @@ export default Component.extend({
         ]);
       })
       .catch(() => {
-        profile.get('election').then((election) => {
+        profile.get('election').then(() => {
           profile.get('election').then((election) => {
             this.breadcrumbs.pushObjects([
               {

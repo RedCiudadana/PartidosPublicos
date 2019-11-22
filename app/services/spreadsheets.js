@@ -47,7 +47,7 @@ export default Service.extend({
    * @param {string} worksheetName - Nombre de la hoja.
    * @param {string} [spreadsheetKey='data'] - Puede ser 'data' o 'config' especifica la dirrección (archivo de google's spredsheet publicado) para obtener datos. Útil solamente cuando no se usa 'static-files'.
    */
-  fetch(worksheetName, spreadsheetKey = 'data') {
+  fetch(worksheetName/* , spreadsheetKey = 'data' */) {
 
     /**
      *

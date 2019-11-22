@@ -1,9 +1,9 @@
 {
-  "name": "mi-guatemala",
+  "name": "justiaciapedia",
   "version": "0.4.2",
   "private": true,
   "description": "Proyecto de transparencia de Red Ciudadana",
-  "repository": "https://github.com/RedCiudadana/MiGuatemala",
+  "repository": "https://github.com/RedCiudadana/Justicipedia",
   "license": "MIT",
   "author": "RedCiudadana",
   "directories": {

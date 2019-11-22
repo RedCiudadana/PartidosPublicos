@@ -32,7 +32,7 @@
       {{#each links as |link|}}
         <nav.item id="hola" @linkTo={{link.route}} @disabled={{link.disabled}} class="p-0">
           {{#if link.img}}
-            <img src="{{link.img}}" alt="{{link.text}}" height="25px" class="img-white">
+            <img src={{link.img}} alt={{link.text}} height="25px" class="img-white">
           {{/if}}
           {{link.text}}
         </nav.item>

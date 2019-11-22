@@ -40,6 +40,7 @@
         href={{model.profile.cv}}
         class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.cv) "disabled"}}"
         target="_blank"
+        rel="noopener"
       >
         Hoja de vida (PDF)
       </a>
@@ -47,6 +48,7 @@
         href={{model.profile.expediente}}
         class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.expediente) "disabled"}}"
         target="_blank"
+        rel="noopener"
       >
         Expediente
       </a>
@@ -54,6 +56,7 @@
         href={{model.profile.resumen}}
         class="btn btn-primary text-white w-100 {{if (is-empty model.profile.resumen) "disabled"}}"
         target="_blank"
+        rel="noopener"
       >
         Base de datos (Resumen)
       </a>
@@ -101,124 +104,123 @@
   {{/if}}
 </div>
 {{#if (eq model.profile._internalModel.modelName "institution")}}
-{{!-- Descripción --}}
-<div class="row">
-  <div class="col-12">
-    <div class="panel">
-      <div class="header d-flex bg-primary">
-        <img src="img/i-personas.png" alt="Descripción">
-        <h3>Descripción de la institutición</h3>
-      </div>
-      <div>
-        <div class="body p-4">
-          {{#if model.profile.descripcion}}
-            <p>{{model.profile.descripcion}}</p>
-          {{else}}
-            <p class="px-5 pt-3">No hay información</p>
-          {{/if}}
+  {{!-- Descripción --}}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Descripción">
+          <h3>Descripción de la institutición</h3>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-{{/if}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
-{{!-- Autoridades --}}
-<div class="row">
-  <div class="col-12">
-    <div class="panel">
-      <div class="header d-flex bg-primary">
-        <img src="img/i-personas.png" alt="Icono años">
-        <h3>Autoridades</h3>
-      </div>
-      <div>
-        <div class="body p-1">
-          {{#if model.profiles}}
-            <Portfolio
-              @bg="white"
-              @profiles={{model.profiles}}
-              @pagination={{false}}
-              />
-          {{else}}
-            <p class="px-5 pt-3">No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{{/if}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
-{{!-- Presupuesto --}}
-<div class="row">
-  <div class="col-12">
-    <div class="panel">
-      <div class="header d-flex bg-primary">
-        <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
-        <h3>Presupuesto</h3>
-      </div>
-      <div>
-        <div class="body p-1">
-          {{#if this.lineData}}
-          {{!-- {{#if model.profile.presupuesto}} --}}
-            {{ember-chart type='line' data=lineData options=options class="p-0 p-lg-5"}}
-          {{else}}
-            <p class="px-5 pt-3">No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{{/if}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
-{{!-- Enlaces --}}
-<div class="row">
-  <div class="col-12">
-    <div class="panel">
-      <div class="header d-flex bg-primary">
-        <img src="img/icono-enlaces.png" alt="Icono bolsa de dinero">
-        <h3>Enlaces</h3>
-      </div>
-      <div>
-        <div class="body p-5">
-          <div class="blocks-links d-block d-md-flex">
-            <a href={{profile.enlaceAccesoInformacion}} class="bg-primary w-100 w-md-25 mx-auto my-2 m-md-2">
-              <div class="text-right">
-                <img src="img/icono-acceso-informacion.png" alt="Icono bolsa de dinero" class="w-75 my-2">
-              </div>
-              <div>
-                <p>Acceso a la información</p>
-              </div>
-            </a>
-            <a href={{profile.enlaceGobiernoDigital}} class="bg-secondary w-100 w-md-25 mx-auto my-2 m-md-2">
-              <div class="text-right">
-                <img src="img/icono-gobierno-digital.png" alt="Icono bolsa de dinero" class="w-75 my-2">
-              </div>
-              <div>
-                <p>Gobierno Digital</p>
-              </div>
-            </a>
-            <a href={{profile.enlaceDatosAbiertos}} class="bg-danger w-100 w-md-25 mx-auto my-2 m-md-2">
-              <div class="text-right">
-                <img src="img/icono-datos-abiertos.png" alt="Icono bolsa de dinero" class="w-75 my-2">
-              </div>
-              <div>
-                <p>Datos Abiertos</p>
-              </div>
-            </a>
-            <a href={{profile.enlaceServicios}} class="bg-warning w-100 w-md-25 mx-auto my-2 m-md-2">
-              <div class="text-right">
-                <img src="img/icono-servicio.png" alt="Icono bolsa de dinero" class="w-75 my-2">
-              </div>
-              <div>
-                <p>Servicio</p>
-              </div>
-            </a>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.descripcion}}
+              <p>{{model.profile.descripcion}}</p>
+            {{else}}
+              <p class="px-5 pt-3">No hay información</p>
+            {{/if}}
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+{{/if}}
+{{#if (eq model.profile._internalModel.modelName "institution")}}
+  {{!-- Autoridades --}}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Icono años">
+          <h3>Autoridades</h3>
+        </div>
+        <div>
+          <div class="body p-1">
+            {{#if model.profiles}}
+              <Portfolio
+                @bg="white"
+                @profiles={{model.profiles}}
+                @pagination={{false}}
+                />
+            {{else}}
+              <p class="px-5 pt-3">No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+{{#if (eq model.profile._internalModel.modelName "institution")}}
+  {{!-- Presupuesto --}}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
+          <h3>Presupuesto</h3>
+        </div>
+        <div>
+          <div class="body p-1">
+            {{#if this.lineData}}
+              {{ember-chart type="line" data=lineData options=options class="p-0 p-lg-5"}}
+            {{else}}
+              <p class="px-5 pt-3">No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+{{#if (eq model.profile._internalModel.modelName "institution")}}
+  {{!-- Enlaces --}}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/icono-enlaces.png" alt="Icono bolsa de dinero">
+          <h3>Enlaces</h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            <div class="blocks-links d-block d-md-flex">
+              <a href={{profile.enlaceAccesoInformacion}} class="bg-primary w-100 w-md-25 mx-auto my-2 m-md-2">
+                <div class="text-right">
+                  <img src="img/icono-acceso-informacion.png" alt="Icono bolsa de dinero" class="w-75 my-2">
+                </div>
+                <div>
+                  <p>Acceso a la información</p>
+                </div>
+              </a>
+              <a href={{profile.enlaceGobiernoDigital}} class="bg-secondary w-100 w-md-25 mx-auto my-2 m-md-2">
+                <div class="text-right">
+                  <img src="img/icono-gobierno-digital.png" alt="Icono bolsa de dinero" class="w-75 my-2">
+                </div>
+                <div>
+                  <p>Gobierno Digital</p>
+                </div>
+              </a>
+              <a href={{profile.enlaceDatosAbiertos}} class="bg-danger w-100 w-md-25 mx-auto my-2 m-md-2">
+                <div class="text-right">
+                  <img src="img/icono-datos-abiertos.png" alt="Icono bolsa de dinero" class="w-75 my-2">
+                </div>
+                <div>
+                  <p>Datos Abiertos</p>
+                </div>
+              </a>
+              <a href={{profile.enlaceServicios}} class="bg-warning w-100 w-md-25 mx-auto my-2 m-md-2">
+                <div class="text-right">
+                  <img src="img/icono-servicio.png" alt="Icono bolsa de dinero" class="w-75 my-2">
+                </div>
+                <div>
+                  <p>Servicio</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {{/if}}
