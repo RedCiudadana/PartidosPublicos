@@ -14,7 +14,7 @@ export default class ItemPortfolioComponent extends Component {
   }
 
   didReceiveAttrs() {
-    this._super(...arguments);
+    super.didReceiveAttrs(...arguments);
     this.set('modelName', resolver[this.profile._internalModel.modelName]);
   }
 }
