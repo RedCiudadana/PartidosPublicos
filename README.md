@@ -2,6 +2,8 @@
   <a href="http://redciudadana.org"><img width="auto" src="http://redciudadana.org/wp-content/uploads/2018/05/red-logo-01.png"></a>
 </p>
 
+[![Build Status](https://travis-ci.com/RedCiudadana/Justicipedia.svg?branch=master)](https://travis-ci.com/RedCiudadana/Justicipedia)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8bf05406-27d3-4926-98ab-d6ea2945e074/deploy-status)](https://app.netlify.com/sites/naughty-bhabha-956bf6/deploys)
 
 # Justiciapedia
