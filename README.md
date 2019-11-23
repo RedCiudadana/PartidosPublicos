@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://redciudadana.org"><img width="auto" src="http://redciudadana.org/wp-content/uploads/2018/05/red-logo-01.png"></a>
+  <a href="http://redciudadana.org"><img width="auto" src="https://raw.githubusercontent.com/RedCiudadana/Justicipedia/master/public/mi-guatemala/img/logo-rc-color.png"></a>
 </p>
 
 [![Build Status](https://travis-ci.com/RedCiudadana/Justicipedia.svg?branch=master)](https://travis-ci.com/RedCiudadana/Justicipedia)
