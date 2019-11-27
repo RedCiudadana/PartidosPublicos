@@ -14,10 +14,10 @@ var contentSecurityPolicy = {
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'mi-guatemala',
+    modulePrefix: "justiciapedia",
     environment,
-    rootURL: '/',
-    locationType: 'hash',
+    rootURL: "/",
+    locationType: "hash",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -29,24 +29,26 @@ module.exports = function(environment) {
       }
     },
 
-    metricsAdapters: [{
-        name: 'GoogleAnalytics',
-        environments: ['production', 'development'],
+    metricsAdapters: [
+      {
+        name: "GoogleAnalytics",
+        environments: ["production", "development"],
         config: {
-          id: 'UA-148510552-1',
+          id: "UA-148510552-1",
           // debug: environment === 'development',
           // Use verbose tracing of GA events
           // trace: environment === 'development',
           // Ensure development env hits aren't sent to GA
-          sendHitTask: environment !== 'development',
+          sendHitTask: environment !== "development"
           // Specify Google Analytics plugins
           // require: ['ecommerce']
         }
-      }],
+      }
+    ],
 
     APP: {
-      dataSpreadsheetSourceUrl: '/data-spreadsheet-url',
-      configSpreadsheetSourceUrl: '/config-spreadsheet-url',
+      dataSpreadsheetSourceUrl: "/data-spreadsheet-url",
+      configSpreadsheetSourceUrl: "/config-spreadsheet-url"
 
       // Establecer null para recibir datos desde spreadsheet en vivo.
       // En otro caso estrablecer la url de '/static-files/' los archivos descargados.
@@ -63,11 +65,11 @@ module.exports = function(environment) {
     },
 
     disqus: {
-      shortname: 'candidatos2019'
+      shortname: "candidatos2019"
     },
 
     fastboot: {
-      hostWhitelist: ['justiciapedia.redciudadana.org', /^localhost:\d+$/]
+      hostWhitelist: ["justiciapedia.redciudadana.org", /^localhost:\d+$/]
     },
 
     contentSecurityPolicy: contentSecurityPolicy
@@ -92,6 +94,7 @@ module.exports = function(environment) {
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
+    ENV.APP.autoboot = false;
 
     ENV.APP.rootElement = '#ember-testing';
   }

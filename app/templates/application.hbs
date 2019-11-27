@@ -16,9 +16,9 @@
     {{!-- @TODO Hacer funcionar active en nav.item --}}
     <navbar.nav @justified={{true}} type="pills" class="ml-auto" as |nav|>
       {{#each model.navbarLinks as |link|}}
-      <nav.item @active={{false}}>
-        {{#link-to link.route}}{{link.title}}{{/link-to}}
-      </nav.item>
+        <nav.item @active={{false}}>
+          {{#link-to link.route}}{{link.title}}{{/link-to}}
+        </nav.item>
       {{/each}}
 
       <nav.item @active={{false}} class="mt-1">

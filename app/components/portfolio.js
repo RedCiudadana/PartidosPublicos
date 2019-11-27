@@ -4,7 +4,6 @@ import { alias, oneWay } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
 
-
 export default Component.extend({
   colSize: '10',
   offset: '1',

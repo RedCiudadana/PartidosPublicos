@@ -17,11 +17,13 @@ const Router = EmberRouter.extend(RouterScroll, {
 
   // Registra la página visitada con el servicio 'metrics'
   _trackPage() {
-    scheduleOnce('afterRender', this, () => {
-      const page = this.url;
-      const title = this.getWithDefault('currentRouteName', 'unknown');
-      this.metrics.trackPage({ page, title });
-    });
+    scheduleOnce('afterRender', this, this.routerScroll);
+  },
+
+  routerScroll() {
+    const page = this.url;
+    const title = this.getWithDefault('currentRouteName', 'unknown');
+    this.metrics.trackPage({ page, title });
   }
 });
 
