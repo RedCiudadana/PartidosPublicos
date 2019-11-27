@@ -5,7 +5,7 @@
 
 // Justiciapedia
 $primary: #475660;
-$secondary: #6a649c;
+$secondary: #6e6299;
 
 $success: #0cab55;
 $warning: #fab026;
@@ -205,6 +205,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Others
+
+.m-t--5 {
+  margin-top: -5px;
+}
+
+.m-t--10 {
+  margin-top: -10px;
+}
+
+.m-t--15 {
+  margin-top: -15px;
+}
+
+.m-t--30 {
+  margin-top: -30px;
+}
+
+.m-t--60 {
+  margin-top: -60px;
+}
+
+.line-height-thin {
+  line-height: 0.85rem !important;
+}
 
 .w-fit {
   width: fit-content;
@@ -505,6 +529,7 @@ table.table.borderless {
       padding: 5px 15px;
       border-radius: 160px;
       font-weight: 200;
+      line-height: 0.85rem !important;
     }
 
     a:hover {
