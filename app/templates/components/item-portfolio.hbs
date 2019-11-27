@@ -4,7 +4,7 @@
     <div class="background">
       <div class="img-wrapper">
         <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
-          <img alt={{@profile.name}} src={{@profile.photo}}>
+          <ImgWithFallback alt={{@profile.name}} src={{@profile.photo}} />
         </LinkTo>
       </div>
       <div class="text">
