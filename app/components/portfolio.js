@@ -3,7 +3,7 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 import { alias, oneWay } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isBlank } from '@ember/utils';
-import { gt } from '@ember/object/computed';
+
 
 export default Component.extend({
   colSize: '10',
@@ -17,6 +17,10 @@ export default Component.extend({
       this.pagination === false
       || isBlank(this.pagination) && this.profiles.length < 50) {
       this.set('perPage', this.profiles.length);
+    }
+
+    if (!isNaN(this.paginationSize)) {
+      this.set('perPage', this.paginationSize);
     }
   },
 

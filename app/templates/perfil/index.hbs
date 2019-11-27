@@ -138,7 +138,21 @@
               @bg="white"
               @profiles={{model.profiles}}
               @pagination={{false}}
-              />
+              @paginationSize={{8}}
+            />
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12 text-center mb-4">
+                  <LinkTo
+                    class="btn btn-primary mx-auto px-5 py-2 rounded-pill text-center m-t--60"
+                    @route="perfil.autoridades"
+                    @model={{model.profile.id}}
+                  >
+                    Ver todos los perfiles
+                  </LinkTo>
+                </div>
+              </div>
+            </div>
           {{else}}
             <p class="px-5 pt-3">No hay información</p>
           {{/if}}
@@ -183,7 +197,7 @@
       <div>
         <div class="body p-5">
           <div class="blocks-links d-block d-md-flex">
-            <a href={{profile.enlaceAccesoInformacion}} class="bg-primary w-100 w-md-25 mx-auto my-2 m-md-2">
+            <a href={{profile.enlaceAccesoInformacion}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
               <div>
                 <img src="img/icono-acceso-informacion.png" alt="Icono bolsa de dinero">
               </div>
@@ -191,7 +205,7 @@
                 <p>Acceso a la información</p>
               </div>
             </a>
-            <a href={{profile.enlaceGobiernoDigital}} class="bg-secondary w-100 w-md-25 mx-auto my-2 m-md-2">
+            <a href={{profile.enlaceGobiernoDigital}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
               <div>
                 <img src="img/icono-gobierno-digital.png" alt="Icono bolsa de dinero">
               </div>
@@ -199,7 +213,7 @@
                 <p>Gobierno Digital</p>
               </div>
             </a>
-            <a href={{profile.enlaceDatosAbiertos}} class="bg-danger w-100 w-md-25 mx-auto my-2 m-md-2">
+            <a href={{profile.enlaceDatosAbiertos}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
               <div>
                 <img src="img/icono-datos-abiertos.png" alt="Icono bolsa de dinero">
               </div>
@@ -207,7 +221,7 @@
                 <p>Datos Abiertos</p>
               </div>
             </a>
-            <a href={{profile.enlaceServicios}} class="bg-warning w-100 w-md-25 mx-auto my-2 m-md-2">
+            <a href={{profile.enlaceServicios}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
               <div>
                 <img src="img/icono-servicio.png" alt="Icono bolsa de dinero">
               </div>
