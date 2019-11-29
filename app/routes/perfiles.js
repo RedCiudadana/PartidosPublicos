@@ -25,6 +25,7 @@ export default Route.extend({
   },
   setupController(controller, model) {
     this._super(controller, model);
+    controller.set('allProfiles', model.toArray());
     controller.set('config', model.firstObject);
   }
 });
