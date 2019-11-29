@@ -17,6 +17,10 @@ export default Component.extend({
       || isBlank(this.pagination) && this.profiles.length < 50) {
       this.set('perPage', this.profiles.length);
     }
+
+    if (!isNaN(this.paginationSize)) {
+      this.set('perPage', this.paginationSize);
+    }
   },
 
   classNames: ['container-fluid'],

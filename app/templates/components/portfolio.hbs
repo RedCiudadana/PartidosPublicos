@@ -9,7 +9,7 @@
   </div>
 </div>
 
-{{#if (gt content.totalPages 1)}}
+{{#if (and (gt content.totalPages 1) this.pagination)}}
   {{!-- Pagination numbers --}}
   <div class="row">
     <div class="col-4 offset-4 text-center">
