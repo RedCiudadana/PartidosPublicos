@@ -1,8 +1,6 @@
-import { alias, oneWay } from '@ember/object/computed';
-import { isBlank } from '@ember/utils';
 import Controller from '@ember/controller';
+import { isBlank } from '@ember/utils';
 import { computed } from '@ember/object';
-import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 const resolver = {
   institution: 'instituciones',
@@ -29,15 +27,15 @@ export default Controller.extend({
     'isMujer',
     'isVaron',
     'inInstitution',
-    'model',
+    'allProfiles',
     function() {
       if(!this.isMujer
         && !this.isVaron
         && !this.inInstitution) {
-        return this.model;
+        return this.allProfiles;
       }
 
-      return this.model.filter((candidate) => {
+      return this.allProfiles.filter((candidate) => {
         if (!isBlank(candidate.get('sexo'))) {
           if (this.isMujer
             && candidate.get('sexo') !== 'Femenino') {
@@ -76,27 +74,6 @@ export default Controller.extend({
       return selectors.join(', ');
     }
   ),
-
-  // Pagination
-
-  // setup our query params
-  queryParams: ["page", "perPage"],
-
-  // set default values, can cause problems if left out
-  // if value matches default, it won't display in the URL
-  page: 1,
-  perPage: 50,
-
-  // can be called anything, I've called it pagedContent
-  // remember to iterate over pagedContent in your template
-  pagedContent: pagedArray('profiles', {
-    page: alias("parent.page"),
-    perPage: alias("parent.perPage")
-  }),
-
-  // binding the property on the paged array
-  // to a property on the controller
-  totalPages: oneWay("pagedContent.totalPages"),
 
   actions: {
     applyFilter() {

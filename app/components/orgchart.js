@@ -2,6 +2,8 @@ import Component from '@ember/component';
 import OrgChart from 'orgchart.js';
 
 export default Component.extend({
+  classNames: ['d-flex'],
+
   didRender() {
     this._super(...arguments);
 

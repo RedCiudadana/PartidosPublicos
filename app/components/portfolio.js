@@ -33,13 +33,15 @@ export default Component.extend({
   // Pagination
   queryParams: ["page", "perPage"],
 
-  page: 1,
-  perPage: 24,
+  // page: 1,
+  // perPage: 24,
 
-  content: pagedArray('profiles', {
-    page: alias("parent.page"),
-    perPage: alias("parent.perPage")
-  }),
 
-  totalPages: oneWay("pagedContent.totalPages"),
+  content: pagedArray('profiles'),
+
+  // binding the property on the paged array
+  // to the query params on the controller
+  page: alias("content.page"),
+  perPage: alias("content.perPage"),
+  totalPages: oneWay("content.totalPages")
 });
