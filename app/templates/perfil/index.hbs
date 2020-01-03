@@ -14,15 +14,6 @@
     <h3>{{model.profile.nombre}}</h3>
     <table class="table w-100">
       <tbody>
-        {{#if (eq model.profile._internalModel.modelName "institution")}}
-          <tr>
-            <td>
-              <p class="font-weight-light">
-                {{model.profile.descripcion}}
-              </p>
-            </td>
-          </tr>
-        {{/if}}
         {{#each-in campos as |key campo|}}
           <tr>
             <td>
@@ -64,10 +55,11 @@
   {{/if}}
   {{#if (eq model.profile._internalModel.modelName "institution")}}
     <div class="col-md-3 text-left">
+      <h6>Contacto</h6>
       {{!-- Página web --}}
       {{#if model.profile.web}}
         <div>
-          <a href={{model.profile.web}} target="_blank" rel="noopener">
+          <a href="//{{model.profile.web}}" target="_blank" rel="noopener">
             <img src="img/icono-web.png" alt="Página web">
             {{model.profile.web}}
           </a>
@@ -76,7 +68,7 @@
       {{!-- Correo --}}
       {{#if model.profile.correo}}
         <div>
-          <a href={{model.profile.correo}} target="_blank" rel="noopener">
+          <a href="//{{model.profile.correo}}" target="_blank" rel="noopener">
             <img src="img/icono-correo.png" alt="Correo electrónico">
             {{model.profile.correo}}
           </a>
@@ -94,7 +86,7 @@
       {{!-- Facebook --}}
       {{#if model.profile.fb}}
         <div>
-          <a href={{model.profile.fb}} target="_blank" rel="noopener">
+          <a href="//{{model.profile.fb}}" target="_blank" rel="noopener">
             <img src="img/icono-fb.png" alt="Facebook">
             {{model.profile.nombre}}
           </a>
@@ -103,6 +95,8 @@
     </div>
   {{/if}}
 </div>
+
+{{!-- Institution panels --}}
 {{#if (eq model.profile._internalModel.modelName "institution")}}
   {{!-- Descripción --}}
   <div class="row">
@@ -118,6 +112,35 @@
               <p>{{model.profile.descripcion}}</p>
             {{else}}
               <p class="px-5 pt-3">No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+{{#if (eq model.profile._internalModel.modelName "institution")}}
+  {{! Mision }}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          {{!-- @TODO Cambiar icono --}}
+          <img src="img/i-personas.png" alt="Mision" />
+          <h3>
+            Misión
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.mision}}
+              <p>
+                {{model.profile.mision}}
+              </p>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
             {{/if}}
           </div>
         </div>
@@ -237,4 +260,86 @@
     </div>
   </div>
 </div>
+{{/if}}
+
+{{!-- Profile panels --}}
+{{#if (eq model.profile._internalModel.modelName "profile")}}
+  {{! Experiencia Profesional }}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Experiencia Profesional" />
+          <h3>
+            Experiencia Profesional
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.experienciaProfesional}}
+              <p>
+                {{model.profile.experienciaProfesional}}
+              </p>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{! Experiencia Académica }}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Experiencia Académica" />
+          <h3>
+            Experiencia Académica
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.experienciaAcademica}}
+              <p>
+                {{model.profile.experienciaAcademica}}
+              </p>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{! Proyección Humana }}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Proyección Humana" />
+          <h3>
+            Proyección Humana
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.proyeccionHumana}}
+              <p>
+                {{model.profile.proyeccionHumana}}
+              </p>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {{/if}}

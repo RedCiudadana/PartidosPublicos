@@ -19,6 +19,9 @@ export default Model.extend({
   fb: attr('string'),
   tw: attr('string'),
   fotoURL: attr('string'),
+  diasAtencion: attr('string'),
+  enlaceServicios2: attr('string'),
+  direccion: attr('string'),
 
   // Relationships
   members: hasMany('profile', {

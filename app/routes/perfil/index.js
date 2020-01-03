@@ -16,10 +16,8 @@ export default Route.extend({
       controller.set('campos',
         {
           puesto: 'Puesto',
-          estadocivil: 'Estado civil',
           profesion: 'Profesión',
-          nocolegiado: 'No. Colegiado',
-          anosexperiencia: 'Años de experiencia',
+          nocolegiado: 'No. Colegiado'
         });
     }
 
