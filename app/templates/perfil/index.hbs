@@ -266,10 +266,10 @@
 {{#if (eq model.profile._internalModel.modelName "profile")}}
   {{! Experiencia Profesional }}
   <div class="row">
-    <div class="col-12">
+    <div class="col-md-6">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Experiencia Profesional" />
+          <img src="img/i-personas.png" alt="Experiencia Profesional">
           <h3>
             Experiencia Profesional
           </h3>
@@ -289,13 +289,11 @@
         </div>
       </div>
     </div>
-  </div>
-  {{! Experiencia Académica }}
-  <div class="row">
-    <div class="col-12">
+    {{! Experiencia Académica }}
+    <div class="col-md-6">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Experiencia Académica" />
+          <img src="img/i-personas.png" alt="Experiencia Académica">
           <h3>
             Experiencia Académica
           </h3>
@@ -316,22 +314,37 @@
       </div>
     </div>
   </div>
-  {{! Proyección Humana }}
+  {{! Proyección Humana / Fuentes URLs }}
   <div class="row">
-    <div class="col-12">
+    <div class="col-6">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Proyección Humana" />
+          <img src="img/i-personas.png" alt="Proyección Humana">
           <h3>
-            Proyección Humana
+            Fuentes de información
           </h3>
         </div>
         <div>
           <div class="body p-4">
             {{#if model.profile.proyeccionHumana}}
-              <p>
-                {{model.profile.proyeccionHumana}}
-              </p>
+              <table class="table borderless">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Fuente</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">1</td>
+                    <td>
+                      <a href="//{{model.profile.fuenteURL}}">
+                        {{model.profile.fuenteURL}}
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             {{else}}
               <p class="px-5 pt-3">
                 No hay información
