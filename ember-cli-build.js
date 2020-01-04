@@ -41,7 +41,7 @@ module.exports = function(defaults) {
         // '/',
         // '/perfiles',
         // '/instituciones?sector=justicia', #Netlify dont support this because generate a folder name invalid '?'
-        '/elecciones'
+        // '/elecciones'
       ]
     }
 
