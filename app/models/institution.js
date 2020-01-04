@@ -22,6 +22,7 @@ export default Model.extend({
   diasAtencion: attr('string'),
   enlaceServicios2: attr('string'),
   direccion: attr('string'),
+  horario: attr('string'),
 
   // Relationships
   members: hasMany('profile', {

@@ -118,8 +118,6 @@
       </div>
     </div>
   </div>
-{{/if}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
   {{! Mision }}
   <div class="row">
     <div class="col-12">
@@ -147,8 +145,33 @@
       </div>
     </div>
   </div>
-{{/if}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
+  {{! Visión }}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          {{!-- @TODO Cambiar icono --}}
+          <img src="img/i-personas.png" alt="Visión" >
+          <h3>
+            Visión
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.vision}}
+              <p>
+                {{model.profile.vision}}
+              </p>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   {{!-- Autoridades --}}
   <div class="row">
     <div class="col-12">
@@ -187,8 +210,6 @@
       </div>
     </div>
   </div>
-{{/if}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
   {{!-- Presupuesto --}}
   <div class="row">
     <div class="col-12">
@@ -209,8 +230,6 @@
       </div>
     </div>
   </div>
-{{/if}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
   {{!-- Enlaces --}}
   <div class="row">
     <div class="col-12">
@@ -380,23 +399,20 @@
   </div>
 {{/if}}
 
-{{!-- Profile panels --}}
-{{#if (eq model.profile._internalModel.modelName "profile")}}
-  {{! Experiencia Profesional }}
+{{#if (eq model.profile._internalModel.modelName "election")}}
   <div class="row">
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Experiencia Profesional">
           <h3>
-            Experiencia Profesional
+            Requisitos
           </h3>
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.experienciaProfesional}}
+            {{#if model.profile.requisitos}}
               <p>
-                {{model.profile.experienciaProfesional}}
+                {{model.profile.requisitos}}
               </p>
             {{else}}
               <p class="px-5 pt-3">
@@ -408,37 +424,20 @@
       </div>
     </div>
   </div>
-  {{! Proyección Humana / Fuentes URLs }}
   <div class="row">
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Proyección Humana">
           <h3>
-            Fuentes de información
+            Comisión de Postulación
           </h3>
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.fuenteURL}}
-              <table class="table borderless">
-                <thead>
-                  <tr>
-                    <th>No.</th>
-                    <th>Fuente</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="row">1</td>
-                    <td>
-                      <a href="//{{model.profile.fuenteURL}}">
-                        {{model.profile.fuenteURL}}
-                      </a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            {{#if model.profile.comision}}
+              <p>
+                {{model.profile.comision}}
+              </p>
             {{else}}
               <p class="px-5 pt-3">
                 No hay información
@@ -460,7 +459,7 @@
         <div>
           <div class="body p-4">
             {{#if model.profile.infografiaURL}}
-              <img src={{model.profile.infografiaURL}} alt="Infografia URL">` Zzawsdcdfv fvg cfv cfv
+              <img src={{model.profile.infografiaURL}} alt="Infografia URL">
             {{else}}
               <p class="px-5 pt-3">
                 No hay información
