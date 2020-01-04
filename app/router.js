@@ -37,9 +37,11 @@ Router.map(function() {
     this.route('frente-a-frente');
     this.route('candidatos');
     this.route('elecciones');
+    this.route('comisionados');
   });
 
   this.route('perfiles', { path: '/:model'});
+  this.route('preguntas');
 });
 
 export default Router;

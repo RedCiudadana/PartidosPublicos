@@ -16,10 +16,8 @@ export default Route.extend({
       controller.set('campos',
         {
           puesto: 'Puesto',
-          estadocivil: 'Estado civil',
           profesion: 'Profesión',
-          nocolegiado: 'No. Colegiado',
-          anosexperiencia: 'Años de experiencia',
+          nocolegiado: 'No. Colegiado'
         });
     }
 
@@ -27,8 +25,8 @@ export default Route.extend({
       controller.set('campos',
         {
           fechaEleccion: 'Fecha a realizarse la elección',
-          descripcion: 'Descripción',
-          requisitos: 'Requisitos'
+          fechaEleccionProyectada: 'Fecha proyectada de Comision de Postulacion',
+          descripcion: 'Descripción'
         }
       );
     }

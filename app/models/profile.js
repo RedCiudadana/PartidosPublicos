@@ -20,6 +20,7 @@ export default Model.extend({
   anosexperiencia: attr('string'),
   experienciaProfesional: attr('string'),
   experienciaAcademica: attr('string'),
+  proyeccionHumana: attr('string'),
   publicaciones: attr('string'),
   fotoURL: attr('string'),
   correo: attr('string'),
@@ -33,8 +34,16 @@ export default Model.extend({
 
   // Relationships
   institution: belongsTo('institution', { async: true, defaultValue: null }),
-  comission: belongsTo('election', { inverse: 'committee', async: true, defaultValue: null }),
-  election: belongsTo('election', { inverse: 'candidates', async: true, defaultValue: null }),
+  comission: belongsTo('election', {
+    inverse: 'committee',
+    async: true,
+    defaultValue: null
+  }),
+  election: belongsTo('election', {
+    inverse: 'candidates',
+    async: true,
+    defaultValue: null
+  }),
 
   // Computed properties
 
@@ -42,19 +51,19 @@ export default Model.extend({
    * This computed property set a default image if fotoURL is blank.
    */
   photo: computed('fotoURL', 'sexo', function() {
-      if (!isBlank(this.fotoURL)) {
-          return this.fotoURL;
-      }
+    if (!isBlank(this.fotoURL)) {
+      return this.fotoURL;
+    }
 
-      if (this.sexo === 'Masculino') {
-        return 'mi-guatemala/img/candidato.png';
-      }
+    if (this.sexo === 'Masculino') {
+      return 'mi-guatemala/img/candidato.png';
+    }
 
-      if (this.sexo === 'Femenino') {
-        return 'mi-guatemala/img/candidata.png';
-      }
-
+    if (this.sexo === 'Femenino') {
       return 'mi-guatemala/img/candidata.png';
+    }
+
+    return 'mi-guatemala/img/candidata.png';
   })
 });
 
