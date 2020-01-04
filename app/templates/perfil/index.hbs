@@ -326,7 +326,7 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.proyeccionHumana}}
+            {{#if model.profile.fuenteURL}}
               <table class="table borderless">
                 <thead>
                   <tr>
@@ -345,6 +345,144 @@
                   </tr>
                 </tbody>
               </table>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Proyección Humana ">
+          <h3>
+            Proyección Humana
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.proyeccionHumana}}
+              <p>
+                {{model.profile.proyeccionHumana}}
+              </p>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+{{!-- Profile panels --}}
+{{#if (eq model.profile._internalModel.modelName "profile")}}
+  {{! Experiencia Profesional }}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Experiencia Profesional">
+          <h3>
+            Experiencia Profesional
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.experienciaProfesional}}
+              <p>
+                {{model.profile.experienciaProfesional}}
+              </p>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{! Proyección Humana / Fuentes URLs }}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Proyección Humana">
+          <h3>
+            Fuentes de información
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.fuenteURL}}
+              <table class="table borderless">
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Fuente</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">1</td>
+                    <td>
+                      <a href="//{{model.profile.fuenteURL}}">
+                        {{model.profile.fuenteURL}}
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <h3>
+            Infografia
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.infografiaURL}}
+              <img src={{model.profile.infografiaURL}} alt="Infografia URL">` Zzawsdcdfv fvg cfv cfv
+            {{else}}
+              <p class="px-5 pt-3">
+                No hay información
+              </p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <h3>
+            Cronograma
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.profile.cronogramaURL}}
+              <img src={{model.profile.cronogramaURL}} alt="Cronograma">
             {{else}}
               <p class="px-5 pt-3">
                 No hay información

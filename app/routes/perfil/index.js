@@ -25,8 +25,8 @@ export default Route.extend({
       controller.set('campos',
         {
           fechaEleccion: 'Fecha a realizarse la elección',
-          descripcion: 'Descripción',
-          requisitos: 'Requisitos'
+          fechaEleccionProyectada: 'Fecha proyectada de Comision de Postulacion',
+          descripcion: 'Descripción'
         }
       );
     }

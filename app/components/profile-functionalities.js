@@ -3,7 +3,7 @@ import { A } from "@ember/array";
 import { debug } from '@ember/debug';
 
 export default Component.extend({
-  init({ model: { profile, profiles, elections, candidates } }) {
+  init({ model: { profile, profiles, elections, candidates, comissioners} }) {
     this._super(...arguments);
     this.set(
       "links",
@@ -96,6 +96,12 @@ export default Component.extend({
           img: "",
           text: "Candidatos",
           disabled: candidates.length < 1
+        },
+        {
+          route: "perfil.comisionados",
+          img: "",
+          text: "Comisionados",
+          disabled: comissioners.length < 1
         }
       ]);
     }

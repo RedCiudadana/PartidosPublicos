@@ -6,14 +6,20 @@ export default Model.extend({
   // Attributes
   nombre: attr('string'),
   fechaEleccion: attr('string'),
+  fechaEleccionProyectada: attr('string'),
+  descripcion: attr('string'),
+
+  infografiaURL: attr('string'),
+  cronogramaURL: attr('string'),
+  fotoURL: attr('string'),
 
   // Relationships
   institution: belongsTo('institution'),
   candidates: hasMany('profile', {
     inverse: 'election'
   }),
+
   committee: hasMany('profile'),
-  fotoURL: attr('string'),
 
   /**
    * This computed property return photoURL if is not blank, else return a default image.
