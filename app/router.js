@@ -41,6 +41,7 @@ Router.map(function() {
   });
 
   this.route('perfiles', { path: '/:model'});
+  this.route('preguntas');
 });
 
 export default Router;
