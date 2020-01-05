@@ -63,7 +63,7 @@
     "ember-load-initializers": "^2.1.1",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-metrics": "^0.14.0",
-    "ember-mocha": "^0.16.0",
+    "ember-mocha": "^0.16.2",
     "ember-one-way-select": "^4.0.0",
     "ember-page-title": "^4.0.5",
     "ember-power-select": "^3.0.2",

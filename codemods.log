@@ -1,8 +1,0 @@
-2020-01-05T01:25:26.693Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
-2020-01-05T01:25:26.716Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/perfil.hbs
-2020-01-05T01:25:26.884Z [warn] WARNING: {{one-way-select}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/frente-a-frente.hbs
-2020-01-05T01:25:26.884Z [warn] WARNING: {{one-way-select}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/frente-a-frente.hbs
-2020-01-05T01:25:26.886Z [warn] WARNING: {{inc}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/frente-a-frente.hbs
-2020-01-05T01:25:26.886Z [warn] WARNING: {{inc}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/frente-a-frente.hbs
-2020-01-05T01:25:27.283Z [warn] WARNING: {{twitter-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/perfil/index.hbs
-2020-01-05T01:25:27.284Z [warn] WARNING: {{twitter-link}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/perfil/index.hbs
