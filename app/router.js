@@ -1,31 +1,10 @@
 import EmberRouter from '@ember/routing/router';
-import RouterScroll from 'ember-router-scroll';
 import config from './config/environment';
-import { inject as service } from '@ember/service';
-import { scheduleOnce } from '@ember/runloop';
 
-const Router = EmberRouter.extend(RouterScroll, {
-  location: config.locationType,
-  // Servicio para Google Analytics (ember-metrics)
-  metrics: service(),
-
-  // Llamar a '_trackPage' en cada transición
-  didTransition() {
-    this._super(...arguments);
-    this._trackPage();
-  },
-
-  // Registra la página visitada con el servicio 'metrics'
-  _trackPage() {
-    scheduleOnce('afterRender', this, this.routerScroll);
-  },
-
-  routerScroll() {
-    const page = this.url;
-    const title = this.getWithDefault('currentRouteName', 'unknown');
-    this.metrics.trackPage({ page, title });
-  }
-});
+export default class Router extends EmberRouter {
+  location = config.locationType;
+  rootURL = config.rootURL;
+}
 
 Router.map(function() {
   /**
@@ -43,5 +22,3 @@ Router.map(function() {
   this.route('perfiles', { path: '/:model'});
   this.route('preguntas');
 });
-
-export default Router;

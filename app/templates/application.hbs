@@ -1,4 +1,4 @@
-{{head-layout}}
+<HeadLayout />
 
 {{title "Justiciapedia - RedCiudadana"}}
 
@@ -7,9 +7,9 @@
   <div class="navbar-header">
     {{navbar.toggle}}
 
-    {{#link-to "application" class="navbar-brand"}}
+    <LinkTo @route="application" class="navbar-brand">
       <img src="logo-brand.png" class="img-responsive" title={{nombreApp}} alt="Congreso">
-    {{/link-to}}
+    </LinkTo>
   </div>
 
   <navbar.content>
@@ -17,7 +17,7 @@
     <navbar.nav @justified={{false}} type="pills" class="ml-auto" as |nav|>
       {{#each model.navbarLinks as |link|}}
         <nav.item @active={{false}}>
-          {{#link-to link.route}}{{link.title}}{{/link-to}}
+          <LinkTo @route={{link.route}}>{{link.title}}</LinkTo>
         </nav.item>
       {{/each}}
 
