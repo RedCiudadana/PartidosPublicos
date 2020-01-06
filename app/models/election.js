@@ -8,7 +8,7 @@ export default Model.extend({
   fechaEleccion: attr('string'),
   fechaEleccionProyectada: attr('string'),
   descripcion: attr('string'),
-  requisitos: attr('strting'),
+  requisitos: attr('string'),
   comision: attr('string'),
 
   infografiaURL: attr('string'),

@@ -221,7 +221,7 @@
         <div>
           <div class="body p-1">
             {{#if this.lineData}}
-              {{ember-chart type="line" data=lineData options=options class="p-0 p-lg-5"}}
+              <EmberChart @type="line" @data={{lineData}} @options={{options}} @class="p-0 p-lg-5" />
             {{else}}
               <p class="px-5 pt-3">No hay información</p>
             {{/if}}

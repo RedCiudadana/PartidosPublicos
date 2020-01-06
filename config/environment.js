@@ -1,23 +1,12 @@
 /* eslint-env node */
 'use strict';
 
-// Necesario para ember-metrics
-var contentSecurityPolicy = {
-  'default-src': "'none'",
-  'script-src': "'self' www.google-analytics.com",
-  'font-src': "'self'",
-  'connect-src': "'self' www.google-analytics.com",
-  'img-src': "'self'",
-  'style-src': "'self'",
-  'media-src': "'self'"
-};
-
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: "justiciapedia",
+    modulePrefix: 'justiciapedia',
     environment,
-    rootURL: "/",
-    locationType: "hash",
+    rootURL: '/',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -31,48 +20,26 @@ module.exports = function(environment) {
 
     metricsAdapters: [
       {
-        name: "GoogleAnalytics",
-        environments: ["production", "development"],
+        name: 'GoogleAnalytics',
+        environments: ['production'],
         config: {
-          id: "UA-148510552-1",
-          // debug: environment === 'development',
-          // Use verbose tracing of GA events
-          // trace: environment === 'development',
-          // Ensure development env hits aren't sent to GA
-          sendHitTask: environment !== "development"
-          // Specify Google Analytics plugins
-          // require: ['ecommerce']
+          id: 'UA-148510552-1',
+          sendHitTask: environment !== 'development'
         }
       }
     ],
 
     APP: {
-      dataSpreadsheetSourceUrl: "/data-spreadsheet-url",
-      configSpreadsheetSourceUrl: "/config-spreadsheet-url"
-
-      // Establecer null para recibir datos desde spreadsheet en vivo.
-      // En otro caso estrablecer la url de '/static-files/' los archivos descargados.
-
-      // Datos desde spreadsheets en vivo.
-      // staticFilesUrl: null
-
-      // Datos desde localhost => desarrollo
-      // staticFilesUrl: 'http://192.168.250.206:4200/static-files/'
-      // staticFilesUrl: 'http://localhost:4200/static-files/'
-
-      // Datos desde gh-pages
-      // staticFilesUrl: 'http://miguatemala.redciudadana.org/static-files/'
+      dataSpreadsheetSourceUrl: '/data-spreadsheet-url'
     },
 
     disqus: {
-      shortname: "candidatos2019"
+      shortname: 'candidatos2019'
     },
 
     fastboot: {
-      hostWhitelist: ["justiciapedia.redciudadana.org", /^localhost:\d+$/]
+      hostWhitelist: ['justiciapedia.redciudadana.org', /^localhost:\d+$/]
     },
-
-    contentSecurityPolicy: contentSecurityPolicy
   };
 
   if (environment === 'development') {
@@ -81,9 +48,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy = contentSecurityPolicy;
-    ENV.contentSecurityPolicy['script-src'] = "'self' 'unsafe-eval' 192.168.250.206:* 172.20.10.9:*";
-
     ENV.APP.staticFilesUrl = 'http://localhost:4200/static-files/';
   }
 
@@ -94,9 +58,9 @@ module.exports = function(environment) {
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
-    ENV.APP.autoboot = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
   }
 
   if (environment === 'production') {
