@@ -13,7 +13,6 @@ Router.map(function() {
    */
   this.route('perfil', { path: '/:model/:id' }, function() {
     this.route('autoridades');
-    this.route('frente-a-frente');
     this.route('candidatos');
     this.route('elecciones');
     this.route('comisionados');
@@ -21,4 +20,5 @@ Router.map(function() {
 
   this.route('perfiles', { path: '/:model'});
   this.route('preguntas');
+  this.route('test');
 });
