@@ -11,7 +11,9 @@ export default Route.extend({
   queryParams: {
     sector: {
       refreshModel: true
-    }
+    },
+    page: { refreshModel: false },
+    size: { refreshModel: false }
   },
 
   model({ model, sector }) {

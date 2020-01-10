@@ -62,51 +62,6 @@ export default Route.extend({
         })
       });
     });
-
-    /**
-     * @TODO Revisar que va la pena conservar.
-     * @TODO Validar en el caso que no exite perifl, aunque nunca deberia pasar.
-     */
-    // Obtiene el partido actual del profile
-    // const currentParty = profile.get('partido');
-
-      // currentParty: currentParty,
-      // availableInfo: spreadsheet
-      //   .fetch('info-' + this.types[model])
-      //   .then((documentos) => {
-      //     return documentos.findBy('id', profile.get('id'));
-      //   }),
-      // profileFunctions: spreadsheet
-      //   .fetchConfig('perfil-funcionalidades')
-      //   .then((links) => {
-      //     return A(links)
-      //       .filter((link) => {
-      //         if (link.link) {
-      //           return true;
-      //         }
-
-      //         if (!_routing.hasRoute(link.route)) {
-      //           throw new Error(`Route not recognized: ${link.route}`);
-      //         }
-
-      //         return true;
-      //       });
-      //   }),
-      // fuentes: spreadsheet
-      //   .fetch('fuentes')
-      //   .then((documento) => {
-      //     return documento.filterBy('perfil', profile.get('id'));
-      // }),
-      // entrevistas: spreadsheet
-      //   .fetch('entrevistas')
-      //   .then((documento) => {
-      //     return documento.filterBy('perfil', profile.get('id'));
-      // }),
-      // historial: spreadsheet
-      //   .fetch('historial')
-      //   .then((documento) => {
-      //     return documento.filterBy('perfil', profile.get('id'));
-      // })
   },
 
   /**
@@ -118,7 +73,6 @@ export default Route.extend({
    */
   setupController(controller, model) {
     this._super(controller, model);
-    // model.config.profileFunctions = model.profileFunctions;
   },
 
   /**

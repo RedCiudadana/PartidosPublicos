@@ -2,18 +2,9 @@
 <div class="row">
   <div class="col-{{colSize}} offset-{{offset}}">
     <div id="portfolio" class="portfolio clearfix my-4 row row-eq-height">
-      {{#each content as |profile|}}
+      {{#each @profiles as |profile|}}
         <ItemPortfolio @profile={{profile}} @fit={{@fit}}/>
       {{/each}}
     </div>
   </div>
 </div>
-
-{{#if (and (gt content.totalPages 1) this.pagination)}}
-  {{!-- Pagination numbers --}}
-  <div class="row">
-    <div class="col-4 offset-4 text-center">
-      <PageNumbers @content={{content}} />
-    </div>
-  </div>
-{{/if}}

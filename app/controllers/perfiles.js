@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { isBlank } from '@ember/utils';
-import { computed } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 const resolver = {
   institution: 'instituciones',
@@ -8,28 +9,23 @@ const resolver = {
   profile: 'perfiles'
 };
 
-export default Controller.extend({
-  isMujer: false,
-  isVaron: false,
-  inInstitution: null,
+const array_chunks = (array, chunk_size) => Array(Math.ceil(array.length / chunk_size)).fill().map((_, index) => index * chunk_size).map(begin => array.slice(begin, begin + chunk_size));
+
+export default class PerfilesController extends Controller {
+  @tracked page = 1;
+  @tracked size = 20;
+
+  @tracked isMujer = false;
+  @tracked isVaron = false;
+  @tracked inInstitution = null;
 
   init() {
-    this._super(...arguments);
-    this.set('institutions', this.store.findAll('institution'));
-  },
+    super.init(...arguments);
+    this.institutions = this.store.findAll('institution');
+  }
 
-
-  municipios: computed('departamento', function() {
-    return this.datosMunicipios[this.departamento];
-  }),
-
-  profiles: computed(
-    'isMujer',
-    'isVaron',
-    'inInstitution',
-    'allProfiles',
-    function() {
-      if(!this.isMujer
+  get filteredData() {
+    if(!this.isMujer
         && !this.isVaron
         && !this.inInstitution) {
         return this.allProfiles;
@@ -56,33 +52,38 @@ export default Controller.extend({
 
         return true;
       });
-  }),
-
-  currentSelector: computed(
-    'a',
-    function() {
-      if(!this.a) {
-        return '*';
-      }
-
-      let selectors = [];
-
-      if (this.a) {
-        selectors.push('.a');
-      }
-
-      return selectors.join(', ');
-    }
-  ),
-
-  actions: {
-    applyFilter() {
-      return this._applyFilter();
-    },
-
-    toProfile(profile) {
-      this.transitionToRoute('perfil', resolver[profile._internalModel.modelName], profile.id);
-      return false;
-    }
   }
-});
+
+  get chunks() {
+    return array_chunks(this.filteredData, this.size);
+  }
+
+  get profiles() {
+    return this.chunks[this.page - 1];
+  }
+
+  get pages() {
+    return Array.from(Array(this.chunks.length + 1).keys()).slice(this.page, this.page + 10);
+  }
+
+  @action
+  toProfile(profile) {
+    this.transitionToRoute('perfil', resolver[profile._internalModel.modelName], profile.id);
+    return false;
+  }
+
+  @action
+  selectPage(page) {
+    this.page = page;
+  }
+
+  @action
+  prevPage() {
+    this.page = this.page > 1 ? this.page - 1 : 1;
+  }
+
+  @action
+  nextPage() {
+    this.page = this.page < this.chunks.length ? this.page + 1 : this.chunks.length;
+  }
+}
