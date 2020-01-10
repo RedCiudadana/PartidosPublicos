@@ -19,6 +19,7 @@
     "update:data": "node build-data.js"
   },
   "devDependencies": {
+    "@antv/g6": "^3.2.8",
     "@ember/optional-features": "^1.1.0",
     "@glimmer/component": "^1.0.0",
     "babel-eslint": "^10.0.3",
@@ -72,7 +73,6 @@
     "eslint-plugin-node": "^10.0.0",
     "loader.js": "^4.7.0",
     "node-sass": "^4.9.3",
-    "orgchart.js": "^0.0.4",
     "prember": "^1.0.3",
     "sass": "^1.14.0",
     "tabletop": "^1.5.2",
