@@ -62,7 +62,7 @@
     "ember-mocha": "^0.16.2",
     "ember-one-way-select": "^4.0.0",
     "ember-page-title": "^4.0.5",
-    "ember-power-select": "^3.0.2",
+    "ember-power-select": "^3.0.6",
     "ember-query-params-service": "^0.4.0",
     "ember-resolver": "^7.0.0",
     "ember-router-scroll": "^1.0.0",
