@@ -6338,10 +6338,10 @@ ember-auto-import@^1.4.0, ember-auto-import@^1.4.1, ember-auto-import@^1.5.3:
     walk-sync "^0.3.3"
     webpack "~4.28"
 
-ember-basic-dropdown@^2.0.11:
-  version "2.0.11"
-  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-2.0.11.tgz#6bc3b4d9f35c3ee7d15632234865991ef0a8c34a"
-  integrity sha512-wU+AO3TojxFBFN2ZaS/XFQMiD3B92Ft90yLI9QVRBFvhY3z+0e77/OAUpqu1BpqmjKIWM0UGDIsupR6exBgDJQ==
+ember-basic-dropdown@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-2.0.13.tgz#f081496a9e50f855ad58e614fe96a4abb06cb254"
+  integrity sha512-FaUIFjuy/Qg/5r+cev/IRiUabsztVNpMbk7YypsHXYrty8xkfpRNIrRB2DWfzRR0LcpjDiSevyAPvze+S70Xhw==
   dependencies:
     "@ember-decorators/component" "^6.1.0"
     "@ember/render-modifiers" "^1.0.2"
@@ -7354,13 +7354,13 @@ ember-popper@^0.10.3:
     fastboot-transform "^0.1.0"
     popper.js "^1.14.1"
 
-ember-power-select@^3.0.2:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-3.0.5.tgz#0ed1484732737d7f61947a48b6857548d9f3a3aa"
-  integrity sha512-QrKb5xZYzMpXJeCOvkUkJcuu/FAvZvlXUiYQFfZYM/uPHVXlGkQq86z1Ddfv1yn9R/XbmaCVFRvC/2PR7HItyw==
+ember-power-select@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-3.0.6.tgz#97dcbaf04e6afd9bd4c75cbb150c3a8d5fe50fec"
+  integrity sha512-osS+fbwfaxPo5RCCKDOWzJfaNc+toMmg3MMGmLz3h73Uqd3burRSUBo3DAkEHyYVHCy+oMas4+eZtRcjUrLWjg==
   dependencies:
     "@ember-decorators/component" "^6.1.0"
-    ember-basic-dropdown "^2.0.11"
+    ember-basic-dropdown "^2.0.13"
     ember-cli-babel "^7.11.0"
     ember-cli-htmlbars "^3.1.0"
     ember-concurrency "^1.0.0"

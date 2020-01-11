@@ -1,5 +1,19 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true
-  }
+    "target": "es2018",
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "justiciapedia/tests/*": ["./tests/*"],
+      "justiciapedia/*": ["./app/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "tmp",
+    "vendor",
+    ".git",
+    "dist"
+  ]
 }
