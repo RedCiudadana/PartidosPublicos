@@ -16,7 +16,7 @@ const array_chunks = (array, chunk_size) => Array(Math.ceil(array.length / chunk
  */
 export default class PerfilesController extends Controller {
   @tracked page = 1;
-  @tracked size = 8;
+  @tracked size = 12;
 
   get chunks() {
     return array_chunks(this.model.profiles, this.size);
