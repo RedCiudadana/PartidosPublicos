@@ -41,6 +41,8 @@ export default Component.extend({
         const width = this.element.scrollWidth;
         const height = 600;
 
+        const isSM = width <= 576;
+
         const graph = new G6.TreeGraph({
           container: this.elementId,
           width,
@@ -48,7 +50,7 @@ export default Component.extend({
           pixelRatio: 2,
           linkCenter: true,
           modes: {
-            default: ['drag-canvas', 'zoom-canvas' ]
+            default: [/* 'drag-canvas', 'zoom-canvas'  */]
           },
           defaultNode: {
             size: 18,
@@ -65,8 +67,8 @@ export default Component.extend({
             }
           },
           layout: {
-            type: 'compactBox',
-            direction: 'LR',
+            type: 'dendrogram',
+            direction: !isSM ? 'LR' : 'TB',
             getId: function getId(d) {
               return d.id;
             },
@@ -90,7 +92,11 @@ export default Component.extend({
             label: node.name,
             labelCfg: {
               offset: 10,
-              position: node.children && node.children.length > 0 ? 'left' : 'right'
+              position: !isSM ? node.children ? 'top' : 'rigth' : node.children ? 'rigth' : 'bottom',
+              style: {
+                rotate: !isSM ? 0 : node.children ? 0 : 90,
+                textAlign: 'start'
+              }
             }
           };
         });

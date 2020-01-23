@@ -103,7 +103,7 @@
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Descripción">
+          <img src="img/i-estrado.png" alt="Descripción" class="img-white">
           <h3>Descripción de la institutición</h3>
         </div>
         <div>
@@ -124,7 +124,7 @@
       <div class="panel">
         <div class="header d-flex bg-primary">
           {{!-- @TODO Cambiar icono --}}
-          <img src="img/i-personas.png" alt="Mision" >
+          <img src="img/icono-mision.png" alt="Mision" >
           <h3>
             Misión
           </h3>
@@ -151,7 +151,7 @@
       <div class="panel">
         <div class="header d-flex bg-primary">
           {{!-- @TODO Cambiar icono --}}
-          <img src="img/i-personas.png" alt="Visión" >
+          <img src="img/icono-vision.png" alt="Visión" >
           <h3>
             Visión
           </h3>
@@ -185,9 +185,9 @@
             {{#if model.profiles}}
               <Portfolio
                 @bg="white"
-                @profiles={{model.profiles}}
+                @profiles={{slice 0 4 model.profiles}}
                 @pagination={{false}}
-                @paginationSize={{8}}
+                @paginationSize={{4}}
               />
               <div class="container-fluid">
                 <div class="row">
@@ -288,7 +288,7 @@
     <div class="col-md-6">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Experiencia Profesional">
+          <img src="img/icono-historial.png" alt="Experiencia Profesional">
           <h3>
             Experiencia Profesional
           </h3>
@@ -312,7 +312,7 @@
     <div class="col-md-6">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Experiencia Académica">
+          <img src="img/icono-experiencia-academica.png" alt="Experiencia Académica">
           <h3>
             Experiencia Académica
           </h3>
@@ -338,10 +338,11 @@
     <div class="col-6">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Proyección Humana">
+          <img src="img/icono-fuentes.png" alt="Mensaje de globo con una I">
           <h3>
             Fuentes de información
           </h3>
+          {{fa-icon "chevron-circle-down" size=2 class="my-auto ml-auto"}}
         </div>
         <div>
           <div class="body p-4">
@@ -376,7 +377,7 @@
     <div class="col-md-6">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Proyección Humana ">
+          <img src="img/i-personas.png" alt="Proyección Humana">
           <h3>
             Proyección Humana
           </h3>
@@ -404,6 +405,7 @@
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
+          <img src="img/icono-requisitos.png" alt="Documentos">
           <h3>
             Requisitos
           </h3>
@@ -428,6 +430,7 @@
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
+          <img src="img/i-personas.png" alt="Grupo de personas">
           <h3>
             Comisión de Postulación
           </h3>
@@ -452,6 +455,7 @@
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
+          <img src="img/icono-infografia.png" alt="Icono de graficas">
           <h3>
             Infografia
           </h3>

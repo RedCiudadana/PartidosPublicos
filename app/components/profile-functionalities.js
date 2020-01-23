@@ -1,19 +1,13 @@
 import Component from "@ember/component";
 import { A } from "@ember/array";
-import { debug } from '@ember/debug';
+import { debug } from "@ember/debug";
 
 export default Component.extend({
-  init({ model: { profile, profiles, elections, candidates, comissioners} }) {
+  init({ model: { profile, profiles, elections, candidates, comissioners } }) {
     this._super(...arguments);
-    this.set(
-      "links",
-      A([])
-    );
+    this.set("links", A([]));
 
-    this.set(
-      "breadcrumbs",
-      A([])
-    );
+    this.set("breadcrumbs", A([]));
 
     if (profile._internalModel.modelName === "institution") {
       this.links.pushObjects([
@@ -46,42 +40,54 @@ export default Component.extend({
         }
       ]);
 
-      profile.get('institution').then((institution) => {
-        this.breadcrumbs.pushObjects([
-          {
-            route: 'perfil',
-            model: ['instituciones', institution.get('id')],
-            text: institution.get('nombre')
-          }
-        ]);
-      })
-      .catch(() => {
-        profile.get('election').then(() => {
-          profile.get('election').then((election) => {
-            this.breadcrumbs.pushObjects([
-              {
-                route: 'perfil',
-                model: ['elecciones', election.get('id')],
-                text: election.nombre
-              }
-            ]);
-          });
+      profile
+        .get("institution")
+        .then(institution => {
+          this.breadcrumbs.pushObjects([
+            {
+              route: "perfil",
+              model: ["instituciones", institution.get("id")],
+              text: institution.get("nombre")
+            }
+          ]);
         })
         .catch(() => {
-          profile.get('comission').then(() => {
-            profile.get('comission').then((comission) => {
-              this.breadcrumbs.pushObjects([
-                {
-                  route: 'perfil',
-                  model: ['elecciones', comission.get('id')],
-                  text: comission.get('nombre')
-                }
-              ]);
+          profile
+            .get("election")
+            .then(() => {
+              profile.get("election").then(election => {
+                this.breadcrumbs.pushObjects([
+                  {
+                    route: "perfil",
+                    model: ["elecciones", election.get("id")],
+                    text: election.nombre
+                  }
+                ]);
+              });
             })
-          })
-          .catch(() => debug(`Profile ${profile.get('id')} don't have institution, election or comission.`));
-        })
-      });
+            .catch(() => {
+              profile
+                .get("comission")
+                .then(() => {
+                  profile.get("comission").then(comission => {
+                    this.breadcrumbs.pushObjects([
+                      {
+                        route: "perfil",
+                        model: ["elecciones", comission.get("id")],
+                        text: comission.get("nombre")
+                      }
+                    ]);
+                  });
+                })
+                .catch(() =>
+                  debug(
+                    `Profile ${profile.get(
+                      "id"
+                    )} don't have institution, election or comission.`
+                  )
+                );
+            });
+        });
     }
 
     if (profile._internalModel.modelName === "election") {
@@ -93,13 +99,13 @@ export default Component.extend({
         },
         {
           route: "perfil.candidatos",
-          img: "",
+          img: "img/i-personas.png",
           text: "Candidatos",
           disabled: candidates.length < 1
         },
         {
           route: "perfil.comisionados",
-          img: "",
+          img: "img/i-personas.png",
           text: "Comisionados",
           disabled: comissioners.length < 1
         }
