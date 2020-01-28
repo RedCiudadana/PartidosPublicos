@@ -36,6 +36,10 @@ module.exports = function(defaults) {
       fingerprintAssetMap: true
     },
 
+    'ember-font-awesome': {
+      removeUnusedIcons: true
+    },
+
     prember: {
       urls: [
         // '/',

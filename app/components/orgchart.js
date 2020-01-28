@@ -53,7 +53,7 @@ export default Component.extend({
             default: [/* 'drag-canvas', 'zoom-canvas'  */]
           },
           defaultNode: {
-            size: 18,
+            size: 20,
             anchorPoints: [[ 0, 0.5 ], [ 1, 0.5 ]],
             style: {
               fill: '#C6E5FF',
@@ -94,6 +94,7 @@ export default Component.extend({
               offset: 10,
               position: !isSM ? node.children ? 'top' : 'rigth' : node.children ? 'rigth' : 'bottom',
               style: {
+                fontSize: 20,
                 rotate: !isSM ? 0 : node.children ? 0 : 90,
                 textAlign: 'start'
               }
