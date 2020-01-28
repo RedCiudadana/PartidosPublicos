@@ -38,6 +38,10 @@ export default class PerfilesController extends Controller {
     }
 
     return this.allProfiles.filter(candidate => {
+      if (this.isMujer && this.isVaron) {
+        return true;
+      }
+
       if (this.isMujer && candidate.get("sexo") !== "Femenino") {
         return false;
       }
