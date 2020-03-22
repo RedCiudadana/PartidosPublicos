@@ -3,7 +3,7 @@ import { A } from "@ember/array";
 import { debug } from "@ember/debug";
 
 export default Component.extend({
-  init({ model: { profile, profiles, elections, candidates, comissioners } }) {
+  init({ model: { profile, /* profiles, elections,  */candidates, comissioners } }) {
     this._super(...arguments);
     this.set("links", A([]));
 

@@ -1,22 +1,5 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
-import { isEmpty } from '@ember/utils';
-
-const formatMoney = function(n) {
-  n = n.toString();
-  n = n.split('').reverse();
-
-
-  n = n.reduce((total, currentValue, currentIndex) => {
-    if (currentIndex % 3 == 0) {
-      total += ',';
-    }
-
-    return total += currentValue;
-  });
-
-  return 'Q ' + n.split('').reverse().join('');
-};
 
 export default Controller.extend({
   init() {
