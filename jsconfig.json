@@ -4,8 +4,8 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "justiciapedia/tests/*": ["./tests/*"],
-      "justiciapedia/*": ["./app/*"]
+      "misalud/tests/*": ["./tests/*"],
+      "misalud/*": ["./app/*"]
     }
   },
   "exclude": [

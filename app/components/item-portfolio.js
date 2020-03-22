@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 
 const resolver = {
-  institution: 'instituciones',
+  institution: 'hospitales',
   election: 'elecciones',
   profile: 'perfiles'
 };

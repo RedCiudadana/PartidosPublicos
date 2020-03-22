@@ -118,62 +118,8 @@
       </div>
     </div>
   </div>
-  {{! Mision }}
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          {{!-- @TODO Cambiar icono --}}
-          <img src="img/icono-mision.png" alt="Mision" >
-          <h3>
-            Misión
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if model.profile.mision}}
-              <p>
-                {{model.profile.mision}}
-              </p>
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{! Visión }}
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          {{!-- @TODO Cambiar icono --}}
-          <img src="img/icono-vision.png" alt="Visión" >
-          <h3>
-            Visión
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if model.profile.vision}}
-              <p>
-                {{model.profile.vision}}
-              </p>
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   {{!-- Autoridades --}}
-  <div class="row">
+  {{!-- <div class="row">
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
@@ -209,71 +155,22 @@
         </div>
       </div>
     </div>
-  </div>
-  {{!-- Presupuesto --}}
+  </div> --}}
+  {{!-- Suministros --}}
   <div class="row">
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
           <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
-          <h3>Presupuesto</h3>
+          <h3>Suministros</h3>
         </div>
         <div>
           <div class="body p-1">
             {{#if this.lineData}}
-              <EmberChart @type="line" @data={{lineData}} @options={{options}} @class="p-0 p-lg-5" />
+              <EmberChart @type="bar" @data={{lineData}} @options={{options}} @class="p-0 p-lg-5" />
             {{else}}
               <p class="px-5 pt-3">No hay información</p>
             {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{!-- Enlaces --}}
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/icono-enlaces.png" alt="Icono bolsa de dinero">
-          <h3>Enlaces</h3>
-        </div>
-        <div>
-          <div class="body p-5">
-            <div class="blocks-links d-block d-md-flex">
-              <a href={{profile.enlaceAccesoInformacion}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
-                <div>
-                  <img src="img/icono-acceso-informacion.png" alt="Icono bolsa de dinero">
-                </div>
-                <div>
-                  <p>Acceso a la información</p>
-                </div>
-              </a>
-              <a href={{profile.enlaceGobiernoDigital}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
-                <div>
-                  <img src="img/icono-gobierno-digital.png" alt="Icono bolsa de dinero">
-                </div>
-                <div>
-                  <p>Gobierno Digital</p>
-                </div>
-              </a>
-              <a href={{profile.enlaceDatosAbiertos}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
-                <div>
-                  <img src="img/icono-datos-abiertos.png" alt="Icono bolsa de dinero">
-                </div>
-                <div>
-                  <p>Datos Abiertos</p>
-                </div>
-              </a>
-              <a href={{profile.enlaceServicios}} class="bg-secondary p-2 px-3 w-100 w-md-25 mx-auto my-2 m-md-2 line-height-thin">
-                <div>
-                  <img src="img/icono-servicio.png" alt="Icono bolsa de dinero">
-                </div>
-                <div>
-                  <p>Servicio</p>
-                </div>
-              </a>
-            </div>
           </div>
         </div>
       </div>

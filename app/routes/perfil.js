@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
 
 const resolver = {
-  instituciones: 'institution',
+  hospitales: 'institution',
   elecciones: 'election',
   perfiles: 'profile'
 };
@@ -45,21 +45,21 @@ export default Route.extend({
       return hash({
         config: {},
         profile: profile,
-        profiles: this.store.query('profile', {
-          institution: profile.id
-        }),
-        elections: this.store.query('election', {
-          institution: profile.id
-        }),
-        candidates: this.store.query('profile', {
-          election: profile.id
-        }),
-        comissioners: this.store.query('profile', {
-          comission: profile.id
-        }),
-        presupuesto: this.store.query('presupuesto', {
-          institution: profile.id
-        })
+        // profiles: this.store.query('profile', {
+        //   institution: profile.id
+        // }),
+        // elections: this.store.query('election', {
+        //   institution: profile.id
+        // }),
+        // candidates: this.store.query('profile', {
+        //   election: profile.id
+        // }),
+        // comissioners: this.store.query('profile', {
+        //   comission: profile.id
+        // }),
+        // presupuesto: this.store.query('presupuesto', {
+        //   institution: profile.id
+        // })
       });
     });
   },

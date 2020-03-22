@@ -2,10 +2,10 @@ import Controller from "@ember/controller";
 import { isBlank } from "@ember/utils";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
-import pagesNumbersByPage from 'justiciapedia/utils/pagination/pagesNumbersByPage';
+import pagesNumbersByPage from 'misalud/utils/pagination/pagesNumbersByPage';
 
 const resolver = {
-  institution: "instituciones",
+  institution: "hospitales",
   election: "elecciones",
   profile: "perfiles"
 };

@@ -7,8 +7,7 @@ export default Route.extend({
 
     if(model.profile._internalModel.modelName === 'institution') {
       controller.set('campos',{
-        horario: 'Horario de atención',
-        diasAtencion: 'Días de atención'
+        horarioVisita: 'Horario de atención'
       });
     }
 

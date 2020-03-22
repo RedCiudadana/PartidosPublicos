@@ -16,18 +16,18 @@ export default Component.extend({
           img: "img/i-estrado.png",
           text: "Información general"
         },
-        {
-          route: "perfil.autoridades",
-          img: "img/i-personas.png",
-          text: "Autoridades",
-          disabled: profiles.length < 1
-        },
-        {
-          route: "perfil.elecciones",
-          img: "img/i-personas.png",
-          text: "Comisiones de Postulación",
-          disabled: elections.length < 1
-        }
+        // {
+        //   route: "perfil.autoridades",
+        //   img: "img/i-personas.png",
+        //   text: "Autoridades",
+        //   disabled: profiles.length < 1
+        // },
+        // {
+        //   route: "perfil.elecciones",
+        //   img: "img/i-personas.png",
+        //   text: "Comisiones de Postulación",
+        //   disabled: elections.length < 1
+        // }
       ]);
     }
 

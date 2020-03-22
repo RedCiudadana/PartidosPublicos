@@ -3,7 +3,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'justiciapedia',
+    modulePrefix: 'misalud',
     environment,
     rootURL: '/',
     locationType: 'hash',
@@ -38,7 +38,7 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['justiciapedia.redciudadana.org', /^localhost:\d+$/]
+      hostWhitelist: ['misalud.redciudadana.org', /^localhost:\d+$/]
     },
   };
 

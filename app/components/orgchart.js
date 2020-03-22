@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import G6 from '@antv/g6';
-import config from 'justiciapedia/config/environment';
+import config from 'misalud/config/environment';
 import { A } from '@ember/array';
 import { inject as service } from '@ember/service';
 
