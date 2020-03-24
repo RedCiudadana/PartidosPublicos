@@ -47,8 +47,25 @@ module.exports = function(defaults) {
         // '/instituciones?sector=justicia', #Netlify dont support this because generate a folder name invalid '?'
         // '/elecciones'
       ]
-    }
+    },
 
+    'asset-cache': {
+      include: [
+        'assets/**/*',
+        'static-files/institution.json'
+      ],
+      exclude: [
+        'img/**/*',
+        'fonts/**/*'
+      ]
+    },
+    'esw-cache-first': {
+      patterns: [
+        '/static-files/institution.json',
+        '/img/(.+)',
+        '/fonts/(.+)'
+      ]
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

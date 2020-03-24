@@ -27,11 +27,6 @@ export default class PerfilesController extends Controller {
   @tracked isVaron = false;
   @tracked inInstitution = null;
 
-  init() {
-    super.init(...arguments);
-    this.institutions = this.store.findAll("institution");
-  }
-
   get filteredData() {
     if (!this.isMujer && !this.isVaron && !this.inInstitution) {
       return this.allProfiles;

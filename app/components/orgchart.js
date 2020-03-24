@@ -13,7 +13,11 @@ export default Component.extend({
     this._super(...arguments);
     fetch(config.APP.staticFilesUrl + 'organigrama.json')
       .then((response) => {
-        return response.json();
+        if (response.ok) {
+          return response.json();
+        }
+
+        throw Error('No hay datos para organigrama');
       })
       .then((puestos) => {
         let root = {

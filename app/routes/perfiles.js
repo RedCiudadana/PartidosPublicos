@@ -25,9 +25,11 @@ export default Route.extend({
     }
     return this.store.findAll(modelName, { reload: true });
   },
+
   setupController(controller, model) {
     this._super(controller, model);
     controller.set('allProfiles', model.toArray());
     controller.set('config', model.firstObject);
+    controller.set('institutions', this.store.findAll("institution"));
   }
 });
