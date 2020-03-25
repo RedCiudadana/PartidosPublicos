@@ -45,6 +45,7 @@ export default Route.extend({
       return hash({
         config: {},
         profile: profile,
+        compras: this.spreadsheets.fetch('compras').then((compras) => compras.filterBy('id', profile.id))
         // profiles: this.store.query('profile', {
         //   institution: profile.id
         // }),
@@ -73,6 +74,7 @@ export default Route.extend({
    */
   setupController(controller, model) {
     this._super(controller, model);
+    console.log(model);
   },
 
   /**

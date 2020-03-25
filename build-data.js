@@ -12,7 +12,9 @@ const path = require('path');
 var targetPath = 'public/static-files/';
 
 // Inicialmente eliminar archivos
+console.log('Remove files');
 fs.readdirSync(targetPath).forEach((file) => {
+  console.log(`Remove ${file}`);
   fs.unlinkSync(path.join(targetPath, file));
 });
 
@@ -20,8 +22,10 @@ Tabletop.init({
   key: fs.readFileSync('public/data-spreadsheet-url', 'utf-8').trim(),
   callback: function(sheets) {
     Object.keys(sheets).forEach(function(key) {
+      console.log(`Parsing ${key}`);
+
       var file = targetPath + key + '.json';
-      
+
       jsonfile.spaces = 2;
       jsonfile.writeFileSync(file, sheets[key].elements);
     });
@@ -33,7 +37,7 @@ Tabletop.init({
 //   callback: function(sheets) {
 //     Object.keys(sheets).forEach(function(key) {
 //       var file = targetPath + key + '.json';
-      
+
 //       jsonfile.spaces = 2;
 //       jsonfile.writeFileSync(file, sheets[key].elements);
 //     });

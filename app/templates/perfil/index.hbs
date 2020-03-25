@@ -166,8 +166,62 @@
         </div>
         <div>
           <div class="body p-1">
-            {{#if this.lineData}}
-              <EmberChart @type="bar" @data={{lineData}} @options={{options}} @class="p-0 p-lg-5" />
+              <EmberChart @type="bar" @data={{trazadores}} @options={{options}} @class="p-0 p-lg-5 my-4" />
+              <EmberChart @type="bar" @data={{medicamentos1M}} @options={{options}} @class="p-0 p-lg-5" />
+              <EmberChart @type="bar" @data={{medicamentos3M}} @options={{options}} @class="p-0 p-lg-5" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- Compras --}}
+  <div class="row">
+    <div class="col-12">
+      <div class="panel">
+        <div class="header d-flex bg-primary">
+          <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
+          <h3>
+            Compras
+          </h3>
+        </div>
+        <div>
+          <div class="body p-4">
+            {{#if model.compras}}
+              <table class="table">
+                <thead>
+                  <tr>
+                    {{!-- <th scope="col">
+                      Unidad
+                    </th> --}}
+                    <th scope="col">
+                      Compras
+                    </th>
+                    <th scope="col">
+                      ModalidadLCE
+                    </th>
+                    <th scope="col">
+                      Fecha
+                    </th>
+                    <th scope="col">
+                      Estatus
+                    </th>
+                    <th scope="col">
+                      Monto
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each compras as |compra|}}
+                    <tr>
+                      <td>{{ compra.Compras }}</td>
+                      <td>{{ compra.ModalidadLCE }}</td>
+                      <td>{{ compra.Fecha }}</td>
+                      <td>{{ compra.Estatus }}</td>
+                      <td>{{ compra.Monto }}</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
             {{else}}
               <p class="px-5 pt-3">No hay información</p>
             {{/if}}
