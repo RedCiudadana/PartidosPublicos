@@ -5,100 +5,39 @@
         <h1>Abastecimientos</h1>
         <h2>Trazadores disponibilidad mayor a 1 mes</h2>
         <div class="table-responsive mb-2">
-          <table class="table table-sm table-striped">
-            <thead>
-              <tr>
-                <th scope="col">
-                  Nombre
-                </th>
-                <th scope="col">
-                  Medicamentos trazadores
-                </th>
-                <th scope="col">
-                  Medicamentos quirurgico trazador
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each model as |hospital|}}
-                <tr>
-                  <td>{{ hospital.nombre }}</td>
-                  <td>{{ hospital.trazadores1MFebrero }}</td>
-                  <td>{{ hospital.quirurgicoTrazador1MFebrero }}</td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
+          <EmberTable as |t|>
+            <t.head
+              @columns={{this.columnsTrazadores}}
+              @sorts={{this.sortsTrazadores}}
+
+              @onUpdateSorts={{action (mut this.sortsTrazadores)}}
+            />
+            <t.body @rows={{model}} />
+          </EmberTable>
         </div>
         <h2>Disponibilidad mayor a 1 mes</h2>
         <div class="table-responsive mb-2">
-          <table class="table table-sm table-striped">
-            <thead>
-              <tr>
-                <th scope="col">
-                  Nombre
-                </th>
-                <th scope="col">
-                  Medicamentos con disponibilidad
-                </th>
-                <th scope="col">
-                  Medicamentos quirurgicos con disponibilidad
-                </th>
-                <th scope="col">
-                  Reactivos para Laboratorio Clínico
-                </th>
-                <th scope="col">
-                  Reactivos para Banco de Sangre
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each model as |hospital|}}
-                <tr>
-                  <td>{{ hospital.nombre }}</td>
-                  <td>{{ hospital.medicamentos1MFebrero }}</td>
-                  <td>{{ hospital.quirurgico1MFebrero }}</td>
-                  <td>{{ hospital.laboratorio1MFebrero }}</td>
-                  <td>{{ hospital.banco1MFebrero }}</td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
+          <EmberTable as |t|>
+            <t.head
+              @columns={{this.columns1M}}
+              @sorts={{this.sorts1M}}
+
+              @onUpdateSorts={{action (mut this.sorts1M)}}
+            />
+            <t.body @rows={{model}} />
+          </EmberTable>
         </div>
         <h2>Disponibilidad mayor a 3 meses</h2>
         <div class="table-responsive mb-2">
-          <table class="table table-sm table-striped">
-            <thead>
-              <tr>
-                <th scope="col">
-                  Nombre
-                </th>
-                <th scope="col">
-                  Medicamentos
-                </th>
-                <th scope="col">
-                  Medicamentos quirurgicos
-                </th>
-                <th scope="col">
-                  Reactivos para Laboratorio Clínico
-                </th>
-                <th scope="col">
-                  Reactivos para Banco de Sangre
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {{#each model as |hospital|}}
-                <tr>
-                  <td>{{ hospital.nombre }}</td>
-                  <td>{{ hospital.medicamentos3MFebrero }}</td>
-                  <td>{{ hospital.quirurgico3MFebrero }}</td>
-                  <td>{{ hospital.laboratorio3MFebrero }}</td>
-                  <td>{{ hospital.banco3MFebrero }}</td>
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
+          <EmberTable as |t|>
+            <t.head
+              @columns={{this.columns3M}}
+              @sorts={{this.sorts3M}}
+
+              @onUpdateSorts={{action (mut this.sorts3M)}}
+            />
+            <t.body @rows={{model}} />
+          </EmberTable>
         </div>
       </div>
     </div>
