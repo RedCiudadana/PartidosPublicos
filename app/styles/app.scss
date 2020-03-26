@@ -538,6 +538,10 @@ table.table.borderless {
       border-radius: 160px;
       font-weight: 200;
       line-height: 0.85rem !important;
+
+      img {
+        filter: brightness(0.4);
+      }
     }
 
     a:hover {
