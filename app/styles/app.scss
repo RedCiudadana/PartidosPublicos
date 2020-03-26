@@ -663,3 +663,12 @@ table.table.borderless {
     }
   }
 }
+
+
+// Ember table
+
+.ember-table {
+  table {
+    @extend .table, .table-sm, .table-striped;
+  }
+}

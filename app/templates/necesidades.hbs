@@ -1,0 +1,18 @@
+<div class="w-100 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-4">
+        <h1>Compras</h1>
+        <EmberTable as |t|>
+          <t.head
+            @columns={{this.columns}}
+            @sorts={{this.sorts}}
+
+            @onUpdateSorts={{action (mut this.sorts)}}
+          />
+          <t.body @rows={{model}} />
+        </EmberTable>
+      </div>
+    </div>
+  </div>
+</div>

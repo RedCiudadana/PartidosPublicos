@@ -23,4 +23,5 @@ Router.map(function() {
   this.route('test');
   this.route('abastecimiento');
   this.route('compras');
+  this.route('necesidades');
 });
