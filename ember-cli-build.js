@@ -52,7 +52,9 @@ module.exports = function(defaults) {
     'asset-cache': {
       include: [
         'assets/**/*',
-        'static-files/institution.json'
+        'static-files/institution.json',
+        'static-files/compras.json',
+        'static-files/abastecimiento.json'
       ],
       exclude: [
         'img/**/*',
@@ -62,6 +64,8 @@ module.exports = function(defaults) {
     'esw-cache-first': {
       patterns: [
         '/static-files/institution.json',
+        '/static-files/compras.json',
+        '/static-files/abastecimiento.json',
         '/img/(.+)',
         '/fonts/(.+)'
       ]
