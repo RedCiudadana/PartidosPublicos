@@ -49,6 +49,14 @@ module.exports = function(defaults) {
       ]
     },
 
+    'ember-service-worker': {
+      versionStrategy: 'every-build'
+    },
+
+    'ember-service-worker-update-notify': {
+      pollingInterval: 1200000
+    },
+
     'asset-cache': {
       include: [
         'assets/**/*',

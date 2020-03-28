@@ -2,6 +2,12 @@
 
 {{title "MiSalud - RedCiudadana"}}
 
+<ServiceWorkerUpdateNotify>
+  <button class="service-worker-update-notify bg-primary text-white p-2 w-100 border-0" {{action "updateApp"}}>
+    Un nueva versión está disponible, click aquí para actualizar.
+  </button>
+</ServiceWorkerUpdateNotify>
+
 {{!-- Navbar --}}
 <BsNavbar id="navbar" class="shadow-sm" @backgroundColor="white" @type="light" @position="sticky-top" @fluid={{true}} as |navbar|>
   <div class="navbar-header">
