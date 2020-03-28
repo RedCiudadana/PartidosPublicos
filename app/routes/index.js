@@ -2,6 +2,6 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   beforeModel() {
-    this.replaceWith('perfiles', 'hospitales');;
+    this.replaceWith('perfiles', 'hospitales');
   },
 });
