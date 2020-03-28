@@ -1,6 +1,6 @@
 <div class="row m-1 my-4 bg-white panel py-5">
   {{!-- Imagen --}}
-  <div class="col-md-4 text-center">
+  <div class="col-md-3 text-center">
     <img
       id="photo-profile"
       src={{model.profile.photo}}
@@ -10,7 +10,7 @@
     >
   </div>
   {{!-- Información general --}}
-  <div class="col">
+  <div class="col pr-5">
     <h3>{{model.profile.nombre}}</h3>
     <table class="table w-100">
       <tbody>
@@ -54,7 +54,7 @@
     </div>
   {{/if}}
   {{#if (eq model.profile._internalModel.modelName "institution")}}
-    <div class="col-md-3 text-left">
+    <div class="col-md-3 text-left border-left pl-3">
       <h6>Contacto</h6>
       {{!-- Página web --}}
       {{#if model.profile.web}}
@@ -166,9 +166,9 @@
         </div>
         <div>
           <div class="body p-1">
-              <EmberChart @type="bar" @data={{trazadores}} @options={{options}} @class="p-0 p-lg-5 my-4" />
-              <EmberChart @type="bar" @data={{medicamentos1M}} @options={{options}} @class="p-0 p-lg-5" />
-              <EmberChart @type="bar" @data={{medicamentos3M}} @options={{options}} @class="p-0 p-lg-5" />
+              <EmberChart @type="horizontalBar" @data={{trazadores}} @options={{options}} @class="p-0 p-lg-5 my-4" />
+              <EmberChart @type="horizontalBar" @data={{medicamentos1M}} @options={{options}} @class="p-0 p-lg-5" />
+              <EmberChart @type="horizontalBar" @data={{medicamentos3M}} @options={{options}} @class="p-0 p-lg-5" />
           </div>
         </div>
       </div>

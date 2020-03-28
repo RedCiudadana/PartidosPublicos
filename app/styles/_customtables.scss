@@ -36,6 +36,12 @@
   }
 }
 
+.table {
+  tr:first-child td {
+    border-top: unset;
+  }
+}
+
 // table.table.borderless {
 //   @extend .table-borderless;
 

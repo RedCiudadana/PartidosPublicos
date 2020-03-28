@@ -20,13 +20,13 @@ export default Controller.extend({
         }
       },
       scales: {
-        yAxes: [{
-            ticks: {
-                // Include a dollar sign in the ticks
-                callback: (s) => {
-                  return `${s} %`;
-                },
-            }
+        xAxes: [{
+          ticks: {
+              beginAtZero: true,
+              callback: (s) => {
+                return `${s} %`;
+              },
+          }
         }]
       }
     });
@@ -58,20 +58,17 @@ export default Controller.extend({
   trazadores: computed('model', function(){
     return {
       labels: [
-        'Medicamentos trazadores con disponibilidad mayor a 1 mes',
-        'Medicamentos quirurgico trazador con disponibilidad mayor a 1 mes '
+        'Medicamentos trazadores',
+        'Medicamentos quirurgico trazador '
       ],
       datasets: [
         {
-          label: 'Trazadores a un mes de Febrero 2020',
-          fillColor: "rgba(151,187,205,0.5)",
-          strokeColor: "rgba(151,187,205,0.8)",
-          highlightFill: "rgba(151,187,205,0.75)",
-          highlightStroke: "rgba(151,187,205,1)",
+          label: 'Disponibilidad de trazadores a un mes de Febrero 2020',
           data: [
             this.model.profile.trazadores1MFebrero,
             this.model.profile.quirurgicoTrazador1MFebrero
-          ]
+          ],
+          backgroundColor: "rgba(128, 211, 171, 50)"
         }
       ]
     };
@@ -80,24 +77,21 @@ export default Controller.extend({
   medicamentos1M: computed('model', function(){
     return {
       labels: [
-        'Medicamentos con disponibilidad mayor a 1 mes',
-        'Medicamentos quirurgicos con disponibilidad mayor a 1 mes',
-        'Disponibilidad de Reactivos para Laboratorio Clínico mayor a 1 mes',
-        'Disponibilidad de Reactivos para Banco de Sangre mayor a 1 mes',
+        'Medicamentos',
+        'Medicamentos quirurgicos',
+        'Reactivos para Laboratorio Clínico',
+        'Reactivos para Banco de Sangre',
       ],
       datasets: [
         {
-          label: 'Medicamentos a 1 mes de Febrero 2020',
-          fillColor: "rgba(151,187,205,0.5)",
-          strokeColor: "rgba(151,187,205,0.8)",
-          highlightFill: "rgba(151,187,205,0.75)",
-          highlightStroke: "rgba(151,187,205,1)",
+          label: 'Disponibilidad de medicamentos a 1 mes de Febrero 2020',
           data: [
             this.model.profile.medicamentos1MFebrero,
             this.model.profile.quirurgico1MFebrero,
             this.model.profile.laboratorio1MFebrero,
             this.model.profile.banco1MFebrero,
-          ]
+          ],
+          backgroundColor: "rgba(128, 211, 171, 50)"
         }
       ]
     };
@@ -106,24 +100,21 @@ export default Controller.extend({
   medicamentos3M: computed('model', function(){
     return {
       labels: [
-        'Medicamentos con disponibilidad mayor a 3 meses',
-        'Medicamentos quirurgicos con disponibilidad mayor a 3 meses',
-        'Disponibilidad de Reactivos para Laboratorio Clínico mayor a 3 meses',
-        'Disponibilidad de Reactivos para Banco de Sangre mayor a 3 meses'
+        'Medicamentos',
+        'Medicamentos quirurgicos',
+        'Reactivos para Laboratorio Clínico',
+        'Reactivos para Banco de Sangre'
       ],
       datasets: [
         {
-          label: 'Medicamentos a 3 meses de Febrero 2020',
-          fillColor: "rgba(151,187,205,0.5)",
-          strokeColor: "rgba(151,187,205,0.8)",
-          highlightFill: "rgba(151,187,205,0.75)",
-          highlightStroke: "rgba(151,187,205,1)",
+          label: 'Disponibilidad medicamentos a 3 meses de Febrero 2020',
           data: [
             this.model.profile.medicamentos3MFebrero,
             this.model.profile.quirurgico3MFebrero,
             this.model.profile.laboratorio3MFebrero,
             this.model.profile.banco3MFebrero
-          ]
+          ],
+          backgroundColor: "rgba(128, 211, 171, 50)"
         }
       ]
     };
