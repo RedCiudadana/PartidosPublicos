@@ -30,6 +30,29 @@ export default Controller.extend({
         }]
       }
     });
+
+    this.set('comprasColumns', [
+      {
+        name: 'Compras',
+        valuePath: 'Compras'
+      },
+      {
+        name: 'ModalidadLCE',
+        valuePath: 'ModalidadLCE'
+      },
+      {
+        name: 'Fecha',
+        valuePath: 'Fecha'
+      },
+      {
+        name: 'Estatus',
+        valuePath: 'Estatus'
+      },
+      {
+        name: 'Monto',
+        valuePath: 'Monto'
+      }
+    ]);
   },
 
   trazadores: computed('model', function(){

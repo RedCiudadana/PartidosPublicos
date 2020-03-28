@@ -1,0 +1,75 @@
+// Use bootstrap style with ember-table
+.ember-table {
+  table {
+    @extend .table;
+
+    tbody {
+      background-color: white;
+    }
+  }
+
+  // &.table-striped {
+  //   @extend .table-striped;
+  // }
+
+  // This need overrride
+  &.table-sm table {
+    @extend .table-sm;
+  }
+}
+
+// .table-striped table {
+//   @extend .table-striped;
+// }
+
+.thead-secondary {
+  thead {
+    background-color: $secondary;
+    color: white;
+  }
+}
+
+.thead-primary {
+  thead {
+    background-color: $primary;
+    color: white;
+  }
+}
+
+// table.table.borderless {
+//   @extend .table-borderless;
+
+//   text-align: center;
+
+//   thead {
+//     border-bottom: 2px solid $light;
+//   }
+// }
+
+// // Ember table
+
+// .ember-table {
+//   table {
+//     @extend .table, .table-sm, .table-striped;
+//   }
+
+//   .et-header-resize-area {
+//     background-color: lighten($primary, 10%);
+//   }
+
+//   th {
+//     padding: 5px;
+//   }
+// }
+
+// table th,
+//   .table {
+//     td {
+//       border-top: 1px solid #e3e5e6 !important;
+//       padding: 6px !important;
+//     }
+
+//     tr:first-child td {
+//       border-top: 0 !important;
+//     }
+//   }

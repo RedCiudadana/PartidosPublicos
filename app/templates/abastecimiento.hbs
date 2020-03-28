@@ -3,9 +3,9 @@
     <div class="row">
       <div class="col-12 py-4">
         <h1>Abastecimientos</h1>
-        <h2>Trazadores disponibilidad mayor a 1 mes</h2>
-        <div class="table-responsive mb-2">
-          <EmberTable as |t|>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Trazadores disponibilidad mayor a 1 mes</h3>
+        <div class="table-responsive thead-primary mb-2">
+          <EmberTable class="table table-striped border" as |t|>
             <t.head
               @columns={{this.columnsTrazadores}}
               @sorts={{this.sortsTrazadores}}
@@ -15,9 +15,9 @@
             <t.body @rows={{model}} />
           </EmberTable>
         </div>
-        <h2>Disponibilidad mayor a 1 mes</h2>
-        <div class="table-responsive mb-2">
-          <EmberTable as |t|>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 1 mes</h3>
+        <div class="table-responsive thead-primary mb-2">
+          <EmberTable class="table table-striped border" as |t|>
             <t.head
               @columns={{this.columns1M}}
               @sorts={{this.sorts1M}}
@@ -27,9 +27,9 @@
             <t.body @rows={{model}} />
           </EmberTable>
         </div>
-        <h2>Disponibilidad mayor a 3 meses</h2>
-        <div class="table-responsive mb-2">
-          <EmberTable as |t|>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 3 meses</h3>
+        <div class="table-responsive thead-primary mb-2">
+          <EmberTable class="table table-striped border" as |t|>
             <t.head
               @columns={{this.columns3M}}
               @sorts={{this.sorts3M}}

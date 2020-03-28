@@ -185,43 +185,19 @@
           </h3>
         </div>
         <div>
-          <div class="body p-4">
+          <div class="body p-0">
             {{#if model.compras}}
-              <table class="table">
-                <thead>
-                  <tr>
-                    {{!-- <th scope="col">
-                      Unidad
-                    </th> --}}
-                    <th scope="col">
-                      Compras
-                    </th>
-                    <th scope="col">
-                      ModalidadLCE
-                    </th>
-                    <th scope="col">
-                      Fecha
-                    </th>
-                    <th scope="col">
-                      Estatus
-                    </th>
-                    <th scope="col">
-                      Monto
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {{#each compras as |compra|}}
-                    <tr>
-                      <td>{{ compra.Compras }}</td>
-                      <td>{{ compra.ModalidadLCE }}</td>
-                      <td>{{ compra.Fecha }}</td>
-                      <td>{{ compra.Estatus }}</td>
-                      <td>{{ compra.Monto }}</td>
-                    </tr>
-                  {{/each}}
-                </tbody>
-              </table>
+            <div class="table-responsive thead-secondary">
+              <EmberTable class="table border" as |t|>
+                <t.head
+                  @columns={{this.comprasColumns}}
+                  @sorts={{this.sortsCompras}}
+
+                  @onUpdateSorts={{action (mut this.sortsCompras)}}
+                />
+                <t.body @rows={{model.compras}} />
+              </EmberTable>
+            </div>
             {{else}}
               <p class="px-5 pt-3">No hay información</p>
             {{/if}}

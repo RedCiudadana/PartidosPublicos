@@ -43,46 +43,46 @@ export default Route.extend({
 
     controller.set('columns1M', [
       {
-        value: 'Nombre',
+        name: 'Nombre',
         valuePath: 'nombre'
       },
       {
-        value: 'Medicamentos con disponibilidad',
+        name: 'Medicamentos con disponibilidad',
         valuePath: 'medicamentos1MFebrero'
       },
       {
-        value: 'Medicamentos quirurgicos con disponibilidad',
+        name: 'Medicamentos quirurgicos con disponibilidad',
         valuePath: 'quirurgico1MFebrero'
       },
       {
-        value: 'Reactivos para Laboratorio Clínico',
+        name: 'Reactivos para Laboratorio Clínico',
         valuePath: 'laboratorio1MFebrero'
       },
       {
-        value: 'Reactivos para Banco de Sangre',
+        name: 'Reactivos para Banco de Sangre',
         valuePath: 'banco1MFebrero'
       }
     ]);
 
     controller.set('columns3M', [
       {
-        value: 'Nombre',
+        name: 'Nombre',
         valuePath: 'nombre'
       },
       {
-        value: 'Medicamentos',
+        name: 'Medicamentos',
         valuePath: 'medicamentos3MFebrero'
       },
       {
-        value: 'Medicamentos quirurgicos',
+        name: 'Medicamentos quirurgicos',
         valuePath: 'quirurgico3MFebrero'
       },
       {
-        value: 'Reactivos para Laboratorio Clínico',
+        name: 'Reactivos para Laboratorio Clínico',
         valuePath: 'laboratorio3MFebrero'
       },
       {
-        value: 'Reactivos para Banco de Sangre',
+        name: 'Reactivos para Banco de Sangre',
         valuePath: 'banco3MFebrero'
       }
     ]);

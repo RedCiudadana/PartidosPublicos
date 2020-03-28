@@ -1,7 +1,7 @@
 // MiSalud
 
-$primary: #475660;
-$secondary: #6e6299;
+$primary: #2e5765;
+$secondary: #2bb673;
 
 $success: #0cab55;
 $warning: #fab026;
@@ -10,7 +10,7 @@ $dark: #202d3e;
 $light: #f2f2f2;
 
 // $navbar-color: #3a3a3a;
-$navbar-color: #4d5760;
+$navbar-color: #58595b;
 
 // $footer-background-color: #4c4c4c;
 $footer-background-color: $primary;
@@ -24,6 +24,7 @@ $border-radius: 5px;
 // Ember Power Select
 @import 'ember-power-select';
 @import 'pod-styles';
+@import 'customtables';
 
 /**
  * INDEX
@@ -282,18 +283,6 @@ h6 {
     height: auto;
   }
 
-  table th,
-  .table {
-    td {
-      border-top: 1px solid #e3e5e6 !important;
-      padding: 6px !important;
-    }
-
-    tr:first-child td {
-      border-top: 0 !important;
-    }
-  }
-
   .social-side {
     text-align: center;
     display: block;
@@ -492,17 +481,6 @@ h6 {
   }
 }
 
-// Tables
-table.table.borderless {
-  @extend .table-borderless;
-
-  text-align: center;
-
-  thead {
-    border-bottom: 2px solid $light;
-  }
-}
-
 // Fecha
 
 .date {
@@ -661,14 +639,5 @@ table.table.borderless {
         margin: 0;
       }
     }
-  }
-}
-
-
-// Ember table
-
-.ember-table {
-  table {
-    @extend .table, .table-sm, .table-striped;
   }
 }
