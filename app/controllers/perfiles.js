@@ -26,9 +26,10 @@ export default class PerfilesController extends Controller {
   @tracked isMujer = false;
   @tracked isVaron = false;
   @tracked inInstitution = null;
+  @tracked inDepartamento = null;
 
   get filteredData() {
-    if (!this.isMujer && !this.isVaron && !this.inInstitution) {
+    if (!this.isMujer && !this.isVaron && !this.inDepartamento) {
       return this.allProfiles;
     }
 
@@ -50,9 +51,8 @@ export default class PerfilesController extends Controller {
       }
 
       if (
-        this.inInstitution &&
-        candidate.get("institution.id") !== 0 &&
-        candidate.get("institution.id") !== this.inInstitution.get("id")
+        this.inDepartamento &&
+        candidate.get("departamento") !== this.inDepartamento
       ) {
         return false;
       }

@@ -574,8 +574,20 @@ h6 {
   }
 }
 
+// HOMEPAGE
+
+#index-banner {
+  background-color: #496e8f;
+
+  img {
+    max-width: 600px;
+  }
+}
+
 @include media-breakpoint-up(lg) {
   #index-banner {
+    background-color: #496e8f;
+
     br {
       display: none;
     }
@@ -588,6 +600,11 @@ h6 {
       display: inherit;
     }
   }
+}
+
+.index-table-container {
+  height: 600px;
+  overflow: auto;
 }
 
 // Video container
@@ -641,4 +658,15 @@ h6 {
       }
     }
   }
+}
+
+// Trigger colapse
+.el {
+  transition: max-height 0.5s;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.trigger:hover > .el {
+  max-height: var(--max-height);
 }

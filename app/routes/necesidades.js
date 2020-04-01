@@ -5,9 +5,12 @@ export default Route.extend({
   spreadsheets: service(),
 
   model() {
-    return this.spreadsheets.fetch('necesidades').then((necesidades) => necesidades.map((necesidad) => {
-      necesidad.Unidades = parseInt(necesidad.Unidades);
-      return necesidad;
+    return this.spreadsheets.fetch('presupuesto').then((presupuestos) => presupuestos.map((presupuesto) => {
+      presupuesto.vigente = parseFloat(presupuesto.vigente.replace(',', ''));
+      presupuesto.devengado = parseFloat(presupuesto.devengado.replace(',', ''));
+      presupuesto.porcentageEjecucion = parseFloat(presupuesto.porcentageEjecucion.replace(',', ''));
+
+      return presupuesto;
     }));
   },
 
@@ -16,16 +19,20 @@ export default Route.extend({
 
     controller.set('columns', [
       {
-        name: 'Categoria',
-        valuePath: 'CategoriaCorto'
+        name: 'Unidad',
+        valuePath: 'unidad'
       },
       {
-        name: 'Equipos',
-        valuePath: 'Equipos'
+        name: 'Vigente',
+        valuePath: 'vigente'
       },
       {
-        name: 'Unidades',
-        valuePath: 'Unidades'
+        name: 'Devengado',
+        valuePath: 'devengado'
+      },
+      {
+        name: 'Porcentage ejecución',
+        valuePath: 'porcentageEjecucion'
       }
     ]);
   }

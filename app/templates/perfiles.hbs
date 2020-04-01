@@ -33,6 +33,18 @@
           </div>
         </nav>
       {{/if}}
+      {{#if (eq model.firstObject._internalModel.modelName "institution")}}
+        <PowerSelect
+          class="my-auto ml-2 w-100"
+          @placeholder="Filtrar por departamento"
+          @searchEnabled={{true}}
+          @allowClear="true"
+          @selected={{this.inDepartamento}}
+          @options={{this.departamentos}}
+          @onChange={{action (mut this.inDepartamento)}} as |departamento|>
+          {{departamento}}
+        </PowerSelect>
+      {{/if}}
     </div>
   </div>
 </div>

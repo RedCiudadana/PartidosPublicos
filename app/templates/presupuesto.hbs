@@ -2,52 +2,66 @@
   <div class="container py-4">
     <div class="row font-weight-bold text-center">
       <div class="col-12 py-4">
-        <h2 class="text-left mb-4">Compras Públicas</h2>
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
-            <h6>Monto Total de compras adjudicadas</h6>
-          </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>Q {{this.montoTotal.Unidad}}</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 py-4">
+        <h2 class="text-left mb-4">Presupuesto</h2>
         <div class="bg-light rounded w-100 overflow-hidden">
           <div class="w-100 bg-primary text-white py-3">
             <h6>
-              Total de concursos realizados
+              Presupuesto General
             </h6>
           </div>
           <div class="w-100 bg-light text-primary py-4">
-            <h6>{{this.concursos.Unidad}}</h6>
+            <h6>
+              Q {{this.presupuestogeneral.Unidad}}
+            </h6>
           </div>
         </div>
       </div>
-      <div class="col-6 py-4">
+      <div class="col-4 py-4">
         <div class="bg-light rounded w-100 overflow-hidden">
           <div class="w-100 bg-primary text-white py-3">
-            <h6>Terminados adjudicados</h6>
+            <h6>
+              Aprobado Inicial
+            </h6>
           </div>
           <div class="w-100 bg-light text-primary py-4">
-            <h6>{{this.concursosTerminados.Unidad}}</h6>
+            <h6>
+              Q {{this.presupuestoInicial.Unidad}}
+            </h6>
           </div>
         </div>
       </div>
-      {{!-- <div class="col-4 py-4">
+      <div class="col-4 py-4">
         <div class="bg-light rounded w-100 overflow-hidden">
           <div class="w-100 bg-primary text-white py-3">
-            <h6>Concursos vigentes</h6>
+            <h6>
+              Devengado
+            </h6>
           </div>
           <div class="w-100 bg-light text-primary py-4">
-            <h6>Q.47,676,708,152.34</h6>
+            <h6>
+              Q {{this.Devengado.Unidad}}
+            </h6>
           </div>
         </div>
-      </div> --}}
+      </div>
+      <div class="col-4 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              % Ejec.
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>
+              {{this.porcentage.Unidad}}
+            </h6>
+          </div>
+        </div>
+      </div>
       <div class="col-12 py-4 border-top mt-4 text-left d-flex">
         <div class="my-auto mr-auto">
-          <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
-          <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
+          <h6>Actualizado el: {{this.FechaPresupuesto.dato}}</h6>
+          <small class="text-muted">Fuente: {{this.FuentePresupuesto.dato}}</small>
         </div>
         <a class="btn btn-secondary btn-lg" href="{{this.DescargarExcel.dato}}">
           <small>DESCARGAR XLS</small>
@@ -66,12 +80,18 @@
         <div class="table-responsive thead-secondary mb-2">
           <EmberTable class="table table-striped border" as |t|>
             <t.head
-              @columns={{this.columnsCompras}}
-              @sorts={{this.sortsCompras}}
+              @columns={{this.columns}}
+              @sorts={{this.sorts}}
 
-              @onUpdateSorts={{action (mut this.sortsCompras)}}
+              @onUpdateSorts={{action (mut this.sorts)}}
             />
-            <t.body @rows={{model.compras}} />
+            <t.body @rows={{model.rows}} as |b|>
+              <b.row as |r|>
+                <r.cell as |cell column|>
+                  {{if column.money "Q"}} {{cell}} {{if column.percentage "%"}}
+                </r.cell>
+              </b.row>
+            </t.body>
           </EmberTable>
         </div>
       </div>

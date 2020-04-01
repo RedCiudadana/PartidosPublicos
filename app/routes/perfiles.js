@@ -30,6 +30,8 @@ export default Route.extend({
     this._super(controller, model);
     controller.set('allProfiles', model.toArray());
     controller.set('config', model.firstObject);
-    controller.set('institutions', this.store.findAll("institution"));
+    controller.set('departamentos', model.mapBy('departamento').uniq());
+    // @TODO Refactorizar un requestn o deberia ocurrir aquí
+    // controller.set('institutions', this.store.findAll("institution"));
   }
 });

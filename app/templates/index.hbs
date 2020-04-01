@@ -1,26 +1,67 @@
-<div class="w-100 bg-primary text-white">
-  <div class="container-fluid py-5">
-    <div class="row py-5" id="index-banner">
-      <div class="col-12 text-center offset-lg-1 col-lg-5 text-lg-left">
-        <h3>
-          Conoce a las instituciones y a los<br>
-          funcionarios públicos del sector de<br>
-          Justicia de Guatemala
-        </h3>
-      </div>
-      <div class="col-12 col-lg-5">
-        <img src="/img/slider.png" alt="Corte Suprema de Justicia" class="img-responsive w-100 pt-5 m-lg-0">
+<div class="w-100 text-white" id="index-banner">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center">
+        <img src="/img/slider.png" alt="Corte Suprema de Justicia" class="img-responsive">
       </div>
     </div>
   </div>
 </div>
-{{!-- <div class="container-fluid bg-light py-5">
+<div class="container py-5">
   <div class="row py-5">
-    <div class="col-12 text-center">
-      <div class="video-container">
-        <iframe src="https://lucid-shannon-9cf7f0.netlify.com/" frameborder="0" style="overflow: hidden;">
-        </iframe>
+    <div class="col-12 text-left">
+      <h2>Hospitales</h2>
+      <div class="table-responsive thead-primary mb-2 index-table-container">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th colspan="2" scope="col">
+                Red de Servicios de Salud-COVID19
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each model as |hospital|}}
+              <tr>
+                <td>
+                  {{hospital.nombre}}
+                </td>
+                <td class="text-center">
+                  <LinkTo class="btn btn-secondary px-5" @route="perfil" @models={{array "hospitales" hospital.id}}>
+                    Ver
+                  </LinkTo>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-</div> --}}
+</div>
+<div class="w-100 bg-light">
+  <div class="container py-5">
+    <div class="row text-center">
+      <div class="col-12">
+        <h3 class="mb-4">Preguntas frecuentes</h3>
+      </div>
+      <div class="col-12">
+        <div class="trigger w-100 bg-white p-5">
+          <h3 class="font-weight-bold">
+            ¿Qué es MiSalud?
+          </h3>
+          <p class="el h4 font-weight-light mt-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur quo ipsa fuga, ipsum, nihil molestias, obcaecati ratione sint perferendis est blanditiis eligendi corporis non id voluptatibus? Consequatur, minima! Ipsum, vitae.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var collapses = document.querySelectorAll('.el');
+  collapses.forEach((el) => {
+    var height = el.scrollHeight;
+    el.style.setProperty('--max-height', height + 'px');
+  });
+</script>

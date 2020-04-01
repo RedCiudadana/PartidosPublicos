@@ -1,5 +1,5 @@
 import Model, {/*  hasMany,  */attr } from '@ember-data/model';
-import { isBlank } from '@ember/utils';
+// import { isBlank } from '@ember/utils';
 import { computed } from '@ember/object';
 
 export default Model.extend({
@@ -42,10 +42,12 @@ export default Model.extend({
    * This computed property return photoURL if is not blank, else return a default image.
    */
   photo: computed('fotoURL', function() {
-    if (!isBlank(this.urlHospital)) {
-      return this.urlHospital;
-    }
+    return 'img/hospital-default-img.png';
 
-    return 'img/img-default.png';
+    // if (!isBlank(this.urlHospital)) {
+    //   return this.urlHospital;
+    // }
+
+    // return 'img/img-default.png';
   })
 });
