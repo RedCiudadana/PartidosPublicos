@@ -14,6 +14,8 @@ export default Route.extend({
   },
 
   setupController(controller, model) {
+    let foot = model.rows.pop();
+
     this._super(controller, model);
     controller.set('columns', [
       {
@@ -37,6 +39,8 @@ export default Route.extend({
       }
     ]);
 
+    foot.unidad = 'Totales';
+    controller.set('foot', [foot]);
     // Consultas
     controller.set('FuentePresupuesto', model.consultas.findBy('variable', 'FuentePresupuesto'));
     controller.set('FechaPresupuesto', model.consultas.findBy('variable', 'FechaPresupuesto'));

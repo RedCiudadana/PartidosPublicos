@@ -92,6 +92,15 @@
                 </r.cell>
               </b.row>
             </t.body>
+            <t.foot @rows={{foot}} as |b|>
+              <b.row as |r|>
+                <r.cell as |cell column|>
+                  <strong>
+                    {{if column.money "Q"}} {{cell}} {{if column.percentage "%"}}
+                  </strong>
+                </r.cell>
+              </b.row>
+            </t.foot>
           </EmberTable>
         </div>
       </div>
