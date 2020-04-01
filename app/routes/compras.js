@@ -7,7 +7,10 @@ export default Route.extend({
 
   model() {
     return RSVP.hash({
-      compras: this.spreadsheets.fetch('compras'),
+      compras: this.spreadsheets.fetch('compras').then((compras) => compras.map((compra) => {
+        compra.Monto = parseFloat(compra.Monto.replace('Q','').replace(' ', '').replace(/,/g, ''));
+        return compra;
+      })),
       comprasresumen: this.spreadsheets.fetch('comprasresumen'),
       consultas: this.spreadsheets.fetch('consultas')
     });
@@ -38,7 +41,8 @@ export default Route.extend({
       },
       {
         name: 'Monto',
-        valuePath: 'Monto'
+        valuePath: 'Monto',
+        money: true
       }
     ]);
 
@@ -50,5 +54,12 @@ export default Route.extend({
     controller.set('montoTotal', model.comprasresumen.findBy('variable', 'montoTotal'));
     controller.set('concursos', model.comprasresumen.findBy('variable', 'concursos'));
     controller.set('concursosTerminados', model.comprasresumen.findBy('variable', 'concursosTerminados'));
+
+    controller.set('footCompras', [
+      {
+        Compras: 'Monto total',
+        Monto: model.compras.filterBy('Estatus', 'Terminado adjudicado').mapBy('Monto').reduce((prev, current) => prev + current).toFixed(2)
+      }
+    ]);
   },
 });

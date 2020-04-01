@@ -1,1 +1,67 @@
-{{outlet}}
+<div class="w-100 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 py-4">
+        <h1>Priorización</h1>
+        <h6>Actualizado el: {{this.Fecha.dato}}</h6>
+        <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2 mt-4">
+          Protección de Personal
+        </h3>
+        <div class="table-responsive thead-primary mb-2">
+          <EmberTable class="table table-striped border" as |t|>
+            <t.head
+              @columns={{this.columns}}
+              @sorts={{this.sorts1}}
+
+              @onUpdateSorts={{action (mut this.sorts1)}}
+            />
+            <t.body @rows={{rows1}} />
+          </EmberTable>
+        </div>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">
+          Hospital Aislamiento
+        </h3>
+        <div class="table-responsive thead-primary mb-2">
+          <EmberTable class="table table-striped border" as |t|>
+            <t.head
+              @columns={{this.columns}}
+              @sorts={{this.sorts2}}
+
+              @onUpdateSorts={{action (mut this.sorts2)}}
+            />
+            <t.body @rows={{rows2}} />
+          </EmberTable>
+        </div>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">
+          Hospital parque industria
+        </h3>
+        <div class="table-responsive thead-primary mb-2">
+          <EmberTable class="table table-striped border" as |t|>
+            <t.head
+              @columns={{this.columns}}
+              @sorts={{this.sorts3}}
+
+              @onUpdateSorts={{action (mut this.sorts3)}}
+            />
+            <t.body @rows={{rows3}} />
+          </EmberTable>
+        </div>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">
+          Medicamentos
+        </h3>
+        <div class="table-responsive thead-primary mb-2">
+          <EmberTable class="table table-striped border" as |t|>
+            <t.head
+              @columns={{this.columns}}
+              @sorts={{this.sorts4}}
+
+              @onUpdateSorts={{action (mut this.sorts4)}}
+            />
+            <t.body @rows={{rows4}} />
+          </EmberTable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

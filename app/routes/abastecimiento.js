@@ -1,24 +1,28 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import RSVP from 'rsvp';
 
 export default Route.extend({
   spreadsheets: service(),
 
   model() {
-    return this.spreadsheets.fetch('abastecimiento').then((models) => {
-      return models.map((model) => {
-        model.trazadores1MFebrero = parseInt(model.trazadores1MFebrero);
-        model.quirurgicoTrazador1MFebrero = parseInt(model.quirurgicoTrazador1MFebrero);
-        model.medicamentos1MFebrero = parseInt(model.medicamentos1MFebrero);
-        model.quirurgico1MFebrero = parseInt(model.quirurgico1MFebrero);
-        model.laboratorio1MFebrero = parseInt(model.laboratorio1MFebrero);
-        model.banco1MFebrero = parseInt(model.banco1MFebrero);
-        model.medicamentos3MFebrero = parseInt(model.medicamentos3MFebrero);
-        model.quirurgico3MFebrero = parseInt(model.quirurgico3MFebrero);
-        model.laboratorio3MFebrero = parseInt(model.laboratorio3MFebrero);
-        model.banco3MFebrero = parseInt(model.banco3MFebrero);
+    return RSVP.hash({
+      consultas: this.spreadsheets.fetch('consultas'),
+      rows: this.spreadsheets.fetch('abastecimiento').then((models) => {
+        return models.map((model) => {
+          model.trazadores1MFebrero = parseInt(model.trazadores1MFebrero);
+          model.quirurgicoTrazador1MFebrero = parseInt(model.quirurgicoTrazador1MFebrero);
+          model.medicamentos1MFebrero = parseInt(model.medicamentos1MFebrero);
+          model.quirurgico1MFebrero = parseInt(model.quirurgico1MFebrero);
+          model.laboratorio1MFebrero = parseInt(model.laboratorio1MFebrero);
+          model.banco1MFebrero = parseInt(model.banco1MFebrero);
+          model.medicamentos3MFebrero = parseInt(model.medicamentos3MFebrero);
+          model.quirurgico3MFebrero = parseInt(model.quirurgico3MFebrero);
+          model.laboratorio3MFebrero = parseInt(model.laboratorio3MFebrero);
+          model.banco3MFebrero = parseInt(model.banco3MFebrero);
 
-        return model;
+          return model;
+        })
       })
     });
   },
@@ -86,5 +90,8 @@ export default Route.extend({
         valuePath: 'banco3MFebrero'
       }
     ]);
+
+    controller.set('Fuente', model.consultas.findBy('variable', 'FuenteAbastecimiento'));
+    controller.set('Fecha', model.consultas.findBy('variable', 'FechaAbastecimiento'));
   }
 });

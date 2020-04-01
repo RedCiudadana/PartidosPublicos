@@ -50,7 +50,8 @@ export default Controller.extend({
       },
       {
         name: 'Monto',
-        valuePath: 'Monto'
+        valuePath: 'Monto',
+        money: true
       }
     ]);
   },
@@ -118,5 +119,14 @@ export default Controller.extend({
         }
       ]
     };
+  }),
+
+  footCompras: computed('model', function(){
+    return [
+      {
+        Compras: 'Monto total',
+        Monto: this.model.compras.filterBy('Estatus', 'Terminado adjudicado').mapBy('Monto').reduce((prev, current) => prev + current).toFixed(2)
+      }
+    ];
   })
 });

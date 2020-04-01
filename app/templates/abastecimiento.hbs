@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-12 py-4">
         <h1>Abastecimientos</h1>
-        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Trazadores disponibilidad mayor a 1 mes</h3>
+        <h6>Actualizado el: {{this.Fecha.dato}}</h6>
+        <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
+        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2 mt-4">Trazadores disponibilidad mayor a 1 mes</h3>
         <div class="table-responsive thead-primary mb-2">
           <EmberTable class="table table-striped border" as |t|>
             <t.head
@@ -12,7 +14,7 @@
 
               @onUpdateSorts={{action (mut this.sortsTrazadores)}}
             />
-            <t.body @rows={{model}} />
+            <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>
         <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 1 mes</h3>
@@ -24,7 +26,7 @@
 
               @onUpdateSorts={{action (mut this.sorts1M)}}
             />
-            <t.body @rows={{model}} />
+            <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>
         <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 3 meses</h3>
@@ -36,7 +38,7 @@
 
               @onUpdateSorts={{action (mut this.sorts3M)}}
             />
-            <t.body @rows={{model}} />
+            <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>
       </div>

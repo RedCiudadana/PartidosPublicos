@@ -45,7 +45,11 @@ export default Route.extend({
       return hash({
         config: {},
         profile: profile,
-        compras: this.spreadsheets.fetch('compras').then((compras) => compras.filterBy('id', profile.id))
+        compras: this.spreadsheets.fetch('compras').then((compras) => compras.filterBy('id', profile.id).map((compra) => {
+          compra.Monto = parseFloat(compra.Monto.replace('Q','').replace(' ', '').replace(/,/g, ''));
+          return compra;
+        })),
+        consultas: this.spreadsheets.fetch('consultas')
         // profiles: this.store.query('profile', {
         //   institution: profile.id
         // }),
@@ -63,17 +67,6 @@ export default Route.extend({
         // })
       });
     });
-  },
-
-  /**
-   * Levanta un controlador y asigna model.config.profileFunctions = model.profileFunctions.
-   *
-   * @method setupController
-   * @param  {[type]} controller Clase controller.
-   * @param  {[type]} model      Modelo de esta ruta.
-   */
-  setupController(controller, model) {
-    this._super(controller, model);
   },
 
   /**

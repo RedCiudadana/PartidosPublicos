@@ -71,7 +71,20 @@
 
               @onUpdateSorts={{action (mut this.sortsCompras)}}
             />
-            <t.body @rows={{model.compras}} />
+            <t.body @rows={{model.compras}} as |b|>
+              <b.row as |r|>
+                <r.cell as |value column|>
+                  {{if column.money "Q"}} {{value}} {{if column.percentage "%"}}
+                </r.cell>
+              </b.row>
+            </t.body>
+            <t.foot @rows={{this.footCompras}} as |f|>
+              <f.row as |r|>
+                <r.cell as |value column|>
+                  <strong>{{if (eq column.name "Monto") "Q"}} {{value}} {{if column.percentage "%"}}</strong>
+                </r.cell>
+              </f.row>
+            </t.foot>
           </EmberTable>
         </div>
       </div>

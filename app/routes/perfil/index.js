@@ -36,5 +36,10 @@ export default Route.extend({
       years: true,
       charge: true
     });
+
+    controller.set('FuenteAbastecimiento', model.consultas.findBy('variable', 'FuenteAbastecimiento'));
+    controller.set('FechaAbastecimiento', model.consultas.findBy('variable', 'FechaAbastecimiento'));
+    controller.set('FuenteCompras', model.consultas.findBy('variable', 'FuenteCompras'));
+    controller.set('FechaCompras', model.consultas.findBy('variable', 'FechaCompras'));
   }
 });

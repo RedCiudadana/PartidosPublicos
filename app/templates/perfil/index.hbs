@@ -156,19 +156,23 @@
       </div>
     </div>
   </div> --}}
-  {{!-- Suministros --}}
+  {{!-- Abastecimientos --}}
   <div class="row">
     <div class="col-12">
       <div class="panel">
         <div class="header d-flex bg-primary">
           <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
-          <h3>Suministros</h3>
+          <h3>Abastecimientos</h3>
         </div>
         <div>
           <div class="body p-1">
-              <EmberChart @type="horizontalBar" @data={{trazadores}} @options={{options}} @class="p-0 p-lg-5 my-4" />
-              <EmberChart @type="horizontalBar" @data={{medicamentos1M}} @options={{options}} @class="p-0 p-lg-5" />
-              <EmberChart @type="horizontalBar" @data={{medicamentos3M}} @options={{options}} @class="p-0 p-lg-5" />
+            <EmberChart @type="horizontalBar" @data={{trazadores}} @options={{options}} @class="p-0 p-lg-5 my-4" />
+            <EmberChart @type="horizontalBar" @data={{medicamentos1M}} @options={{options}} @class="p-0 p-lg-5" />
+            <EmberChart @type="horizontalBar" @data={{medicamentos3M}} @options={{options}} @class="p-0 p-lg-5" />
+            <div class="p-4">
+              <h6>Actualizado el: {{this.FechaAbastecimiento.dato}}</h6>
+              <small class="text-muted">Fuente: {{this.FuenteAbastecimiento.dato}}</small>
+            </div>
           </div>
         </div>
       </div>
@@ -195,8 +199,25 @@
 
                   @onUpdateSorts={{action (mut this.sortsCompras)}}
                 />
-                <t.body @rows={{model.compras}} />
+                <t.body @rows={{model.compras}} as |b|>
+                  <b.row as |r|>
+                    <r.cell as |value column|>
+                      {{if column.money "Q"}} {{value}} {{if column.percentage "%"}}
+                    </r.cell>
+                  </b.row>
+                </t.body>
+                <t.foot @rows={{this.footCompras}} as |f|>
+                  <f.row as |r|>
+                    <r.cell as |value column|>
+                      <strong>{{if (eq column.name "Monto") "Q"}} {{value}} {{if column.percentage "%"}}</strong>
+                    </r.cell>
+                  </f.row>
+                </t.foot>
               </EmberTable>
+              <div class="p-4">
+                <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
+                <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
+              </div>
             </div>
             {{else}}
               <p class="px-5 pt-3">No hay información</p>

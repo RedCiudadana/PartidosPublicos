@@ -1,17 +1,21 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import RSVP from 'rsvp';
 
 export default Route.extend({
   spreadsheets: service(),
 
   model() {
-    return this.spreadsheets.fetch('presupuesto').then((presupuestos) => presupuestos.map((presupuesto) => {
-      presupuesto.vigente = parseFloat(presupuesto.vigente.replace(',', ''));
-      presupuesto.devengado = parseFloat(presupuesto.devengado.replace(',', ''));
-      presupuesto.porcentageEjecucion = parseFloat(presupuesto.porcentageEjecucion.replace(',', ''));
+    return RSVP.hash({
+      consultas: this.spreadsheets.fetch('consultas'),
+      rows: this.spreadsheets.fetch('presupuesto').then((presupuestos) => presupuestos.map((presupuesto) => {
+        presupuesto.vigente = parseFloat(presupuesto.vigente.replace(',', ''));
+        presupuesto.devengado = parseFloat(presupuesto.devengado.replace(',', ''));
+        presupuesto.porcentageEjecucion = parseFloat(presupuesto.porcentageEjecucion.replace(',', ''));
 
-      return presupuesto;
-    }));
+        return presupuesto;
+      }))
+    });
   },
 
   setupController(controller, model) {
@@ -35,5 +39,8 @@ export default Route.extend({
         valuePath: 'porcentageEjecucion'
       }
     ]);
+
+    controller.set('Fuente', model.consultas.findBy('variable', 'FuenteAbastecimiento'));
+    controller.set('Fecha', model.consultas.findBy('variable', 'FechaAbastecimiento'));
   }
 });
