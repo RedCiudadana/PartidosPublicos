@@ -3,47 +3,19 @@
     <div class="row font-weight-bold text-center">
       <div class="col-12 py-4">
         <h2 class="text-left mb-4">Compras Públicas</h2>
+        <p class="font-weight-normal text-left">En esta apartado encontrará documentación oficial sobre las compras que el MSPAS realizó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información de compras relativa a medicamentos, insumos médico quirúrgico entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.</p>
         <div class="bg-light rounded w-100 overflow-hidden">
           <div class="w-100 bg-primary text-white py-3">
             <h6>Monto Total de compras adjudicadas</h6>
+            <small>(Del 1/03/2020 al 30/03/2020)</small>
           </div>
           <div class="w-100 bg-light text-primary py-4">
-            <h6>Q {{this.footCompras.firstObject.Monto}}</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 py-4">
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
             <h6>
-              Total de concursos realizados
+              Q {{this.montoTotal.Unidad}}
             </h6>
           </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>{{this.concursos.Unidad}}</h6>
-          </div>
         </div>
       </div>
-      <div class="col-6 py-4">
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
-            <h6>Terminados adjudicados</h6>
-          </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>{{this.concursosTerminados.Unidad}}</h6>
-          </div>
-        </div>
-      </div>
-      {{!-- <div class="col-4 py-4">
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
-            <h6>Concursos vigentes</h6>
-          </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>Q.47,676,708,152.34</h6>
-          </div>
-        </div>
-      </div> --}}
       <div class="col-12 py-4 border-top mt-4 text-left d-flex">
         <div class="my-auto mr-auto">
           <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
@@ -55,6 +27,44 @@
         <a class="btn btn-info btn-lg ml-2" href="{{this.DescargarPDF.dato}}">
           <small>DESCARGAR PDF</small>
         </a>
+      </div>
+      <div class="col-12 col-sm-4 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              Concursos Realizados
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>{{this.concursos.Unidad}}</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              Adjudicados Terminados
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>{{this.concursosTerminados.Unidad}}</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              Concursos vigentes
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>
+              {{this.concursosVigente.Unidad}}
+            </h6>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -2,63 +2,14 @@
   <div class="container py-4">
     <div class="row font-weight-bold text-center">
       <div class="col-12 py-4">
-        <h2 class="text-left mb-4">Presupuesto</h2>
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
-            <h6>
-              Presupuesto General
-            </h6>
-          </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>
-              Q {{this.presupuestogeneral.Unidad}}
-            </h6>
-          </div>
-        </div>
+        <h2 class="text-left mb-4">
+          Presupuesto Vigente del Ministerio de Salud Pública y Asistencia Social de Guatemala (MSPAS)
+        </h2>
+        <p class="font-weight-normal text-left">
+          En esta apartado encontrará documentación oficial del MINFIN sobre el presupuesto del MSPAS en 2020 tanto a nivel central, hospitales y unidades ejecutoras. Encontrará información relativa a renglones presupuestario relativos a medicamentos, insumos médico quirúrgico, recursos humanos y entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.
+        </p>
       </div>
-      <div class="col-4 py-4">
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
-            <h6>
-              Aprobado Inicial
-            </h6>
-          </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>
-              Q {{this.presupuestoInicial.Unidad}}
-            </h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-4 py-4">
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
-            <h6>
-              Devengado
-            </h6>
-          </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>
-              Q {{this.Devengado.Unidad}}
-            </h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-4 py-4">
-        <div class="bg-light rounded w-100 overflow-hidden">
-          <div class="w-100 bg-primary text-white py-3">
-            <h6>
-              % Ejec.
-            </h6>
-          </div>
-          <div class="w-100 bg-light text-primary py-4">
-            <h6>
-              {{this.porcentage.Unidad}}
-            </h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 py-4 border-top mt-4 text-left d-flex">
+      <div class="col-12 py-4 border-top text-left d-flex">
         <div class="my-auto mr-auto">
           <h6>Actualizado el: {{this.FechaPresupuesto.dato}}</h6>
           <small class="text-muted">Fuente: {{this.FuentePresupuesto.dato}}</small>
@@ -70,13 +21,69 @@
           <small>DESCARGAR PDF</small>
         </a>
       </div>
+      <div class="col-12 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              Presupuesto Vigente del Ministerio de Salud Pública y Asistencia Social de Guatemala (MSPAS)
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>
+              Q {{this.presupuestogeneral.Unidad}}
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              Presupuesto Asignado (MSPAS)
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>
+              Q {{this.presupuestoInicial.Unidad}}
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              Presupuesto Devengado (MSPAS)
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>
+              Q {{this.Devengado.Unidad}}
+            </h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 py-4">
+        <div class="bg-light rounded w-100 overflow-hidden">
+          <div class="w-100 bg-primary text-white py-3">
+            <h6>
+              % Porcentaje de Ejecución
+            </h6>
+          </div>
+          <div class="w-100 bg-light text-primary py-4">
+            <h6>
+              {{this.porcentage.Unidad}}
+            </h6>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 <div class="w-100 bg-light">
   <div class="container">
     <div class="row">
-      <div class="col-12 py-4">
+      <div class="col-12 py-4 mt-3">
         <div class="table-responsive thead-secondary mb-2">
           <EmberTable class="table table-striped border" as |t|>
             <t.head

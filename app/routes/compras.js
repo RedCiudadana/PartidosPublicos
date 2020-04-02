@@ -54,6 +54,7 @@ export default Route.extend({
     controller.set('montoTotal', model.comprasresumen.findBy('variable', 'montoTotal'));
     controller.set('concursos', model.comprasresumen.findBy('variable', 'concursos'));
     controller.set('concursosTerminados', model.comprasresumen.findBy('variable', 'concursosTerminados'));
+    controller.set('concursosVigente', model.comprasresumen.findBy('variable', 'concursosVigente'));
 
     controller.set('footCompras', [
       {
