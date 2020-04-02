@@ -4,6 +4,20 @@
       <div class="col-12 py-4">
         <h2 class="text-left mb-4">Compras Públicas</h2>
         <p class="font-weight-normal text-left">En esta apartado encontrará documentación oficial sobre las compras que el MSPAS realizó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información de compras relativa a medicamentos, insumos médico quirúrgico entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.</p>
+      </div>
+      <div class="col-12 py-4 border-bottom mt-4 text-left d-flex">
+        <div class="my-auto mr-auto">
+          <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
+          <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
+        </div>
+        <a class="btn btn-secondary btn-lg" href="{{this.DescargarExcel.dato}}">
+          <small>DESCARGAR XLS</small>
+        </a>
+        <a class="btn btn-info btn-lg ml-2" href="{{this.DescargarPDF.dato}}">
+          <small>DESCARGAR PDF</small>
+        </a>
+      </div>
+      <div class="col-12">
         <div class="bg-light rounded w-100 overflow-hidden">
           <div class="w-100 bg-primary text-white py-3">
             <h6>Monto Total de compras adjudicadas</h6>
@@ -15,18 +29,6 @@
             </h6>
           </div>
         </div>
-      </div>
-      <div class="col-12 py-4 border-top mt-4 text-left d-flex">
-        <div class="my-auto mr-auto">
-          <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
-          <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
-        </div>
-        <a class="btn btn-secondary btn-lg" href="{{this.DescargarExcel.dato}}">
-          <small>DESCARGAR XLS</small>
-        </a>
-        <a class="btn btn-info btn-lg ml-2" href="{{this.DescargarPDF.dato}}">
-          <small>DESCARGAR PDF</small>
-        </a>
       </div>
       <div class="col-12 col-sm-4 py-4">
         <div class="bg-light rounded w-100 overflow-hidden">
