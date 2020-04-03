@@ -2,7 +2,7 @@
   "name": "misalud",
   "version": "0.4.2",
   "private": true,
-  "description": "Proyecto de transparencia de Red Ciudadana",
+  "description": "Conoce las acciones, gasto e inversión que realiza el Ministerio de Salud para enfrentar la emergencia de COVID 19",
   "repository": "https://github.com/RedCiudadana/Justicipedia",
   "license": "MIT",
   "author": "RedCiudadana",

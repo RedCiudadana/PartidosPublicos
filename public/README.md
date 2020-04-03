@@ -1,4 +1,3 @@
-# MiGuatemala
+# MiSalud
 
-MiGuatemala es una aplicación destinada fomentar la transparencia en materia de funcionarios
-e instituciones públicas.
+Conoce las acciones, gasto e inversión que realiza el Ministerio de Salud para enfrentar la emergencia de COVID 19
