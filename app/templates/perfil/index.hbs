@@ -1,3 +1,47 @@
+<div class="col-12 p-0 border shadow-sm bg-white rounded pills mt-4">
+  <BsNav
+    @type="pills"
+    @justified={{false}}
+    @stacked={{false}}
+    @fill={{false}}
+  as |nav|>
+    <nav.item>
+      {{scroll-to
+        class="nav-link active p-0 pointer"
+        label='Descripción'
+        target='#descripcion'
+        tagName='a'
+        duration=1000
+        offset=-100
+      }}
+    </nav.item>
+    <nav.item>
+      {{scroll-to
+        class="nav-link p-0 pointer"
+        label='Abastecimiento'
+        target='#abastecimiento'
+        tagName='a'
+        duration=1000
+        offset=-100
+      }}
+    </nav.item>
+    <nav.item>
+      {{scroll-to
+        class="nav-link p-0 pointer"
+        label='Compras'
+        target='#compras'
+        tagName='a'
+        duration=1000
+        offset=-100
+      }}
+    </nav.item>
+    <nav.item class="ml-auto p-3 d-none d-md-flex">
+      <ShareTwitter />
+      <ShareFacebook />
+    </nav.item>
+  </BsNav>
+</div>
+
 <div class="row m-1 my-4 bg-white panel py-5">
   {{!-- Imagen --}}
   <div class="col-md-3 text-center">
@@ -100,11 +144,13 @@
 {{#if (eq model.profile._internalModel.modelName "institution")}}
   {{!-- Descripción --}}
   <div class="row">
-    <div class="col-12">
+    <div class="col-12" id="descripcion">
       <div class="panel">
         <div class="header d-flex bg-primary">
           <img src="img/i-estrado.png" alt="Descripción" class="img-white">
-          <h3>Descripción</h3>
+          <h3 id="descripcion">
+            Descripción
+          </h3>
         </div>
         <div>
           <div class="body p-4">
@@ -158,11 +204,13 @@
   </div> --}}
   {{!-- Abastecimiento --}}
   <div class="row">
-    <div class="col-12">
+    <div class="col-12" id="abastecimiento">
       <div class="panel">
         <div class="header d-flex bg-primary">
           <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
-          <h3>Abastecimiento</h3>
+          <h3>
+            Abastecimiento
+          </h3>
         </div>
         <div>
           <div class="body p-1">
@@ -180,7 +228,7 @@
   </div>
   {{!-- Compras --}}
   <div class="row">
-    <div class="col-12">
+    <div class="col-12" id="compras">
       <div class="panel">
         <div class="header d-flex bg-primary">
           <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">

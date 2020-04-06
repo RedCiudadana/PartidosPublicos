@@ -73,6 +73,7 @@
     "ember-resolver": "^7.0.0",
     "ember-responsive": "^3.0.5",
     "ember-router-scroll": "^1.0.0",
+    "ember-scroll-to-target": "^1.0.0",
     "ember-service-worker": "^0.8.4",
     "ember-service-worker-asset-cache": "^0.6.4",
     "ember-service-worker-cache-fallback": "^0.6.2",

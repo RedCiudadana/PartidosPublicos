@@ -5,7 +5,7 @@
         <h2 class="text-left mb-4">Compras Públicas</h2>
         <p class="font-weight-normal text-left">En esta apartado encontrará documentación oficial sobre las compras que el MSPAS realizó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información de compras relativa a medicamentos, insumos médico quirúrgico entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.</p>
       </div>
-      <div class="col-12 py-4 border-bottom mt-4 text-left d-flex">
+      <div class="col-12 py-4 border-top py-5 text-left d-flex">
         <div class="my-auto mr-auto">
           <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
           <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
@@ -75,7 +75,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12 py-4">
-        <div class="table-responsive thead-secondary mb-2">
+        <div class="table-responsive thead-secondary my-4">
           <EmberTable class="table table-striped border" as |t|>
             <t.head
               @columns={{this.columnsCompras}}

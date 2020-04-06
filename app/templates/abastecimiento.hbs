@@ -1,15 +1,62 @@
+<div class="w-100 bg-white">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <h1>Abastecimiento</h1>
+        <p class="pb-4">
+          En esta apartado encontrará documentación oficial sobre los niveles de abastecimiento que oficialmente el MSPAS publicó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información relativa a medicamentos, insumos médico quirúrgico, recursos humanos y entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.
+        </p>
+      </div>
+      <div class="col-12 pt-4 border-top text-left">
+        <h6>Actualizado el: {{this.Fecha.dato}}</h6>
+        <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="w-100 bg-light">
   <div class="container">
     <div class="row">
-      <div class="col-12 py-4">
-        <h1>Abastecimiento</h1>
-        <p>
-          En esta apartado encontrará documentación oficial sobre los niveles de abastecimiento que oficialmente el MSPAS publicó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información relativa a medicamentos, insumos médico quirúrgico, recursos humanos y entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.
-        </p>
-        <h6>Actualizado el: {{this.Fecha.dato}}</h6>
-        <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
-        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2 mt-4">Trazadores disponibilidad mayor a 1 mes</h3>
-        <div class="table-responsive thead-primary mb-2">
+      <div class="col-12 p-0 border shadow-sm bg-white rounded pills mt-4">
+        <BsNav
+          @type="pills"
+          @justified={{false}}
+          @stacked={{false}}
+          @fill={{false}}
+        as |nav|>
+          <nav.item>
+            {{scroll-to
+              class="nav-link active p-0 pointer"
+              label='Trazadores'
+              target='#trazadores'
+              tagName='a'
+              duration=1000
+            }}
+          </nav.item>
+          <nav.item>
+            {{scroll-to
+              class="nav-link p-0 pointer"
+              label='Disponibilidad mayor a 1 mes'
+              target='#disponibilidadMayorA_1Mes'
+              tagName='a'
+              duration=1000
+            }}
+          </nav.item>
+          <nav.item>
+            {{scroll-to
+              class="nav-link p-0 pointer"
+              label='Disponibilidad mayor a 3 meses'
+              target='#disponibilidadMayorA_3Meses'
+              tagName='a'
+              duration=1000
+            }}
+          </nav.item>
+          <nav.item class="ml-auto p-3 d-none d-md-flex"></nav.item>
+        </BsNav>
+      </div>
+      <div class="col-12 my-4">
+        <h3 id="trazadores" class="w-100 bg-secondary text-white m-0 px-4 py-2">Trazadores disponibilidad mayor a 1 mes</h3>
+        <div class="table-responsive thead-primary mb-5">
           <EmberTable class="table table-striped border" as |t|>
             <t.head
               @columns={{this.columnsTrazadores}}
@@ -20,8 +67,8 @@
             <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>
-        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 1 mes</h3>
-        <div class="table-responsive thead-primary mb-2">
+        <h3 id="disponibilidadMayorA_1Mes" class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 1 mes</h3>
+        <div class="table-responsive thead-primary mb-5">
           <EmberTable class="table table-striped border" as |t|>
             <t.head
               @columns={{this.columns1M}}
@@ -32,8 +79,8 @@
             <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>
-        <h3 class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 3 meses</h3>
-        <div class="table-responsive thead-primary mb-2">
+        <h3 id="disponibilidadMayorA_3Meses" class="w-100 bg-secondary text-white m-0 px-4 py-2">Disponibilidad mayor a 3 meses</h3>
+        <div class="table-responsive thead-primary mb-5">
           <EmberTable class="table table-striped border" as |t|>
             <t.head
               @columns={{this.columns3M}}
