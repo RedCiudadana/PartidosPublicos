@@ -51,11 +51,11 @@ export default Route.extend({
         valuePath: 'nombre'
       },
       {
-        name: 'Medicamentos con disponibilidad',
+        name: 'Medicamentos',
         valuePath: 'medicamentos1MFebrero'
       },
       {
-        name: 'Medicamentos quirurgicos con disponibilidad',
+        name: 'Medicamentos quirurgicos',
         valuePath: 'quirurgico1MFebrero'
       },
       {

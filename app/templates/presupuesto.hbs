@@ -10,9 +10,12 @@
         </p>
       </div>
       <div class="col-12 py-4 border-top text-left d-flex">
-        <div class="my-auto mr-auto">
-          <h6>Actualizado el: {{this.FechaPresupuesto.dato}}</h6>
-          <small class="text-muted">Fuente: {{this.FuentePresupuesto.dato}}</small>
+        <div class="my-auto mr-auto d-flex">
+          <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
+          <div>
+            <h6>Actualizado el: {{this.FechaPresupuesto.dato}}</h6>
+            <small class="text-muted">Fuente: {{this.FuentePresupuesto.dato}}</small>
+          </div>
         </div>
         <a class="btn btn-secondary btn-lg" href="{{this.DescargarExcel.dato}}">
           <small>DESCARGAR XLS</small>

@@ -6,9 +6,12 @@
         <p class="font-weight-normal text-left">En esta apartado encontrará documentación oficial sobre las compras que el MSPAS realizó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información de compras relativa a medicamentos, insumos médico quirúrgico entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.</p>
       </div>
       <div class="col-12 py-4 border-top py-5 text-left d-flex">
-        <div class="my-auto mr-auto">
-          <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
-          <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
+        <div class="my-auto mr-auto d-flex">
+          <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
+          <div>
+            <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
+            <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
+          </div>
         </div>
         <a class="btn btn-secondary btn-lg" href="{{this.DescargarExcel.dato}}">
           <small>DESCARGAR XLS</small>
@@ -134,7 +137,35 @@
               @sorts={{this.sortsCompras}}
 
               @onUpdateSorts={{action (mut this.sortsCompras)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell class="align-middle" as |column|>
+                  {{#if (eq column.name "Categoria")}}
+                    <img src="img/icono-4.png" alt="Lista" height="30px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Equipos")}}
+                    <img src="img/icono-5.png" alt="Botiquín" height="30px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Unidades")}}
+                    <img src="img/icono-6.png" alt="Lista" height="30px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "ModalidadLCE")}}
+                    <img src="img/icono-7.png" alt="Moneda girando" height="30px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Estatus")}}
+                    <img src="img/icono-10.png" alt="Reloj" height="30px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Monto")}}
+                    <img src="img/icono-11.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Fecha")}}
+                    <img src="img/icono-9.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{column.name}}
+                </r.cell>
+              </h.row>
+            </t.head>
+
             <t.body @rows={{this.compras}} as |b|>
               <b.row as |r|>
                 <r.cell as |value column|>

@@ -7,9 +7,12 @@
           En esta apartado encontrará documentación oficial sobre los niveles de abastecimiento que oficialmente el MSPAS publicó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información relativa a medicamentos, insumos médico quirúrgico, recursos humanos y entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.
         </p>
       </div>
-      <div class="col-12 pt-4 border-top text-left">
-        <h6>Actualizado el: {{this.Fecha.dato}}</h6>
-        <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
+      <div class="col-12 pt-4 border-top text-left d-flex">
+        <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
+        <div>
+          <h6>Actualizado el: {{this.Fecha.dato}}</h6>
+          <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
+        </div>
       </div>
     </div>
   </div>
@@ -63,7 +66,19 @@
               @sorts={{this.sortsTrazadores}}
 
               @onUpdateSorts={{action (mut this.sortsTrazadores)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell class="align-middle" as |column|>
+                  {{#if (eq column.name "Medicamentos trazadores")}}
+                    <img src="img/icono-18.png" alt="Botella de medicamentos" height="30px" width="auto" class="mr-2 my-auto">
+                  {{/if}}
+                  {{#if (eq column.name "Medicamentos quirurgico trazador")}}
+                    <img src="img/icono-20.png" alt="Frasco" height="30px" width="auto" class="mr-2 my-auto">
+                  {{/if}}
+                  {{column.name}}
+                </r.cell>
+              </h.row>
+            </t.head>
             <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>
@@ -75,7 +90,27 @@
               @sorts={{this.sorts1M}}
 
               @onUpdateSorts={{action (mut this.sorts1M)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell class="align-middle" as |column|>
+                  <div class="d-inline-flex">
+                    {{#if (eq column.name "Medicamentos")}}
+                      <img src="img/icono-21.png" alt="Pastilla" height="30px" width="auto" class="mr-2 my-auto">
+                    {{/if}}
+                    {{#if (eq column.name "Medicamentos quirurgicos")}}
+                      <img src="img/icono-18.png" alt="Botella de medicamentos" height="30px" width="auto" class="mr-2 my-auto">
+                    {{/if}}
+                    {{#if (eq column.name "Reactivos para Laboratorio Clínico")}}
+                      <img src="img/icono-22.png" alt="Frasco de laboratorio" height="30px" width="auto" class="mr-2 my-auto">
+                    {{/if}}
+                    {{#if (eq column.name "Reactivos para Banco de Sangre")}}
+                      <img src="img/icono-23.png" alt="Gota de sangre" height="30px" width="auto" class="mr-2 my-auto">
+                    {{/if}}
+                    {{column.name}}
+                  </div>
+                </r.cell>
+              </h.row>
+            </t.head>
             <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>
@@ -87,7 +122,25 @@
               @sorts={{this.sorts3M}}
 
               @onUpdateSorts={{action (mut this.sorts3M)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell class="align-middle" as |column|>
+                  {{#if (eq column.name "Medicamentos")}}
+                    <img src="img/icono-21.png" alt="Pastilla" height="30px" width="auto" class="mr-2 my-auto">
+                  {{/if}}
+                  {{#if (eq column.name "Medicamentos quirurgicos")}}
+                    <img src="img/icono-18.png" alt="Botella de medicamentos" height="30px" width="auto" class="mr-2 my-auto">
+                  {{/if}}
+                  {{#if (eq column.name "Reactivos para Laboratorio Clínico")}}
+                    <img src="img/icono-22.png" alt="Frasco de laboratorio" height="30px" width="auto" class="mr-2 my-auto">
+                  {{/if}}
+                  {{#if (eq column.name "Reactivos para Banco de Sangre")}}
+                    <img src="img/icono-23.png" alt="Gota de sangre" height="30px" width="auto" class="mr-2 my-auto">
+                  {{/if}}
+                  {{column.name}}
+                </r.cell>
+              </h.row>
+            </t.head>
             <t.body @rows={{model.rows}} />
           </EmberTable>
         </div>

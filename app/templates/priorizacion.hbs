@@ -7,15 +7,12 @@
           En esta apartado encontrará documentación oficial sobre las necesidades y prioridades que oficialmente el MSPAS publicó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información relativa a medicamentos, insumos médico quirúrgico, recursos humanos y entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.
         </p>
       </div>
-      <div class="col-12 py-4 border-top text-left">
-        <h6>Actualizado el: {{this.Fecha.dato}}</h6>
-        <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
-        {{scroll-to
-          label='Click to scroll'
-          target='#hospitalAislamiento'
-          tagName='a'
-          duration=1000
-          }}
+      <div class="col-12 py-4 border-top text-left d-flex">
+        <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
+        <div>
+            <h6>Actualizado el: {{this.Fecha.dato}}</h6>
+            <small class="text-muted">Fuente: {{this.Fuente.dato}}</small>
+        </div>
       </div>
     </div>
   </div>
@@ -80,7 +77,22 @@
               @sorts={{this.sorts1}}
 
               @onUpdateSorts={{action (mut this.sorts1)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell as |column|>
+                  {{#if (eq column.name "Categoria")}}
+                    <img src="img/icono-4.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Equipos")}}
+                    <img src="img/icono-5.png" alt="Botiquín" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Unidades")}}
+                    <img src="img/icono-6.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{column.name}}
+                </r.cell>
+              </h.row>
+            </t.head>
             <t.body @rows={{rows1}} />
           </EmberTable>
         </div>
@@ -94,7 +106,22 @@
               @sorts={{this.sorts2}}
 
               @onUpdateSorts={{action (mut this.sorts2)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell as |column|>
+                  {{#if (eq column.name "Categoria")}}
+                    <img src="img/icono-4.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Equipos")}}
+                    <img src="img/icono-5.png" alt="Botiquín" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Unidades")}}
+                    <img src="img/icono-6.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{column.name}}
+                </r.cell>
+              </h.row>
+            </t.head>
             <t.body @rows={{rows2}} />
           </EmberTable>
         </div>
@@ -108,7 +135,22 @@
               @sorts={{this.sorts3}}
 
               @onUpdateSorts={{action (mut this.sorts3)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell as |column|>
+                  {{#if (eq column.name "Categoria")}}
+                    <img src="img/icono-4.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Equipos")}}
+                    <img src="img/icono-5.png" alt="Botiquín" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Unidades")}}
+                    <img src="img/icono-6.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{column.name}}
+                </r.cell>
+              </h.row>
+            </t.head>
             <t.body @rows={{rows3}} />
           </EmberTable>
         </div>
@@ -122,7 +164,22 @@
               @sorts={{this.sorts4}}
 
               @onUpdateSorts={{action (mut this.sorts4)}}
-            />
+            as |h|>
+              <h.row as |r|>
+                <r.cell as |column|>
+                  {{#if (eq column.name "Categoria")}}
+                    <img src="img/icono-4.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Equipos")}}
+                    <img src="img/icono-5.png" alt="Botiquín" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{#if (eq column.name "Unidades")}}
+                    <img src="img/icono-6.png" alt="Lista" height="35px" width="auto" class="mr-2">
+                  {{/if}}
+                  {{column.name}}
+                </r.cell>
+              </h.row>
+            </t.head>
             <t.body @rows={{rows4}} />
           </EmberTable>
         </div>

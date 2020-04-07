@@ -6,34 +6,40 @@
     @fill={{false}}
   as |nav|>
     <nav.item>
-      {{scroll-to
+      {{#scroll-to
         class="nav-link active p-0 pointer"
-        label='Descripción'
         target='#descripcion'
         tagName='a'
         duration=1000
         offset=-100
       }}
+        <img src="img/icono-13.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+        Descripción
+      {{/scroll-to}}
     </nav.item>
     <nav.item>
-      {{scroll-to
+      {{#scroll-to
         class="nav-link p-0 pointer"
-        label='Abastecimiento'
         target='#abastecimiento'
         tagName='a'
         duration=1000
         offset=-100
       }}
+        <img src="img/icono-30.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
+        Abastecimiento
+      {{/scroll-to}}
     </nav.item>
     <nav.item>
-      {{scroll-to
+      {{#scroll-to
         class="nav-link p-0 pointer"
-        label='Compras'
         target='#compras'
         tagName='a'
         duration=1000
         offset=-100
       }}
+        <img src="img/icono-1.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
+        Compras
+      {{/scroll-to}}
     </nav.item>
     <nav.item class="ml-auto p-3 d-none d-md-flex">
       <ShareTwitter />
@@ -147,7 +153,7 @@
     <div class="col-12" id="descripcion">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-estrado.png" alt="Descripción" class="img-white">
+          <img src="img/icono-13.png" alt="Hospital" height="30px" width="auto" class="mr-2">
           <h3 id="descripcion">
             Descripción
           </h3>
@@ -207,7 +213,7 @@
     <div class="col-12" id="abastecimiento">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
+          <img src="img/icono-15.png" alt="Guantes" height="30px" width="auto" class="mr-2">
           <h3>
             Abastecimiento
           </h3>
@@ -217,9 +223,12 @@
             <EmberChart @type="horizontalBar" @data={{trazadores}} @options={{options}} @class="p-0 p-lg-5 my-4" />
             <EmberChart @type="horizontalBar" @data={{medicamentos1M}} @options={{options}} @class="p-0 p-lg-5" />
             <EmberChart @type="horizontalBar" @data={{medicamentos3M}} @options={{options}} @class="p-0 p-lg-5" />
-            <div class="p-4">
-              <h6>Actualizado el: {{this.FechaAbastecimiento.dato}}</h6>
-              <small class="text-muted">Fuente: {{this.FuenteAbastecimiento.dato}}</small>
+            <div class="p-4 d-flex">
+              <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
+              <div>
+                <h6>Actualizado el: {{this.FechaAbastecimiento.dato}}</h6>
+                <small class="text-muted">Fuente: {{this.FuenteAbastecimiento.dato}}</small>
+              </div>
             </div>
           </div>
         </div>
@@ -231,7 +240,7 @@
     <div class="col-12" id="compras">
       <div class="panel">
         <div class="header d-flex bg-primary">
-          <img src="img/i-bolsa.png" alt="Icono bolsa de dinero">
+          <img src="img/icono-19.png" alt="Guantes" height="30px" width="auto" class="mr-2">
           <h3>
             Compras
           </h3>
@@ -246,7 +255,34 @@
                   @sorts={{this.sortsCompras}}
 
                   @onUpdateSorts={{action (mut this.sortsCompras)}}
-                />
+                as |h|>
+                  <h.row as |r|>
+                    <r.cell class="align-middle" as |column|>
+                      {{#if (eq column.name "Categoria")}}
+                        <img src="img/icono-4.png" alt="Lista" height="30px" width="auto" class="mr-2">
+                      {{/if}}
+                      {{#if (eq column.name "Equipos")}}
+                        <img src="img/icono-5.png" alt="Botiquín" height="30px" width="auto" class="mr-2">
+                      {{/if}}
+                      {{#if (eq column.name "Unidades")}}
+                        <img src="img/icono-6.png" alt="Lista" height="30px" width="auto" class="mr-2">
+                      {{/if}}
+                      {{#if (eq column.name "ModalidadLCE")}}
+                        <img src="img/icono-7.png" alt="Moneda girando" height="30px" width="auto" class="mr-2">
+                      {{/if}}
+                      {{#if (eq column.name "Estatus")}}
+                        <img src="img/icono-10.png" alt="Reloj" height="30px" width="auto" class="mr-2">
+                      {{/if}}
+                      {{#if (eq column.name "Monto")}}
+                        <img src="img/icono-11.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
+                      {{/if}}
+                      {{#if (eq column.name "Fecha")}}
+                        <img src="img/icono-9.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
+                      {{/if}}
+                      {{column.name}}
+                    </r.cell>
+                  </h.row>
+                </t.head>
                 <t.body @rows={{model.compras}} as |b|>
                   <b.row as |r|>
                     <r.cell as |value column|>
@@ -266,9 +302,12 @@
                   </f.row>
                 </t.foot>
               </EmberTable>
-              <div class="p-4">
-                <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
-                <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
+              <div class="p-4 d-flex">
+                <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
+                <div>
+                  <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
+                  <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
+                </div>
               </div>
             </div>
             {{else}}
