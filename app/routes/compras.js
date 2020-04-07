@@ -45,22 +45,5 @@ export default Route.extend({
         money: true
       }
     ]);
-
-    controller.set('FuenteCompras', model.consultas.findBy('variable', 'FuenteCompras'));
-    controller.set('FechaCompras', model.consultas.findBy('variable', 'FechaCompras'));
-    controller.set('DescargarExcel', model.consultas.findBy('variable', 'DescargarExcel'));
-    controller.set('DescargarPDF', model.consultas.findBy('variable', 'DescargarPDF'));
-
-    controller.set('montoTotal', model.comprasresumen.findBy('variable', 'montoTotal'));
-    controller.set('concursos', model.comprasresumen.findBy('variable', 'concursos'));
-    controller.set('concursosTerminados', model.comprasresumen.findBy('variable', 'concursosTerminados'));
-    controller.set('concursosVigente', model.comprasresumen.findBy('variable', 'concursosVigente'));
-
-    controller.set('footCompras', [
-      {
-        Compras: 'Monto total',
-        Monto: model.compras.filterBy('Estatus', 'Terminado adjudicado').mapBy('Monto').reduce((prev, current) => prev + current).toFixed(2)
-      }
-    ]);
   },
 });

@@ -71,6 +71,58 @@
     </div>
   </div>
 </div>
+<div class="w-100 bg-primary">
+  <div class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <PowerSelect
+          class="w-100"
+          @placeholder="Búsqueda por Unidad/Hospitales"
+          @searchEnabled={{true}}
+          @searchField="Unidad"
+          @allowClear="true"
+          @selected={{this.filterUnidad}}
+          @options={{this.UnidadOptions}}
+          @onChange={{action (mut this.filterUnidad)}}
+        as |compra|>
+          <small>
+            {{compra.Unidad}}
+          </small>
+        </PowerSelect>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 div col-md-4">
+        <PowerSelect
+          class="w-100"
+          @placeholder="Modalidad LCE"
+          @searchEnabled={{true}}
+          @searchField="ModalidadLCE"
+          @allowClear="true"
+          @selected={{this.filterModalidadLCE}}
+          @options={{this.ModalidadLCEOptions}}
+          @onChange={{action (mut this.filterModalidadLCE)}}
+        as |compra|>
+          {{compra.ModalidadLCE}}
+        </PowerSelect>
+      </div>
+      <div class="col-12 div col-md-4">
+        <PowerSelect
+          class="w-100"
+          @placeholder="Estado"
+          @searchEnabled={{true}}
+          @searchField="Estatus"
+          @allowClear="true"
+          @selected={{this.filterEstatus}}
+          @options={{this.EstatusOptions}}
+          @onChange={{action (mut this.filterEstatus)}}
+        as |compra|>
+          {{compra.Estatus}}
+        </PowerSelect>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="w-100 bg-light">
   <div class="container">
     <div class="row">
@@ -83,17 +135,21 @@
 
               @onUpdateSorts={{action (mut this.sortsCompras)}}
             />
-            <t.body @rows={{model.compras}} as |b|>
+            <t.body @rows={{this.compras}} as |b|>
               <b.row as |r|>
                 <r.cell as |value column|>
-                  {{if column.money "Q"}} {{value}} {{if column.percentage "%"}}
+                  <span class="{{if (eq column.name "Monto") "text-secondary"}}">
+                    {{if column.money "Q"}} {{value}} {{if column.percentage "%"}}
+                  </span>
                 </r.cell>
               </b.row>
             </t.body>
             <t.foot @rows={{this.footCompras}} as |f|>
               <f.row as |r|>
                 <r.cell as |value column|>
-                  <strong>{{if (eq column.name "Monto") "Q"}} {{value}} {{if column.percentage "%"}}</strong>
+                  <strong class={{if (eq column.name "Monto") "text-secondary"}}>
+                    {{if (eq column.name "Monto") "Q"}} {{value}} {{if column.percentage "%"}}
+                  </strong>
                 </r.cell>
               </f.row>
             </t.foot>
