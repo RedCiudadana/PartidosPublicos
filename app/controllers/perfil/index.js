@@ -60,7 +60,7 @@ export default Controller.extend({
     return {
       labels: [
         'Medicamentos trazadores',
-        'Medicamentos quirurgico trazador '
+        'Insumos médico-quirúrgico trazador '
       ],
       datasets: [
         {
@@ -79,7 +79,7 @@ export default Controller.extend({
     return {
       labels: [
         'Medicamentos',
-        'Medicamentos quirurgicos',
+        'Insumos médico-quirúrgicos',
         'Reactivos para Laboratorio Clínico',
         'Reactivos para Banco de Sangre',
       ],
@@ -102,7 +102,7 @@ export default Controller.extend({
     return {
       labels: [
         'Medicamentos',
-        'Medicamentos quirurgicos',
+        'Insumos médico-quirúrgicos',
         'Reactivos para Laboratorio Clínico',
         'Reactivos para Banco de Sangre'
       ],

@@ -40,7 +40,7 @@ export default Route.extend({
         valuePath: 'trazadores1MFebrero'
       },
       {
-        name: 'Medicamentos quirurgico trazador',
+        name: 'Insumos médico-quirúrgico trazador',
         valuePath: 'quirurgicoTrazador1MFebrero'
       }
     ]);
@@ -55,7 +55,7 @@ export default Route.extend({
         valuePath: 'medicamentos1MFebrero'
       },
       {
-        name: 'Medicamentos quirurgicos',
+        name: 'Insumos médico-quirúrgicos',
         valuePath: 'quirurgico1MFebrero'
       },
       {
@@ -78,7 +78,7 @@ export default Route.extend({
         valuePath: 'medicamentos3MFebrero'
       },
       {
-        name: 'Medicamentos quirurgicos',
+        name: 'Insumos médico-quirúrgicos',
         valuePath: 'quirurgico3MFebrero'
       },
       {
