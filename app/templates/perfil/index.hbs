@@ -17,30 +17,32 @@
         Descripción
       {{/scroll-to}}
     </nav.item>
-    <nav.item>
-      {{#scroll-to
-        class="nav-link p-0 pointer"
-        target='#abastecimiento'
-        tagName='a'
-        duration=1000
-        offset=-100
-      }}
-        <img src="img/icono-30.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
-        Abastecimiento
-      {{/scroll-to}}
-    </nav.item>
-    <nav.item>
-      {{#scroll-to
-        class="nav-link p-0 pointer"
-        target='#compras'
-        tagName='a'
-        duration=1000
-        offset=-100
-      }}
-        <img src="img/icono-1.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
-        Compras
-      {{/scroll-to}}
-    </nav.item>
+    {{#if (eq model.firstObject._internalModel.modelName "institution")}}
+      <nav.item>
+        {{#scroll-to
+          class="nav-link p-0 pointer"
+          target='#abastecimiento'
+          tagName='a'
+          duration=1000
+          offset=-100
+        }}
+          <img src="img/icono-30.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
+          Abastecimiento
+        {{/scroll-to}}
+      </nav.item>
+      <nav.item>
+        {{#scroll-to
+          class="nav-link p-0 pointer"
+          target='#compras'
+          tagName='a'
+          duration=1000
+          offset=-100
+        }}
+          <img src="img/icono-1.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
+          Compras
+        {{/scroll-to}}
+      </nav.item>
+    {{/if}}
     <nav.item class="ml-auto p-3 d-none d-md-flex">
       <ShareTwitter />
       <ShareFacebook />
@@ -280,6 +282,16 @@
                         <img src="img/icono-9.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
                       {{/if}}
                       {{column.name}}
+
+                      {{#if meta.isSorted}}
+                        {{#if meta.isSortedAsc}}
+                          <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                        {{else}}
+                          <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                        {{/if}}
+                      {{else}}
+                        <i class="fa fa-sort" aria-hidden="true"></i>
+                      {{/if}}
                     </r.cell>
                   </h.row>
                 </t.head>

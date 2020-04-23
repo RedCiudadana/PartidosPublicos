@@ -90,6 +90,16 @@
                     <img src="img/icono-6.png" alt="Lista" height="35px" width="auto" class="mr-2">
                   {{/if}}
                   {{column.name}}
+
+                  {{#if meta.isSorted}}
+                    {{#if meta.isSortedAsc}}
+                      <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                    {{else}}
+                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                    {{/if}}
+                  {{else}}
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                  {{/if}}
                 </r.cell>
               </h.row>
             </t.head>
@@ -119,6 +129,16 @@
                     <img src="img/icono-6.png" alt="Lista" height="35px" width="auto" class="mr-2">
                   {{/if}}
                   {{column.name}}
+
+                  {{#if meta.isSorted}}
+                    {{#if meta.isSortedAsc}}
+                      <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                    {{else}}
+                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                    {{/if}}
+                  {{else}}
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                  {{/if}}
                 </r.cell>
               </h.row>
             </t.head>
@@ -177,6 +197,16 @@
                     <img src="img/icono-6.png" alt="Lista" height="35px" width="auto" class="mr-2">
                   {{/if}}
                   {{column.name}}
+
+                  {{#if meta.isSorted}}
+                    {{#if meta.isSortedAsc}}
+                      <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                    {{else}}
+                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                    {{/if}}
+                  {{else}}
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                  {{/if}}
                 </r.cell>
               </h.row>
             </t.head>

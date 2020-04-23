@@ -139,7 +139,7 @@
               @onUpdateSorts={{action (mut this.sortsCompras)}}
             as |h|>
               <h.row as |r|>
-                <r.cell class="align-middle" as |column|>
+                <r.cell class="align-middle" as |column meta|>
                   {{#if (eq column.name "Categoria")}}
                     <img src="img/icono-4.png" alt="Lista" height="30px" width="auto" class="mr-2">
                   {{/if}}
@@ -150,7 +150,7 @@
                     <img src="img/icono-6.png" alt="Lista" height="30px" width="auto" class="mr-2">
                   {{/if}}
                   {{#if (eq column.name "ModalidadLCE")}}
-                    <img src="img/icono-7.png" alt="Moneda girando" height="30px" width="auto" class="mr-2">
+                    <img src="img/icono-7.png" alt="Moneda girando" height="25px" width="auto" class="mr-2">
                   {{/if}}
                   {{#if (eq column.name "Estatus")}}
                     <img src="img/icono-10.png" alt="Reloj" height="30px" width="auto" class="mr-2">
@@ -162,6 +162,16 @@
                     <img src="img/icono-9.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
                   {{/if}}
                   {{column.name}}
+
+                  {{#if meta.isSorted}}
+                    {{#if meta.isSortedAsc}}
+                      <i class="fa fa-sort-asc" aria-hidden="true"></i>
+                    {{else}}
+                      <i class="fa fa-sort-desc" aria-hidden="true"></i>
+                    {{/if}}
+                  {{else}}
+                    <i class="fa fa-sort" aria-hidden="true"></i>
+                  {{/if}}
                 </r.cell>
               </h.row>
             </t.head>
