@@ -53,5 +53,22 @@
 
     {{content-for "body-footer"}}
     <!-- <script src="https://my.hellobar.com/64300bf7e023961537f9fbe8ad297ceb8440953a.js" type="text/javascript" charset="utf-8" async="async"></script> -->
+
+    <!-- Netlify forms -->
+    <form
+      name="test"
+      netlify
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="test">
+      <input type="text" name="name">
+      <input type="number" name="size">
+      <textarea name="question"></textarea>
+      <button type="submit">
+        Enviar
+      </button>
+    </form>
   </body>
 </html>
