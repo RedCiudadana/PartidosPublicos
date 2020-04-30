@@ -189,7 +189,7 @@
                 </r.cell>
               </b.row>
             </t.body>
-            <t.foot @rows={{this.footCompras}} as |f|>
+            {{!-- <t.foot @rows={{this.footCompras}} as |f|>
               <f.row as |r|>
                 <r.cell as |value column|>
                   <strong class={{if (eq column.name "Monto") "text-secondary"}}>
@@ -201,7 +201,7 @@
                   </strong>
                 </r.cell>
               </f.row>
-            </t.foot>
+            </t.foot> --}}
           </EmberTable>
         </div>
       </div>
@@ -209,7 +209,7 @@
   </div>
 </div>
 
-{{!-- <div class="w-100 bg-light py-5">
+<div class="w-100 bg-light py-5">
   <div class="container">
     <div class="row text-center">
       <div class="mx-auto">
@@ -239,4 +239,4 @@
       </div>
     </div>
   </div>
-</div> --}}
+</div>
