@@ -1,17 +1,41 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import pagesNumbersByPage from 'misalud/utils/pagination/pagesNumbersByPage';
+
+const array_chunks = (array, chunk_size) =>
+  Array(Math.ceil(array.length / chunk_size))
+    .fill()
+    .map((_, index) => index * chunk_size)
+    .map(begin => array.slice(begin, begin + chunk_size));
 
 export default Controller.extend({
-  compras: computed('model', 'filterUnidad', 'filterModalidadLCE', 'filterEstatus', function() {
+  page: 1,
+  size: 10,
+
+  currentSort: null,
+
+  filteredData: computed('model', 'filterUnidad', 'filterModalidadLCE', 'filterEstatus', 'currentSort', function() {
+    let compras = this.model.compras;
+
+    if(this.currentSort) {
+      console.log(this.currentSort);
+
+      if(this.currentSort.firstObject.isAscending) {
+        compras = compras.sortBy(this.currentSort.firstObject.valuePath);
+      } else {
+        compras = compras.sortBy(this.currentSort.firstObject.valuePath).reverseObjects();
+      }
+    }
+
     if (
       this.filterUnidad === undefined
       && this.filterModalidadLCE === undefined
       && this.filterEstatus === undefined
     ) {
-      return this.model.compras;
+      return compras;
     }
 
-    return this.model.compras.filter((compra) => {
+    return compras.filter((compra) => {
       if (this.filterUnidad && compra.Unidad !== this.filterUnidad.Unidad) {
         return false;
       }
@@ -79,5 +103,40 @@ export default Controller.extend({
         Monto: this.compras.filterBy('Estatus', 'Terminado adjudicado').mapBy('Monto').reduce((prev, current) => prev + current).toFixed(2)
       }
     ];
-  })
+  }),
+
+  chunks: computed('filteredData', function() {
+    return array_chunks(this.filteredData, this.size);
+  }),
+
+  compras: computed('chunks', 'page', function() {
+    return this.chunks[this.page - 1];
+  }),
+
+  pages: computed('chunks', 'page', function() {
+    return pagesNumbersByPage(this.chunks.length, this.page);
+  }),
+
+  actions: {
+    selectPage(page) {
+      this.set('page', page);
+    },
+
+    prevPage() {
+      this.set('page', this.page > 1 ? this.page - 1 : 1);
+    },
+
+    nextPage() {
+      this.set('page', this.page < this.chunks.length ? this.page + 1 : this.chunks.length)
+    },
+
+    sortingUpdate(sort) {
+      if(this.currentSort !== null && this.currentSort.firstObject.valuePath === sort.firstObject.valuePath) {
+        sort.firstObject.isAscending = !this.currentSort.firstObject.isAscending;
+      }
+
+      this.set('currentSort', sort);
+      this.set('page', 1);
+    }
+  }
 });

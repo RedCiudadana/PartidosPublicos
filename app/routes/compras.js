@@ -5,6 +5,11 @@ import RSVP from 'rsvp';
 export default Route.extend({
   spreadsheets: service(),
 
+  queryParams: {
+    page: { refreshModel: false },
+    size: { refreshModel: false }
+  },
+
   model() {
     return RSVP.hash({
       compras: this.spreadsheets.fetch('compras').then((compras) => compras.map((compra) => {

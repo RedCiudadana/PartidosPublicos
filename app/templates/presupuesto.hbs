@@ -98,7 +98,11 @@
             <t.body @rows={{model.rows}} as |b|>
               <b.row as |r|>
                 <r.cell as |cell column|>
-                  {{if column.money "Q"}} {{cell}} {{if column.percentage "%"}}
+                  {{#if column.money }}
+                    {{format-number value format='DECIMAL_CURRENCY'}}
+                  {{else}}
+                    {{value}} {{if column.percentage "%"}}
+                  {{/if}}
                 </r.cell>
               </b.row>
             </t.body>
@@ -106,7 +110,11 @@
               <b.row as |r|>
                 <r.cell as |cell column|>
                   <strong>
-                    {{if column.money "Q"}} {{cell}} {{if column.percentage "%"}}
+                    {{#if column.money }}
+                      {{format-number value format='DECIMAL_CURRENCY'}}
+                    {{else}}
+                      {{value}} {{if column.percentage "%"}}
+                    {{/if}}
                   </strong>
                 </r.cell>
               </b.row>

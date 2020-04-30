@@ -136,7 +136,7 @@
               @columns={{this.columnsCompras}}
               @sorts={{this.sortsCompras}}
 
-              @onUpdateSorts={{action (mut this.sortsCompras)}}
+              @onUpdateSorts={{action "sortingUpdate"}}
             as |h|>
               <h.row as |r|>
                 <r.cell class="align-middle" as |column meta|>
@@ -180,7 +180,11 @@
               <b.row as |r|>
                 <r.cell as |value column|>
                   <span class="{{if (eq column.name "Monto") "text-secondary"}}">
-                    {{if column.money "Q"}} {{value}} {{if column.percentage "%"}}
+                    {{#if column.money }}
+                      {{format-number value format='DECIMAL_CURRENCY'}}
+                    {{else}}
+                      {{value}} {{if column.percentage "%"}}
+                    {{/if}}
                   </span>
                 </r.cell>
               </b.row>
@@ -189,7 +193,11 @@
               <f.row as |r|>
                 <r.cell as |value column|>
                   <strong class={{if (eq column.name "Monto") "text-secondary"}}>
-                    {{if (eq column.name "Monto") "Q"}} {{value}} {{if column.percentage "%"}}
+                    {{#if (eq column.name "Monto")}}
+                      {{format-number value format='DECIMAL_CURRENCY'}}
+                    {{else}}
+                      {{value}} {{if column.percentage "%"}}
+                    {{/if}}
                   </strong>
                 </r.cell>
               </f.row>
@@ -200,3 +208,35 @@
     </div>
   </div>
 </div>
+
+{{!-- <div class="w-100 bg-light py-5">
+  <div class="container">
+    <div class="row text-center">
+      <div class="mx-auto">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <button class="page-link" href="#" aria-label="Previous" {{action "prevPage"}}>
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </button>
+            </li>
+            {{#each this.pages as |page|}}
+              <li class="page-item {{if (eq this.page page) "active"}}">
+                <button class="page-link" {{action "selectPage" page}}>
+                  {{page}}
+                </button>
+              </li>
+            {{/each}}
+            <li class="page-item">
+              <button class="page-link" href="#" aria-label="Next" {{action "nextPage"}}>
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div> --}}

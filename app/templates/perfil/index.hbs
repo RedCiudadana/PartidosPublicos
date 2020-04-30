@@ -299,7 +299,11 @@
                   <b.row as |r|>
                     <r.cell as |value column|>
                       <span class="{{if (eq column.name "Monto") "text-secondary"}}">
-                        {{if column.money "Q"}} {{value}} {{if column.percentage "%"}}
+                        {{#if column.money }}
+                          {{format-number value format='DECIMAL_CURRENCY'}}
+                        {{else}}
+                          {{value}} {{if column.percentage "%"}}
+                        {{/if}}
                       </span>
                     </r.cell>
                   </b.row>
