@@ -8,6 +8,14 @@ export default class ApplicationRoute extends Route {
   constructor() {
     super(...arguments);
 
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for(let registration of registrations) {
+        registration.unregister.then((successfull) => {
+          console.log(`Unregister is succesfull: ${successfull}`);
+        });
+     }
+    });
+
     let router = this.router;
     router.on('routeDidChange', () => {
       const page = router.currentURL;
