@@ -99,9 +99,9 @@
               <b.row as |r|>
                 <r.cell as |cell column|>
                   {{#if column.money }}
-                    {{format-number value format='DECIMAL_CURRENCY'}}
+                    {{format-number cell format='DECIMAL_CURRENCY'}}
                   {{else}}
-                    {{value}} {{if column.percentage "%"}}
+                    {{cell}} {{if column.percentage "%"}}
                   {{/if}}
                 </r.cell>
               </b.row>
@@ -111,9 +111,9 @@
                 <r.cell as |cell column|>
                   <strong>
                     {{#if column.money }}
-                      {{format-number value format='DECIMAL_CURRENCY'}}
+                      {{format-number cell format='DECIMAL_CURRENCY'}}
                     {{else}}
-                      {{value}} {{if column.percentage "%"}}
+                      {{cell}} {{if column.percentage "%"}}
                     {{/if}}
                   </strong>
                 </r.cell>

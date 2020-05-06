@@ -2,6 +2,11 @@ import Route from '@ember/routing/route';
 import config from '../../config/environment';
 
 export default Route.extend({
+  queryParams: {
+    page: { refreshModel: false },
+    size: { refreshModel: false }
+  },
+
   setupController(controller, model) {
     this._super(controller, model);
 
@@ -19,6 +24,7 @@ export default Route.extend({
         {
           puesto: 'Puesto',
           profesion: 'Profesión',
+          estado: 'Estado',
           nocolegiado: 'No. Colegiado'
         });
     }
