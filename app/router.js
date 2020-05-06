@@ -26,5 +26,5 @@ Router.map(function() {
   this.route('priorizacion');
   this.route('presupuesto');
   this.route('test');
-  this.route('denuncia');
+  this.route('denuncias');
 });
