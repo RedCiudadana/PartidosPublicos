@@ -1,14 +1,14 @@
-<form
-  name="test"
-  netlify
-  data-netlify="true"
-  data-netlify-honeypot="bot-field"
->
-  <input type="hidden" name="form-name" value="test">
-  <input type="text" name="name">
-  <input type="number" name="size">
-  <textarea name="question"></textarea>
-  <button type="submit">
-    Enviar
-  </button>
-</form>
+<div class="p-5">
+  {{ember-chart
+    type="doughnut"
+    data=this.data
+  }}
+</div>
+<div class="p-5">
+  {{ember-chart
+    type="bar"
+    data=this.dataBar
+    options=this.optionsBar
+  }}
+</div>
+{{log this.optionsBar}}
