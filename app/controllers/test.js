@@ -17,7 +17,7 @@ export default class TestController extends Controller {
       ],
       datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 4, 5, 2, 3, 4, 10, 12],
+          data: [12, 19, 3, 4, 5, 2, 3, 4, 10, 24],
           backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
