@@ -1,14 +1,19 @@
-<div class="p-5">
-  {{ember-chart
-    type="doughnut"
-    data=this.data
-  }}
+<div class="container">
+  <div class="w-100 my-4" style="width: 100%; height: 500px;">
+    {{ember-chart
+      type="doughnut"
+      data=this.data
+      options=this.options
+      height="500px"
+    }}
+  </div>
+  <div class="w-100 my-2" style="width: 100%; height: 500px;">
+    {{ember-chart
+      type="bar"
+      data=this.dataBar
+      options=this.optionsBar
+      height="500px"
+    }}
+  </div>
+  {{log this.optionsBar}}
 </div>
-<div class="p-5">
-  {{ember-chart
-    type="bar"
-    data=this.dataBar
-    options=this.optionsBar
-  }}
-</div>
-{{log this.optionsBar}}

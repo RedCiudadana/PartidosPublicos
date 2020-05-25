@@ -5,9 +5,9 @@ export default class TestController extends Controller {
     super.init(...arguments);
     this.data = {
       labels: [
-        'Compra Directa con Oferta Electrónica (Art. 43 LCE Inciso b)',
-        'Arrendamiento o Adquisición de Bienes Inmuebles (Art.43 inciso e)',
-        'Cotización (Art. 38 LCE)',
+        'Compra',
+        'Arrendamiento',
+        'Cotización',
         'Procedimientos Regulados por el artículo 44 LCE (Casos de Excepción)',
         'Adquisición Directa por Ausencia de Oferta (Art. 32 LCE)',
         'Convenios y Tratados Internacionales (Art. 1 LCE)',
@@ -17,7 +17,7 @@ export default class TestController extends Controller {
       ],
       datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3, 4, 10, 12],
+          data: [12, 19, 3, 4, 5, 2, 3, 4, 10, 12],
           backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -103,6 +103,20 @@ export default class TestController extends Controller {
           ]
         }
       ]
+    };
+
+    this.options = {
+      title: {
+        display: true,
+        text: 'Compras'
+      },
+      legend: {
+        display: true
+      },
+      tooltips: {
+        enabled: true
+      },
+      responsive: true
     };
 
     this.optionsBar = {
