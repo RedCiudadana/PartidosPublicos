@@ -25,7 +25,5 @@ Router.map(function() {
   this.route('necesidades');
   this.route('priorizacion');
   this.route('presupuesto');
-  this.route('test');
   this.route('denuncias');
-  this.route('resumen');
 });
