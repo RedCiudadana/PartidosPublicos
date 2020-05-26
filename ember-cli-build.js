@@ -33,7 +33,8 @@ module.exports = function(defaults) {
 
     fingerprint: {
       generateAssetMap: true,
-      fingerprintAssetMap: true
+      fingerprintAssetMap: true,
+      exclude: ['sw-registration-21ca37489fe1110d49a8462a47d2e1ac.js']
     },
 
     'ember-font-awesome': {
@@ -46,36 +47,6 @@ module.exports = function(defaults) {
         // '/perfiles',
         // '/instituciones?sector=justicia', #Netlify dont support this because generate a folder name invalid '?'
         // '/elecciones'
-      ]
-    },
-
-    'ember-service-worker': {
-      versionStrategy: 'every-build'
-    },
-
-    'ember-service-worker-update-notify': {
-      pollingInterval: 1200000
-    },
-
-    'asset-cache': {
-      include: [
-        // 'assets/**/*',
-        // 'static-files/institution.json',
-        // 'static-files/compras.json',
-        // 'static-files/abastecimiento.json'
-      ],
-      exclude: [
-        'img/**/*',
-        'fonts/**/*'
-      ]
-    },
-    'esw-cache-first': {
-      patterns: [
-        // '/static-files/institution.json',
-        // '/static-files/compras.json',
-        // '/static-files/abastecimiento.json',
-        '/img/(.+)',
-        '/fonts/(.+)'
       ]
     }
   });
