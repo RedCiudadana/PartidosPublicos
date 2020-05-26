@@ -1,19 +1,142 @@
 import Controller from '@ember/controller';
-import { tracked } from '@glimmer/tracking';
-
-const data = Array.from(Array(50).keys());
-
-const array_chunks = (array, chunk_size) => Array(Math.ceil(array.length / chunk_size)).fill().map((_, index) => index * chunk_size).map(begin => array.slice(begin, begin + chunk_size));
 
 export default class TestController extends Controller {
-  @tracked page = 1;
-  @tracked size = 20;
+  init() {
+    super.init(...arguments);
+    this.data = {
+      labels: [
+        'Compra',
+        'Arrendamiento',
+        'Cotización',
+        'Procedimientos Regulados por el artículo 44 LCE (Casos de Excepción)',
+        'Adquisición Directa por Ausencia de Oferta (Art. 32 LCE)',
+        'Convenios y Tratados Internacionales (Art. 1 LCE)',
+        'Arrendamientos por Cotización(Art.43 inciso d )',
+        'Negociaciones entre Entidades Públicas (Art. 2 LCE)',
+        'Licitación Pública (Art. 17 LCE)'
+      ],
+      datasets: [{
+          label: '# of Votes',
+          data: [12, 19, 3, 4, 5, 2, 3, 4, 10, 24],
+          backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+      }]
+    };
 
-  get data() {
-    return array_chunks(data, this.size);
-  }
+    this.dataBar = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label: 'Vigentes',
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          data: [
+            10,
+            5,
+            4,
+            8,
+            12
+          ]
+        },
+        {
+          label: 'En Evaluación',
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          data: [
+            14,
+            10,
+            2,
+            6,
+            7
+          ]
+        },
+        {
+          label: 'Terminados Adjudicados',
+          backgroundColor: 'rgba(255, 206, 86, 0.2)',
+          data: [
+            12,
+            8,
+            9,
+            11,
+            7
+          ]
+        },
+        {
+          label: 'Finalizados Anulados',
+          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          data: [
+            11,
+            8,
+            6,
+            10,
+            12
+          ]
+        },
+        {
+          label: 'Finalizados Desiertos',
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          data: [
+            12,
+            5,
+            8,
+            4,
+            0
+          ]
+        }
+      ]
+    };
 
-  get content() {
-    return this.data[this.page - 1];
+    this.options = {
+      title: {
+        display: true,
+        text: 'Compras'
+      },
+      legend: {
+        display: true
+      },
+      tooltips: {
+        enabled: true
+      },
+      responsive: true
+    };
+
+    this.optionsBar = {
+			title: {
+				display: true,
+				text: 'Compras por modalidad'
+			},
+			tooltips: {
+				mode: 'index',
+				intersect: false
+			},
+			responsive: true,
+			scales: {
+				xAxes: [{
+					stacked: true,
+				}],
+				yAxes: [{
+					stacked: true
+				}]
+			}
+		};
   }
 }
