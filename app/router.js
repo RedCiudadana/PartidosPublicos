@@ -27,4 +27,5 @@ Router.map(function() {
   this.route('presupuesto');
   this.route('test');
   this.route('denuncias');
+  this.route('resumen');
 });

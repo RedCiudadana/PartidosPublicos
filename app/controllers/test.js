@@ -122,7 +122,7 @@ export default class TestController extends Controller {
     this.optionsBar = {
 			title: {
 				display: true,
-				text: 'Chart.js Bar Chart - Stacked'
+				text: 'Compras por modalidad'
 			},
 			tooltips: {
 				mode: 'index',
