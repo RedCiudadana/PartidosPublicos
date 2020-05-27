@@ -574,7 +574,7 @@ h6 {
 // HOMEPAGE
 
 #index-banner {
-  background-color: #496e8f;
+  background-color: #2d6e92;
 
   img {
     max-width: 800px;
@@ -583,8 +583,6 @@ h6 {
 
 @include media-breakpoint-up(lg) {
   #index-banner {
-    background-color: #496e8f;
-
     br {
       display: none;
     }
@@ -744,4 +742,12 @@ h6 {
 
 .pointer {
   cursor: pointer;
+}
+
+.h-1em {
+  height: 1em;
+}
+
+.h-15em {
+  height: 1.5em;
 }
