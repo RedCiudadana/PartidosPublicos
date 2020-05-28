@@ -2,7 +2,12 @@
   <div class="container py-4">
     <div class="row">
       <div class="col-12">
-        <h1>Prioridades MSPAS COVID 19</h1>
+        <div class="d-flex h1">
+          <img src="img/icono-8.png" alt="Lista" class="mr-3 my-auto h-1em">
+          <h2 class="my-auto">
+            Prioridades MSPAS COVID 19
+          </h2>
+        </div>
         <p>
           En esta apartado encontrará documentación oficial sobre las necesidades y prioridades que oficialmente el MSPAS publicó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información relativa a medicamentos, insumos médico quirúrgico, recursos humanos y entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.
         </p>
@@ -28,46 +33,54 @@
           @fill={{false}}
         as |nav|>
           <nav.item>
-            {{scroll-to
+            {{#scroll-to
               class="nav-link active p-0 pointer"
-              label='Protección de personal'
               target='#protecciónDePersonal'
               tagName='a'
               duration=1000
             }}
+              <img src="img/icono-30.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+              Protección de personal
+            {{/scroll-to}}
           </nav.item>
           <nav.item>
-            {{scroll-to
+            {{#scroll-to
               class="nav-link p-0 pointer"
-              label='Hospital aislamiento'
               target='#hospitalAislamiento'
               tagName='a'
               duration=1000
             }}
+              <img src="img/icono-14.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+              Hospital aislamiento
+            {{/scroll-to}}
           </nav.item>
           <nav.item>
-            {{scroll-to
+            {{#scroll-to
               class="nav-link p-0 pointer"
-              label='Hospital parque industria'
               target='#hospitalParqueIndustria'
               tagName='a'
               duration=1000
             }}
+              <img src="img/icono-14.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+              Hospital parque industria
+            {{/scroll-to}}
           </nav.item>
           <nav.item>
-            {{scroll-to
+            {{#scroll-to
               class="nav-link p-0 pointer"
-              label='Medicamentos'
               target='#medicamentos'
               tagName='a'
               duration=1000
             }}
+              <img src="img/icono-33.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+              Medicamentos
+            {{/scroll-to}}
           </nav.item>
           <nav.item class="ml-auto p-3 d-none d-md-flex"></nav.item>
         </BsNav>
       </div>
-      <div class="col-12">
-        <h3 id="protecciónDePersonal" class="w-100 bg-secondary text-white m-0 px-4 py-2 mt-4">
+      <div class="col-12 p-0 my-4">
+        <h3 id="protecciónDePersonal" class="w-100 bg-secondary text-white m-0 px-4 py-2">
           Protección de Personal
         </h3>
         <div class="table-responsive thead-primary mb-2">

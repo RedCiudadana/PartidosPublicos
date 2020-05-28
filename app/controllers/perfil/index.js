@@ -141,12 +141,10 @@ export default Controller.extend({
   }),
 
   chunks: computed('model.compras', function() {
-    console.log('hola');
     return array_chunks(this.model.compras, this.size);
   }),
 
   comprasPaginated: computed('chunks', 'page', function() {
-    console.log('compras');
     return this.chunks[this.page - 1];
   }),
 

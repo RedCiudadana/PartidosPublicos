@@ -5,19 +5,31 @@
     @stacked={{false}}
     @fill={{false}}
   as |nav|>
-    <nav.item>
-      {{#scroll-to
-        class="nav-link active p-0 pointer"
-        target='#descripcion'
-        tagName='a'
-        duration=1000
-        offset=-100
-      }}
-        <img src="img/icono-13.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
-        Descripción
-      {{/scroll-to}}
-    </nav.item>
-    {{#if (eq model.firstObject._internalModel.modelName "institution")}}
+    {{#if (eq model.profile._internalModel.modelName "institution")}}
+      <nav.item>
+        {{#scroll-to
+          class="nav-link active p-0 pointer"
+          target='#info'
+          tagName='a'
+          duration=1000
+          offset=-100
+        }}
+          <img src="img/icono-12.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+          Información general
+        {{/scroll-to}}
+      </nav.item>
+      <nav.item>
+        {{#scroll-to
+          class="nav-link p-0 pointer"
+          target='#descripcion'
+          tagName='a'
+          duration=1000
+          offset=-100
+        }}
+          <img src="img/icono-14.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+          Descripción
+        {{/scroll-to}}
+      </nav.item>
       <nav.item>
         {{#scroll-to
           class="nav-link p-0 pointer"
@@ -50,7 +62,7 @@
   </BsNav>
 </div>
 
-<div class="row m-1 my-4 bg-white panel py-5">
+<div class="row m-1 my-4 bg-white panel py-5" id="info">
   {{!-- Imagen --}}
   <div class="col-md-3 text-center">
     <img

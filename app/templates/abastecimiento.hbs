@@ -1,4 +1,4 @@
-<div class="w-100 bg-white">
+  <div class="w-100 bg-white">
   <div class="container py-5">
     <div class="row">
       <div class="col-12">
@@ -33,37 +33,45 @@
           @fill={{false}}
         as |nav|>
           <nav.item>
-            {{scroll-to
+            {{#scroll-to
               class="nav-link active p-0 pointer"
-              label='Trazadores'
               target='#trazadores'
               tagName='a'
               duration=1000
             }}
+              <img src="img/icono-12.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+              Trazadores
+            {{/scroll-to}}
           </nav.item>
           <nav.item>
-            {{scroll-to
+            {{#scroll-to
               class="nav-link p-0 pointer"
-              label='Disponibilidad mayor a 1 mes'
               target='#disponibilidadMayorA_1Mes'
               tagName='a'
               duration=1000
             }}
+              <img src="img/icono-31.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+              Disponibilidad mayor a 1 mes
+            {{/scroll-to}}
           </nav.item>
           <nav.item>
-            {{scroll-to
+            {{#scroll-to
               class="nav-link p-0 pointer"
-              label='Disponibilidad mayor a 3 meses'
               target='#disponibilidadMayorA_3Meses'
               tagName='a'
               duration=1000
             }}
+              <img src="img/icono-31.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
+              Disponibilidad mayor a 3 meses
+            {{/scroll-to}}
           </nav.item>
           <nav.item class="ml-auto p-3 d-none d-md-flex"></nav.item>
         </BsNav>
       </div>
-      <div class="col-12 my-4">
-        <h3 id="trazadores" class="w-100 bg-secondary text-white m-0 px-4 py-2">Trazadores disponibilidad mayor a 1 mes</h3>
+      <div class="col-12 p-0 my-4">
+        <h3 id="trazadores" class="w-100 bg-secondary text-white m-0 px-4 py-2">
+          Trazadores disponibilidad mayor a 1 mes
+        </h3>
         <div class="table-responsive thead-primary mb-5">
           <EmberTable class="table table-striped border" as |t|>
             <t.head

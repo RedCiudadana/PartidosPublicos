@@ -2,7 +2,12 @@
   <div class="container py-4">
     <div class="row font-weight-bold text-center">
       <div class="col-12 py-4">
-        <h2 class="text-left mb-4">Compras Públicas</h2>
+        <div class="d-flex h1">
+          <img src="img/icono-1.png" alt="Bolsa con oro" class="mr-3 my-auto h-1em">
+          <h1 class="my-auto">
+            Compras Públicas
+          </h1>
+        </div>
         <p class="font-weight-normal text-left">En esta apartado encontrará documentación oficial sobre las compras que el MSPAS realizó para fortalecer capacidades en las acciones de contención y mitigación de COVID 19. Encontrará información de compras relativa a medicamentos, insumos médico quirúrgico entre otros que servirán para fortalecer la red hospitalaria y los hospitales móviles para la atención de COVID 19.</p>
       </div>
       <div class="col-12 py-4 border-top py-5 text-left d-flex">
@@ -197,7 +202,7 @@
             <t.body @rows={{this.compras}} as |b|>
               <b.row as |r|>
                 <r.cell as |value column|>
-                  <span class="{{if (eq column.name "Monto") "text-secondary"}}">
+                  <span class="{{if (eq column.name "Monto") "text-secondary"}} text-break">
                     {{#if column.money }}
                       {{format-number value format='DECIMAL_CURRENCY'}}
                     {{else}}
