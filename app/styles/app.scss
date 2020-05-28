@@ -751,3 +751,29 @@ h6 {
 .h-15em {
   height: 1.5em;
 }
+
+@keyframes placeHolderShimmer{
+  0%{
+      background-position: -800px 0
+  }
+  100%{
+      background-position: 800px 0
+  }
+}
+
+.animated-background {
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  // background: #f6f7f8;
+  background: linear-gradient(to right, #f4f6f5 8%, #eaebed 16%, #f4f6f5 32%);
+  background-size: 800px 104px;
+  height: 96px;
+  position: relative;
+}
+
+.animated-background.hx2 {
+  height: 192px;
+}
