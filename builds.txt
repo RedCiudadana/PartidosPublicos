@@ -1,0 +1,17 @@
+# [69f9b90] First build
+ - dist/assets/auto-import-fastboot-d41d8cd98f00b204e9800998ecf8427e.js: 0 B
+ - dist/assets/misalud-27f0b56d51321e51217124341e14f676.js: 262.41 KB (36.21 KB gzipped)
+ - dist/assets/misalud-94b73c4910f2da780eaedab1f4c83c14.css: 152.17 KB (25.98 KB gzipped)
+ - dist/assets/misalud-fastboot-9ba307a80529b150a580a835e9753687.js: 1.82 KB (829 B gzipped)
+ - dist/assets/vendor-be9db22f173a8fe848b49371a9e17074.js: 3.58 MB (1.02 MB gzipped)
+ - dist/assets/vendor-f09573f9df25b79701e459fd2296211f.css: 39.01 KB (8.85 KB gzipped)
+ - dist/ember-fetch/fetch-fastboot-38cfd9007f94f81f5a2bc13690efc343.js: 1020 B (562 B gzipped)
+ - dist/sw-registration-21ca37489fe1110d49a8462a47d2e1ac.js: 466 B (253 B gzipped)
+# []
+ - dist/assets/auto-import-fastboot-d41d8cd98f00b204e9800998ecf8427e.js: 0 B
+ - dist/assets/misalud-68a6d87ea96b8ea5b140fa84f050252b.js: 177.59 KB (22.53 KB gzipped)
+ - dist/assets/misalud-dcc10c8d034465c9b9a819aae9dbb855.css: 152.23 KB (25.96 KB gzipped)
+ - dist/assets/vendor-3575fd556adeff1ec3996cef98ce0583.css: 39.07 KB (8.86 KB gzipped)
+ - dist/assets/vendor-628b32012f72362903bc90d5940b5021.js: 2.69 MB (761.82 KB gzipped)
+ - dist/ember-fetch/fetch-fastboot-38cfd9007f94f81f5a2bc13690efc343.js: 1020 B (562 B gzipped)
+ - dist/sw-registration-21ca37489fe1110d49a8462a47d2e1ac.js: 466 B (253 B gzipped)

@@ -20,11 +20,4 @@ Router.map(function() {
   });
 
   this.route('perfiles', { path: '/:model'});
-  this.route('abastecimiento');
-  this.route('compras');
-  this.route('necesidades');
-  this.route('priorizacion');
-  this.route('presupuesto');
-  this.route('preguntas');
-  this.route('denuncias');
 });

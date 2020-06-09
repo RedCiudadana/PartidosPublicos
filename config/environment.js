@@ -33,13 +33,9 @@ module.exports = function(environment) {
       dataSpreadsheetSourceUrl: '/data-spreadsheet-url'
     },
 
-    disqus: {
-      shortname: 'candidatos2019'
-    },
-
-    fastboot: {
-      hostWhitelist: ['misalud.redciudadana.org', /^localhost:\d+$/]
-    },
+    // disqus: {
+    //   shortname: 'candidatos2019'
+    // }
   };
 
   if (environment === 'development') {

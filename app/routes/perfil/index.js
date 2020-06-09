@@ -40,11 +40,14 @@ export default Route.extend({
     }
 
     controller.setProperties(model);
-    controller.setProperties({
-      disqusShortname: config.disqus.shortname,
-      years: true,
-      charge: true
-    });
+
+    if (config.disqus && config.disqus.shortname) {
+      controller.setProperties({
+        disqusShortname: config.disqus.shortname,
+        years: true,
+        charge: true
+      });
+    }
 
     controller.set('FuenteAbastecimiento', model.consultas.findBy('variable', 'FuenteAbastecimiento'));
     controller.set('FechaAbastecimiento', model.consultas.findBy('variable', 'FechaAbastecimiento'));

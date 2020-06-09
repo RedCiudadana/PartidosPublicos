@@ -39,15 +39,6 @@ module.exports = function(defaults) {
 
     'ember-font-awesome': {
       removeUnusedIcons: true
-    },
-
-    prember: {
-      urls: [
-        // '/',
-        // '/perfiles',
-        // '/instituciones?sector=justicia', #Netlify dont support this because generate a folder name invalid '?'
-        // '/elecciones'
-      ]
     }
   });
 
