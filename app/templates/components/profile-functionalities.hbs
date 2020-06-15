@@ -10,7 +10,7 @@
         <LinkTo @route="index" class="breadcrumb-item">
           Inicio
         </LinkTo>
-        {{#each breadcrumbs as |breadcrumb|}}
+        {{#each this.breadcrumbs as |breadcrumb|}}
           <LinkTo @route={{breadcrumb.route}} @models={{breadcrumb.model}} class="breadcrumb-item">
             {{breadcrumb.text}}
           </LinkTo>
@@ -29,7 +29,7 @@
       @stacked={{false}}
       @fill={{false}}
     as |nav|>
-      {{#each links as |link|}}
+      {{#each this.links as |link|}}
         <nav.item>
           <nav.link-to @route={{link.route}} @disabled={{link.disabled}} class="p-0">
             {{#if link.img}}

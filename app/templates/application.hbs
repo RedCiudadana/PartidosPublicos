@@ -8,14 +8,14 @@
     {{navbar.toggle}}
 
     <LinkTo @route="application" class="navbar-brand">
-      <img src="logo-brand.png" class="img-responsive" title={{nombreApp}} alt="Congreso">
+      <img src="logo-brand.png" class="img-responsive" title={{this.nombreApp}} alt="Congreso">
     </LinkTo>
   </div>
 
   <navbar.content>
     {{!-- @TODO Hacer funcionar active en nav.item --}}
     <navbar.nav @justified={{false}} type="pills" class="ml-auto" as |nav|>
-      {{#each model.navbarLinks as |link|}}
+      {{#each this.model.navbarLinks as |link|}}
         <nav.item @active={{false}}>
           <LinkTo @route={{link.route}}>{{link.title}}</LinkTo>
         </nav.item>
@@ -34,10 +34,10 @@
       </nav.item>
 
       <nav.item class="no-hover">
-        <a href="https://facebook.com/Redciudadanagt" target="_blank" rel="noopener">
+        <a href="https://facebook.com/Redciudadanagt" target="_blank" rel="noopener noreferrer">
           <img src="img/icono-fb-white.png" alt="Facebook" height="30px" width="30px">
         </a>
-        <a href="https://twitter.com/redxguate" target="_blank" rel="noopener">
+        <a href="https://twitter.com/redxguate" target="_blank" rel="noopener noreferrer">
           <img src="img/icono-tw-white.png" alt="Twitter" height="30px" width="30px">
         </a>
       </nav.item>
@@ -61,12 +61,12 @@
         <h6>¿Te gusta lo que hacemos?</h6>
         <ul class="list-unstyled">
           <li>
-            <a href="http://donacion.redciudadana.org/" target="_blank" rel="noopener">
+            <a href="http://donacion.redciudadana.org/" target="_blank" rel="noopener noreferrer">
               <i class="fa fa-heart"></i>Donaciones
             </a>
           </li>
           <li>
-            <a href="http://voluntarios.redciudadana.org/" target="_blank" rel="noopener">
+            <a href="http://voluntarios.redciudadana.org/" target="_blank" rel="noopener noreferrer">
               <i class="fa fa-users"></i>Voluntariado
             </a>
           </li>
@@ -77,7 +77,7 @@
         <h6>Contáctanos:</h6>
         <ul class="list-unstyled">
           <li>
-            <a href="mailto:info@redciudadana.org.gt" target="_blank" rel="noopener">
+            <a href="mailto:info@redciudadana.org.gt" target="_blank" rel="noopener noreferrer">
               <i class="fa fa-envelope"></i>info@redciudadana.org
             </a>
           </li>
@@ -87,13 +87,13 @@
       <div class="col-12 follow col-md-4">
         <h6>Síguenos en:</h6>
         <div class="d-flex">
-          <a href="https://www.facebook.com/Redciudadanagt/" target="_blank" rel="noopener" class="image-opacity">
+          <a href="https://www.facebook.com/Redciudadanagt/" target="_blank" rel="noopener noreferrer" class="image-opacity">
             <img src="mi-guatemala/img/icon-fb-white.png" alt="Facebook">
           </a>
-          <a href="https://twitter.com/RedxGuate" target="_blank" rel="noopener" class="image-opacity">
+          <a href="https://twitter.com/RedxGuate" target="_blank" rel="noopener noreferrer" class="image-opacity">
             <img src="mi-guatemala/img/icon-tw-white.png" alt="Twitter">
           </a>
-          <a href="https://www.instagram.com/redxguate/" target="_blank" rel="noopener" class="image-opacity">
+          <a href="https://www.instagram.com/redxguate/" target="_blank" rel="noopener noreferrer" class="image-opacity">
             <img src="mi-guatemala/img/icon-in-white.png" alt="Instragram">
           </a>
         </div>
@@ -108,16 +108,16 @@
       <div class="col-12 col-md-8 d-flex">
         <p class="my-auto">Un proyecto de:</p>
         <div>
-          <a href="https://bancadasemilla.gt/" target="_blank" rel="noopener">
-            <img src="img/colaboradores/logo-bancadasemilla.png" alt="Logo de una Semilla" class="ml-2" height="40px" width="auto">
+          <a href="https://bancadasemilla.gt/" target="_blank" rel="noopener noreferrer">
+            <img src="img/colaboradores/logo-bancadasemilla.png" alt="Bancada semilla" class="ml-2" height="40px" width="auto">
           </a>
-          <a href="http://redciudadana.org/" target="_blank" rel="noopener">
-            <img src="mi-guatemala/img/logo-rc-color.png" alt="Logo de Red Ciudanana" class="logo-rc m-auto mt-md-3">
+          <a href="http://redciudadana.org/" target="_blank" rel="noopener noreferrer">
+            <img src="mi-guatemala/img/logo-rc-color.png" alt="Red Ciudanana" class="logo-rc m-auto mt-md-3">
           </a>
         </div>
       </div>
       <div class="col-12 col-md-4 d-flex my-4 cc-icons text-left text-md-right">
-        <a href="https://creativecommons.org/licenses/by-sa/3.0/gt/" target="_blank" rel="noopener"
+        <a href="https://creativecommons.org/licenses/by-sa/3.0/gt/" target="_blank" rel="noopener noreferrer"
           class="ml-0 ml-md-auto">
           <img src="mi-guatemala/img/icon-cc-cc.png" alt="Creative Commons">
           <img src="mi-guatemala/img/icon-cc-by.png" alt="Creative Commons - Atribución">

@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8 py-5 text-center">
-      {{#if (eq model.firstObject._internalModel.modelName "profile")}}
+      {{#if (eq this.model.firstObject._internalModel.modelName "profile")}}
         <h2>Autoridades del MSPAS</h2>
         <PowerSelect
           @placeholder="Busqueda"
           @searchEnabled={{true}}
           @searchField="nombre"
-          @options={{model}}
+          @options={{this.model}}
           @onChange={{action "toProfile"}} as |profile|>
           {{profile.nombre}}
         </PowerSelect>
@@ -33,7 +33,7 @@
           </div>
         </nav> --}}
       {{/if}}
-      {{#if (eq model.firstObject._internalModel.modelName "institution")}}
+      {{#if (eq this.model.firstObject._internalModel.modelName "institution")}}
         <h2>Hospitales - Red de Servicios de Salud-COVID19</h2>
         <p class="mt-3">
           En este apartado podrás encontrar información básica de la red hospitalaria del MSPAS, Laboratorio Nacional de Salud y en los próximos días estaremos actualizando información relativa a la Unidad Ejecutora 201 (Planta Central) y los hospitales móviles que servirán para la emergencia de COVID 2019.
@@ -42,7 +42,7 @@
           @placeholder="Busqueda"
           @searchEnabled={{true}}
           @searchField="nombre"
-          @options={{model}}
+          @options={{this.model}}
           @onChange={{action "toProfile"}} as |profile|>
           {{profile.nombre}}
         </PowerSelect>

@@ -5,7 +5,7 @@
     @stacked={{false}}
     @fill={{false}}
   as |nav|>
-    {{#if (eq model.profile._internalModel.modelName "institution")}}
+    {{#if (eq this.model.profile._internalModel.modelName "institution")}}
       <nav.item>
         {{#scroll-to
           class="nav-link active p-0 pointer"
@@ -67,92 +67,92 @@
   <div class="col-md-3 text-center">
     <img
       id="photo-profile"
-      src={{model.profile.photo}}
-      alt={{model.profile.nombre}}
+      src={{this.model.profile.photo}}
+      alt={{this.model.profile.nombre}}
       border="0"
       class="img-responsive center-block mb-4 mb-md-0"
     >
   </div>
   {{!-- Información general --}}
   <div class="col pr-5">
-    <h3>{{model.profile.nombre}}</h3>
+    <h3>{{this.model.profile.nombre}}</h3>
     <table class="table w-100">
       <tbody>
-        {{#each-in campos as |key campo|}}
+        {{#each-in this.campos as |key campo|}}
           <tr>
             <td>
-              <strong>{{campo}}: </strong> {{get model.profile key}}
+              <strong>{{campo}}: </strong> {{get this.model.profile key}}
             </td>
           </tr>
         {{/each-in}}
       </tbody>
     </table>
   </div>
-  {{#if (eq model.profile._internalModel.modelName "profile")}}
+  {{#if (eq this.model.profile._internalModel.modelName "profile")}}
     <div class="col-md-3 text-center align-self-center">
       <h6>Documentos</h6>
       <a
-        href={{model.profile.cv}}
-        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.cv) "disabled"}}"
+        href={{this.model.profile.cv}}
+        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty this.model.profile.cv) "disabled"}}"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         Hoja de vida (PDF)
       </a>
       <a
-        href={{model.profile.expediente}}
-        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty model.profile.expediente) "disabled"}}"
+        href={{this.model.profile.expediente}}
+        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty this.model.profile.expediente) "disabled"}}"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         Expediente
       </a>
       <a
-        href={{model.profile.resumen}}
-        class="btn btn-primary text-white w-100 {{if (is-empty model.profile.resumen) "disabled"}}"
+        href={{this.model.profile.resumen}}
+        class="btn btn-primary text-white w-100 {{if (is-empty this.model.profile.resumen) "disabled"}}"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
         Base de datos (Resumen)
       </a>
     </div>
   {{/if}}
-  {{#if (eq model.profile._internalModel.modelName "institution")}}
+  {{#if (eq this.model.profile._internalModel.modelName "institution")}}
     <div class="col-md-3 text-left border-left pl-3">
       <h6>Contacto</h6>
       {{!-- Página web --}}
-      {{#if model.profile.paginaweb}}
+      {{#if this.model.profile.paginaweb}}
         <div>
-          <a href="//{{model.profile.paginaweb}}" target="_blank" rel="noopener">
+          <a href="//{{this.model.profile.paginaweb}}" target="_blank" rel="noopener noreferrer">
             <img src="img/icono-web.png" alt="Página web">
-            {{model.profile.paginaweb}}
+            {{this.model.profile.paginaweb}}
           </a>
         </div>
       {{/if}}
       {{!-- Correo --}}
-      {{#if model.profile.correo}}
+      {{#if this.model.profile.correo}}
         <div>
-          <a href="//{{model.profile.correo}}" target="_blank" rel="noopener">
+          <a href="//{{this.model.profile.correo}}" target="_blank" rel="noopener noreferrer">
             <img src="img/icono-correo.png" alt="Correo electrónico">
-            {{model.profile.correo}}
+            {{this.model.profile.correo}}
           </a>
         </div>
       {{/if}}
       {{!-- Twitter --}}
-      {{#if model.profile.twitter}}
+      {{#if this.model.profile.twitter}}
         <div>
-          <a href="https://twitter.com/{{twitter-link model.profile.twitter}}" target="_blank" rel="noopener">
+          <a href="https://twitter.com/{{twitter-link this.model.profile.twitter}}" target="_blank" rel="noopener noreferrer">
             <img src="img/icono-tw.png" alt="Twitter">
-            @{{twitter-link model.profile.twitter}}
+            @{{twitter-link this.model.profile.twitter}}
           </a>
         </div>
       {{/if}}
       {{!-- Facebook --}}
-      {{#if model.profile.facebook}}
+      {{#if this.model.profile.facebook}}
         <div>
-          <a href="{{model.profile.facebook}}" target="_blank" rel="noopener">
+          <a href="{{this.model.profile.facebook}}" target="_blank" rel="noopener noreferrer">
             <img src="img/icono-fb.png" alt="Facebook">
-            {{model.profile.nombre}}
+            {{this.model.profile.nombre}}
           </a>
         </div>
       {{/if}}
@@ -161,7 +161,7 @@
 </div>
 
 {{!-- Institution panels --}}
-{{#if (eq model.profile._internalModel.modelName "institution")}}
+{{#if (eq this.model.profile._internalModel.modelName "institution")}}
   {{!-- Descripción --}}
   <div class="row">
     <div class="col-12" id="descripcion">
@@ -174,8 +174,8 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.descripcion}}
-              <p>{{model.profile.descripcion}}</p>
+            {{#if this.model.profile.descripcion}}
+              <p>{{this.model.profile.descripcion}}</p>
             {{else}}
               <p class="px-5 pt-3">No hay información</p>
             {{/if}}
@@ -234,9 +234,9 @@
         </div>
         <div>
           <div class="body p-1">
-            <EmberChart @type="horizontalBar" @data={{trazadores}} @options={{options}} @class="p-0 p-lg-5 my-4" />
-            <EmberChart @type="horizontalBar" @data={{medicamentos1M}} @options={{options}} @class="p-0 p-lg-5" />
-            <EmberChart @type="horizontalBar" @data={{medicamentos3M}} @options={{options}} @class="p-0 p-lg-5" />
+            <EmberChart @type="horizontalBar" @data={{this.trazadores}} @options={{this.options}} @class="p-0 p-lg-5 my-4" />
+            <EmberChart @type="horizontalBar" @data={{this.medicamentos1M}} @options={{this.options}} @class="p-0 p-lg-5" />
+            <EmberChart @type="horizontalBar" @data={{this.medicamentos3M}} @options={{this.options}} @class="p-0 p-lg-5" />
             <div class="p-4 d-flex">
               <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
               <div>
@@ -267,7 +267,6 @@
                 <t.head
                   @columns={{this.comprasColumns}}
                   @sorts={{this.sortsCompras}}
-
                   @onUpdateSorts={{action (mut this.sortsCompras)}}
                 as |h|>
                   <h.row as |r|>
@@ -295,8 +294,8 @@
                       {{/if}}
                       {{column.name}}
 
-                      {{#if meta.isSorted}}
-                        {{#if meta.isSortedAsc}}
+                      {{#if this.meta.isSorted}}
+                        {{#if this.meta.isSortedAsc}}
                           <i class="fa fa-sort-down" aria-hidden="true"></i>
                         {{else}}
                           <i class="fa fa-sort-up" aria-hidden="true"></i>
@@ -374,7 +373,7 @@
 {{/if}}
 
 {{!-- Profile panels --}}
-{{#if (eq model.profile._internalModel.modelName "profile")}}
+{{#if (eq this.model.profile._internalModel.modelName "profile")}}
   {{! Experiencia Profesional }}
   <div class="row">
     <div class="col-md-6">
@@ -387,9 +386,9 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.experienciaProfesional}}
+            {{#if this.model.profile.experienciaProfesional}}
               <p>
-                {{model.profile.experienciaProfesional}}
+                {{this.model.profile.experienciaProfesional}}
               </p>
             {{else}}
               <p class="px-5 pt-3">
@@ -411,9 +410,9 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.experienciaAcademica}}
+            {{#if this.model.profile.experienciaAcademica}}
               <p>
-                {{model.profile.experienciaAcademica}}
+                {{this.model.profile.experienciaAcademica}}
               </p>
             {{else}}
               <p class="px-5 pt-3">
@@ -427,7 +426,7 @@
   </div>
 {{/if}}
 
-{{#if (eq model.profile._internalModel.modelName "election")}}
+{{#if (eq this.model.profile._internalModel.modelName "election")}}
   <div class="row">
     <div class="col-12">
       <div class="panel">
@@ -439,9 +438,9 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.requisitos}}
+            {{#if this.model.profile.requisitos}}
               <p>
-                {{model.profile.requisitos}}
+                {{this.model.profile.requisitos}}
               </p>
             {{else}}
               <p class="px-5 pt-3">
@@ -464,9 +463,9 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.comision}}
+            {{#if this.model.profile.comision}}
               <p>
-                {{model.profile.comision}}
+                {{this.model.profile.comision}}
               </p>
             {{else}}
               <p class="px-5 pt-3">
@@ -489,8 +488,8 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.infografiaURL}}
-              <img src={{model.profile.infografiaURL}} alt="Infografia URL">
+            {{#if this.model.profile.infografiaURL}}
+              <img src={{this.model.profile.infografiaURL}} alt="Infografia URL">
             {{else}}
               <p class="px-5 pt-3">
                 No hay información
@@ -511,8 +510,8 @@
         </div>
         <div>
           <div class="body p-4">
-            {{#if model.profile.cronogramaURL}}
-              <img src={{model.profile.cronogramaURL}} alt="Cronograma">
+            {{#if this.model.profile.cronogramaURL}}
+              <img src={{this.model.profile.cronogramaURL}} alt="Cronograma">
             {{else}}
               <p class="px-5 pt-3">
                 No hay información
