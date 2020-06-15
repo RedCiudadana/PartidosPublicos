@@ -7,52 +7,28 @@
   as |nav|>
     {{#if (eq this.model.profile._internalModel.modelName "institution")}}
       <nav.item>
-        {{#scroll-to
-          class="nav-link active p-0 pointer"
-          target='#info'
-          tagName='a'
-          duration=1000
-          offset=-100
-        }}
+        <ScrollTo @class="nav-link active p-0 pointer" @target="#info" @tagName="a" @duration={{1000}} @offset={{-100}}>
           <img src="img/icono-12.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
           Información general
-        {{/scroll-to}}
+        </ScrollTo>
       </nav.item>
       <nav.item>
-        {{#scroll-to
-          class="nav-link p-0 pointer"
-          target='#descripcion'
-          tagName='a'
-          duration=1000
-          offset=-100
-        }}
+        <ScrollTo @class="nav-link p-0 pointer" @target="#descripcion" @tagName="a" @duration={{1000}} @offset={{-100}}>
           <img src="img/icono-14.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
           Descripción
-        {{/scroll-to}}
+        </ScrollTo>
       </nav.item>
       <nav.item>
-        {{#scroll-to
-          class="nav-link p-0 pointer"
-          target='#abastecimiento'
-          tagName='a'
-          duration=1000
-          offset=-100
-        }}
+        <ScrollTo @class="nav-link p-0 pointer" @target="#abastecimiento" @tagName="a" @duration={{1000}} @offset={{-100}}>
           <img src="img/icono-30.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
           Abastecimiento
-        {{/scroll-to}}
+        </ScrollTo>
       </nav.item>
       <nav.item>
-        {{#scroll-to
-          class="nav-link p-0 pointer"
-          target='#compras'
-          tagName='a'
-          duration=1000
-          offset=-100
-        }}
+        <ScrollTo @class="nav-link p-0 pointer" @target="#compras" @tagName="a" @duration={{1000}} @offset={{-100}}>
           <img src="img/icono-1.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
           Compras
-        {{/scroll-to}}
+        </ScrollTo>
       </nav.item>
     {{/if}}
     <nav.item class="ml-auto p-3 d-none d-md-flex">
