@@ -5,8 +5,8 @@ module.exports = function(/* environment, appConfig */) {
   // supported properties
 
   return {
-    name: "misalud",
-    short_name: "misalud",
+    name: "partidospublicos",
+    short_name: "partidospublicos",
     description: "",
     start_url: "/",
     display: "standalone",

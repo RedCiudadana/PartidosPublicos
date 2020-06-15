@@ -17,7 +17,12 @@ module.exports = function(defaults) {
       'bootstrapVersion': 4,
       'importBootstrapFont': false,
       // No incluir el archivo de boostrap.css porque se incluyen el archivo app.scss.
-      'importBootstrapCSS': false
+      'importBootstrapCSS': false,
+      whitelist: [
+        'bs-navbar',
+        'bs-nav',
+        'bs-collapse'
+      ]
     },
 
     sassOptions: {

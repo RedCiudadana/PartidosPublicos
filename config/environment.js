@@ -3,7 +3,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'misalud',
+    modulePrefix: 'partidospublicos',
     environment,
     rootURL: '/',
     locationType: 'hash',

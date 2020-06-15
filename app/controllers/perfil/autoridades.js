@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import pagesNumberByPage from 'misalud/utils/pagination/pagesNumbersByPage';
+import pagesNumberByPage from 'partidospublicos/utils/pagination/pagesNumbersByPage';
 
 const resolver = {
   institution: 'instituciones',

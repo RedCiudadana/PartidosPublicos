@@ -1,17 +1,18 @@
-# 1
+# 0.6.0
 + Eliminar dependencias no utlizadas
 + Archivos no usados
-
-# 2
 + Optimizar dependencias actuales
 
-# 3
+# 1.0.0
 + Analizar donde se está utilizando `spreadsheets:service` y si es recomendable seguir utilizandolo.
 + Reemplazar ember-data
 
-# 4
+# 1.1.0
 + Evaluar posibilidades de prerenderizar algunos elementos.
 
-# 5
+# 1.1.1
 + Mejorar component img-with-fallback
 + Mejoras estilos
+
+# 1.2.0
++ Mejorar ember-social-share: agregar otros componentes.

@@ -1,17 +1,24 @@
 # [69f9b90] First build
  - dist/assets/auto-import-fastboot-d41d8cd98f00b204e9800998ecf8427e.js: 0 B
- - dist/assets/misalud-27f0b56d51321e51217124341e14f676.js: 262.41 KB (36.21 KB gzipped)
- - dist/assets/misalud-94b73c4910f2da780eaedab1f4c83c14.css: 152.17 KB (25.98 KB gzipped)
- - dist/assets/misalud-fastboot-9ba307a80529b150a580a835e9753687.js: 1.82 KB (829 B gzipped)
+ - dist/assets/partidospublicos-27f0b56d51321e51217124341e14f676.js: 262.41 KB (36.21 KB gzipped)
+ - dist/assets/partidospublicos-94b73c4910f2da780eaedab1f4c83c14.css: 152.17 KB (25.98 KB gzipped)
+ - dist/assets/partidospublicos-fastboot-9ba307a80529b150a580a835e9753687.js: 1.82 KB (829 B gzipped)
  - dist/assets/vendor-be9db22f173a8fe848b49371a9e17074.js: 3.58 MB (1.02 MB gzipped)
  - dist/assets/vendor-f09573f9df25b79701e459fd2296211f.css: 39.01 KB (8.85 KB gzipped)
  - dist/ember-fetch/fetch-fastboot-38cfd9007f94f81f5a2bc13690efc343.js: 1020 B (562 B gzipped)
  - dist/sw-registration-21ca37489fe1110d49a8462a47d2e1ac.js: 466 B (253 B gzipped)
 # []
  - dist/assets/auto-import-fastboot-d41d8cd98f00b204e9800998ecf8427e.js: 0 B
- - dist/assets/misalud-68a6d87ea96b8ea5b140fa84f050252b.js: 177.59 KB (22.53 KB gzipped)
- - dist/assets/misalud-dcc10c8d034465c9b9a819aae9dbb855.css: 152.23 KB (25.96 KB gzipped)
+ - dist/assets/partidospublicos-68a6d87ea96b8ea5b140fa84f050252b.js: 177.59 KB (22.53 KB gzipped)
+ - dist/assets/partidospublicos-dcc10c8d034465c9b9a819aae9dbb855.css: 152.23 KB (25.96 KB gzipped)
  - dist/assets/vendor-3575fd556adeff1ec3996cef98ce0583.css: 39.07 KB (8.86 KB gzipped)
  - dist/assets/vendor-628b32012f72362903bc90d5940b5021.js: 2.69 MB (761.82 KB gzipped)
  - dist/ember-fetch/fetch-fastboot-38cfd9007f94f81f5a2bc13690efc343.js: 1020 B (562 B gzipped)
+ - dist/sw-registration-21ca37489fe1110d49a8462a47d2e1ac.js: 466 B (253 B gzipped)
+# Fixed ember-social-share icons.
+ - dist/assets/auto-import-fastboot-d41d8cd98f00b204e9800998ecf8427e.js: 0 B
+ - dist/assets/partidospublicos-74ec6f327876c612d3c55ec15adfa670.css: 155.15 KB (26.45 KB gzipped)
+ - dist/assets/partidospublicos-c72c5b25176a7cee7c242393c279f0d7.js: 182.66 KB (23.36 KB gzipped)
+ - dist/assets/vendor-405a9d07ff53d4c70d90968718b2199f.js: 1.89 MB (414.34 KB gzipped)
+ - dist/assets/vendor-f5dd5995db764fbf633ebeb9023324d6.css: 10.57 KB (2.54 KB gzipped)
  - dist/sw-registration-21ca37489fe1110d49a8462a47d2e1ac.js: 466 B (253 B gzipped)

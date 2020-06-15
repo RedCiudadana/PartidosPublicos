@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
-import pagesNumbersByPage from 'misalud/utils/pagination/pagesNumbersByPage';
+import pagesNumbersByPage from 'partidospublicos/utils/pagination/pagesNumbersByPage';
 
 const array_chunks = (array, chunk_size) =>
   Array(Math.ceil(array.length / chunk_size))
