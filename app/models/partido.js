@@ -1,97 +1,107 @@
-import Model, { attr, hasMany } from '@ember-data/model';
 import { computed } from '@ember/object';
+import Model, { attr, hasMany } from '@ember-data/model';
 
 /**
  * Model de partido político.
  *
  * @class Model.Party
  */
-export default Model.extend({
-  // Attributes
+export default class Partido extends Model {
+ // Attributes
 
-  /**
-   * Código - Abreviación
-   *
-   * @property codigo
-   */
-  codigo: attr(),
+ /**
+  * Código - Abreviación
+  *
+  * @property codigo
+  */
+ @attr()
+ codigo;
 
-  /**
-   * Nombre completo
-   *
-   * @property nombreCompleto
-   * @type String
-   */
-  nombreCompleto: attr('string'),
+ /**
+  * Nombre completo
+  *
+  * @property nombreCompleto
+  * @type String
+  */
+ @attr('string')
+ nombreCompleto;
 
-  /**
-   * Nombre corto
-   *
-   * @property nombre
-   * @type String
-   */
-  nombreCorto: attr('string'),
+ /**
+  * Nombre corto
+  *
+  * @property nombre
+  * @type String
+  */
+ @attr('string')
+ nombreCorto;
 
-  /**
-   * Fecha Inscripción
-   *
-   * @property fechaInscripcion
-   * @type String
-   */
-  fechaInscripcion: attr('string'),
+ /**
+  * Fecha Inscripción
+  *
+  * @property fechaInscripcion
+  * @type String
+  */
+ @attr('string')
+ fechaInscripcion;
 
-  /**
-   * Secretario General
-   *
-   * @property secretarioGeneral
-   * @type String
-   */
-  secretarioGeneral: attr('string'),
+ /**
+  * Secretario General
+  *
+  * @property secretarioGeneral
+  * @type String
+  */
+ @attr('string')
+ secretarioGeneral;
 
-  /**
-   * Perfil de Facebook, la URL.
-   *
-   * @property fb
-   * @type String
-   */
-  fb: attr('string'),
+ /**
+  * Perfil de Facebook, la URL.
+  *
+  * @property fb
+  * @type String
+  */
+ @attr('string')
+ fb;
 
-  /**
-   * Perfil de Twitter, la URL.
-   *
-   * @property tw
-   * @type String
-   */
-  tw: attr('string'),
+ /**
+  * Perfil de Twitter, la URL.
+  *
+  * @property tw
+  * @type String
+  */
+ @attr('string')
+ tw;
 
-  /**
-   * Logo
-   *
-   * @property logo
-   * @type String
-   */
-  logoURL: attr('string'),
+ /**
+  * Logo
+  *
+  * @property logo
+  * @type String
+  */
+ @attr('string')
+ logoURL;
 
-  numeroAfiliados: attr('string'),
+ @attr('string')
+ numeroAfiliados;
 
-  // Relationships
+ // Relationships
 
-  /**
-   * Miembros del partido
-   *
-   * @property members
-   * @type String
-   */
-  miembros: hasMany('candidate', { inverse: null }),
+ /**
+  * Miembros del partido
+  *
+  * @property members
+  * @type String
+  */
+ @hasMany('candidate', { inverse: null })
+ miembros;
 
-  // Computed
+ // Computed
 
-  logo: computed('logoURL', function () {
-    if (this.logoURL) {
-      return this.logoURL;
-    }
+ @computed('logoURL')
+ get logo() {
+   if (this.logoURL) {
+     return this.logoURL;
+   }
 
-    return 'img/partido-default.png';
-  })
-
-});
+   return 'img/partido-default.png';
+ }
+}

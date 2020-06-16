@@ -1,5 +1,6 @@
-import Route from '@ember/routing/route';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 import { hash } from 'rsvp';
 
 const resolver = {
@@ -13,8 +14,8 @@ const resolver = {
  *
  * @class Route.profile
  */
-export default Route.extend({
-  resolver: resolver,
+export default class PerfilRoute extends Route {
+  resolver = resolver;
 
   /**
    * Spreadsheets Service
@@ -22,7 +23,8 @@ export default Route.extend({
    * @property spreadsheets
    * @type Service
    */
-  spreadsheets: service(),
+  @service
+  spreadsheets;
 
   /**
    * Routing Service
@@ -30,9 +32,8 @@ export default Route.extend({
    * @property _routing
    * @type Service
    */
-  _routing: service('-routing'),
-
-
+  @service('-routing')
+  _routing;
 
   /**
    * Model hook. Obtiene toda la información de un perfil según el id que obtiene de 'params'.
@@ -49,6 +50,7 @@ export default Route.extend({
           compra.Monto = parseFloat(compra.Monto.replace('Q','').replace(' ', '').replace(/,/g, ''));
           return compra;
         })),
+        compras2: this.spreadsheets.fetch('compras'),
         consultas: this.spreadsheets.fetch('consultas')
         // profiles: this.store.query('profile', {
         //   institution: profile.id
@@ -67,16 +69,10 @@ export default Route.extend({
         // })
       });
     });
-  },
-
-  /**
-   * Acciones: didTransition.
-   * @property actions
-   * @type {Object}
-   */
-  actions: {
-    didTransition() {
-      window.scrollTo(0, 0);
-    }
   }
-});
+
+  @action
+  didTransition() {
+    window.scrollTo(0, 0);
+  }
+}

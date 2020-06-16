@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
 const resolver = {
   institution: 'hospitales',

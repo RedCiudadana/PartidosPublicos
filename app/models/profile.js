@@ -1,57 +1,107 @@
+import { computed } from '@ember/object';
 import Model, { belongsTo, attr } from '@ember-data/model';
 import { isBlank } from '@ember/utils';
-import { computed } from '@ember/object';
 
 /**
  * Base model for people
  */
-export default Model.extend({
+export default class Profile extends Model {
   // Attributes
-  nombre: attr('string'),
-  sexo: attr('string'),
-  puesto: attr('string'),
-  dependencia: attr('string'),
-  departamento: attr('string'),
-  institucion: attr('string'),
-  fechalaboral: attr('string'),
-  nocolegiado: attr('string'),
-  estado: attr('string'),
-  estadocivil: attr('string'),
-  profesion: attr('string'),
-  anosexperiencia: attr('string'),
-  experienciaProfesional: attr('string'),
-  experienciaAcademica: attr('string'),
-  proyeccionHumana: attr('string'),
-  publicaciones: attr('string'),
-  fotoURL: attr('string'),
-  correo: attr('string'),
-  tw: attr('string'),
-  fb: attr('string'),
+  @attr('string')
+  nombre;
+
+  @attr('string')
+  sexo;
+
+  @attr('string')
+  puesto;
+
+  @attr('string')
+  dependencia;
+
+  @attr('string')
+  departamento;
+
+  @attr('string')
+  institucion;
+
+  @attr('string')
+  fechalaboral;
+
+  @attr('string')
+  nocolegiado;
+
+  @attr('string')
+  estado;
+
+  @attr('string')
+  estadocivil;
+
+  @attr('string')
+  profesion;
+
+  @attr('string')
+  anosexperiencia;
+
+  @attr('string')
+  experienciaProfesional;
+
+  @attr('string')
+  experienciaAcademica;
+
+  @attr('string')
+  proyeccionHumana;
+
+  @attr('string')
+  publicaciones;
+
+  @attr('string')
+  fotoURL;
+
+  @attr('string')
+  correo;
+
+  @attr('string')
+  tw;
+
+  @attr('string')
+  fb;
 
   // Documentos
-  cv: attr('string'),
-  expediente: attr('string'),
-  resumen: attr('string'),
+  @attr('string')
+  cv;
+
+  @attr('string')
+  expediente;
+
+  @attr('string')
+  resumen;
 
   // Relationships
-  institution: belongsTo('institution', { async: true, defaultValue: null }),
-  comission: belongsTo('election', {
+  @belongsTo('institution', { async: true, defaultValue: null })
+  institution;
+
+  @belongsTo('election', {
     inverse: 'committee',
     async: true,
     defaultValue: null
-  }),
-  election: belongsTo('election', {
+  })
+  comission;
+
+  @belongsTo('election', {
     inverse: 'candidates',
     async: true,
     defaultValue: null
-  }),
+  })
+  election;
 
   // Computed properties
 
   /**
    * This computed property set a default image if fotoURL is blank.
    */
-  photo: computed('fotoURL', 'sexo', function() {
+  @computed('fotoURL', 'sexo')
+  get photo() {
     if (!isBlank(this.fotoURL)) {
       return this.fotoURL;
     }
@@ -65,6 +115,6 @@ export default Model.extend({
     }
 
     return 'mi-guatemala/img/candidata.png';
-  })
-});
+  }
+}
 

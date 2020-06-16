@@ -1,18 +1,21 @@
-import Adapter from '@ember-data/adapter';
 import { inject as service } from '@ember/service';
+import Adapter from '@ember-data/adapter';
 
-export default Adapter.extend({
-  spreadsheets: service(),
+export default class Application extends Adapter {
+  @service
+  spreadsheets;
 
   createRecord() {
     throw "Not supported";
-  },
+  }
+
   updateRecord() {
     throw "Not supported";
-  },
+  }
+
   deleteRecord() {
     throw "Not supported";
-  },
+  }
 
   findRecord(store, type, id) {
     if (id === "0") {
@@ -23,11 +26,11 @@ export default Adapter.extend({
       let result = objects.findBy("id", id);
       return result;
     });
-  },
+  }
 
   findAll(store, type) {
     return this.spreadsheets.fetch(type.modelName);
-  },
+  }
 
   query(store, type, query) {
     return this.spreadsheets.fetch(type.modelName).then(objects => {
@@ -40,4 +43,4 @@ export default Adapter.extend({
       });
     });
   }
-});
+}

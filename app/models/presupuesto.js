@@ -1,6 +1,9 @@
 import Model, { attr } from '@ember-data/model';
 
-export default Model.extend({
-  label: attr('string'),
-  value: attr('number')
-});
+export default class Presupuesto extends Model {
+  @attr('string')
+  label;
+
+  @attr('number')
+  value;
+}

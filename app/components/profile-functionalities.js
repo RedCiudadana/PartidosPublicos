@@ -1,10 +1,12 @@
-import Component from "@ember/component";
+import Component from '@glimmer/component';
 import { A } from "@ember/array";
 import { debug } from "@ember/debug";
 
-export default Component.extend({
-  init({ model: { profile, /* profiles, elections,  */candidates, comissioners } }) {
-    this._super(...arguments);
+export default class ProfileFunctionalities extends Component {
+  init(
+    { model: { profile, /* profiles, elections,  */candidates, comissioners } }
+  ) {
+    super.init(...arguments);
     this.set("links", A([]));
 
     this.set("breadcrumbs", A([]));
@@ -112,4 +114,4 @@ export default Component.extend({
       ]);
     }
   }
-});
+}

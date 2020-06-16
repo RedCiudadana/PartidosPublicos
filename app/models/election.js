@@ -1,36 +1,57 @@
-import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 import { computed } from '@ember/object';
+import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 import { isBlank } from '@ember/utils';
 
-export default Model.extend({
+export default class Election extends Model {
   // Attributes
-  nombre: attr('string'),
-  fechaEleccion: attr('string'),
-  fechaEleccionProyectada: attr('string'),
-  descripcion: attr('string'),
-  requisitos: attr('string'),
-  comision: attr('string'),
+  @attr('string')
+  nombre;
 
-  infografiaURL: attr('string'),
-  cronogramaURL: attr('string'),
-  fotoURL: attr('string'),
+  @attr('string')
+  fechaEleccion;
+
+  @attr('string')
+  fechaEleccionProyectada;
+
+  @attr('string')
+  descripcion;
+
+  @attr('string')
+  requisitos;
+
+  @attr('string')
+  comision;
+
+  @attr('string')
+  infografiaURL;
+
+  @attr('string')
+  cronogramaURL;
+
+  @attr('string')
+  fotoURL;
 
   // Relationships
-  institution: belongsTo('institution'),
-  candidates: hasMany('profile', {
-    inverse: 'election'
-  }),
+  @belongsTo('institution')
+  institution;
 
-  committee: hasMany('profile'),
+  @hasMany('profile', {
+    inverse: 'election'
+  })
+  candidates;
+
+  @hasMany('profile')
+  committee;
 
   /**
    * This computed property return photoURL if is not blank, else return a default image.
    */
-  photo: computed('fotoURL', function() {
+  @computed('fotoURL')
+  get photo() {
     if (!isBlank(this.fotoURL)) {
       return this.fotoURL;
     }
 
     return 'http://centrumnaukiwesola.pl/wp-content/themes/bulhak-edu/img/default-avatar.png';
-  })
-});
+  }
+}

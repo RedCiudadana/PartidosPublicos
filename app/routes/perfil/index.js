@@ -1,14 +1,14 @@
 import Route from '@ember/routing/route';
 import config from '../../config/environment';
 
-export default Route.extend({
-  queryParams: {
+export default class IndexRoute extends Route {
+  queryParams = {
     page: { refreshModel: false },
     size: { refreshModel: false }
-  },
+  };
 
   setupController(controller, model) {
-    this._super(controller, model);
+    super.setupController(controller, model);
 
     if(model.profile._internalModel.modelName === 'institution') {
       controller.set('campos',{
@@ -54,4 +54,4 @@ export default Route.extend({
     controller.set('FuenteCompras', model.consultas.findBy('variable', 'FuenteCompras'));
     controller.set('FechaCompras', model.consultas.findBy('variable', 'FechaCompras'));
   }
-});
+}

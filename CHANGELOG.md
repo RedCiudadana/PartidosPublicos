@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fix ember-no-implicit-this with ember-no-implicit-this-codemod
 
+### Changed
+- Update EmberObject to native classes with ember-native-class-codemod.
+
 ## [0.6.0]
 ### Added
 - Add whitelist configuration to ember-bootstrap

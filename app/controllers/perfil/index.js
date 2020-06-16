@@ -1,5 +1,5 @@
+import { action, computed } from '@ember/object';
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import pagesNumbersByPage from 'partidospublicos/utils/pagination/pagesNumbersByPage';
 
 const array_chunks = (array, chunk_size) =>
@@ -8,12 +8,12 @@ const array_chunks = (array, chunk_size) =>
     .map((_, index) => index * chunk_size)
     .map(begin => array.slice(begin, begin + chunk_size));
 
-export default Controller.extend({
-  page: 1,
-  size: 10,
+export default class IndexController extends Controller {
+  page = 1;
+  size = 10;
 
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
     // False is not collapsed
     this.set('presupuesto', false);
     this.set('experiencia', false);
@@ -64,9 +64,10 @@ export default Controller.extend({
         money: true
       }
     ]);
-  },
+  }
 
-  trazadores: computed('model', function(){
+  @computed('model')
+  get trazadores() {
     return {
       labels: [
         'Medicamentos trazadores',
@@ -83,9 +84,10 @@ export default Controller.extend({
         }
       ]
     };
-  }),
+  }
 
-  medicamentos1M: computed('model', function(){
+  @computed('model')
+  get medicamentos1M() {
     return {
       labels: [
         'Medicamentos',
@@ -106,9 +108,10 @@ export default Controller.extend({
         }
       ]
     };
-  }),
+  }
 
-  medicamentos3M: computed('model', function(){
+  @computed('model')
+  get medicamentos3M() {
     return {
       labels: [
         'Medicamentos',
@@ -129,49 +132,54 @@ export default Controller.extend({
         }
       ]
     };
-  }),
+  }
 
-  footCompras: computed('model', function(){
+  @computed('model')
+  get footCompras() {
     return [
       {
         Compras: 'Monto total',
         Monto: this.model.compras.filterBy('Estatus', 'Terminado adjudicado').mapBy('Monto').reduce((prev, current) => prev + current).toFixed(2)
       }
     ];
-  }),
-
-  chunks: computed('model.compras', function() {
-    return array_chunks(this.model.compras, this.size);
-  }),
-
-  comprasPaginated: computed('chunks', 'page', function() {
-    return this.chunks[this.page - 1];
-  }),
-
-  pages: computed('chunks', 'page', function() {
-    return pagesNumbersByPage(this.chunks.length, this.page);
-  }),
-
-  actions: {
-    selectPage(page) {
-      this.set('page', page);
-    },
-
-    prevPage() {
-      this.set('page', this.page > 1 ? this.page - 1 : 1);
-    },
-
-    nextPage() {
-      this.set('page', this.page < this.chunks.length ? this.page + 1 : this.chunks.length)
-    },
-
-    // sortingUpdate(sort) {
-    //   if(this.currentSort !== null && this.currentSort.firstObject.valuePath === sort.firstObject.valuePath) {
-    //     sort.firstObject.isAscending = !this.currentSort.firstObject.isAscending;
-    //   }
-
-    //   this.set('currentSort', sort);
-    //   this.set('page', 1);
-    // }
   }
-});
+
+  @computed('model.compras')
+  get chunks() {
+    return array_chunks(this.model.compras, this.size);
+  }
+
+  @computed('chunks', 'page')
+  get comprasPaginated() {
+    return this.chunks[this.page - 1];
+  }
+
+  @computed('chunks', 'page')
+  get pages() {
+    return pagesNumbersByPage(this.chunks.length, this.page);
+  }
+
+  @action
+  selectPage(page) {
+    this.set('page', page);
+  }
+
+  @action
+  prevPage() {
+    this.set('page', this.page > 1 ? this.page - 1 : 1);
+  }
+
+  @action
+  nextPage() {
+    this.set('page', this.page < this.chunks.length ? this.page + 1 : this.chunks.length)
+  }
+
+  // sortingUpdate(sort) {
+  //   if(this.currentSort !== null && this.currentSort.firstObject.valuePath === sort.firstObject.valuePath) {
+  //     sort.firstObject.isAscending = !this.currentSort.firstObject.isAscending;
+  //   }
+
+  //   this.set('currentSort', sort);
+  //   this.set('page', 1);
+  // }
+}

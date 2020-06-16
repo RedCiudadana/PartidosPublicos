@@ -243,7 +243,7 @@
                 <t.head
                   @columns={{this.comprasColumns}}
                   @sorts={{this.sortsCompras}}
-                  @onUpdateSorts={{action (mut this.sortsCompras)}}
+                  @onUpdateSorts={{fn (mut this.sortsCompras)}}
                 as |h|>
                   <h.row as |r|>
                     <r.cell class="align-middle" as |column|>
@@ -309,20 +309,20 @@
                 <nav aria-label="Page navigation" class="mx-auto">
                   <ul class="pagination">
                     <li class="page-item">
-                      <button class="page-link" href="#" aria-label="Previous" {{action "prevPage"}}>
+                      <button type="button" class="page-link" href="#" aria-label="Previous" {{on "click" (fn this.prevPage)}}>
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                       </button>
                     </li>
                     {{#each this.pages as |page|}}
                       <li class="page-item {{if (eq this.page page) "active"}}">
-                        <button class="page-link" {{action "selectPage" page}}>
+                        <button type="button" class="page-link" {{on "click" (fn this.selectPage page)}}>
                           {{page}}
                         </button>
                       </li>
                     {{/each}}
                     <li class="page-item">
-                      <button class="page-link" href="#" aria-label="Next" {{action "nextPage"}}>
+                      <button type="button" class="page-link" href="#" aria-label="Next" {{on "click" (fn this.nextPage)}}>
                         <span aria-hidden="true">&raquo;</span>
                         <span class="sr-only">Next</span>
                       </button>

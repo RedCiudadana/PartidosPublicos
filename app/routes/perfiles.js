@@ -6,15 +6,16 @@ const resolver = {
   autoridades: 'profile'
 };
 
-export default Route.extend({
-  resolver: resolver,
-  queryParams: {
+export default class PerfilesRoute extends Route {
+  resolver = resolver;
+
+  queryParams = {
     sector: {
       refreshModel: true
     },
     page: { refreshModel: false },
     size: { refreshModel: false }
-  },
+  };
 
   model({ model, sector }) {
     let modelName = this.resolver[model];
@@ -24,14 +25,14 @@ export default Route.extend({
       });
     }
     return this.store.findAll(modelName, { reload: true });
-  },
+  }
 
   setupController(controller, model) {
-    this._super(controller, model);
+    super.setupController(controller, model);
     controller.set('allProfiles', model.toArray());
     controller.set('config', model.firstObject);
     controller.set('departamentos', model.mapBy('departamento').uniq());
     // @TODO Refactorizar un requestn o deberia ocurrir aquí
     // controller.set('institutions', this.store.findAll("institution"));
   }
-});
+}

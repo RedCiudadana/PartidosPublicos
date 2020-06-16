@@ -1,16 +1,19 @@
-import Component from '@ember/component';
-import pagedArray from 'ember-cli-pagination/computed/paged-array';
-import { alias, oneWay } from '@ember/object/computed';
+import { classNames, classNameBindings } from '@ember-decorators/component';
 import { computed } from '@ember/object';
+import { oneWay, alias } from '@ember/object/computed';
+import Component from '@glimmer/component';
+import pagedArray from 'ember-cli-pagination/computed/paged-array';
 import { isBlank } from '@ember/utils';
 
-export default Component.extend({
-  colSize: '10',
-  offset: '1',
-  fit: true,
+@classNames('container-fluid')
+@classNameBindings('background')
+export default class Portfolio extends Component {
+  colSize = '10';
+  offset = '1';
+  fit = true;
 
   didReceiveAttrs() {
-    this._super(...arguments);
+    super.didReceiveAttrs(...arguments);
 
     if(
       this.pagination === false
@@ -21,27 +24,31 @@ export default Component.extend({
     if (!isNaN(this.paginationSize)) {
       this.set('perPage', this.paginationSize);
     }
-  },
+  }
 
-  classNames: ['container-fluid'],
-  classNameBindings: ['background'],
-
-  background: computed('bg', function() {
+  @computed('bg')
+  get background() {
     return `bg-${this.bg}`;
-  }),
+  }
 
   // Pagination
-  queryParams: ["page", "perPage"],
+  queryParams = ["page", "perPage"];
 
   // page: 1,
   // perPage: 24,
 
 
-  content: pagedArray('profiles'),
+  @pagedArray('profiles')
+  content;
 
   // binding the property on the paged array
   // to the query params on the controller
-  page: alias("content.page"),
-  perPage: alias("content.perPage"),
-  totalPages: oneWay("content.totalPages")
-});
+  @alias("content.page")
+  page;
+
+  @alias("content.perPage")
+  perPage;
+
+  @oneWay("content.totalPages")
+  totalPages;
+}
