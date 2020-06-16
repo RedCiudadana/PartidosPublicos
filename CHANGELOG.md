@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [unreleased]
+### Added
+- Added cached data to spreadsheet service and ember-data adapter.
+
 ### Fixed
 - Fix ember-no-implicit-this with ember-no-implicit-this-codemod
 
