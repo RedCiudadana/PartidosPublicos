@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container d-none">
   <div class="row justify-content-center">
     <div class="col-md-8 py-5 text-center">
       {{#if (eq this.model.firstObject._internalModel.modelName "profile")}}
@@ -61,10 +61,14 @@
   </div>
 </div>
 
-<Portfolio
-  @bg="light"
-  @profiles={{this.profiles}}
-  />
+<div class="w-100 bg-light">
+  <div class="container">
+    <Portfolio
+      @bg="light"
+      @profiles={{this.profiles}}
+      />
+  </div>
+</div>
 
 <div class="w-100 bg-light py-5">
   <div class="container">

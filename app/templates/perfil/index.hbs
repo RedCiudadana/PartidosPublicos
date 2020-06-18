@@ -272,12 +272,12 @@
 
                       {{#if this.meta.isSorted}}
                         {{#if this.meta.isSortedAsc}}
-                          <i class="fa fa-sort-down" aria-hidden="true"></i>
+                          <FaIcon @icon="sort-down" />
                         {{else}}
-                          <i class="fa fa-sort-up" aria-hidden="true"></i>
+                          <FaIcon @icon="sort-up" />
                         {{/if}}
                       {{else}}
-                        <i class="fa fa-sort" aria-hidden="true"></i>
+                        <FaIcon @icon="sort" />
                       {{/if}}
                     </r.cell>
                   </h.row>

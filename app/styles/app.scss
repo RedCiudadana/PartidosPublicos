@@ -1,17 +1,17 @@
 // MiSalud
 
-$primary: #2e5765;
-$secondary: #2bb673;
+$primary: #0f425e;
+$secondary: #43bca6;
 $info: #27aae1;
 
 $success: #0cab55;
 $warning: #fab026;
 
 $dark: #202d3e;
-$light: #e6eaee;
+$light: #ecf1f4;
 
 // $navbar-color: #3a3a3a;
-$navbar-color: #58595b;
+$navbar-color: #404041;
 
 // $footer-background-color: #4c4c4c;
 $footer-background-color: $primary;
@@ -42,14 +42,24 @@ $border-radius: 5px;
 
 @font-face {
   font-family: '@BoldFont';
-  src: url(/fonts/Lato-Bold.ttf) format('truetype');
+  src: url(/fonts/Aileron-Bold.otf) format('opentype');
   font-weight: 700;
 }
 
 @font-face {
+  font-family: '@SemiBoldFont';
+  src: url(/fonts/Aileron-SemiBold.otf) format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
   font-family: '@Regular';
-  src: url(/fonts/Lato-Regular.ttf) format('truetype');
+  src: url(/fonts/Aileron-Regular.otf) format('opentype');
   font-weight: 400;
+}
+
+.font-weight-semibold {
+  font-family: '@SemiBoldFont';
 }
 
 // HTML
@@ -57,7 +67,7 @@ $border-radius: 5px;
 body,
 a {
   font-family: '@Regular';
-  color: #24414b;
+  color: #3F3E3B;
 }
 
 h1,
@@ -216,6 +226,11 @@ h6 {
 }
 
 // Others
+
+.py-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 
 .m-t--5 {
   margin-top: -5px;
@@ -493,11 +508,12 @@ h6 {
 .navbar .navbar-brand img {
   width: 150px;
   height: auto;
+  margin: 0;
 }
 
 @include media-breakpoint-up(md) {
   .navbar .navbar-brand img {
-    width: 200px;
+    width: 270px;
     height: auto;
   }
 }
@@ -511,12 +527,8 @@ h6 {
     a {
       padding: 5px 15px;
       border-radius: 160px;
-      font-weight: 200;
+      font-family: '@BoldFont';
       line-height: 0.85rem !important;
-
-      img {
-        filter: brightness(0.4);
-      }
     }
 
     a:hover {
@@ -574,15 +586,45 @@ h6 {
 // HOMEPAGE
 
 #index-banner {
-  background-color: #2d6e92;
+  background-image: url('/img/slider-1-horizontal.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  .row {
+    height: 150vw;
+    align-self: flex-start;
+    text-align: center;
+    padding-top: 2rem;
+  }
 
   img {
     max-width: 800px;
   }
 }
 
+@include media-breakpoint-up(sm) {
+  #index-banner {
+    .row {
+      height: 50vw;
+    }
+  }
+}
+
 @include media-breakpoint-up(lg) {
   #index-banner {
+    background-image: url('/img/slider-1.png');
+    background-position: bottom;
+
+    .row {
+      height: 28vw;
+      text-align: left;
+
+      div {
+        align-self: center;
+      }
+    }
+
     br {
       display: none;
     }

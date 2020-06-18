@@ -1,6 +1,6 @@
 <HeadLayout />
 
-{{title "NuestraSalud - RedCiudadana"}}
+{{title "PartidosPublicos - RedCiudadana"}}
 
 {{!-- Navbar --}}
 <BsNavbar id="navbar" class="shadow-sm" @toggleBreakpoint="xl" @backgroundColor="white" @type="light" @position="sticky-top" @fluid={{true}} as |navbar|>
@@ -8,37 +8,35 @@
     {{navbar.toggle}}
 
     <LinkTo @route="application" class="navbar-brand">
-      <img src="logo-brand.png" class="img-responsive" title={{this.nombreApp}} alt="Congreso">
+      <img src="logo-brand.png" class="img-responsive" title={{this.nombreApp}} alt="Cancha de futbol">
     </LinkTo>
   </div>
 
   <navbar.content>
     {{!-- @TODO Hacer funcionar active en nav.item --}}
     <navbar.nav @justified={{false}} type="pills" class="ml-auto" as |nav|>
-      {{#each this.model.navbarLinks as |link|}}
-        <nav.item @active={{false}}>
-          <LinkTo @route={{link.route}}>{{link.title}}</LinkTo>
-        </nav.item>
+      {{#each this.links as |link|}}
+        {{#if link.model}}
+          <nav.item @active={{false}} class="mt-1">
+            <LinkTo @route={{link.route}} @model={{link.model}}>
+              {{link.text}}
+            </LinkTo>
+          </nav.item>
+        {{else}}
+          <nav.item @active={{false}} class="mt-1">
+            <LinkTo @route={{link.route}}>
+              {{link.text}}
+            </LinkTo>
+          </nav.item>
+        {{/if}}
       {{/each}}
-
-      <nav.item @active={{false}} class="mt-1">
-        <LinkTo @route="perfiles" @model={{"hospitales"}}>
-          Hospitales
-        </LinkTo>
-      </nav.item>
-
-      <nav.item @active={{false}} class="mt-1">
-        <LinkTo @route="perfiles" @model="autoridades">
-          Autoridades
-        </LinkTo>
-      </nav.item>
 
       <nav.item class="no-hover">
         <a href="https://facebook.com/Redciudadanagt" target="_blank" rel="noopener noreferrer">
-          <img src="img/icono-fb-white.png" alt="Facebook" height="30px" width="30px">
+          <img src="img/icono-fb-gray.png" alt="Facebook" height="30px" width="30px">
         </a>
         <a href="https://twitter.com/redxguate" target="_blank" rel="noopener noreferrer">
-          <img src="img/icono-tw-white.png" alt="Twitter" height="30px" width="30px">
+          <img src="img/icono-tw-gray.png" alt="Twitter" height="30px" width="30px">
         </a>
       </nav.item>
 
@@ -62,12 +60,14 @@
         <ul class="list-unstyled">
           <li>
             <a href="http://donacion.redciudadana.org/" target="_blank" rel="noopener noreferrer">
-              <i class="fa fa-heart"></i>Donaciones
+              <FaIcon @icon="heart" class="mr-1" />
+              Donaciones
             </a>
           </li>
           <li>
             <a href="http://voluntarios.redciudadana.org/" target="_blank" rel="noopener noreferrer">
-              <i class="fa fa-users"></i>Voluntariado
+              <FaIcon @icon="users" class="mr-1" />
+              Voluntariado
             </a>
           </li>
         </ul>
@@ -78,7 +78,8 @@
         <ul class="list-unstyled">
           <li>
             <a href="mailto:info@redciudadana.org.gt" target="_blank" rel="noopener noreferrer">
-              <i class="fa fa-envelope"></i>info@redciudadana.org
+              <FaIcon @icon="envelope" class="mr-1" />
+              info@redciudadana.org
             </a>
           </li>
         </ul>
@@ -108,9 +109,6 @@
       <div class="col-12 col-md-8 d-flex">
         <p class="my-auto">Un proyecto de:</p>
         <div>
-          <a href="https://bancadasemilla.gt/" target="_blank" rel="noopener noreferrer">
-            <img src="img/colaboradores/logo-bancadasemilla.png" alt="Bancada semilla" class="ml-2" height="40px" width="auto">
-          </a>
           <a href="http://redciudadana.org/" target="_blank" rel="noopener noreferrer">
             <img src="mi-guatemala/img/logo-rc-color.png" alt="Red Ciudanana" class="logo-rc m-auto mt-md-3">
           </a>

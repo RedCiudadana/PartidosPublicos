@@ -7,7 +7,8 @@ import pagesNumbersByPage from 'partidospublicos/utils/pagination/pagesNumbersBy
 const resolver = {
   institution: "hospitales",
   election: "elecciones",
-  profile: "perfiles"
+  profile: "perfiles",
+  partido: "partidos"
 };
 
 const array_chunks = (array, chunk_size) =>

@@ -1,40 +1,42 @@
-{{#if (eq @profile._internalModel.modelName "profile")}}
-  {{!-- Profile --}}
-  <article class="item {{@profile.selector}} bg-white">
-    <div class="background">
-      <div class="img-wrapper">
-        <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
-          <ImgWithFallback alt={{@profile.name}} src={{@profile.photo}} />
-        </LinkTo>
-      </div>
-      <div class="text">
-        <div class="text-name">
+<div class="mb-4 col-12 col-sm-12 col-md-4 col-xl-3">
+  {{#if (eq @profile._internalModel.modelName "profile")}}
+    {{!-- Profile --}}
+    <article class="item {{@profile.selector}} bg-white">
+      <div class="background">
+        <div class="img-wrapper">
           <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
-            <h6>{{@profile.name}}{{@profile.nombre}}</h6>
+            <ImgWithFallback alt={{@profile.name}} src={{@profile.photo}} />
           </LinkTo>
         </div>
-        <h6 class="font-weight-light">{{@profile.electionName}}</h6>
+        <div class="text">
+          <div class="text-name">
+            <LinkTo @route="perfil" @models={{array this.modelName @profile.id}}>
+              <h6>{{@profile.name}}{{@profile.nombre}}</h6>
+            </LinkTo>
+          </div>
+          <h6 class="font-weight-light">{{@profile.electionName}}</h6>
+        </div>
+      </div>
+    </article>
+  {{else}}
+    {{!-- Intitution or Election --}}
+    <div class="card px-0 border-0 {{@profile.selector}}">
+      <div class="img-wrapper">
+        <img alt={{@profile.name}} src={{@profile.photo}} class="card-img-top">
+      </div>
+      <div class="card-body text-center pt-lg-4 px-lg-4 pb-lg-2">
+        <h6 class="card-title">{{@profile.name}}{{@profile.nombre}}</h6>
+        {{!-- {{#if (not fit)}}
+          <p class="card-text">
+            {{@profile.descripcion}}
+          </p>
+        {{/if}} --}}
+      </div>
+      <div class="card-footer bg-white text-center border-0 p-0 pb-3 m-t--5">
+        <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-secondary">
+          Más información
+        </LinkTo>
       </div>
     </div>
-  </article>
-{{else}}
-  {{!-- Intitution or Election --}}
-  <div class="card px-0 {{@profile.selector}}">
-    <div class="img-wrapper">
-      <img alt={{@profile.name}} src={{@profile.photo}} class="card-img-top">
-    </div>
-    <div class="card-body text-center pt-lg-4 px-lg-4 pb-lg-2">
-      <h6 class="card-title">{{@profile.name}}{{@profile.nombre}}</h6>
-      {{!-- {{#if (not fit)}}
-        <p class="card-text">
-          {{@profile.descripcion}}
-        </p>
-      {{/if}} --}}
-    </div>
-    <div class="card-footer bg-white text-center border-0 p-0 pb-3 m-t--5">
-      <LinkTo @route="perfil" @models={{array this.modelName @profile.id}} class="btn btn-secondary">
-        Más información
-      </LinkTo>
-    </div>
-  </div>
-{{/if}}
+  {{/if}}
+</div>

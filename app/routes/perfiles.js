@@ -3,7 +3,8 @@ import Route from '@ember/routing/route';
 const resolver = {
   hospitales: 'institution',
   elecciones: 'election',
-  autoridades: 'profile'
+  autoridades: 'profile',
+  partidos: 'partido'
 };
 
 export default class PerfilesRoute extends Route {
@@ -17,14 +18,15 @@ export default class PerfilesRoute extends Route {
     size: { refreshModel: false }
   };
 
-  model({ model, sector }) {
-    let modelName = this.resolver[model];
-    if(sector) {
-      return this.store.query(modelName, {
-        sector: sector
-      });
-    }
-    return this.store.findAll(modelName, { reload: true });
+  model(/* { model, sector } */) {
+    return this.store.findAll('institution');
+    // let modelName = this.resolver[model];
+    // if(sector) {
+    //   return this.store.query(modelName, {
+    //     sector: sector
+    //   });
+    // }
+    // return this.store.findAll(modelName, { reload: true });
   }
 
   setupController(controller, model) {
