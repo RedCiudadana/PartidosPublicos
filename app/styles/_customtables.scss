@@ -1,3 +1,27 @@
+.row-p-4 {
+  .td, th {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+.row-borderless {
+  td, th {
+    border: unset !important;
+  }
+}
+
+.table th, .ember-table table th, .table td, .ember-table table td {
+  border-top: 1px solid #c7c8ca;
+  color: #202D3E;
+}
+
+.table thead th, .ember-table table thead th {
+  vertical-align: bottom;
+  border-top: 1px solid #c7c8ca;
+  border-bottom: 1px solid #c7c8ca;
+}
+
 // Use bootstrap style with ember-table
 .ember-table {
   table {

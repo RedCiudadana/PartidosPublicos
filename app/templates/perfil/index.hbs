@@ -1,4 +1,4 @@
-<div class="col-12 p-0 border shadow-sm bg-white rounded pills mt-4">
+{{!-- <div class="col-12 p-0 border shadow-sm bg-white rounded pills mt-4">
   <BsNav
     @type="pills"
     @justified={{false}}
@@ -32,7 +32,7 @@
       <ShareFacebook />
     </nav.item>
   </BsNav>
-</div>
+</div> --}}
 
 <div class="row m-1 my-4 bg-white panel py-5" id="info">
   {{!-- Imagen --}}
@@ -90,7 +90,7 @@
     </div>
   {{/if}}
   {{#if (eq this.model.profile._internalModel.modelName "institution")}}
-    <div class="col-md-3 text-left border-left pl-3">
+    <div class="col-md-3 text-left border-left pl-5">
       <h6 class="text-uppercase">Contacto</h6>
       {{!-- Página web --}}
       {{#if this.model.profile.paginaweb}}

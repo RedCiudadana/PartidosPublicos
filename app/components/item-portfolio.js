@@ -9,9 +9,6 @@ const resolver = {
 
 export default class ItemPortfolioComponent extends Component {
   get modelName() {
-    console.log(this);
-    console.log(resolver[this.args.profile._internalModel.modelName]);
-    // _internalModel.modelName
     if (this.args.profile) {
       return resolver[this.args.profile._internalModel.modelName];
     }

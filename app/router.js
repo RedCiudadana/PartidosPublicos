@@ -17,6 +17,10 @@ Router.map(function() {
     this.route('candidatos');
     this.route('elecciones');
     this.route('comisionados');
+    this.route('presencia');
+    this.route('participar');
+    this.route('finanzas');
+    this.route('sanciones');
   });
 
   this.route('perfiles', { path: '/:model'});
