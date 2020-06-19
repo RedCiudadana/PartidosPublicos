@@ -2,7 +2,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 import { hash } from 'rsvp';
-import { typeOf } from '@ember/utils';
+// import { typeOf } from '@ember/utils';
 
 const resolver = {
   hospitales: 'institution',
@@ -47,13 +47,13 @@ export default class PerfilRoute extends Route {
       return hash({
         config: {},
         profile: profile,
-        compras: this.spreadsheets.fetch('compras').then((compras) => compras.filterBy('id', profile.id).map((compra) => {
-          if (typeOf(compra.Monto) === 'string') {
-            compra.Monto = parseFloat(compra.Monto.replace('Q','').replace(' ', '').replace(/,/g, ''));
-          }
+        // compras: this.spreadsheets.fetch('compras').then((compras) => compras.filterBy('id', profile.id).map((compra) => {
+        //   if (typeOf(compra.Monto) === 'string') {
+        //     compra.Monto = parseFloat(compra.Monto.replace('Q','').replace(' ', '').replace(/,/g, ''));
+        //   }
 
-          return compra;
-        })),
+        //   return compra;
+        // })),
         consultas: this.spreadsheets.fetch('consultas'),
         profiles: this.store.findAll('profile')
         // profiles: this.store.query('profile', {
