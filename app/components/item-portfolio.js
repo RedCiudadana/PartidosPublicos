@@ -8,12 +8,14 @@ const resolver = {
 };
 
 export default class ItemPortfolioComponent extends Component {
-  constructor() {
-    super(...arguments);
-    // this.classNames = ['mb-4', 'col-12', 'col-sm-12', 'col-md-4', 'col-xl-3'];
-  }
-
   get modelName() {
-    return this.modelName = resolver[this.profile._internalModel.modelName];
+    console.log(this);
+    console.log(resolver[this.args.profile._internalModel.modelName]);
+    // _internalModel.modelName
+    if (this.args.profile) {
+      return resolver[this.args.profile._internalModel.modelName];
+    }
+
+    return null;
   }
 }

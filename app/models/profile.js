@@ -1,6 +1,6 @@
 import { computed } from '@ember/object';
 import Model, { belongsTo, attr } from '@ember-data/model';
-import { isBlank } from '@ember/utils';
+// import { isBlank } from '@ember/utils';
 
 /**
  * Base model for people
@@ -102,9 +102,9 @@ export default class Profile extends Model {
    */
   @computed('fotoURL', 'sexo')
   get photo() {
-    if (!isBlank(this.fotoURL)) {
-      return this.fotoURL;
-    }
+    // if (!isBlank(this.fotoURL)) {
+    //   return this.fotoURL;
+    // }
 
     if (this.sexo === 'Masculino') {
       return 'mi-guatemala/img/candidato.png';

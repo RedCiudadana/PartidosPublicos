@@ -8,25 +8,21 @@
     {{#if (eq this.model.profile._internalModel.modelName "institution")}}
       <nav.item>
         <ScrollTo @class="nav-link active p-0 pointer" @target="#info" @tagName="a" @duration={{1000}} @offset={{-100}}>
-          <img src="img/icono-12.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
           Información general
         </ScrollTo>
       </nav.item>
       <nav.item>
         <ScrollTo @class="nav-link p-0 pointer" @target="#descripcion" @tagName="a" @duration={{1000}} @offset={{-100}}>
-          <img src="img/icono-14.png" alt="Hospital" height="30px" width="auto" class="mr-2 img-white">
           Descripción
         </ScrollTo>
       </nav.item>
       <nav.item>
         <ScrollTo @class="nav-link p-0 pointer" @target="#abastecimiento" @tagName="a" @duration={{1000}} @offset={{-100}}>
-          <img src="img/icono-30.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
           Abastecimiento
         </ScrollTo>
       </nav.item>
       <nav.item>
         <ScrollTo @class="nav-link p-0 pointer" @target="#compras" @tagName="a" @duration={{1000}} @offset={{-100}}>
-          <img src="img/icono-1.png" alt="Guantes" height="30px" width="auto" class="mr-2 img-white">
           Compras
         </ScrollTo>
       </nav.item>
@@ -55,8 +51,8 @@
     <table class="table w-100">
       <tbody>
         {{#each-in this.campos as |key campo|}}
-          <tr>
-            <td>
+          <tr class="border-0">
+            <td class="border-0 p-1">
               <strong>{{campo}}: </strong> {{get this.model.profile key}}
             </td>
           </tr>
@@ -95,22 +91,13 @@
   {{/if}}
   {{#if (eq this.model.profile._internalModel.modelName "institution")}}
     <div class="col-md-3 text-left border-left pl-3">
-      <h6>Contacto</h6>
+      <h6 class="text-uppercase">Contacto</h6>
       {{!-- Página web --}}
       {{#if this.model.profile.paginaweb}}
         <div>
           <a href="//{{this.model.profile.paginaweb}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-web.png" alt="Página web">
-            {{this.model.profile.paginaweb}}
-          </a>
-        </div>
-      {{/if}}
-      {{!-- Correo --}}
-      {{#if this.model.profile.correo}}
-        <div>
-          <a href="//{{this.model.profile.correo}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-correo.png" alt="Correo electrónico">
-            {{this.model.profile.correo}}
+            <img src="img/icono-web.png" height="20px" alt="Página web">
+            Visitar página web
           </a>
         </div>
       {{/if}}
@@ -118,7 +105,7 @@
       {{#if this.model.profile.twitter}}
         <div>
           <a href="https://twitter.com/{{twitter-link this.model.profile.twitter}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-tw.png" alt="Twitter">
+            <img src="img/icono-tw.png" height="20px" alt="Twitter">
             @{{twitter-link this.model.profile.twitter}}
           </a>
         </div>
@@ -127,8 +114,17 @@
       {{#if this.model.profile.facebook}}
         <div>
           <a href="{{this.model.profile.facebook}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-fb.png" alt="Facebook">
+            <img src="img/icono-fb.png" height="20px" alt="Facebook">
             {{this.model.profile.nombre}}
+          </a>
+        </div>
+      {{/if}}
+      {{!-- Correo --}}
+      {{#if this.model.profile.correo}}
+        <div>
+          <a href="//{{this.model.profile.correo}}" target="_blank" rel="noopener noreferrer">
+            <img src="img/icono-correo.png" height="20px" alt="Correo electrónico">
+            {{this.model.profile.correo}}
           </a>
         </div>
       {{/if}}
@@ -136,31 +132,206 @@
   {{/if}}
 </div>
 
-{{!-- Institution panels --}}
-{{#if (eq this.model.profile._internalModel.modelName "institution")}}
-  {{!-- Descripción --}}
-  <div class="row">
-    <div class="col-12" id="descripcion">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/icono-13.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-          <h3 id="descripcion">
-            Descripción
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if this.model.profile.descripcion}}
-              <p>{{this.model.profile.descripcion}}</p>
-            {{else}}
-              <p class="px-5 pt-3">No hay información</p>
-            {{/if}}
-          </div>
+{{!-- Descripción --}}
+<div class="row">
+  <div class="col-12" id="descripcion">
+    <div class="panel">
+      <div class="header d-flex bg-primary text-uppercase">
+        <img src="img/PP-15.png" alt="Hospital" height="30px" width="auto" class="mr-2">
+        <h3 id="descripcion">
+          Reseña historica
+        </h3>
+      </div>
+      <div>
+        <div class="body p-5">
+          {{#if this.model.profile.descripcion}}
+            <p>{{this.model.profile.descripcion}}</p>
+          {{else}}
+            <p class="px-5 pt-3">No hay información</p>
+          {{/if}}
         </div>
       </div>
     </div>
   </div>
-  {{!-- Autoridades --}}
+</div>
+<div class="row">
+  <div class="col-12" id="descripcion">
+    <div class="panel">
+      <div class="header d-flex bg-primary text-uppercase">
+        <img src="img/PP-17.png" alt="Hospital" height="30px" width="auto" class="mr-2">
+        <h3 id="descripcion">
+          Declaración de Principios
+        </h3>
+      </div>
+      <div>
+        <div class="body p-5">
+          {{#if this.model.profile.descripcion}}
+            <p>{{this.model.profile.descripcion}}</p>
+          {{else}}
+            <p class="px-5 pt-3">No hay información</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12" id="descripcion">
+    <div class="panel">
+      <div class="header d-flex bg-primary text-uppercase">
+        <img src="img/PP-16.png" alt="Hospital" height="30px" width="auto" class="mr-2">
+        <h3 id="descripcion">
+          AUTORIDADES
+        </h3>
+      </div>
+      <div>
+        <div class="body p-5">
+          {{#if this.model.profiles}}
+            <Portfolio
+              @bg="white"
+              @profiles={{slice 0 4 this.model.profiles}}
+              @pagination={{false}}
+              @paginationSize={{4}}
+            />
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12 text-center mb-4">
+                  <LinkTo
+                    class="btn btn-primary mx-auto px-5 py-2 rounded-pill text-center m-t--60"
+                    @route="perfil.autoridades"
+                    @model={{this.model.profile.id}}
+                  >
+                    Ver más <FaIcon @icon="chevron-down" class="ml-2" />
+                  </LinkTo>
+                </div>
+              </div>
+            </div>
+          {{else}}
+            <p class="px-5 pt-3">No hay información</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12" id="descripcion">
+    <div class="panel">
+      <div class="header d-flex bg-primary text-uppercase">
+        <img src="img/PP-18.png" alt="Hospital" height="30px" width="auto" class="mr-2">
+        <h3 id="descripcion">
+          Linea y/o Procedimientos de denuncia
+        </h3>
+      </div>
+      <div>
+        <div class="body p-5">
+          {{#if this.model.profile.descripcion}}
+            <p>{{this.model.profile.descripcion}}</p>
+          {{else}}
+            <p class="px-5 pt-3">No hay información</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12" id="descripcion">
+    <div class="panel">
+      <div class="header d-flex bg-primary text-uppercase">
+        <img src="img/PP-19.png" alt="Hospital" height="30px" width="auto" class="mr-2">
+        <h3 id="descripcion">
+          documentos legales
+        </h3>
+      </div>
+      <div>
+        <div class="body p-5">
+          {{#if this.model.profile.descripcion}}
+            <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
+              <div class="w-75">
+                Programa base (Documento Programáticos)
+              </div>
+              <div class="w-25">
+                <button type="button" class="btn btn-block btn-secondary rounded-pill text-uppercase">
+                  <img height="20px" src="img/PP-34.png" alt="Descarga">
+                  Descargar Documento
+                </button>
+              </div>
+            </div>
+            <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
+              <div class="w-75">
+                Programa base (Documento Programáticos)
+              </div>
+              <div class="w-25">
+                <button type="button" class="btn btn-block btn-secondary rounded-pill text-uppercase">
+                  <img height="20px" src="img/PP-34.png" alt="Descarga">
+                  Descargar Documento
+                </button>
+              </div>
+            </div>
+            <div class="w-100 py-4 d-flex font-weight-bold">
+              <div class="w-75">
+                Programa base (Documento Programáticos)
+              </div>
+              <div class="w-25">
+                <button type="button" class="btn btn-block btn-secondary rounded-pill text-uppercase">
+                  <img height="20px" src="img/PP-34.png" alt="Descarga">
+                  Descargar Documento
+                </button>
+              </div>
+            </div>
+          {{else}}
+            <p class="px-5 pt-3">No hay información</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12" id="descripcion">
+    <div class="panel">
+      <div class="header d-flex bg-primary text-uppercase">
+        <img src="img/PP-20.png" alt="Hospital" height="30px" width="auto" class="mr-2">
+        <h3 id="descripcion">
+          FUENTE DE INFORMACIÓN
+        </h3>
+      </div>
+      <div>
+        <div class="body p-5">
+          {{#if this.model.profile.descripcion}}
+            <table class="table text-uppercase">
+              <thead class="border-0">
+                <tr class="border-0">
+                  <th class="border-top-0" scope="col">No.</th>
+                  <th class="border-top-0" scope="col">Fuente</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>LOREM IPSUM ITSELF</td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>LOREM IPSUM ITSELF</td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>LOREM IPSUM ITSELF</td>
+                </tr>
+              </tbody>
+            </table>
+          {{else}}
+            <p class="px-5 pt-3">No hay información</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{!-- Autoridades --}}
   {{!-- <div class="row">
     <div class="col-12">
       <div class="panel">
@@ -198,304 +369,3 @@
       </div>
     </div>
   </div> --}}
-  {{!-- Abastecimiento --}}
-  <div class="row">
-    <div class="col-12" id="abastecimiento">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/icono-15.png" alt="Guantes" height="30px" width="auto" class="mr-2">
-          <h3>
-            Abastecimiento
-          </h3>
-        </div>
-        <div>
-          <div class="body p-1">
-            <EmberChart @type="horizontalBar" @data={{this.trazadores}} @options={{this.options}} @class="p-0 p-lg-5 my-4" />
-            <EmberChart @type="horizontalBar" @data={{this.medicamentos1M}} @options={{this.options}} @class="p-0 p-lg-5" />
-            <EmberChart @type="horizontalBar" @data={{this.medicamentos3M}} @options={{this.options}} @class="p-0 p-lg-5" />
-            <div class="p-4 d-flex">
-              <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
-              <div>
-                <h6>Actualizado el: {{this.FechaAbastecimiento.dato}}</h6>
-                <small class="text-muted">Fuente: {{this.FuenteAbastecimiento.dato}}</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {{!-- Compras --}}
-  <div class="row">
-    <div class="col-12" id="compras">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/icono-19.png" alt="Guantes" height="30px" width="auto" class="mr-2">
-          <h3>
-            Compras
-          </h3>
-        </div>
-        <div>
-          <div class="body p-0">
-            {{#if this.compras}}
-            <div class="table-responsive thead-secondary">
-              <EmberTable class="table border" as |t|>
-                <t.head
-                  @columns={{this.comprasColumns}}
-                  @sorts={{this.sortsCompras}}
-                  @onUpdateSorts={{fn (mut this.sortsCompras)}}
-                as |h|>
-                  <h.row as |r|>
-                    <r.cell class="align-middle" as |column|>
-                      {{#if (eq column.name "Categoria")}}
-                        <img src="img/icono-4.png" alt="Lista" height="30px" width="auto" class="mr-2">
-                      {{/if}}
-                      {{#if (eq column.name "Equipos")}}
-                        <img src="img/icono-5.png" alt="Botiquín" height="30px" width="auto" class="mr-2">
-                      {{/if}}
-                      {{#if (eq column.name "Unidades")}}
-                        <img src="img/icono-6.png" alt="Lista" height="30px" width="auto" class="mr-2">
-                      {{/if}}
-                      {{#if (eq column.name "ModalidadLCE")}}
-                        <img src="img/icono-7.png" alt="Moneda girando" height="30px" width="auto" class="mr-2">
-                      {{/if}}
-                      {{#if (eq column.name "Estatus")}}
-                        <img src="img/icono-10.png" alt="Reloj" height="30px" width="auto" class="mr-2">
-                      {{/if}}
-                      {{#if (eq column.name "Monto")}}
-                        <img src="img/icono-11.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
-                      {{/if}}
-                      {{#if (eq column.name "Fecha")}}
-                        <img src="img/icono-9.png" alt="Bolsa" height="30px" width="auto" class="mr-2">
-                      {{/if}}
-                      {{column.name}}
-
-                      {{#if this.meta.isSorted}}
-                        {{#if this.meta.isSortedAsc}}
-                          <FaIcon @icon="sort-down" />
-                        {{else}}
-                          <FaIcon @icon="sort-up" />
-                        {{/if}}
-                      {{else}}
-                        <FaIcon @icon="sort" />
-                      {{/if}}
-                    </r.cell>
-                  </h.row>
-                </t.head>
-                <t.body @rows={{this.comprasPaginated}} as |b|>
-                  <b.row as |r|>
-                    <r.cell as |value column|>
-                      <span class="{{if (eq column.name "Monto") "text-secondary"}}">
-                        {{#if column.money }}
-                          {{format-number value format='DECIMAL_CURRENCY'}}
-                        {{else}}
-                          {{value}} {{if column.percentage "%"}}
-                        {{/if}}
-                      </span>
-                    </r.cell>
-                  </b.row>
-                </t.body>
-                {{!-- <t.foot @rows={{this.footCompras}} as |f|>
-                  <f.row as |r|>
-                    <r.cell as |value column|>
-                      <strong class={{if (eq column.name "Monto") "text-secondary"}}>
-                        {{if (eq column.name "Monto") "Q"}} {{value}} {{if column.percentage "%"}}
-                      </strong>
-                    </r.cell>
-                  </f.row>
-                </t.foot> --}}
-              </EmberTable>
-              <div class="d-flex w-100">
-                <nav aria-label="Page navigation" class="mx-auto">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <button type="button" class="page-link" href="#" aria-label="Previous" {{on "click" (fn this.prevPage)}}>
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                      </button>
-                    </li>
-                    {{#each this.pages as |page|}}
-                      <li class="page-item {{if (eq this.page page) "active"}}">
-                        <button type="button" class="page-link" {{on "click" (fn this.selectPage page)}}>
-                          {{page}}
-                        </button>
-                      </li>
-                    {{/each}}
-                    <li class="page-item">
-                      <button type="button" class="page-link" href="#" aria-label="Next" {{on "click" (fn this.nextPage)}}>
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                      </button>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              <div class="p-4 d-flex">
-                <img src="img/icono-2.png" alt="Tiempo" height="30px" width="auto" class="mr-3 my-auto">
-                <div>
-                  <h6>Actualizado el: {{this.FechaCompras.dato}}</h6>
-                  <small class="text-muted">Fuente: {{this.FuenteCompras.dato}}</small>
-                </div>
-              </div>
-            </div>
-            {{else}}
-              <p class="px-5 pt-3">No hay información</p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{{/if}}
-
-{{!-- Profile panels --}}
-{{#if (eq this.model.profile._internalModel.modelName "profile")}}
-  {{! Experiencia Profesional }}
-  <div class="row">
-    <div class="col-md-6">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          {{!-- <img src="img/icono-historial.png" alt="Experiencia Profesional"> --}}
-          <h3>
-            Experiencia Profesional
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if this.model.profile.experienciaProfesional}}
-              <p>
-                {{this.model.profile.experienciaProfesional}}
-              </p>
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-    {{! Experiencia Académica }}
-    <div class="col-md-6">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          {{!-- <img src="img/icono-experiencia-academica.png" alt="Experiencia Académica"> --}}
-          <h3>
-            Experiencia Académica
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if this.model.profile.experienciaAcademica}}
-              <p>
-                {{this.model.profile.experienciaAcademica}}
-              </p>
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{{/if}}
-
-{{#if (eq this.model.profile._internalModel.modelName "election")}}
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/icono-requisitos.png" alt="Documentos">
-          <h3>
-            Requisitos
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if this.model.profile.requisitos}}
-              <p>
-                {{this.model.profile.requisitos}}
-              </p>
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Grupo de personas">
-          <h3>
-            Comisión de Postulación
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if this.model.profile.comision}}
-              <p>
-                {{this.model.profile.comision}}
-              </p>
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/icono-infografia.png" alt="Icono de graficas">
-          <h3>
-            Infografia
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if this.model.profile.infografiaURL}}
-              <img src={{this.model.profile.infografiaURL}} alt="Infografia URL">
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <h3>
-            Cronograma
-          </h3>
-        </div>
-        <div>
-          <div class="body p-4">
-            {{#if this.model.profile.cronogramaURL}}
-              <img src={{this.model.profile.cronogramaURL}} alt="Cronograma">
-            {{else}}
-              <p class="px-5 pt-3">
-                No hay información
-              </p>
-            {{/if}}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-{{/if}}

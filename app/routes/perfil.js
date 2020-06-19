@@ -54,7 +54,8 @@ export default class PerfilRoute extends Route {
 
           return compra;
         })),
-        consultas: this.spreadsheets.fetch('consultas')
+        consultas: this.spreadsheets.fetch('consultas'),
+        profiles: this.store.findAll('profile')
         // profiles: this.store.query('profile', {
         //   institution: profile.id
         // }),

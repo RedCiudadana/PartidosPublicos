@@ -10,7 +10,8 @@ module.exports = function() {
       'envelope',
       'sort-down',
       'sort-up',
-      'sort'
+      'sort',
+      'chevron-down'
     ]
   };
 };

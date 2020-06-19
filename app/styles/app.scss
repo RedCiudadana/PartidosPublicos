@@ -573,10 +573,6 @@ h6 {
   }
 }
 
-.panel .header img {
-  filter: brightness(0) invert(1) !important;
-}
-
 .popover {
   .arrow {
     opacity: 0;
@@ -741,7 +737,7 @@ h6 {
         @extend .rounded;
         border-width: 0 !important;
         font-weight: 400;
-        background-color: $warning !important;
+        background-color: $secondary !important;
         color: white !important;
         .img-white {
           filter: brightness(0) invert(1);
