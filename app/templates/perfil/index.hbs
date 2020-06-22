@@ -1,3 +1,13 @@
+<div id="social-media-fixed-bar">
+  <nav>
+    <button class="btn bg-white rounded-0 text-dark border-bottom" type="button">
+      <FaIcon @icon="facebook-f" @prefix="fab" />
+    </button>
+    <button class="btn bg-white rounded-0 text-dark" type="button">
+      <FaIcon @icon="twitter" @prefix="fab" />
+    </button>
+  </nav>
+</div>
 {{!-- <div class="col-12 p-0 border shadow-sm bg-white rounded pills mt-4">
   <BsNav
     @type="pills"
@@ -90,7 +100,7 @@
     </div>
   {{/if}}
   {{#if (eq this.model.profile._internalModel.modelName "institution")}}
-    <div class="col-md-3 text-left border-left pl-5">
+    <div class="col-md-3 text-left border-left pl-2 pl-lg-5">
       <h6 class="text-uppercase">Contacto</h6>
       {{!-- Página web --}}
       {{#if this.model.profile.paginaweb}}

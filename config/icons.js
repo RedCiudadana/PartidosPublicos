@@ -2,6 +2,7 @@ module.exports = function() {
   return {
     'free-brands-svg-icons': [
       'facebook-square',
+      'facebook-f',
       'twitter'
     ],
     'free-solid-svg-icons': [

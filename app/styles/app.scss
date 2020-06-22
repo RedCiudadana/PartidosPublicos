@@ -840,3 +840,22 @@ h6 {
 .h-60vh {
   height: 60vh;
 }
+
+// Social media
+
+#social-media-fixed-bar {
+  position: fixed;
+  right: 0;
+  top: 30%;
+  display: block;
+
+  nav {
+    display: block;
+    text-align: right;
+
+    button {
+      display: block;
+      width: 100%;
+    }
+  }
+}
