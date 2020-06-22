@@ -41,32 +41,39 @@ $border-radius: 5px;
  */
 
 @font-face {
-  font-family: '@BoldFont';
+  font-family: '@PrimaryFont';
+  src: url(/fonts/Aileron-Black.otf) format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: '@PrimaryFont';
   src: url(/fonts/Aileron-Bold.otf) format('opentype');
   font-weight: 700;
 }
 
 @font-face {
-  font-family: '@SemiBoldFont';
+  font-family: '@PrimaryFont';
   src: url(/fonts/Aileron-SemiBold.otf) format('opentype');
   font-weight: 600;
 }
 
 @font-face {
-  font-family: '@Regular';
+  font-family: '@PrimaryFont';
   src: url(/fonts/Aileron-Regular.otf) format('opentype');
   font-weight: 400;
 }
 
 .font-weight-semibold {
-  font-family: '@SemiBoldFont';
+  font-family: '@PrimaryFont';
+  font-weight: 600;
 }
 
 // HTML
 
 body,
 a {
-  font-family: '@Regular';
+  font-family: '@PrimaryFont';
   color: #3f3e3b;
 }
 
@@ -86,7 +93,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: '@BoldFont';
+  font-family: '@PrimaryFont';
+  font-weight: bold;
 }
 
 // Pagination
@@ -527,7 +535,8 @@ h6 {
     a {
       padding: 5px 15px;
       border-radius: 160px;
-      font-family: '@BoldFont';
+      font-family: '@PrimaryFont';
+      font-weight: bold;
       line-height: 0.85rem !important;
     }
 
@@ -818,4 +827,16 @@ h6 {
 
 .w-200px {
   width: 200px;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+.h-80vh {
+  height: 80vh;
+}
+
+.h-60vh {
+  height: 60vh;
 }

@@ -4,7 +4,7 @@ export default class ApplicationController extends Controller {
   links = [
     {
       text: '¿Qué es?',
-      route: 'index',
+      route: 'quees',
       model: null
     },
     {
@@ -19,7 +19,7 @@ export default class ApplicationController extends Controller {
     },
     {
       text: 'Índice',
-      route: 'index',
+      route: 'indice',
       model: null
     },
   ]
