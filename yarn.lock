@@ -6629,7 +6629,7 @@ ember-scroll-to-target@^1.0.0:
 
 "ember-social-share@https://github.com/D3AH/ember-social-share":
   version "0.3.4"
-  resolved "https://github.com/D3AH/ember-social-share#e852860e2ec21fedde9e99189e2d9a6bdcac8ed1"
+  resolved "https://github.com/D3AH/ember-social-share#03c78aee30b1b43d2d9a26efe6c620e71a4d7854"
   dependencies:
     "@fortawesome/ember-fontawesome" "^0.2.1"
     "@fortawesome/free-brands-svg-icons" "^5.1.0-11"

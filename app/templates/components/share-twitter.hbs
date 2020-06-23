@@ -1,4 +1,7 @@
-<TwitterShareButton @title="PartidosPublicos - Conoce las acciones, gasto e inversión que realiza el Ministerio de Salud para enfrentar la emergencia de COVID 19" @hashtags="PartidosPublicos" @via="Redxguate">
-  Tweet
+<TwitterShareButton @title="PartidosPublicos - Conoce las acciones, gasto e inversión que realiza el Ministerio de Salud para enfrentar la emergencia de COVID 19" @hashtags="PartidosPublicos" @via="Redxguate" @default={{not (has-block)}} ...attributes>
+  {{#if (has-block)}}
+    {{yield}}
+  {{else}}
+    Tweet
+  {{/if}}
 </TwitterShareButton>
-{{yield}}

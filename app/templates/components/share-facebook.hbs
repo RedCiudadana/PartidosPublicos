@@ -1,4 +1,7 @@
-<FbShareButton @quote="PartidosPublicos - Conoce las acciones, gasto e inversión que realiza el Ministerio de Salud para enfrentar la emergencia de COVID 19" @hashtags="PartidosPublicos, RedCiudadana">
-  Compartir
+<FbShareButton @quote="PartidosPublicos - Conoce las acciones, gasto e inversión que realiza el Ministerio de Salud para enfrentar la emergencia de COVID 19" @hashtags="PartidosPublicos, RedCiudadana" @default={{not (has-block)}} ...attributes>
+  {{#if (has-block)}}
+    {{yield}}
+  {{else}}
+    Compartir
+  {{/if}}
 </FbShareButton>
-{{yield}}
