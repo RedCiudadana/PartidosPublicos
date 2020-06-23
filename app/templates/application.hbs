@@ -2,6 +2,19 @@
 
 {{title "PartidosPublicos - RedCiudadana"}}
 
+
+{{!-- Fixed social bar --}}
+<div id="social-media-fixed-bar">
+  <nav>
+    <ShareFacebook class="btn bg-white rounded-0 text-dark border-bottom">
+      <FaIcon @icon="facebook-f" @prefix="fab" />
+    </ShareFacebook>
+    <ShareTwitter class="btn bg-white rounded-0 text-dark">
+      <FaIcon @icon="twitter" @prefix="fab" />
+    </ShareTwitter>
+  </nav>
+</div>
+
 {{!-- Navbar --}}
 <BsNavbar id="navbar" class="shadow-sm" @toggleBreakpoint="xl" @backgroundColor="white" @type="light" @position="sticky-top" @fluid={{true}} as |navbar|>
   <div class="navbar-header">
