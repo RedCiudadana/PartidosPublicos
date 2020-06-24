@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 -  Add fixed social bar
 
+### Changed
+- Start using `google-spreadsheet` instead `tabletop`, because `tabletop` is deprecated. However `google-spreadsheet` is a nice speed improvement.
+
 ## [0.7.0]
 ### Added
 - Add cached data to spreadsheet service and ember-data adapter.

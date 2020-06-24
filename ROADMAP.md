@@ -10,8 +10,5 @@
 + Mejorar component img-with-fallback
 + Mejoras estilos
 
-# 1.2.0
-+ Mejorar ember-social-share: agregar otros componentes.
-
 # 1.0.0
 + Evaluar posibilidades de prerenderizar algunos elementos.
