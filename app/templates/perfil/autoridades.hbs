@@ -11,20 +11,20 @@
         <nav aria-label="Page navigation example">
           <ul class="pagination">
             <li class="page-item">
-              <button class="page-link" href="#" aria-label="Previous" {{on "click" this.prevPage}}>
+              <button type="button" class="page-link" href="#" aria-label="Previous" {{on "click" this.prevPage}}>
                 <span aria-hidden="true">&laquo;</span>
                 <span class="sr-only">Previous</span>
               </button>
             </li>
             {{#each this.pages as |page|}}
               <li class="page-item {{if (eq this.page page) "active"}}">
-                <button class="page-link" {{on "click" (fn this.selectPage page)}}>
+                <button type="button" class="page-link" {{on "click" (fn this.selectPage page)}}>
                   {{page}}
                 </button>
               </li>
             {{/each}}
             <li class="page-item">
-              <button class="page-link" href="#" aria-label="Next" {{on "click" this.nextPage}}>
+              <button type="button" class="page-link" href="#" aria-label="Next" {{on "click" this.nextPage}}>
                 <span aria-hidden="true">&raquo;</span>
                 <span class="sr-only">Next</span>
               </button>
