@@ -10,6 +10,16 @@ export default class IndexRoute extends Route {
   setupController(controller, model) {
     super.setupController(controller, model);
 
+    if(model.profile._internalModel.modelName === 'partido') {
+      controller.set('campos',{
+        nombre: 'Nombre',
+        lema: 'Lema',
+        fundacion: 'Fundación',
+        direccion: 'Dirección',
+        telefono: 'Teléfono'
+      });
+    }
+
     if(model.profile._internalModel.modelName === 'institution') {
       controller.set('campos',{
         horarioVisita: 'Horario de atención',
@@ -48,10 +58,5 @@ export default class IndexRoute extends Route {
         charge: true
       });
     }
-
-    controller.set('FuenteAbastecimiento', model.consultas.findBy('variable', 'FuenteAbastecimiento'));
-    controller.set('FechaAbastecimiento', model.consultas.findBy('variable', 'FechaAbastecimiento'));
-    controller.set('FuenteCompras', model.consultas.findBy('variable', 'FuenteCompras'));
-    controller.set('FechaCompras', model.consultas.findBy('variable', 'FechaCompras'));
   }
 }

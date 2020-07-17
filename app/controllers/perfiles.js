@@ -8,7 +8,8 @@ const resolver = {
   institution: "hospitales",
   election: "elecciones",
   profile: "perfiles",
-  partido: "partidos"
+  partido: "partidos",
+  autoridad: 'autoridades'
 };
 
 const array_chunks = (array, chunk_size) =>

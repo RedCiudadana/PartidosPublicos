@@ -8,7 +8,8 @@ const resolver = {
   hospitales: 'institution',
   elecciones: 'election',
   perfiles: 'profile',
-  partidos: 'partido'
+  partidos: 'partido',
+  autoridades: 'autoridad'
 };
 
 /**
@@ -44,35 +45,13 @@ export default class PerfilRoute extends Route {
    * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, currentParty, profileGeneralInformationConfiguration, profiles, avaibleDocuments, dataTableGradation, totalGraduationScore, profileFunctions, entre otros.
    */
   model({ model, id}) {
-    console.log(resolver[model]);
     return this.store.findRecord(resolver[model], id).then((profile) => {
       return hash({
         config: {},
         profile: profile,
-        // compras: this.spreadsheets.fetch('compras').then((compras) => compras.filterBy('id', profile.id).map((compra) => {
-        //   if (typeOf(compra.Monto) === 'string') {
-        //     compra.Monto = parseFloat(compra.Monto.replace('Q','').replace(' ', '').replace(/,/g, ''));
-        //   }
-
-        //   return compra;
-        // })),
-        consultas: this.spreadsheets.fetch('consultas'),
-        profiles: this.store.findAll('profile')
-        // profiles: this.store.query('profile', {
-        //   institution: profile.id
-        // }),
-        // elections: this.store.query('election', {
-        //   institution: profile.id
-        // }),
-        // candidates: this.store.query('profile', {
-        //   election: profile.id
-        // }),
-        // comissioners: this.store.query('profile', {
-        //   comission: profile.id
-        // }),
-        // presupuesto: this.store.query('presupuesto', {
-        //   institution: profile.id
-        // })
+        profiles: this.store.query('autoridad', {
+          partidoId: profile.id
+        })
       });
     });
   }

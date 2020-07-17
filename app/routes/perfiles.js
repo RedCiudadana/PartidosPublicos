@@ -3,7 +3,7 @@ import Route from '@ember/routing/route';
 const resolver = {
   hospitales: 'institution',
   elecciones: 'election',
-  autoridades: 'profile',
+  autoridades: 'autoridad',
   partidos: 'partido'
 };
 

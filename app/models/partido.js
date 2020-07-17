@@ -16,7 +16,7 @@ export default class Partido extends Model {
   siglas;
 
   @attr('string')
-  LogoURL;
+  logoURL;
 
   @attr('string')
   lema;
@@ -31,16 +31,16 @@ export default class Partido extends Model {
   direccion;
 
   @attr('string')
-  web;
+  paginaWeb;
 
   @attr('string')
-  mail;
+  correo;
 
   @attr('string')
-  fb;
+  facebook;
 
   @attr('string')
-  tw;
+  twitter;
 
   @attr('string')
   historia;
@@ -86,7 +86,7 @@ export default class Partido extends Model {
  // Computed
 
  @computed('logoURL')
- get logo() {
+ get photo() {
    if (this.logoURL) {
      return this.logoURL;
    }

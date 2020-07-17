@@ -53,13 +53,13 @@
       </a>
     </div>
   {{/if}}
-  {{#if (eq this.model.profile._internalModel.modelName "institution")}}
+  {{#if (eq this.model.profile._internalModel.modelName "partido")}}
     <div class="col-md-3 text-left border-left pl-2 pl-lg-5">
       <h6 class="text-uppercase">Contacto</h6>
       {{!-- Página web --}}
       {{#if this.model.profile.paginaweb}}
         <div>
-          <a href="//{{this.model.profile.paginaweb}}" target="_blank" rel="noopener noreferrer">
+          <a href="//{{this.model.profile.paginaWeb}}" target="_blank" rel="noopener noreferrer">
             <img src="img/icono-web.png" height="20px" alt="Página web">
             Visitar página web
           </a>
@@ -70,7 +70,7 @@
         <div>
           <a href="https://twitter.com/{{twitter-link this.model.profile.twitter}}" target="_blank" rel="noopener noreferrer">
             <img src="img/icono-tw.png" height="20px" alt="Twitter">
-            @{{twitter-link this.model.profile.twitter}}
+            {{twitter-link this.model.profile.twitter}}
           </a>
         </div>
       {{/if}}
@@ -129,8 +129,8 @@
       </div>
       <div>
         <div class="body p-5">
-          {{#if this.model.profile.descripcion}}
-            <p>{{this.model.profile.descripcion}}</p>
+          {{#if this.model.profile.principios}}
+            <p>{{this.model.profile.principios}}</p>
           {{else}}
             <p class="px-5 pt-3">No hay información</p>
           {{/if}}
@@ -157,19 +157,21 @@
               @pagination={{false}}
               @paginationSize={{4}}
             />
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-12 text-center mb-4">
-                  <LinkTo
-                    class="btn btn-primary mx-auto px-5 py-2 rounded-pill text-center m-t--60"
-                    @route="perfil.autoridades"
-                    @model={{this.model.profile.id}}
-                  >
-                    Ver más <FaIcon @icon="chevron-down" class="ml-2" />
-                  </LinkTo>
+            {{#if (gt this.profiles.length 4)}}
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-12 text-center mb-4">
+                    <LinkTo
+                      class="btn btn-primary mx-auto px-5 py-2 rounded-pill text-center m-t--60"
+                      @route="perfil.autoridades"
+                      @model={{this.model.profile.id}}
+                    >
+                      Ver más <FaIcon @icon="chevron-down" class="ml-2" />
+                    </LinkTo>
+                  </div>
                 </div>
               </div>
-            </div>
+            {{/if}}
           {{else}}
             <p class="px-5 pt-3">No hay información</p>
           {{/if}}
@@ -179,18 +181,18 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12" id="descripcion">
+  <div class="col-12" id="denuncia">
     <div class="panel">
       <div class="header d-flex bg-primary text-uppercase">
         <img src="img/PP-18.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-        <h3 class="text-white" id="descripcion">
+        <h3 class="text-white" id="denuncia">
           Linea y/o Procedimientos de denuncia
         </h3>
       </div>
       <div>
         <div class="body p-5">
-          {{#if this.model.profile.descripcion}}
-            <p>{{this.model.profile.descripcion}}</p>
+          {{#if this.model.profile.denuncia}}
+            <p>{{this.model.profile.denuncia}}</p>
           {{else}}
             <p class="px-5 pt-3">No hay información</p>
           {{/if}}
