@@ -7,7 +7,8 @@ import { hash } from 'rsvp';
 const resolver = {
   hospitales: 'institution',
   elecciones: 'election',
-  perfiles: 'profile'
+  perfiles: 'profile',
+  partidos: 'partido'
 };
 
 /**
@@ -43,6 +44,7 @@ export default class PerfilRoute extends Route {
    * @return {Object} Datos del perfil según el id. Algunos campos son: config, perfil, institucion, currentParty, profileGeneralInformationConfiguration, profiles, avaibleDocuments, dataTableGradation, totalGraduationScore, profileFunctions, entre otros.
    */
   model({ model, id}) {
+    console.log(resolver[model]);
     return this.store.findRecord(resolver[model], id).then((profile) => {
       return hash({
         config: {},

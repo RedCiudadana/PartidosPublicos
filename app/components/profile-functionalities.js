@@ -6,7 +6,7 @@ export default class ProfileFunctionalities extends Component {
 
   get links() {
     if (this.args.model.profile) {
-      if (this.args.model.profile._internalModel.modelName === 'institution') {
+      if (this.args.model.profile._internalModel.modelName === 'partido') {
         return A([
           {
             route: 'perfil.index',

@@ -1,6 +1,6 @@
 // MiSalud
 
-$primary: #0f425e;
+$primary: #202d3e;
 $secondary: #43bca6;
 $info: #27aae1;
 
@@ -85,6 +85,7 @@ h5,
 h6,
 strong {
   font-weight: bold;
+  color: $primary;
 }
 
 h1,
@@ -594,7 +595,7 @@ h6 {
   background-image: url('/img/slider-1-horizontal.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
 
   .row {
     height: 150vw;
@@ -841,9 +842,16 @@ h6 {
   height: 60vh;
 }
 
+@include media-breakpoint-up(md) {
+  .w-md-auto {
+    width: auto !important;
+  }
+}
+
 // Social media
 
 #social-media-fixed-bar {
+  z-index: 100;
   position: fixed;
   right: 0;
   top: 30%;
@@ -858,4 +866,10 @@ h6 {
       width: 100%;
     }
   }
+}
+
+// Indice
+#indice-header-table .col-2 img {
+  width: 100%;
+  max-width: 65px;
 }

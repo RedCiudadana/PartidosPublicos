@@ -25,7 +25,7 @@
     {{!-- Intitution or Election --}}
     <div class="card px-0 border-0 h-100 {{@profile.selector}}">
       <div class="img-wrapper">
-        <img alt={{@profile.name}} src={{@profile.photo}} class="card-img-top">
+        <ImgWithFallback alt={{@profile.name}} src="http://error.com" class="card-img-top" />
       </div>
       <div class="card-body text-center pt-lg-4 px-lg-4 pb-lg-2">
         <h6 class="card-title">{{@profile.name}}{{@profile.nombre}}</h6>

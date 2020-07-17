@@ -1,8 +1,10 @@
-<div class="container d-none">
+<div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8 py-5 text-center">
-      {{#if (eq this.model.firstObject._internalModel.modelName "profile")}}
-        <h2>Autoridades del MSPAS</h2>
+      {{#if (eq this.model.firstObject._internalModel.modelName "partido")}}
+        <h2>
+          Buscar Partidos políticos
+        </h2>
         <PowerSelect
           @placeholder="Busqueda"
           @searchEnabled={{true}}

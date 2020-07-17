@@ -30,7 +30,7 @@
       @fill={{false}}
     as |nav|>
       {{#each this.links as |link|}}
-        <nav.item>
+        <nav.item class="w-100 w-md-auto">
           <nav.link-to @route={{link.route}} @disabled={{link.disabled}} class="p-0">
             {{#if link.img}}
               <img src={{link.img}} alt={{link.text}} height="25px" class="img-white">

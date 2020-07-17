@@ -9,79 +9,68 @@ import Model, { attr, hasMany } from '@ember-data/model';
 export default class Partido extends Model {
  // Attributes
 
- /**
-  * Código - Abreviación
-  *
-  * @property codigo
-  */
- @attr()
- codigo;
+  @attr('string')
+  nombreCompleto;
 
- /**
-  * Nombre completo
-  *
-  * @property nombreCompleto
-  * @type String
-  */
- @attr('string')
- nombreCompleto;
+  @attr('string')
+  siglas;
 
- /**
-  * Nombre corto
-  *
-  * @property nombre
-  * @type String
-  */
- @attr('string')
- nombreCorto;
+  @attr('string')
+  LogoURL;
 
- /**
-  * Fecha Inscripción
-  *
-  * @property fechaInscripcion
-  * @type String
-  */
- @attr('string')
- fechaInscripcion;
+  @attr('string')
+  lema;
 
- /**
-  * Secretario General
-  *
-  * @property secretarioGeneral
-  * @type String
-  */
- @attr('string')
- secretarioGeneral;
+  @attr('string')
+  fundacion;
 
- /**
-  * Perfil de Facebook, la URL.
-  *
-  * @property fb
-  * @type String
-  */
- @attr('string')
- fb;
+  @attr('string')
+  telefono;
 
- /**
-  * Perfil de Twitter, la URL.
-  *
-  * @property tw
-  * @type String
-  */
- @attr('string')
- tw;
+  @attr('string')
+  direccion;
 
- /**
-  * Logo
-  *
-  * @property logo
-  * @type String
-  */
- @attr('string')
- logoURL;
+  @attr('string')
+  web;
 
- @attr('string')
- numeroAfiliados;
+  @attr('string')
+  mail;
+
+  @attr('string')
+  fb;
+
+  @attr('string')
+  tw;
+
+  @attr('string')
+  historia;
+
+  @attr('string')
+  principios;
+
+  @attr('string')
+  programaURL;
+
+  @attr('string')
+  escrituraURL;
+
+  @attr('string')
+  estatutosURL;
+
+  @attr('string')
+  procedimientosURL;
+
+  @attr('string')
+  eticaURL;
+
+  @attr('string')
+  procedimientosTransparenciaURL;
+
+  @attr('string')
+  denuncia;
+
+  @attr('string')
+  procedimientosAfiliacion;
 
  // Relationships
 
@@ -103,5 +92,9 @@ export default class Partido extends Model {
    }
 
    return 'img/partido-default.png';
+ }
+
+ get nombre() {
+   return this.nombreCompleto;
  }
 }
