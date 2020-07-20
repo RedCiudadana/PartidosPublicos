@@ -23,7 +23,7 @@ module.exports = function(environment) {
         name: 'GoogleAnalytics',
         environments: ['production'],
         config: {
-          id: 'UA-129113306-1',
+          id: 'UA-148510552-2',
           sendHitTask: environment !== 'development'
         }
       }
