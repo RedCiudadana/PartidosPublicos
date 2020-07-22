@@ -1,0 +1,63 @@
+<div class="w-100 h-min-60vh bg-light">
+  <div class="container py-5">
+    <div class="row pt-5 pb-4">
+      <div class="col-12 col-md-6">
+        <div class="power-select-secondary">
+          <PowerSelect
+            @placeholder="Seleccionar partido"
+            @searchEnabled={{true}}
+            @searchField="nombre"
+            @options={{this.model}}
+            @selected={{this.partido1}}
+            @onChange={{fn this.selectPartido1}}
+          as |partido|>
+            {{partido.nombre}}
+          </PowerSelect>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="power-select-primary">
+          <PowerSelect
+            @placeholder="Seleccionar partido"
+            @searchEnabled={{true}}
+            @searchField="nombre"
+            @options={{this.model}}
+            @selected={{this.partido2}}
+            @onChange={{fn this.selectPartido2}}
+          as |partido|>
+            {{partido.nombre}}
+          </PowerSelect>
+        </div>
+      </div>
+    </div>
+    {{#if this.campos}}
+      {{#each this.campos as |row|}}
+        <div class="row mb-4">
+          {{#each row as |column|}}
+            {{#if column}}
+              <div class="col-12 col-md-6">
+                <div class="bg-white p-4">
+                  <p class="m-0">
+                    <span class="text-muted">
+                      {{column.label}}
+                    </span>
+                    <br>
+                    {{column.value}}
+                  </p>
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/each}}
+    {{else}}
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-muted text-center">
+            Seleccionar partidos
+          </h1>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>

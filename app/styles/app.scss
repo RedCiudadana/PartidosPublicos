@@ -873,3 +873,37 @@ h6 {
   width: 100%;
   max-width: 65px;
 }
+
+.power-select-primary {
+  .ember-power-select-trigger {
+    background-color: $primary;
+
+    .ember-power-select-placeholder,
+    .ember-power-select-selected-item {
+      color: white;
+    }
+
+    .ember-power-select-status-icon {
+      border-color: #ffff transparent transparent transparent;
+    }
+  }
+}
+
+.power-select-secondary {
+  .ember-power-select-trigger {
+    background-color: $secondary;
+
+    .ember-power-select-placeholder,
+    .ember-power-select-selected-item {
+      color: white;
+    }
+
+    .ember-power-select-status-icon {
+      border-color: #ffff transparent transparent transparent;
+    }
+  }
+}
+
+.h-min-60vh {
+  min-height: 60vh;
+}

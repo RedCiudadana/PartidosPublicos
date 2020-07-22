@@ -14,7 +14,7 @@ export default class ApplicationController extends Controller {
     },
     {
       text: 'Comparar Partidos',
-      route: 'index',
+      route: 'comparar',
       model: null
     },
     {

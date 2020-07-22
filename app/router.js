@@ -26,4 +26,5 @@ Router.map(function() {
   this.route('perfiles', { path: '/:model'});
   this.route('quees');
   this.route('indice');
+  this.route('comparar');
 });

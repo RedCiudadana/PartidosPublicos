@@ -72,6 +72,13 @@ export default class Partido extends Model {
   @attr('string')
   procedimientosAfiliacion;
 
+  @attr('string')
+  secretarioGeneral;
+
+  @attr('string')
+  secretarioGeneralEnFunciones;
+
+
  // Relationships
 
  /**
