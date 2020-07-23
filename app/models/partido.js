@@ -1,5 +1,6 @@
 import { computed } from '@ember/object';
-import Model, { attr, hasMany } from '@ember-data/model';
+import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
+import { inject as service } from '@ember/service';
 
 /**
  * Model de partido político.
@@ -7,8 +8,10 @@ import Model, { attr, hasMany } from '@ember-data/model';
  * @class Model.Party
  */
 export default class Partido extends Model {
- // Attributes
+  @service()
+  spreadsheets;
 
+ // Attributes
   @attr('string')
   nombreCompleto;
 
