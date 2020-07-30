@@ -13,41 +13,46 @@
       <div class="col-12 mt-3 px-5">
         <div class="w-100 border-top border-bottom">
           <div id="indice-header-table" class="row no-gutters py-4">
-            <div class="col-2 text-center">
+            <div class="text-center" style="width: 14.28%;">
               <img class="mb-2" src="img/PP-25.png" alt="Boleta de partidos politicos" title="Partido Politico">
-              {{!-- <small class="text-uppercase font-weight-bold m-0 d-block">
+              <small class="text-uppercase m-0 d-block">
                 Partido Politico
-              </small> --}}
+              </small>
             </div>
-            <div class="col-2 text-center">
+            <div class="text-center" style="width: 14.28%;">
               <img class="mb-2" src="img/PP-27.png" alt="Boleta de partidos politicos" title="Marco normativo">
-              {{!-- <small class="text-uppercase font-weight-bold m-0 d-block">
+              <small class="text-uppercase m-0 d-block">
                 Marco normativo
-              </small> --}}
+              </small>
             </div>
-            <div class="col-2 text-center">
+            <div class="text-center" style="width: 14.28%;">
               <img class="mb-2" src="img/PP-28.png" alt="Boleta de partidos politicos" title="Estructura y  organización">
-              {{!-- <small class="text-uppercase font-weight-bold m-0 d-block">
+              <small class="text-uppercase m-0 d-block">
                 Estructura y  organización
-              </small> --}}
+              </small>
             </div>
-            <div class="col-2 text-center">
+            <div class="text-center" style="width: 14.28%;">
               <img class="mb-2" src="img/PP-26.png" alt="Boleta de partidos politicos" title="Autoridades y representantes">
-              {{!-- <small class="text-uppercase font-weight-bold m-0 d-block">
+              <small class="text-uppercase m-0 d-block">
                 Autoridades y representantes
-              </small> --}}
+              </small>
             </div>
-            <div class="col-2 text-center">
+            <div class="text-center" style="width: 14.28%;">
               <img class="mb-2" src="img/PP-29.png" alt="Boleta de partidos politicos" title="Origen y Principios">
-              {{!-- <small class="text-uppercase font-weight-bold m-0 d-block">
+              <small class="text-uppercase m-0 d-block">
                 Origen y Principios
-              </small> --}}
+              </small>
             </div>
-            <div class="col-2 text-center">
+            <div class="text-center" style="width: 14.28%;">
               <img class="mb-2" src="img/PP-30.png" alt="Boleta de partidos politicos" title="Financiamientos">
-              {{!-- <small class="text-uppercase font-weight-bold m-0 d-block">
+              <small class="text-uppercase m-0 d-block">
                 Financiamientos
-              </small> --}}
+              </small>
+            </div>
+            <div style="width: 14.28%;" class="text-center d-flex">
+              <small class="text-uppercase my-auto mx-auto">
+                Total
+              </small>
             </div>
           </div>
         </div>
@@ -56,38 +61,50 @@
         {{#each this.model as |partido|}}
           <div class="w-100 border-bottom">
             <div class="row no-gutters py-4">
-              <div class="col-2">
+              <div style="width: 14.28%;">
                 <p class="text-uppercase font-weight-bold my-auto">
-                  <div class="ml-md-2 d-inline">{{partido.nombreCompleto}}</div>
+                  <div class="ml-md-2 d-inline">{{partido.siglas}}</div>
                 </p>
               </div>
-              <div class="col-2">
+              <div style="width: 14.28%;">
                   <div class="w-auto h-100 mx-2 bg-light" style="max-height: 24px;">
                     <div class="bg-secondary h-100" style="width: {{partido.IndiceNormativo}} !important; max-height: 24px;">
+                      <small class="mx-2 text-white">{{partido.IndiceNormativo}}</small>
                     </div>
                   </div>
               </div>
-              <div class="col-2">
+              <div style="width: 14.28%;">
                   <div class="w-auto h-100 mx-2 bg-light" style="max-height: 24px;">
                     <div class="bg-secondary h-100" style="width: {{partido.IndiceEstructura}} !important; max-height: 24px;">
+                      <small class="mx-2 text-white">{{partido.IndiceEstructura}}</small>
                     </div>
                   </div>
               </div>
-              <div class="col-2">
+              <div style="width: 14.28%;">
                   <div class="w-auto h-100 mx-2 bg-light" style="max-height: 24px;">
                     <div class="bg-secondary h-100" style="width: {{partido.IndiceAutoridades}} !important; max-height: 24px;">
+                      <small class="mx-2 text-white">{{partido.IndiceAutoridades}}</small>
                     </div>
                   </div>
               </div>
-              <div class="col-2">
+              <div style="width: 14.28%;">
                   <div class="w-auto h-100 mx-2 bg-light" style="max-height: 24px;">
                     <div class="bg-secondary h-100" style="width: {{partido.IndicePrincipios}} !important; max-height: 24px;">
+                      <small class="mx-2 text-white">{{partido.IndicePrincipios}}</small>
                     </div>
                   </div>
               </div>
-              <div class="col-2">
+              <div style="width: 14.28%;">
                   <div class="w-auto h-100 mx-2 bg-light" style="max-height: 24px;">
                     <div class="bg-secondary h-100" style="width: {{partido.IndiceFinanciamiento}} !important; max-height: 24px;">
+                      <small class="mx-2 text-white">{{partido.IndiceFinanciamiento}}</small>
+                    </div>
+                  </div>
+              </div>
+              <div style="width: 14.28%;">
+                  <div class="w-auto h-100 mx-2 bg-light" style="max-height: 24px;">
+                    <div class="bg-secondary h-100" style="width: {{partido.IndiceTotal}} !important; max-height: 24px;">
+                      <small class="mx-2 text-white">{{partido.IndiceTotal}}</small>
                     </div>
                   </div>
               </div>

@@ -13,6 +13,7 @@ export default class IndiceRoute extends Route {
         indice.IndiceAutoridades = indice.IndiceAutoridades.replace(',', '.');
         indice.IndicePrincipios = indice.IndicePrincipios.replace(',', '.');
         indice.IndiceFinanciamiento = indice.IndiceFinanciamiento.replace(',', '.');
+        indice.IndiceTotal = indice.IndiceTotal.replace(',', '.');
         return indice;
       })
     });
