@@ -31,6 +31,32 @@
       </div>
     </div>
     {{#if this.campos}}
+      <div class="row mb-4">
+        <div class="col-12 col-md-6 text-center">
+          <img
+            width="80px"
+            height="auto"
+            src={{this.partido1.photo}}
+            alt={{this.partido1.nombreCompleto}}
+          >
+          <br>
+          <strong>
+            {{this.partido1.nombreCompleto}}
+          </strong>
+        </div>
+        <div class="col-12 col-md-6 text-center">
+          <img
+            width="80px"
+            height="auto"
+            src={{this.partido2.photo}}
+            alt={{this.partido2.nombreCompleto}}
+          >
+          <br>
+          <strong>
+            {{this.partido2.nombreCompleto}}
+          </strong>
+        </div>
+      </div>
       {{#each this.campos as |row|}}
         <div class="row mb-4">
           {{#each row as |column|}}

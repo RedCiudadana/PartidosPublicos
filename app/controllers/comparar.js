@@ -32,12 +32,12 @@ export default class CompararController extends Controller {
         label: 'Financiamiento',
         value:
           `
-          <strong>Ingresos</strong>: ${Ingresos} <br>
-          <strong>Financiamiento publico</strong> ${FinanciamientoPublico} <br>
-          <strong>Financiamiento privado</strong> ${FinanciamientoPrivado} <br>
-          <strong>Autofinanciamiento</strong> ${AutoFinanciamiento} <br>
-          <strong>Otros ingresos</strong> ${OtrosIngresos} <br>
-          <strong>Egresos</strong> ${Egresos} <br>
+          Ingresos: ${Ingresos} <br>
+          Financiamiento publico ${FinanciamientoPublico} <br>
+          Financiamiento privado ${FinanciamientoPrivado} <br>
+          Autofinanciamiento ${AutoFinanciamiento} <br>
+          Otros ingresos ${OtrosIngresos} <br>
+          Egresos ${Egresos} <br>
           `,
         isSafeString: true
       };
