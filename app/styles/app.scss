@@ -907,3 +907,9 @@ h6 {
 .h-min-60vh {
   min-height: 60vh;
 }
+
+@include media-breakpoint-up(md) {
+  .border-md-left {
+    border-left: 2px solid $border-color !important;
+  }
+}

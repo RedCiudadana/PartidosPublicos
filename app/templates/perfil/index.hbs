@@ -1,108 +1,112 @@
-<div class="row m-1 my-4 bg-white panel py-5" id="info">
-  {{!-- Imagen --}}
-  <div class="col-md-3 text-center">
-    <img
-      id="photo-profile"
-      src={{this.model.profile.photo}}
-      alt={{this.model.profile.nombre}}
-      border="0"
-      class="img-responsive center-block mb-4 mb-md-0"
-    >
-  </div>
-  {{!-- Información general --}}
-  <div class="col pr-5">
-    <h3>{{this.model.profile.nombre}}</h3>
-    <table class="table w-100">
-      <tbody>
-        {{#each-in this.campos as |key campo|}}
-          <tr class="border-0">
-            <td class="border-0 p-1">
-              <strong>{{campo}}: </strong> {{get this.model.profile key}}
-            </td>
-          </tr>
-        {{/each-in}}
-      </tbody>
-    </table>
-  </div>
-  {{#if (eq this.model.profile._internalModel.modelName "profile")}}
-    <div class="col-md-3 text-center align-self-center">
-      <h6>Documentos</h6>
-      <a
-        href={{this.model.profile.cv}}
-        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty this.model.profile.cv) "disabled"}}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Hoja de vida (PDF)
-      </a>
-      <a
-        href={{this.model.profile.expediente}}
-        class="btn btn-primary text-white w-100 mb-2 {{if (is-empty this.model.profile.expediente) "disabled"}}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Expediente
-      </a>
-      <a
-        href={{this.model.profile.resumen}}
-        class="btn btn-primary text-white w-100 {{if (is-empty this.model.profile.resumen) "disabled"}}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Base de datos (Resumen)
-      </a>
+<div class="row">
+  <div class="col-12 mb-4">
+    <div class="w-100 bg-white shadow-sm row m-0 p-4">
+      {{!-- Imagen --}}
+      <div class="col-md-3 text-center">
+        <img
+          id="photo-profile"
+          src={{this.model.profile.photo}}
+          alt={{this.model.profile.nombre}}
+          border="0"
+          class="img-responsive center-block mb-4 mb-md-0"
+        >
+      </div>
+      {{!-- Información general --}}
+      <div class="col pr-5">
+        <h3>{{this.model.profile.nombre}}</h3>
+        <table class="table w-100">
+          <tbody>
+            {{#each-in this.campos as |key campo|}}
+              <tr class="border-0">
+                <td class="border-0 p-1">
+                  <strong>{{campo}}: </strong> {{get this.model.profile key}}
+                </td>
+              </tr>
+            {{/each-in}}
+          </tbody>
+        </table>
+      </div>
+      {{#if (eq this.model.profile._internalModel.modelName "profile")}}
+        <div class="col-md-3 text-center align-self-center">
+          <h6>Documentos</h6>
+          <a
+            href={{this.model.profile.cv}}
+            class="btn btn-primary text-white w-100 mb-2 {{if (is-empty this.model.profile.cv) "disabled"}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hoja de vida (PDF)
+          </a>
+          <a
+            href={{this.model.profile.expediente}}
+            class="btn btn-primary text-white w-100 mb-2 {{if (is-empty this.model.profile.expediente) "disabled"}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Expediente
+          </a>
+          <a
+            href={{this.model.profile.resumen}}
+            class="btn btn-primary text-white w-100 {{if (is-empty this.model.profile.resumen) "disabled"}}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Base de datos (Resumen)
+          </a>
+        </div>
+      {{/if}}
+      {{#if (eq this.model.profile._internalModel.modelName "partido")}}
+        <div class="col-md-3 text-left border-md-left pl-lg-4">
+          <h6 class="text-uppercase">Contacto</h6>
+          {{!-- Página web --}}
+          {{#if this.model.profile.paginaweb}}
+            <div>
+              <a href="//{{this.model.profile.paginaWeb}}" target="_blank" rel="noopener noreferrer">
+                <img src="img/icono-web.png" height="20px" alt="Página web">
+                Visitar página web
+              </a>
+            </div>
+          {{/if}}
+          {{!-- Twitter --}}
+          {{#if this.model.profile.twitter}}
+            <div>
+              <a href="https://twitter.com/{{twitter-link this.model.profile.twitter}}" target="_blank" rel="noopener noreferrer">
+                <img src="img/icono-tw.png" height="20px" alt="Twitter">
+                {{twitter-link this.model.profile.twitter}}
+              </a>
+            </div>
+          {{/if}}
+          {{!-- Facebook --}}
+          {{#if this.model.profile.facebook}}
+            <div>
+              <a href="{{this.model.profile.facebook}}" target="_blank" rel="noopener noreferrer">
+                <img src="img/icono-fb.png" height="20px" alt="Facebook">
+                {{this.model.profile.nombre}}
+              </a>
+            </div>
+          {{/if}}
+          {{!-- Correo --}}
+          {{#if this.model.profile.correo}}
+            <div>
+              <a href="//{{this.model.profile.correo}}" target="_blank" rel="noopener noreferrer">
+                <img src="img/icono-correo.png" height="20px" alt="Correo electrónico">
+                {{this.model.profile.correo}}
+              </a>
+            </div>
+          {{/if}}
+        </div>
+      {{/if}}
     </div>
-  {{/if}}
-  {{#if (eq this.model.profile._internalModel.modelName "partido")}}
-    <div class="col-md-3 text-left border-left pl-2 pl-lg-5">
-      <h6 class="text-uppercase">Contacto</h6>
-      {{!-- Página web --}}
-      {{#if this.model.profile.paginaweb}}
-        <div>
-          <a href="//{{this.model.profile.paginaWeb}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-web.png" height="20px" alt="Página web">
-            Visitar página web
-          </a>
-        </div>
-      {{/if}}
-      {{!-- Twitter --}}
-      {{#if this.model.profile.twitter}}
-        <div>
-          <a href="https://twitter.com/{{twitter-link this.model.profile.twitter}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-tw.png" height="20px" alt="Twitter">
-            {{twitter-link this.model.profile.twitter}}
-          </a>
-        </div>
-      {{/if}}
-      {{!-- Facebook --}}
-      {{#if this.model.profile.facebook}}
-        <div>
-          <a href="{{this.model.profile.facebook}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-fb.png" height="20px" alt="Facebook">
-            {{this.model.profile.nombre}}
-          </a>
-        </div>
-      {{/if}}
-      {{!-- Correo --}}
-      {{#if this.model.profile.correo}}
-        <div>
-          <a href="//{{this.model.profile.correo}}" target="_blank" rel="noopener noreferrer">
-            <img src="img/icono-correo.png" height="20px" alt="Correo electrónico">
-            {{this.model.profile.correo}}
-          </a>
-        </div>
-      {{/if}}
-    </div>
-  {{/if}}
+  </div>
 </div>
 
 {{!-- Descripción --}}
 <div class="row">
-  <div class="col-12" id="descripcion">
-    <div class="panel">
-      <div class="header d-flex bg-primary text-uppercase">
-        <img src="img/PP-15.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-        <h3 class="text-white" id="descripcion">
+  <div class="col-12 mb-4" id="descripcion">
+    <div class="bg-white rounded shadow-sm">
+      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+        <img src="img/PP-15.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
           Reseña historica
         </h3>
       </div>
@@ -111,7 +115,7 @@
           {{#if this.model.profile.descripcion}}
             <p>{{this.model.profile.descripcion}}</p>
           {{else}}
-            <p class="px-5 pt-3">No hay información</p>
+            <p>No hay información</p>
           {{/if}}
         </div>
       </div>
@@ -119,11 +123,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12" id="descripcion">
-    <div class="panel">
-      <div class="header d-flex bg-primary text-uppercase">
-        <img src="img/PP-17.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-        <h3 class="text-white" id="descripcion">
+  <div class="col-12 mb-4" id="descripcion">
+    <div class="bg-white rounded shadow-sm">
+      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+        <img src="img/PP-17.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
           Declaración de Principios
         </h3>
       </div>
@@ -132,7 +136,7 @@
           {{#if this.model.profile.principios}}
             <p>{{this.model.profile.principios}}</p>
           {{else}}
-            <p class="px-5 pt-3">No hay información</p>
+            <p>No hay información</p>
           {{/if}}
         </div>
       </div>
@@ -140,11 +144,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12" id="descripcion">
-    <div class="panel">
-      <div class="header d-flex bg-primary text-uppercase">
-        <img src="img/PP-16.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-        <h3 class="text-white" id="descripcion">
+  <div class="col-12 mb-4" id="descripcion">
+    <div class="bg-white rounded shadow-sm">
+      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+        <img src="img/PP-16.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
           AUTORIDADES
         </h3>
       </div>
@@ -173,7 +177,7 @@
               </div>
             {{/if}}
           {{else}}
-            <p class="px-5 pt-3">No hay información</p>
+            <p>No hay información</p>
           {{/if}}
         </div>
       </div>
@@ -181,11 +185,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12" id="denuncia">
-    <div class="panel">
-      <div class="header d-flex bg-primary text-uppercase">
-        <img src="img/PP-18.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-        <h3 class="text-white" id="denuncia">
+  <div class="col-12 mb-4" id="denuncia">
+    <div class="bg-white rounded shadow-sm">
+      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+        <img src="img/PP-18.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="denuncia">
           Linea y/o Procedimientos de denuncia
         </h3>
       </div>
@@ -194,7 +198,7 @@
           {{#if this.model.profile.denuncia}}
             <p>{{this.model.profile.denuncia}}</p>
           {{else}}
-            <p class="px-5 pt-3">No hay información</p>
+            <p>No hay información</p>
           {{/if}}
         </div>
       </div>
@@ -202,11 +206,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12" id="descripcion">
-    <div class="panel">
-      <div class="header d-flex bg-primary text-uppercase">
-        <img src="img/PP-19.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-        <h3 class="text-white" id="descripcion">
+  <div class="col-12 mb-4" id="descripcion">
+    <div class="bg-white rounded shadow-sm">
+      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+        <img src="img/PP-19.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
           documentos legales
         </h3>
       </div>
@@ -253,7 +257,7 @@
               </div>
             </div>
           {{else}}
-            <p class="px-5 pt-3">No hay información</p>
+            <p>No hay información</p>
           {{/if}}
         </div>
       </div>
@@ -261,11 +265,11 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-12" id="descripcion">
-    <div class="panel">
-      <div class="header d-flex bg-primary text-uppercase">
-        <img src="img/PP-20.png" alt="Hospital" height="30px" width="auto" class="mr-2">
-        <h3 class="text-white" id="descripcion">
+  <div class="col-12 mb-4" id="descripcion">
+    <div class="bg-white rounded shadow-sm">
+      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+        <img src="img/PP-20.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
           FUENTE DE INFORMACIÓN
         </h3>
       </div>
@@ -295,7 +299,7 @@
               </tbody>
             </table>
           {{else}}
-            <p class="px-5 pt-3">No hay información</p>
+            <p>No hay información</p>
           {{/if}}
         </div>
       </div>
@@ -305,11 +309,11 @@
 
 {{!-- Autoridades --}}
   {{!-- <div class="row">
-    <div class="col-12">
-      <div class="panel">
-        <div class="header d-flex bg-primary">
-          <img src="img/i-personas.png" alt="Icono años">
-          <h3>class="text-white" Autoridades</h3>
+    <div class="col-12 mb-4">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary p-423 p3-2>
+          <img src="img/i-personas.png" alt="Icono año5">
+          <h3>class="text-white h5 my-auto font-weight-bold ml-2" Autoridades</h3>
         </div>
         <div>
           <div class="body p-1">
@@ -334,7 +338,7 @@
                 </div>
               </div>
             {{else}}
-              <p class="px-5 pt-3">No hay información</p>
+              <p>No hay información</p>
             {{/if}}
           </div>
         </div>

@@ -21,28 +21,30 @@
   </div>
 </div>
 {{!-- 'Navbar' para perfiles --}}
-<div class="row my-2">
-  <div class="col-12 p-0 border shadow-sm bg-white rounded pills mt-4">
-    <BsNav
-      @type="pills"
-      @justified={{false}}
-      @stacked={{false}}
-      @fill={{false}}
-    as |nav|>
-      {{#each this.links as |link|}}
-        <nav.item class="w-100 w-md-auto">
-          <nav.link-to @route={{link.route}} @disabled={{link.disabled}} class="p-0">
-            {{#if link.img}}
-              <img src={{link.img}} alt={{link.text}} height="25px" class="img-white">
-            {{/if}}
-            {{link.text}}
-          </nav.link-to>
+<div class="row mb-4">
+  <div class="col-12">
+    <div class="shadow-sm bg-white rounded pills">
+      <BsNav
+        @type="pills"
+        @justified={{false}}
+        @stacked={{false}}
+        @fill={{false}}
+      as |nav|>
+        {{#each this.links as |link|}}
+          <nav.item class="w-100 w-md-auto">
+            <nav.link-to @route={{link.route}} @disabled={{link.disabled}} class="p-0">
+              {{#if link.img}}
+                <img src={{link.img}} alt={{link.text}} height="25px" class="img-white">
+              {{/if}}
+              {{link.text}}
+            </nav.link-to>
+          </nav.item>
+        {{/each}}
+        <nav.item class="ml-auto p-3 d-none d-md-flex">
+          <ShareTwitter />
+          <ShareFacebook />
         </nav.item>
-      {{/each}}
-      <nav.item class="ml-auto p-3 d-none d-md-flex">
-        <ShareTwitter />
-        <ShareFacebook />
-      </nav.item>
-    </BsNav>
+      </BsNav>
+    </div>
   </div>
 </div>
