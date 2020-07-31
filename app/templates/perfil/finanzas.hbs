@@ -1,110 +1,112 @@
 <div class="row mt-4">
-  <div class="col-12 bg-white p-5">
-    <h4 class="text-uppercase">
-      Informes FInancieros
-    </h4>
-    <p class="mb-5">
-      Lorem ipsum dolor sit amet consectetur adipiscing elit viverra per, dignissim tortor suspendisse eu conubia lacus ac egestas vestibulum feugiat, ornare est ligula nisi dictumst fames curae montes. Quisque himenaeos sed donec habitant class litora, est dictum phasellus cubilia parturient vitae, volutpat tincidunt sem platea sociosqu. Suspendisse non auctor nullam mi est penatibus phasellus porttitor massa tellus dignissim, porta cras habitant conubia ullamcorper netus aliquet cum ligula curabitur ridiculus, vivamus eu aenean elementum at taciti pellentesque varius sociis urna.
-    </p>
-    <table class="table">
-      <thead class="text-uppercase">
-        <tr>
-          <th class="py-4 w-75" scope="col">
-            ingresos
-          </th>
-          <th class="py-4" scope="col">
-            monto
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="row-borderless">
-          <th>
-            Financiamiento público
-          </th>
-          <td class="bg-light">
-            {{this.model.FinanciamientoPublico}}
-          </td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Financiamiento privado
-          </th>
-          <td class="bg-light">
-            {{this.model.FinanciamientoPrivado}}
-          </td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Auto-financiamiento
-          </th>
-          <td class="bg-light">
-            {{this.model.AutoFinanciamiento}}
-          </td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Otros ingresos
-          </th>
-          <td class="bg-light">
-            {{this.model.OtrosIngresos}}
-          </td>
-        </tr>
-        <tr>
-          <th class="py-4 border-bottom">
-            EGRESOS
-          </th>
-          <td class="bg-light border-0"></td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Gastos permanentes
-          </th>
-          <td class="bg-light">
-            {{this.model.GastosPermanentes}}
-          </td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Gastos funcionamiento
-          </th>
-          <td class="bg-light">
-            {{this.model.GastosFuncionamiento}}
-          </td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Asambleas
-          </th>
-          <td class="bg-light">
-            {{this.model.Asambleas}}
-          </td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Campanas afiliación
-          </th>
-          <td class="bg-light">
-            {{this.model.CampanasAfiliacion}}
-          </td>
-        </tr>
-        <tr class="row-borderless">
-          <th>
-            Gastos campana
-          </th>
-          <td class="bg-light">
-            {{this.model.GastosCampana}}
-          </td>
-        </tr>
-        <tr>
-          <th class="py-4 border-bottom">
-            TOTAL
-          </th>
-          <th class="py-4 border-bottom">
-            {{this.model.Total}}
-          </th>
-        </tr>
-      </tbody>
-    </table>
+  <div class="col-12">
+    <div class="w-100 bg-white p-5">
+      <h4 class="text-uppercase">
+        Informes FInancieros
+      </h4>
+      <p class="mb-5">
+        Lorem ipsum dolor sit amet consectetur adipiscing elit viverra per, dignissim tortor suspendisse eu conubia lacus ac egestas vestibulum feugiat, ornare est ligula nisi dictumst fames curae montes. Quisque himenaeos sed donec habitant class litora, est dictum phasellus cubilia parturient vitae, volutpat tincidunt sem platea sociosqu. Suspendisse non auctor nullam mi est penatibus phasellus porttitor massa tellus dignissim, porta cras habitant conubia ullamcorper netus aliquet cum ligula curabitur ridiculus, vivamus eu aenean elementum at taciti pellentesque varius sociis urna.
+      </p>
+      <table class="table">
+        <thead class="text-uppercase">
+          <tr>
+            <th class="py-4 w-75" scope="col">
+              ingresos
+            </th>
+            <th class="py-4" scope="col">
+              monto
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-borderless">
+            <th>
+              Financiamiento público
+            </th>
+            <td class="bg-light">
+              {{this.model.FinanciamientoPublico}}
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Financiamiento privado
+            </th>
+            <td class="bg-light">
+              {{this.model.FinanciamientoPrivado}}
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Auto-financiamiento
+            </th>
+            <td class="bg-light">
+              {{this.model.AutoFinanciamiento}}
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Otros ingresos
+            </th>
+            <td class="bg-light">
+              {{this.model.OtrosIngresos}}
+            </td>
+          </tr>
+          <tr>
+            <th class="py-4 border-bottom">
+              EGRESOS
+            </th>
+            <td class="bg-light border-0"></td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Gastos permanentes
+            </th>
+            <td class="bg-light">
+              {{this.model.GastosPermanentes}}
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Gastos funcionamiento
+            </th>
+            <td class="bg-light">
+              {{this.model.GastosFuncionamiento}}
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Asambleas
+            </th>
+            <td class="bg-light">
+              {{this.model.Asambleas}}
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Campanas afiliación
+            </th>
+            <td class="bg-light">
+              {{this.model.CampanasAfiliacion}}
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              Gastos campana
+            </th>
+            <td class="bg-light">
+              {{this.model.GastosCampana}}
+            </td>
+          </tr>
+          <tr>
+            <th class="py-4 border-bottom">
+              TOTAL
+            </th>
+            <th class="py-4 border-bottom">
+              {{this.model.Total}}
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
