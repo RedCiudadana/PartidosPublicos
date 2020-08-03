@@ -23,6 +23,15 @@ export default class Profile extends Model {
   organo;
 
   @attr('string')
+  experienciaProfesional;
+
+  @attr('string')
+  experienciaAcademica;
+
+  @attr('string')
+  historialPolitico;
+
+  @attr('string')
   enlaceCandidatos;
 
   @attr('string')

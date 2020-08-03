@@ -100,243 +100,21 @@
   </div>
 </div>
 
-{{!-- Descripción --}}
-<div class="row">
-  <div class="col-12 mb-4" id="descripcion">
-    <div class="bg-white rounded shadow-sm">
-      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
-        <img src="img/PP-15.png" alt="Hospital" height="35px" width="auto" class="mr-2">
-        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
-          Reseña historica
-        </h3>
-      </div>
-      <div>
-        <div class="body p-5">
-          {{#if this.model.profile.descripcion}}
-            <p>{{this.model.profile.descripcion}}</p>
-          {{else}}
-            <p>No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 mb-4" id="descripcion">
-    <div class="bg-white rounded shadow-sm">
-      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
-        <img src="img/PP-17.png" alt="Hospital" height="35px" width="auto" class="mr-2">
-        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
-          Declaración de Principios
-        </h3>
-      </div>
-      <div>
-        <div class="body p-5">
-          {{#if this.model.profile.principios}}
-            <p>{{this.model.profile.principios}}</p>
-          {{else}}
-            <p>No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 mb-4" id="descripcion">
-    <div class="bg-white rounded shadow-sm">
-      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
-        <img src="img/PP-16.png" alt="Hospital" height="35px" width="auto" class="mr-2">
-        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
-          AUTORIDADES
-        </h3>
-      </div>
-      <div>
-        <div class="body p-5">
-          {{#if this.model.profiles}}
-            <Portfolio
-              @bg="white"
-              @profiles={{slice 0 4 this.model.profiles}}
-              @pagination={{false}}
-              @paginationSize={{4}}
-            />
-            {{#if (gt this.profiles.length 4)}}
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-12 text-center mb-4">
-                    <LinkTo
-                      class="btn btn-primary mx-auto px-5 py-2 rounded-pill text-center m-t--60"
-                      @route="perfil.autoridades"
-                      @model={{this.model.profile.id}}
-                    >
-                      Ver más <FaIcon @icon="chevron-down" class="ml-2" />
-                    </LinkTo>
-                  </div>
-                </div>
-              </div>
-            {{/if}}
-          {{else}}
-            <p>No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 mb-4" id="denuncia">
-    <div class="bg-white rounded shadow-sm">
-      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
-        <img src="img/PP-18.png" alt="Hospital" height="35px" width="auto" class="mr-2">
-        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="denuncia">
-          Linea y/o Procedimientos de denuncia
-        </h3>
-      </div>
-      <div>
-        <div class="body p-5">
-          {{#if this.model.profile.denuncia}}
-            <p>{{this.model.profile.denuncia}}</p>
-          {{else}}
-            <p>No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 mb-4" id="descripcion">
-    <div class="bg-white rounded shadow-sm">
-      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
-        <img src="img/PP-19.png" alt="Hospital" height="35px" width="auto" class="mr-2">
-        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
-          documentos legales
-        </h3>
-      </div>
-      <div>
-        <div class="body p-5">
-          {{#if true}}
-            <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
-              <div class="w-75">
-                Programa base (Documento Programáticos)
-              </div>
-              <div class="w-25">
-                <button type="button" class="btn btn-block btn-secondary rounded-pill text-uppercase">
-                  <img height="20px" src="img/PP-34.png" alt="Descarga">
-                  <span class="d-none d-md-inline">
-                    Descargar Documento
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
-              <div class="w-75">
-                Programa base (Documento Programáticos)
-              </div>
-              <div class="w-25">
-                <button type="button" class="btn btn-block btn-secondary rounded-pill text-uppercase">
-                  <img height="20px" src="img/PP-34.png" alt="Descarga">
-                  <span class="d-none d-md-inline">
-                    Descargar Documento
-                  </span>
-                </button>
-              </div>
-            </div>
-            <div class="w-100 py-4 d-flex font-weight-bold">
-              <div class="w-75">
-                Programa base (Documento Programáticos)
-              </div>
-              <div class="w-25">
-                <button type="button" class="btn btn-block btn-secondary rounded-pill text-uppercase">
-                  <img height="20px" src="img/PP-34.png" alt="Descarga">
-                  <span class="d-none d-md-inline">
-                    Descargar Documento
-                  </span>
-                </button>
-              </div>
-            </div>
-          {{else}}
-            <p>No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12 mb-4" id="descripcion">
-    <div class="bg-white rounded shadow-sm">
-      <div class="header d-flex bg-primary text-uppercase px-4 py-3">
-        <img src="img/PP-20.png" alt="Hospital" height="35px" width="auto" class="mr-2">
-        <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
-          FUENTE DE INFORMACIÓN
-        </h3>
-      </div>
-      <div>
-        <div class="body p-5">
-          {{#if this.model.profile.descripcion}}
-            <table class="table text-uppercase">
-              <thead class="border-0">
-                <tr class="border-0">
-                  <th class="border-top-0" scope="col">No.</th>
-                  <th class="border-top-0" scope="col">Fuente</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>LOREM IPSUM ITSELF</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>LOREM IPSUM ITSELF</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>LOREM IPSUM ITSELF</td>
-                </tr>
-              </tbody>
-            </table>
-          {{else}}
-            <p>No hay información</p>
-          {{/if}}
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{!-- Autoridades --}}
-  {{!-- <div class="row">
-    <div class="col-12 mb-4">
+{{#if (eq this.model.profile._internalModel.modelName "partido")}}
+  {{!-- Historia --}}
+  <div class="row">
+    <div class="col-12 mb-4" id="historia">
       <div class="bg-white rounded shadow-sm">
-        <div class="header d-flex bg-primary p-423 p3-2>
-          <img src="img/i-personas.png" alt="Icono año5">
-          <h3>class="text-white h5 my-auto font-weight-bold ml-2" Autoridades</h3>
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-15.png" alt="Reloj" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="historia">
+            Reseña historica
+          </h3>
         </div>
         <div>
-          <div class="body p-1">
-            {{#if model.profiles}}
-              <Portfolio
-                @bg="white"
-                @profiles={{slice 0 4 model.profiles}}
-                @pagination={{false}}
-                @paginationSize={{4}}
-              />
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-12 text-center mb-4">
-                    <LinkTo
-                      class="btn btn-primary mx-auto px-5 py-2 rounded-pill text-center m-t--60"
-                      @route="perfil.autoridades"
-                      @model={{model.profile.id}}
-                    >
-                      Ver todos los perfiles
-                    </LinkTo>
-                  </div>
-                </div>
-              </div>
+          <div class="body p-5">
+            {{#if this.model.profile.historia}}
+              <p>{{this.model.profile.historia}}</p>
             {{else}}
               <p>No hay información</p>
             {{/if}}
@@ -344,4 +122,305 @@
         </div>
       </div>
     </div>
-  </div> --}}
+  </div>
+  <div class="row">
+    <div class="col-12 mb-4" id="descripcion">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-17.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
+            Declaración de Principios
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if this.model.profile.principios}}
+              <p>{{this.model.profile.principios}}</p>
+            {{else}}
+              <p>No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-4" id="descripcion">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-16.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
+            AUTORIDADES
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if this.model.profiles}}
+              <Portfolio
+                @bg="white"
+                @profiles={{slice 0 4 this.model.profiles}}
+                @pagination={{false}}
+                @paginationSize={{4}}
+              />
+              {{#if (gt this.profiles.length 4)}}
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-12 text-center mb-4">
+                      <LinkTo
+                        class="btn btn-primary mx-auto px-5 py-2 rounded-pill text-center m-t--60"
+                        @route="perfil.autoridades"
+                        @model={{this.model.profile.id}}
+                      >
+                        Ver más <FaIcon @icon="chevron-down" class="ml-2" />
+                      </LinkTo>
+                    </div>
+                  </div>
+                </div>
+              {{/if}}
+            {{else}}
+              <p>No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-4" id="denuncia">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-18.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="denuncia">
+            Linea y/o Procedimientos de denuncia
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if this.model.profile.procedimientosDenuncia}}
+              <p>{{this.model.profile.procedimientosDenuncia}}</p>
+            {{else}}
+              <p>No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-4" id="descripcion">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-19.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
+            documentos legales
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if this.model.profile.programaURL}}
+              <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
+                <div class="w-75">
+                  Programa base (Documento Programáticos)
+                </div>
+                <div class="w-25">
+                  <a
+                    href={{this.model.profile.programaURL}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    type="button"
+                    class="btn btn-block btn-secondary rounded-pill text-uppercase"
+                  >
+                    <img height="20px" src="img/PP-34.png" alt="Descarga">
+                    <span class="d-none d-md-inline">
+                      Descargar Documento
+                    </span>
+                  </a>
+                </div>
+              </div>
+            {{/if}}
+            {{#if this.model.profile.escrituraURL}}
+              <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
+                <div class="w-75">
+                  Escritura Constitutiva
+                </div>
+                <div class="w-25">
+                  <a
+                    href={{this.model.profile.escrituraURL}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    type="button"
+                    class="btn btn-block btn-secondary rounded-pill text-uppercase"
+                  >
+                    <img height="20px" src="img/PP-34.png" alt="Descarga">
+                    <span class="d-none d-md-inline">
+                      Descargar Documento
+                    </span>
+                  </a>
+                </div>
+              </div>
+            {{/if}}
+            {{#if this.model.profile.estatutosURL}}
+              <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
+                <div class="w-75">
+                  Estatutos
+                </div>
+                <div class="w-25">
+                  <a
+                    href={{this.model.profile.estatutosURL}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    type="button"
+                    class="btn btn-block btn-secondary rounded-pill text-uppercase"
+                  >
+                    <img height="20px" src="img/PP-34.png" alt="Descarga">
+                    <span class="d-none d-md-inline">
+                      Descargar Documento
+                    </span>
+                  </a>
+                </div>
+              </div>
+            {{/if}}
+            {{#if this.model.profile.eticaURL}}
+              <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
+                <div class="w-75">
+                  Código de Etica
+                </div>
+                <div class="w-25">
+                  <a
+                    href={{this.model.profile.eticaURL}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    type="button"
+                    class="btn btn-block btn-secondary rounded-pill text-uppercase"
+                  >
+                    <img height="20px" src="img/PP-34.png" alt="Descarga">
+                    <span class="d-none d-md-inline">
+                      Descargar Documento
+                    </span>
+                  </a>
+                </div>
+              </div>
+            {{/if}}
+            {{#if this.model.profile.procedimientosTransparenciaURL}}
+              <div class="w-100 py-4 d-flex border-bottom font-weight-bold">
+                <div class="w-75">
+                  Manual de Transparencia
+                </div>
+                <div class="w-25">
+                  <a
+                    href={{this.model.profile.procedimientosTransparenciaURL}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    type="button"
+                    class="btn btn-block btn-secondary rounded-pill text-uppercase"
+                  >
+                    <img height="20px" src="img/PP-34.png" alt="Descarga">
+                    <span class="d-none d-md-inline">
+                      Descargar Documento
+                    </span>
+                  </a>
+                </div>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-4" id="descripcion">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-20.png" alt="Hospital" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="descripcion">
+            FUENTE DE INFORMACIÓN
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if (and this.model.profile.fuenteTexto this.model.profile.fuenteURL)}}
+                <a
+                  href={{this.model.profile.fuenteURL}}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{this.model.profile.fuenteTexto}}
+                </a>
+            {{else}}
+              <p>No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+{{#if (eq this.model.profile._internalModel.modelName "autoridad")}}
+  {{!-- Experiencia profesional --}}
+  <div class="row">
+    <div class="col-12 mb-4" id="experienciaProfesional">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-15.png" alt="Reloj" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="experienciaProfesional">
+            Experiencia profesional
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if this.model.profile.experienciaProfesional}}
+              <p>{{this.model.profile.experienciaProfesional}}</p>
+            {{else}}
+              <p>No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- Experiencia academica --}}
+  <div class="row">
+    <div class="col-12 mb-4" id="experienciaAcademica">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-15.png" alt="Reloj" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="experienciaAcademica">
+            Experiencia academica
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if this.model.profile.experienciaAcademica}}
+              <p>{{this.model.profile.experienciaAcademica}}</p>
+            {{else}}
+              <p>No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- Historial politico --}}
+  <div class="row">
+    <div class="col-12 mb-4" id="historialPolitico">
+      <div class="bg-white rounded shadow-sm">
+        <div class="header d-flex bg-primary text-uppercase px-4 py-3">
+          <img src="img/PP-15.png" alt="Reloj" height="35px" width="auto" class="mr-2">
+          <h3 class="text-white h5 my-auto font-weight-bold ml-2" id="historialPolitico">
+            Historial político
+          </h3>
+        </div>
+        <div>
+          <div class="body p-5">
+            {{#if this.model.profile.historialPolitico}}
+              <p>{{this.model.profile.historialPolitico}}</p>
+            {{else}}
+              <p>No hay información</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}

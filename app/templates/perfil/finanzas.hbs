@@ -7,7 +7,145 @@
       <p class="mb-5">
         Lorem ipsum dolor sit amet consectetur adipiscing elit viverra per, dignissim tortor suspendisse eu conubia lacus ac egestas vestibulum feugiat, ornare est ligula nisi dictumst fames curae montes. Quisque himenaeos sed donec habitant class litora, est dictum phasellus cubilia parturient vitae, volutpat tincidunt sem platea sociosqu. Suspendisse non auctor nullam mi est penatibus phasellus porttitor massa tellus dignissim, porta cras habitant conubia ullamcorper netus aliquet cum ligula curabitur ridiculus, vivamus eu aenean elementum at taciti pellentesque varius sociis urna.
       </p>
-      <table class="table">
+      <table class="table d-md-none">
+        <thead class="text-uppercase">
+          <tr>
+            <th class="py-4 w-75" scope="col">
+              ingresos
+            </th>
+            <th class="py-4" scope="col">
+              monto
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Financiamiento público
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.FinanciamientoPublico}}
+              </small>
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Financiamiento privado
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.FinanciamientoPrivado}}
+              </small>
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Auto-financiamiento
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.AutoFinanciamiento}}
+              </small>
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Otros ingresos
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.OtrosIngresos}}
+              </small>
+            </td>
+          </tr>
+          <tr>
+            <th class="py-4 border-bottom">
+              EGRESOS
+            </th>
+            <td class="bg-light border-0"></td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Gastos permanentes
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.GastosPermanentes}}
+              </small>
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Gastos funcionamiento
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.GastosFuncionamiento}}
+              </small>
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Asambleas
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.Asambleas}}
+              </small>
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Campanas afiliación
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.CampanasAfiliacion}}
+              </small>
+            </td>
+          </tr>
+          <tr class="row-borderless">
+            <th>
+              <small>
+                Gastos campana
+              </small>
+            </th>
+            <td class="bg-light">
+              <small>
+                {{this.model.GastosCampana}}
+              </small>
+            </td>
+          </tr>
+          <tr>
+            <th class="py-4 border-bottom">
+              TOTAL
+            </th>
+            <th class="py-4 border-bottom">
+              <small>
+                {{this.model.Total}}
+              </small>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table d-none d-md-table">
         <thead class="text-uppercase">
           <tr>
             <th class="py-4 w-75" scope="col">
@@ -107,6 +245,18 @@
           </tr>
         </tbody>
       </table>
+      <a
+        href={{this.model.balanceURL}}
+        target="_blank"
+        rel="noopener noreferrer"
+        type="button"
+        class="btn btn-secondary text-white rounded-pill text-uppercase"
+      >
+        <img height="20px" src="img/PP-34.png" alt="Descarga">
+        <span class="d-none d-md-inline">
+          Descargar PDF
+        </span>
+      </a>
     </div>
   </div>
 </div>

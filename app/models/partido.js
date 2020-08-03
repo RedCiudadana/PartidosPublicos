@@ -52,6 +52,9 @@ export default class Partido extends Model {
   principios;
 
   @attr('string')
+  procedimientosDenuncia;
+
+  @attr('string')
   programaURL;
 
   @attr('string')
@@ -81,6 +84,11 @@ export default class Partido extends Model {
   @attr('string')
   secretarioGeneralEnFunciones;
 
+  @attr('string')
+  fuenteTexto;
+
+  @attr('string')
+  fuenteURL;
 
  // Relationships
 

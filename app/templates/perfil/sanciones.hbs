@@ -8,7 +8,7 @@
         Lorem ipsum dolor sit amet consectetur adipiscing elit viverra per, dignissim tortor suspendisse eu conubia lacus ac egestas vestibulum feugiat, ornare est ligula nisi dictumst fames curae montes. Quisque himenaeos sed donec habitant class litora, est dictum phasellus cubilia parturient vitae, volutpat tincidunt sem platea sociosqu. Suspendisse non auctor nullam mi est penatibus phasellus porttitor massa tellus dignissim, porta cras habitant conubia ullamcorper netus aliquet cum ligula curabitur ridiculus, vivamus eu aenean elementum at taciti pellentesque varius sociis urna.
       </p>
       <div class="w-100 border-bottom my-5"></div>
-      <table class="table">
+      <table class="table table-responsive">
         <thead class="text-uppercase">
           <tr>
             <th class="border-top-0 px-5 w-200px" scope="col">
@@ -16,6 +16,9 @@
             </th>
             <th class="border-top-0" scope="col">
               descripción
+            </th>
+            <th class="border-top-0" scope="col">
+              estado
             </th>
             <th class="border-top-0 w-200px" scope="col">
               TIPO DE SANCIÓN
@@ -34,6 +37,9 @@
               <td class="py-5">
                 {{sancion.descripcion}}
               </td>
+              <td class="py-5">
+                {{sancion.estado}}
+              </td>
               <td class="text-secondary py-5">
                 {{sancion.tipoSancion}}
               </td>
@@ -43,7 +49,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   type="button"
-                  class="btn btn-primary btn-lg rounded-pill text-uppercase font-weight-bold"
+                  class="btn btn-secondary btn-sm rounded-pill text-uppercase font-weight-bold"
                 >
                   <small>Ver documento</small>
                 </a>

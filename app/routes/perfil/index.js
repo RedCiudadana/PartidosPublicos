@@ -49,6 +49,15 @@ export default class IndexRoute extends Route {
       );
     }
 
+    if(model.profile._internalModel.modelName === 'autoridad') {
+      controller.set('campos',
+        {
+          nombre: 'Nombre',
+          partido: 'Partido',
+          puesto: 'Puesto'
+        });
+    }
+
     controller.setProperties(model);
 
     if (config.disqus && config.disqus.shortname) {
